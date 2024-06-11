@@ -1,0 +1,102 @@
+input, select, textarea
+    font-family: 'Roboto'
+    font-style: italic
+
+/* Виды форм */
+.form-box
+    width: 100%
+    height: 100%
+    padding: 25px 0
+    position: relative
+    display: grid
+    justify-content: center
+    align-content: center
+    form
+        display: flex
+        flex-direction: column
+        gap: 10px
+        overflow-y: scroll
+        p.form-header
+            font-size: 1.1rem
+            font-weight: bold
+            color: #222
+            text-align: center
+        .message-box
+            width: 100%
+            height: auto
+            ul
+                width: 100%
+                padding: 5px 10px
+                display: flex
+                flex-direction: column
+                gap: 1px
+                border-radius: 7px
+                &.errors
+                    background-color: #ffc6c6
+                    color: #9b0000
+                &.message
+                    background-color: #c6ffc6
+                    color: #002c00
+                li
+                    list-style: disc inside
+                    font-size: 1rem
+                    font-style: italic
+                    font-weight: bold
+                    color: inherit
+        label
+            &.classic
+                width: 100%
+                height: auto
+                display: flex
+                flex-direction: column
+                gap: 5px
+                span
+                    padding-left: 10px
+                    font-size: 1rem
+                    font-weight: 600
+                    color: #333
+                input,
+                select,
+                textarea
+                    width: 100%
+                    height: auto
+                    padding: 5px 15px
+                    outline: none
+                    border: 1px solid #999
+                    border-radius: 5px
+                    &:focus
+                        border: 1px solid black
+                input[type="submit"],
+                input[type="reset"]
+                    width: 80%
+                select
+                    font-size: .9rem
+                    option
+                        font-size: 1rem
+            &.req
+                span::after
+                    content: '*'
+                    margin-left: 2px
+                    color: red
+
+            &.submit
+                width: 100%
+                height: auto
+                padding-top: 15px
+                .button
+                    width: 100%
+                    height: 35px
+        .other
+            display: flex
+            flex-direction: column
+            gap: 5px
+            p
+                font-size: .9rem
+    form.classic
+        width: 600px
+        height: auto
+        box-shadow: 4px 4px 12px 4px #eee
+        border-radius: 7px
+        display: flex
+        flex-direction: column
+        padding: 25px
