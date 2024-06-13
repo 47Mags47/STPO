@@ -20,7 +20,6 @@ class LoginController
         ]);
 
         if (Auth::attempt($validated)) {
-            dd(true);
             $request->session()->regenerate();
             return auth()->user()->hasVerifiedEmail()
                 ? redirect()->route('dashboard')

@@ -30,15 +30,6 @@ class Main_User extends Authenticatable
         'deleted',
     ];
 
-    // protected $attributes = [
-    //     // 'nickname' => $this->middle_name
-    //     //     ? $this->last_name . ' ' . mb_strtoupper(mb_substr($this->first_name, 0, 1)) . '. ' . mb_strtoupper(mb_substr($this->middle_name, 0, 1)) . '.'
-    //     //     : $this->last_name . ' ' . mb_strtoupper(mb_substr($this->first_name, 0, 1)) . '. ',
-    //     'logo' => '/storage/media/users/default_logo.png',
-    //     'role_id' => 4,
-    //     'deleted' => false,
-    // ];
-
     protected $hidden = [
         'logo',
         'login',
@@ -54,5 +45,14 @@ class Main_User extends Authenticatable
     public function division()
     {
         return $this->belongsTo(Main_Division::class);
+    }
+
+    public function alerts()
+    {
+        return $this
+            ->hasMany(Main_Alert::class, 'from_id')
+            ->orderBy('visible')
+            ->orderBy('id', 'desc')
+            ->take(25);
     }
 }

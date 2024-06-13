@@ -71,6 +71,9 @@ return [
 
     'links' => [
         public_path('storage') => storage_path('app/public'),
+        public_path('media') => storage_path('app/public/media'),
+        public_path('users') => storage_path('app/public/users'),
+        public_path('appeal-chat') => storage_path('app/public/appeal-chat'),
     ],
 
 ];

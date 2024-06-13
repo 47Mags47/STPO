@@ -1,11 +1,11 @@
 <?php
 
-namespace App\Models\Main;
+namespace App\Models\Glossary;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Main_UserRole extends Model
+class Glossary_UserRole extends Model
 {
     use HasFactory;
 

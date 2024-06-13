@@ -11,9 +11,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('main__user_roles', function (Blueprint $table) {
+        Schema::create('glossary__modul_departments', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('altname')->nullable();
         });
     }
 
@@ -22,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('main__user_roles');
+        Schema::dropIfExists('glossary__modul_departments');
     }
 };

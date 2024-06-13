@@ -2,8 +2,8 @@
 
 namespace Database\Seeders\Main;
 
+use App\Models\Glossary\Glossary_DivisionType;
 use App\Models\Main\Main_Division;
-use App\Models\Main\Main_DivisionType;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -15,10 +15,10 @@ class DivisionSeeder extends Seeder
     public function run(): void
     {
         /* TYPES */
-        Main_DivisionType::create(['id' => 1, 'name' => 'УСЗН | КСЗН | КСП']);
-        Main_DivisionType::create(['id' => 2, 'name' => 'Подведомственная организация']);
-        Main_DivisionType::create(['id' => 3, 'name' => 'Министерство']);
-        Main_DivisionType::create(['id' => 4, 'name' => 'Частная организация']);
+        Glossary_DivisionType::create(['id' => 1, 'name' => 'УСЗН | КСЗН | КСП']);
+        Glossary_DivisionType::create(['id' => 2, 'name' => 'Подведомственная организация']);
+        Glossary_DivisionType::create(['id' => 3, 'name' => 'Министерство']);
+        Glossary_DivisionType::create(['id' => 4, 'name' => 'Частная организация']);
 
         /* DIVISION */
         Main_Division::create(['id' => 1, 'name' => 'Министерство СЗН', 'type_id' => 3, 'city_id' => 7]);

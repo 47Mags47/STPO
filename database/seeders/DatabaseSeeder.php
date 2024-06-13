@@ -16,5 +16,8 @@ class DatabaseSeeder extends Seeder
         $this->call(Main\CitySeeder::class);
         $this->call(Main\DivisionSeeder::class);
         $this->call(Main\UserSeeder::class);
+        $this->call(Main\AlertSeeder::class);
+        $this->call(Main\ModulSeeder::class);
+        $this->call(Main\AccessSeeder::class);
     }
 }

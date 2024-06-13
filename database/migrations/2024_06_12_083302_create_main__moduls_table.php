@@ -11,9 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('main__division_types', function (Blueprint $table) {
+        Schema::create('main__moduls', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->string('link');
+            $table->foreignId('department_id')->constrained(table: 'glossary__modul_departments');
+            $table->boolean('visible')->default(false);
+            $table->boolean('local')->default(true);
         });
     }
 
@@ -22,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('main__division_types');
+        Schema::dropIfExists('main__moduls');
     }
 };
