@@ -1,7 +1,5 @@
 @extends('layouts.auth-page')
-@section('page-name')
-    Вход
-@endsection
+@section('page-name', 'Вход')
 
 @section('body')
     <x-form.form action="" method="POST" header="Вход">

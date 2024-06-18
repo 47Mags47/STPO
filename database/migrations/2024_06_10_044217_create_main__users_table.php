@@ -27,8 +27,8 @@ return new class extends Migration
             $table->dateTime('email_verified_at')->nullable();
             $table->string('password');
 
-            $table->foreignId('role_id')->default(4)->constrained(table: 'glossary__user_roles');
-            $table->foreignId('division_id')->constrained(table: 'main__divisions');
+            $table->foreignId('role_id')->default(4)->constrained('glossary__main__user_roles');
+            $table->foreignId('division_id')->constrained('main__divisions');
 
             $table->boolean('deleted')->default(false);
 

@@ -2,7 +2,7 @@
 
 namespace Database\Seeders\Main;
 
-use App\Models\Glossary\Glossary_UserRole;
+use App\Models\Glossary\Glossary_Main_UserRole;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -14,9 +14,9 @@ class UserSeeder extends Seeder
     public function run(): void
     {
         /* ROLES */
-        Glossary_UserRole::create(['id' => 1, 'name' => 'Администратор']);
-        Glossary_UserRole::create(['id' => 2, 'name' => 'Модератор']);
-        Glossary_UserRole::create(['id' => 3, 'name' => 'Программист']);
-        Glossary_UserRole::create(['id' => 4, 'name' => 'Пользователь']);
+        Glossary_Main_UserRole::create(['id' => 1, 'name' => 'Администратор']);
+        Glossary_Main_UserRole::create(['id' => 2, 'name' => 'Модератор']);
+        Glossary_Main_UserRole::create(['id' => 3, 'name' => 'Программист']);
+        Glossary_Main_UserRole::create(['id' => 4, 'name' => 'Пользователь']);
     }
 }

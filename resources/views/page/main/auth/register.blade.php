@@ -1,7 +1,5 @@
 @extends('layouts.auth-page')
-@section('page-name')
-    Регистрация
-@endsection
+@section('page-name', 'Регистрация')
 
 @section('body')
     <x-form.form action="" method="POST" header="Регистрация">

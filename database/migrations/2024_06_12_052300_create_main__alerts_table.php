@@ -12,9 +12,9 @@ return new class extends Migration {
     {
         Schema::create('main__alerts', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('type_id')->constrained(table: 'glossary__alert_types');
-            $table->foreignId('from_id')->constrained(table: 'main__users');
-            $table->foreignId('sender_id')->nullable()->constrained(table: 'main__users');
+            $table->foreignId('type_id')->constrained('glossary__main__alert_types');
+            $table->foreignId('from_id')->constrained('main__users');
+            $table->foreignId('sender_id')->nullable()->constrained('main__users');
             $table->foreignId('link')->nullable();
             $table->text('message');
             $table->boolean('visible')->default(false);

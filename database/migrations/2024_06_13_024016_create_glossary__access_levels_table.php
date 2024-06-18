@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('glossary__access_levels', function (Blueprint $table) {
+        Schema::create('glossary__main__access_levels', function (Blueprint $table) {
             $table->id();
             $table->string('name');
         });
@@ -22,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('glossary__access_levels');
+        Schema::dropIfExists('glossary__main__access_levels');
     }
 };

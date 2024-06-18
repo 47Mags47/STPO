@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->foreignId('city_id')->constrained('main__cities');
-            $table->foreignId('type_id')->constrained('glossary__division_types');
+            $table->foreignId('type_id')->constrained('glossary__main__division_types');
         });
     }
 

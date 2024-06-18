@@ -2,7 +2,7 @@
 
 namespace Database\Seeders\Main;
 
-use App\Models\Glossary\Glossary_ModulDepartment;
+use App\Models\Glossary\Glossary_Main_ModulDepartment;
 use App\Models\Main\Main_Modul;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -14,22 +14,22 @@ class ModulSeeder extends Seeder
      */
     public function run(): void
     {
-        Glossary_ModulDepartment::create([
+        Glossary_Main_ModulDepartment::create([
             'id' => 1,
             'name' => 'Администрирование',
             'altname' => 'administration'
         ]);
-        Glossary_ModulDepartment::create([
+        Glossary_Main_ModulDepartment::create([
             'id' => 2,
             'name' => 'ЦСВИ',
             'altname' => 'csvi'
         ]);
-        Glossary_ModulDepartment::create([
+        Glossary_Main_ModulDepartment::create([
             'id' => 3,
             'name' => 'Отдел по работе с ветеранами и другими категориями населения',
             'altname' => 'orvdkn'
         ]);
-        Glossary_ModulDepartment::create([
+        Glossary_Main_ModulDepartment::create([
             'id' => 4,
             'name' => 'Отдел организации реабилитации и интеграции инвалидов',
             'altname' => 'oor'

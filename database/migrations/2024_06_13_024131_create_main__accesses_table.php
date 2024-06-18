@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('modul_id')->constrained('main__moduls');
             $table->foreignId('user_id')->constrained('main__users');
-            $table->foreignId('level_id')->constrained('glossary__access_levels');
+            $table->foreignId('level_id')->constrained('glossary__main__access_levels');
             $table->timestamps();
             $table->softDeletes();
         });

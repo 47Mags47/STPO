@@ -11,13 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('main__moduls', function (Blueprint $table) {
+        Schema::create('glossary__csvi__appeal__categories', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('link');
-            $table->foreignId('department_id')->constrained('glossary__main__modul_departments');
-            $table->boolean('visible')->default(false);
-            $table->boolean('local')->default(true);
         });
     }
 
@@ -26,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('main__moduls');
+        Schema::dropIfExists('glossary__csvi__appeal__categories');
     }
 };

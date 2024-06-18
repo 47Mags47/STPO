@@ -1,0 +1,82 @@
+.table-box
+    .options
+        width: 100%
+        display: flex
+        gap: 15px
+        flex-wrap: wrap
+        align-items: center
+        padding: 10px 25px
+        justify-content: space-between
+        position: relative
+        .search
+            display: flex
+            gap: 10px
+            .search
+                width: 450px
+                height: 30px
+                padding: 0 15px
+                color: #333
+            .button
+                width: 100px
+        .filters
+            display: flex
+            align-items: center
+            gap: 10px
+            li
+                background: #eee
+                border-radius: 7px
+                list-style: none
+                .prewiew
+                    padding: 5px 10px
+                    height: 40px
+                    display: flex
+                    align-items: center
+                    flex-wrap: nowrap
+                    gap: 5px
+                    color: gray
+                    cursor: pointer
+                    span
+                        font-size: .95rem
+                        font-weight: bold
+                        color: inherit
+                    i
+                        font-size: 1rem
+                        font-weight: bold
+                        color: inherit
+                    &:hover span, &:hover i
+                        color: black
+                &.open .prewiew i
+                    transform: rotate(-540deg)
+                .box
+                    position: absolute
+                    right: 10px
+                    top: 100%
+                    width: 300px
+                    height: auto
+                    max-height: 600px
+                    background: white
+                    display: flex
+                    flex-direction: column
+                    box-shadow: 0px 0px 6px #999
+                    border-radius: 6px 0 0 6px
+                    .filter-box-search
+                        width: 100%
+                        display: grid
+                        justify-content: center
+                        align-content: center
+                        padding: 5px 5px
+                        input
+                            width: 280px
+                            padding: 2px 15px
+                            font-size: .9rem
+                            border: none
+                            outline: none
+                    .filter-box-filters
+                        display: flex
+                        flex-direction: column
+                        label
+                            padding: 5px 6px
+                            cursor: pointer
+                            overflow: hidden
+                            span
+                                font-size: .9rem
