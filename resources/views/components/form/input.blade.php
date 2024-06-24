@@ -22,3 +22,13 @@
         <input type="label" value="{{ $label }}" class="button red-button">
     </label>
 @endif
+
+@if ($type == 'file-hidden')
+    <form action="{{ $action }}" method="POST" class="file-form" enctype="multipart/form-data">
+        @csrf
+        <label for="{{ $name }}">
+            <span>{{ $label ? $label : '' }}</span>
+            <input type="file" name="{{ $name }}" id="{{ $name }}">
+        </label>
+    </form>
+@endif

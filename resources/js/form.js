@@ -11,5 +11,10 @@ export function load() {
             })
         })
     });
+    $.each($('form.file-form'), function (index, form) {
+        $(form).find('input[type="file"]').on('change', function () {
+            $(form).trigger('submit')
+        })
+    });
 }
 

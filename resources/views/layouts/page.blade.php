@@ -15,7 +15,7 @@
 
 <body>
     @include('include.header')
-    <div class="page-content mini-scroll">
+    <div class="page">
         @include('include.navigation')
         @yield('body')
     </div>

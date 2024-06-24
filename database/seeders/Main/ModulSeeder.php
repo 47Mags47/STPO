@@ -84,5 +84,13 @@ class ModulSeeder extends Seeder
             'visible' => true,
             'local' => true,
         ]);
+        Main_Modul::create([
+            'id' => 7,
+            'name' => 'DBFViewer',
+            'link' => 'DBFViewer',
+            'department_id' => 2,
+            'visible' => true,
+            'local' => true,
+        ]);
     }
 }

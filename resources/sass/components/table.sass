@@ -80,3 +80,70 @@
                             overflow: hidden
                             span
                                 font-size: .9rem
+    &.table-page
+        width: 100%
+        height: 100%
+        .options
+            display: none
+        table
+            thead
+                th
+                    font-size: .9rem
+            tbody
+                tr
+                    td
+                        width: initial
+                        div
+                            display: grid
+                            justify-content: center
+                            align-content: center
+                            grid-template-columns: auto
+                            grid-template-rows: auto
+                            font-size: .9rem
+                            input
+                                padding: 3px
+                                outline: none
+                                background: none
+                                width: initial
+                                cursor: default
+                                border: none
+                                transition: var(--all-transition)
+                                font-style: normal
+                                font: inherit
+
+/* Заголовок */
+table
+    position: relative
+    thead
+        position: sticky
+        top: 0
+        background: white
+
+/* Границы */
+table
+    border: none
+    border-collapse: separate
+    border-spacing: 0
+    tbody, thead, tr, th, td
+        border: none
+    th
+        border-bottom: 1px solid
+        border-right: 1px solid
+        &:last-child
+            border-right: none
+    td
+        border-bottom: 1px solid
+        border-right: 1px solid
+    tr
+        td:last-child
+            border-right: none
+        &:last-child
+            td
+                border-bottom: none
+/* Надсройки */
+td.h-center, th.h-center
+    text-align: center
+td.v-center, th.v-center
+    vertical-align: middle
+
+

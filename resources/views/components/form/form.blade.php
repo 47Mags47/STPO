@@ -4,24 +4,12 @@
 
 <div class="form-box">
     <form action="{{ $action }}" method="{{ $method == 'GET' ? 'GET' : 'POST' }}"
-        class="mini-scroll {{ $attributes['class'] != null ? $attributes['class'] : 'classic' }}">
+        class="mini-scroll {{ $attributes['class'] != null ? $attributes['class'] : 'classic' }}"
+        {{ $attributes['files'] != null ? 'enctype="multipart/form-data"' : '' }}>
         @if ($attributes['header'])
             <p class="form-header">{{ $attributes['header'] }}</p>
         @endif
-        <div class="message-box">
-            @if ($errors->any())
-                <ul class="errors">
-                    @foreach ($errors->all() as $message)
-                        <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-            @endif
-            @if (session('message'))
-                <ul class="message">
-                    <li>{{ session('message') }}</li>
-                </ul>
-            @endif
-        </div>
+        <x-page.message />
         @csrf
         @if ($method != 'GET')
             @method($method)

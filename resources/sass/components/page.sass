@@ -1,0 +1,83 @@
+.page
+    position: relative
+    width: 100%
+    height: calc( 100vh - 50px )
+    overflow-y: auto
+    overflow-x: hidden
+    .page-meny
+        width: 100%
+        background: var(--header-top-background-color)
+        display: flex
+        gap: 20px
+        align-items: center
+        padding: 0 50px
+        li
+            list-style: none
+            color: #bbb
+            cursor: pointer
+            font-size: .9rem
+            font-weight: bold
+            text-transform: uppercase
+            &:hover
+                color: white
+            a
+                font-size: inherit
+                color: inherit
+                transition: var(--all-transition)
+            form
+                font-size: inherit
+            label
+                font-size: inherit
+                cursor: pointer
+                span
+                    font-size: inherit
+                    transition: var(--all-transition)
+                input
+                    display: none
+            input[type="submit"]
+                font-size: inherit
+                font-style: normal
+                font-weight: inherit
+                color: inherit
+                background: none
+                border: none
+                text-transform: uppercase
+                cursor: pointer
+                transition: var(--all-transition)
+    .message-box
+        width: 100%
+        height: auto
+        ul
+            width: 100%
+            padding: 5px 10px
+            display: flex
+            flex-direction: column
+            gap: 1px
+            &.errors
+                background-color: #ffc6c6
+                color: #9b0000
+            &.message
+                background-color: #c6ffc6
+                color: #002c00
+            li
+                list-style: disc inside
+                font-size: 1rem
+                font-style: italic
+                font-weight: bold
+                color: inherit
+    .body
+        &.box-1
+            display: grid
+            justify-content: center
+            align-content: center
+            grid-template-columns: auto
+            grid-template-rows: auto
+        &.box-2
+            display: grid
+            grid-template-rows: 50px auto
+            .page-content
+                width: 100vw
+                height: calc( 100vh - 160px )
+                overflow: auto
+                scrollbar-gutter: stable
+
