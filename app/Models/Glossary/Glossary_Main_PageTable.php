@@ -5,15 +5,11 @@ namespace App\Models\Glossary;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Glossary_Csvi_Appeal_Them extends Model
+class Glossary_Main_PageTable extends Model
 {
     use HasFactory;
 
     public $timestamps = false;
 
     protected $fillable = [];
-
-    public function category(){
-        return $this->belongsTo(Glossary_Csvi_Appeal_Category::class, 'category_id');
-    }
 }

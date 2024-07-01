@@ -22,6 +22,7 @@
             display: flex
             align-items: center
             gap: 10px
+
             li
                 background: #eee
                 border-radius: 7px
@@ -45,20 +46,19 @@
                         color: inherit
                     &:hover span, &:hover i
                         color: black
-                &.open .prewiew i
-                    transform: rotate(-540deg)
                 .box
                     position: absolute
                     right: 10px
                     top: 100%
                     width: 300px
                     height: auto
-                    max-height: 600px
+                    max-height: 0px
                     background: white
                     display: flex
                     flex-direction: column
                     box-shadow: 0px 0px 6px #999
                     border-radius: 6px 0 0 6px
+                    overflow: hidden
                     .filter-box-search
                         width: 100%
                         display: grid
@@ -74,9 +74,51 @@
                     .filter-box-filters
                         display: flex
                         flex-direction: column
+                        height: auto
                         label
-                            padding: 5px 6px
+                            padding: 5px 10px
                             cursor: pointer
-                            overflow: hidden
+                            background: white
+                            display: flex
+                            align-items: center
+                            gap: 5px
                             span
                                 font-size: .9rem
+                                color: #333
+                                transition: var(--all-transition)
+                            &:hover
+                                background: #eee
+                                span
+                                    color: black
+                &.open
+                    .prewiew i
+                        transform: rotate(-540deg)
+                    .box
+                        max-height: 400px
+            input[type='submit'],
+            input[type='reset']
+                height: 40px
+                font-style: normal
+                padding: 0 10px
+    table
+        thead th
+            margin: 0
+            padding: 5px
+        tbody td
+            margin: 0
+            padding: 0
+            div,span
+                font-size: .95rem
+    table
+        border-collapse: separate
+        border-spacing: 0
+        th
+            border-top: 1px solid
+            border-bottom: 1px solid
+            border-right: 1px solid
+        td
+            border-bottom: 1px solid
+            border-right: 1px solid
+    table[pd="5"] td
+        padding: 5px 7px
+

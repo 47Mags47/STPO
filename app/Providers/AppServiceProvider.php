@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Models\Csvi\Csvi_Appeal_Appeal;
 use App\Models\Main\Main_Access;
 use App\Models\Main\Main_Modul;
 use App\Models\Main\Main_User;
@@ -42,6 +43,10 @@ class AppServiceProvider extends ServiceProvider
                 or ($user->role_id == 2 and $modul->visible and Route::has($modul->link))
                 or (Main_Access::where('user_id', $user->id)->where('modul_id', $modul->id)->count() > 0 and $modul->visible and Route::has($modul->link))
             ;
+        });
+
+        Gate::define('appeal-job', function(Main_User $user, Csvi_Appeal_Appeal $appeal){
+            return auth()->user()->id == $appeal->sender_id or auth()->user()->id == $appeal->worker_id;
         });
     }
 }

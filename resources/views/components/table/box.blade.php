@@ -3,13 +3,14 @@
         <div class="search">
             <x-table.search action="" />
         </div>
-        <ul class="filters">
-            {{ $filters }}
-            <button class="accept-button button blue-button">Применить</button>
-            <button class="reset-button button red-button">
-                <i class="fa fa-times" aria-hidden="true"></i>
-            </button>
-        </ul>
+        <form action="{{ isset($filterAction) ? $filterAction : '' }}" method="POST">
+            @csrf
+            <ul class="filters">
+                {{ $filters }}
+                <input type="submit" value="Применить" class="accept-button button blue-button">
+                <input type="reset" value="X" class="reset-button button red-button">
+            </ul>
+        </form>
     </div>
     <div class="message-box">
         @if ($errors->any())
@@ -25,7 +26,7 @@
             </ul>
         @endif
     </div>
-    <table>
+    <table {{ isset($pd) ? "pd=" . $pd : '' }}>
         <colgroup>{{ $cols }}</colgroup>
         <thead>{{ $header }}</thead>
         <tbody>{{ $body }}</tbody>

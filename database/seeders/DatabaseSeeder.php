@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
         $this->call(Main\AlertSeeder::class);
         $this->call(Main\ModulSeeder::class);
         $this->call(Main\AccessSeeder::class);
+        $this->call(Main\PageTableSeeder::class);
 
         $this->call(CSVI\AppealSeeder::class);
     }

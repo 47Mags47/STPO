@@ -17,7 +17,5 @@ npm-debug.log
 yarn-error.log
 /.fleet
 /.idea
-/.vscode
-
 nodesource_setup.sh
 /.osp

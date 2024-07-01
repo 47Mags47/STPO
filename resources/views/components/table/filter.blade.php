@@ -1,8 +1,9 @@
 <li data-pole="{{ $pole }}">
-    <div class="prewiew">
+    <label class="prewiew" from="{{$pole}}">
         <span>{{ $title }}</span>
         <i class="fa fa-angle-down" aria-hidden="true"></i>
-    </div>
+        <input type="checkbox" class="no-display check-open"  from="{{$pole}}">
+    </label>
     <div class="box">
         <div class="filter-box-search">
             <input type="search" placeholder="{{ $title }}...">
@@ -14,8 +15,10 @@
             </label>
             @foreach ($items as $item)
                 <label for="{{ str_replace($value, '', $pole) . $item->$value }}">
-                    <input type="checkbox" name="{{ str_replace($value . '_', '', $pole) }}[]"
-                        id="{{ str_replace($value, '', $pole) . $item->$value }}" value="{{ $item->$value }}">
+                    <input type="checkbox" name="filter[{{ str_replace($value . '_', '', $pole) }}][]"
+                        id="{{ str_replace($value, '', $pole) . $item->$value }}" value="{{ $item->$value }}"
+                        {{ (isset($userfilters) and isset($userfilters[$pole]) and in_array($item->$value, $userfilters[$pole])) ? 'checked' : '' }}
+                        >
                     <span title="{{ $item->$name }}">{{ mb_substr($item->$name, 0, 30) }}</span>
                 </label>
             @endforeach

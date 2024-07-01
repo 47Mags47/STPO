@@ -7,14 +7,15 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{{ env('APP_NAME') }} - @yield('page-name')</title>
 
-    @vite('resources/sass/app.sass')
-    @vite('resources/js/app.js')
+    @vite('resources/sass/app.sass', 'build')
+    @vite('resources/js/app.js', 'build')
 
     @yield('include-vite')
 </head>
 
 <body>
     @include('include.header')
+    <x-page.popup />
     <div class="page-content mini-scroll">
         @include('include.navigation')
         @yield('body')

@@ -29,25 +29,35 @@ class AppealSeeder extends Seeder
         Glossary_Csvi_Appeal_Category::create(['id' => 10, 'name' => 'Прочее']);
 
         /* THEM */
-        Glossary_Csvi_Appeal_Them::create(['id' => 1, 'name' => 'Моей темы нет в списке', 'category_id' => 10]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 2, 'name' => 'Проблема с доступом к сетевым ресурсам', 'category_id' => 9]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 3, 'name' => 'Восстановление | перенос данных СТПО', 'category_id' => 1]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 4, 'name' => 'Предложения для СТПО', 'category_id' => 1]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 5, 'name' => 'Вопросы по СТПО', 'category_id' => 1]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 6, 'name' => 'Неполадки с сервером', 'category_id' => 9]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 7, 'name' => 'Неполадки с компьютером', 'category_id' => 2]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 8, 'name' => 'Неполадки с МФУ | принтером', 'category_id' => 2]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 10, 'name' => 'Объединение ПКУ', 'category_id' => 3]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 11, 'name' => 'Адреса', 'category_id' => 3]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 12, 'name' => 'Тарифы ЖКУ', 'category_id' => 3]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 13, 'name' => 'ЭЦП', 'category_id' => 4]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 14, 'name' => 'Проблемы с антивирусом', 'category_id' => 4]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 17, 'name' => 'Континент АП', 'category_id' => 4]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 19, 'name' => 'VIPNET', 'category_id' => 4]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 18, 'name' => 'Подключение', 'category_id' => 5]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 15, 'name' => 'Добавить вид сведений (адаптер)', 'category_id' => 5]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 16, 'name' => 'Перенаправить (потерялось) заявление', 'category_id' => 5]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 20, 'name' => 'Проблема с IP-телефоном', 'category_id' => 2]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 1, 'name' => 'Проблема с доступом к сетевым ресурсам', 'category_id' => 9]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 2, 'name' => 'Восстановление | перенос данных СТПО', 'category_id' => 1]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 3, 'name' => 'Предложения для СТПО', 'category_id' => 1]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 4, 'name' => 'Вопросы по СТПО', 'category_id' => 1]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 5, 'name' => 'Неполадки с сервером', 'category_id' => 9]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 6, 'name' => 'Неполадки с компьютером', 'category_id' => 2]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 7, 'name' => 'Неполадки с МФУ | принтером', 'category_id' => 2]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 8, 'name' => 'Объединение ПКУ', 'category_id' => 3]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 9, 'name' => 'Адреса', 'category_id' => 3]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 10, 'name' => 'Тарифы ЖКУ', 'category_id' => 3]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 11, 'name' => 'ЭЦП', 'category_id' => 4]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 12, 'name' => 'Проблемы с антивирусом', 'category_id' => 4]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 13, 'name' => 'Континент АП', 'category_id' => 4]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 14, 'name' => 'VIPNET', 'category_id' => 4]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 15, 'name' => 'Подключение', 'category_id' => 5]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 16, 'name' => 'Добавить вид сведений (адаптер)', 'category_id' => 5]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 17, 'name' => 'Перенаправить (потерялось) заявление', 'category_id' => 5]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 18, 'name' => 'Проблема с IP-телефоном', 'category_id' => 2]);
+
+        Glossary_Csvi_Appeal_Them::create(['id' => 101, 'name' => 'Моей темы нет в списке', 'category_id' => 1]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 102, 'name' => 'Моей темы нет в списке', 'category_id' => 2]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 103, 'name' => 'Моей темы нет в списке', 'category_id' => 3]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 104, 'name' => 'Моей темы нет в списке', 'category_id' => 4]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 105, 'name' => 'Моей темы нет в списке', 'category_id' => 5]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 106, 'name' => 'Моей темы нет в списке', 'category_id' => 6]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 107, 'name' => 'Моей темы нет в списке', 'category_id' => 7]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 108, 'name' => 'Моей темы нет в списке', 'category_id' => 8]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 109, 'name' => 'Моей темы нет в списке', 'category_id' => 9]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 110, 'name' => 'Моей темы нет в списке', 'category_id' => 10]);
 
         // Устаревшие темы
         // Glossary_Csvi_Appeal_Them::create(['id' => 101, 'name' => 'Другое', 'category_id' => 9]);
