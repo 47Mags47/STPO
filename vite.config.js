@@ -8,7 +8,9 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/sass/app.sass',
-                'resources/js/app.js'
+                'resources/js/app.js',
+
+                'resources/sass/components/errors.sass',
             ],
             refresh: true,
         }),

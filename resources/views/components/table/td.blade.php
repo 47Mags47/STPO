@@ -7,6 +7,28 @@
                 </div>
             </td>
         @break
+
+        @case('input')
+            <td>
+                <div>
+                    <input type="text" value="{{ $value }}" name="data[{{ $coord }}]">
+                </div>
+            </td>
+        @break
+
+        @case('header')
+            <td class="td-header">
+                <span>{!! $value !!}</span>
+            </td>
+        @break
+
+        @case('input-d')
+            <td>
+                <div>
+                    <input type="text" value="X" disabled>
+                </div>
+            </td>
+        @break
     @endswitch
 @else
     <td>

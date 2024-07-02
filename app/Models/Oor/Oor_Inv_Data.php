@@ -1,15 +1,15 @@
 <?php
 
-namespace App\Models\Main;
+namespace App\Models\Oor;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Main_Access extends Model
+class Oor_Inv_Data extends Model
 {
     use HasFactory;
-    use SoftDeletes;
+
+    public $timestamps = false;
 
     protected $guarded = [];
 }

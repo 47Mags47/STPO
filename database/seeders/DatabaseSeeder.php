@@ -22,5 +22,7 @@ class DatabaseSeeder extends Seeder
         $this->call(Main\PageTableSeeder::class);
 
         $this->call(CSVI\AppealSeeder::class);
+
+        $this->call(Oor\InvSeeder::class);
     }
 }

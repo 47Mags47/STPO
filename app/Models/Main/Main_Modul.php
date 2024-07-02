@@ -12,6 +12,4 @@ class Main_Modul extends Model
     public $timestamps = false;
 
     protected $fillable = [];
-
-
 }

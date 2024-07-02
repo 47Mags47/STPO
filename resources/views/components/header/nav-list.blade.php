@@ -21,7 +21,7 @@
                             <li title="Не существует ссылки на модуль"><a>{{ $modul->name }}</a></li>
                         @endif
                     @else
-                        @if (auth()->user()->can('user_has_modul', $modul))
+                        @if (auth()->user()->can('user-has-modul', $modul))
                             <li><a href="{{ route($modul->link) }}">{{ $modul->name }}</a></li>
                         @else
                             <li data-disable="true"><a>{{ $modul->name }}</a></li>
