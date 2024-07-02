@@ -84,5 +84,14 @@ class ModulSeeder extends Seeder
             'visible' => true,
             'local' => true,
         ]);
+
+        Main_Modul::create([
+            'id' => 7,
+            'name' => 'формирования и развития системы комплексной реабилитации и абилитации инвалидов',
+            'link' => 'inv',
+            'department_id' => 4,
+            'visible' => true,
+            'local' => false,
+        ]);
     }
 }

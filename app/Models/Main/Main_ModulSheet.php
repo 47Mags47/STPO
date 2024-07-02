@@ -4,12 +4,12 @@ namespace App\Models\Main;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Main_Access extends Model
+class Main_ModulSheet extends Model
 {
     use HasFactory;
-    use SoftDeletes;
 
-    protected $guarded = [];
+    public $timestamps = false;
+
+    protected $fillable = [];
 }

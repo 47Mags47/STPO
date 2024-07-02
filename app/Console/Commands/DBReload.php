@@ -25,8 +25,15 @@ class DBReload extends Command
      */
     public function handle()
     {
+        $this->call('down');
         $this->call('migrate:fresh', ['--seed' => 'default']);
+        $this->call('up');
+
         $this->call(CopyOldDB\copyUsers::class);
         $this->call(CopyOldDB\copyAppeals::class);
+
+        $this->call('down');
+        $this->call(\Database\Seeders\Restore::class);
+        $this->call('up');
     }
 }

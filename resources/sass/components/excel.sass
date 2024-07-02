@@ -1,0 +1,109 @@
+.excel-box
+    width: 100%
+    height: calc( 100% - 60px )
+    position: absolute
+
+    display: grid
+    grid-template-rows: 50px auto 25px
+    .meny
+        width: 100%
+        height: auto
+        background: var(--excel-header-backgroun)
+        ul
+            width: 100%
+            height: 100%
+            display: flex
+            align-items: center
+            gap: 15px
+            padding: 0 50px
+            li
+                list-style: none
+                a
+                    color: var(--excel-header-color)
+                    font-weight: 600
+                    font-size: 1.2rem
+                    transition: var(--all-transition)
+                    cursor: pointer
+                    &:not(.disabled):hover
+                        color: white
+                input
+                    background: none
+                    border: none
+                    outline: none
+
+                    color: var(--excel-header-color)
+                    font-weight: 600
+                    font-size: 1.2rem
+                    transition: var(--all-transition)
+                    cursor: pointer
+                    &:not(.disabled):hover
+                        color: white
+    form
+        width: 100%
+        max-width: 100%
+        overflow-x: scroll
+        table
+            border-collapse: separate
+            border-spacing: 0
+            width: 100%
+            thead th,
+            tbody td
+                margin: 0
+            // Границы
+            th
+                border-bottom: 1px solid
+                border-right: 1px solid
+                padding: 5px
+            td
+                border-bottom: 1px solid
+                border-right: 1px solid
+                padding: 0
+                font-size: .9rem
+            tbody tr:first-child td
+                border-top: 1px solid
+            // Разметка
+            td,th,div,span
+                cursor: default
+            td
+                div,span,input
+                    font-size: inherit
+                div
+                    width: 100%
+                    height: 100%
+                    input
+                        padding: 5px
+                        width: 100%
+                        height: 50px
+                        background: none
+                        border: none
+                        outline: none
+            td.td-header
+                padding: 3px 10px
+    .sheets
+        width: 100%
+        height: auto
+        ul
+            display: flex
+            align-items: center
+            flex-wrap: nowrap
+            overflow: hidden
+            width: 100%
+            height: 100%
+            background: #ddd
+            li
+                height: 100%
+                padding: 0 3px
+                list-style: none
+                display: grid
+                justify-content: center
+                align-content: center
+                border-right: 2px solid #999
+                min-width: 25px
+                width: auto
+                a
+                    color: #666
+                    font-weight: bold
+                    font-size: .85rem
+                    transition: car(--all-transition)
+                &:hover a
+                    color: black
