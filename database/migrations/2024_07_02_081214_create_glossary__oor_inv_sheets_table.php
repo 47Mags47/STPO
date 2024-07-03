@@ -11,10 +11,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('main__modul_sheets', function (Blueprint $table) {
+        Schema::create('glossary__oor_inv_sheets', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('modul_id')->constrained('main__moduls');
-            $table->string('sheet_id');
             $table->string('name');
         });
     }
@@ -24,6 +22,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('main__modul_sheets');
+        Schema::dropIfExists('glossary__oor_inv_sheets');
     }
 };

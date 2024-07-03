@@ -13,6 +13,18 @@
             border-collapse: separate
             border-spacing: 0
             width: 100%
+            position: relative
+            // sticky
+            thead
+                position: sticky
+                top: 0
+                z-index: 1
+                th
+                    background: white
+            tbody tr .td-header
+                position: sticky
+                left: 0
+                background: white
             thead th,
             tbody td
                 margin: 0
@@ -20,7 +32,7 @@
             th
                 border-bottom: 1px solid
                 border-right: 1px solid
-                padding: 5px
+                font-size: .9rem
             td
                 border-bottom: 1px solid
                 border-right: 1px solid
@@ -31,21 +43,22 @@
             // Разметка
             td,th,div,span
                 cursor: default
-            td
+            td,th
                 div,span,input
                     font-size: inherit
+            td
                 div
                     width: 100%
                     height: 100%
                     input
-                        padding: 5px
+                        padding: 0 5px
                         width: 100%
                         height: 50px
                         background: none
                         border: none
                         outline: none
             td.td-header
-                padding: 3px 10px
+                padding: 0 5px
     .sheets
         width: 100%
         height: auto

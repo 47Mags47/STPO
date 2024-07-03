@@ -30,7 +30,7 @@ class DBReload extends Command
         $this->call('up');
 
         $this->call(CopyOldDB\copyUsers::class);
-        $this->call(CopyOldDB\copyAppeals::class);
+        //$this->call(CopyOldDB\copyAppeals::class);
 
         $this->call('down');
         $this->call(\Database\Seeders\Restore::class);

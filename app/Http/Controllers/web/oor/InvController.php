@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\web\oor;
 
+use App\Models\Glossary\Glossary_Oor_inv_sheet;
 use App\Models\Main\Main_Access;
 use App\Models\Main\Main_Division;
 use App\Models\Main\Main_Modul;
@@ -34,12 +35,17 @@ class InvController
         }
 
         $sheet_id = $request->sheet ? $request->sheet : 2;
-        $sheets = Main_ModulSheet::where('modul_id', 7)->get();
+        $sheets = Glossary_Oor_inv_sheet::get();
         $raport = Oor_Inv_Raport::where('worker_id', auth()->user()->id)
             ->where('in_date_id', Oor_Inv_InDate::actual()->id)
             ->get()
             ->first();
-        $data = $raport ? Oor_Inv_Data::where('raport_id', $raport->id)->get()->pluck('value', 'coord') : collect([]);
+        $data = $raport
+            ? Oor_Inv_Data::where('raport_id', $raport->id)
+                ->where('sheet_id', $request->sheet)
+                ->get()
+                ->pluck('value', 'coord')
+            : collect([]);
         return view('page.oor.inv.filling.index', compact('sheet_id', 'sheets', 'data'));
     }
 
@@ -48,12 +54,13 @@ class InvController
         $raport = Oor_Inv_Raport::firstOrCreate([
             'worker_id' => auth()->user()->id,
             'in_date_id' => Oor_Inv_InDate::actual()->id,
-        ],[
+        ], [
             'division_id' => auth()->user()->division_id
         ]);
         foreach ($request->data as $coord => $value) {
             Oor_Inv_Data::updateOrCreate([
                 'raport_id' => $raport->id,
+                'sheet_id' => $request->sheet,
                 'coord' => $coord
             ], [
                 'value' => $value
@@ -64,11 +71,11 @@ class InvController
 
     public function inspector()
     {
-        // $raports = Oor_Inv_Raport::class;
         $user_ids = Main_Access::where('modul_id', 7)->where('level_id', 2)->get()->pluck('user_id');
         $division_ids = Main_User::whereIn('id', $user_ids)->get()->pluck('division_id');
         $divisions = Main_Division::whereIn('id', $division_ids)->get();
+        $raportClass = Oor_Inv_Raport::class;
 
-        return view('page.oor.inv.inspector.index', compact('divisions'));
+        return view('page.oor.inv.inspector.index', compact('divisions', 'raportClass'));
     }
 }

@@ -14,7 +14,7 @@
             <x-page.division-list>
                 @foreach ($divisions as $division)
                     <x-page.division link="test2" title="{{$division->name}}"
-                        complited="{{ $division->Completed(\App\Models\Oor\Oor_Inv_Raport::class) }}" />
+                        complited="{{ $division->Completed($raportClass) }}" />
                 @endforeach
 
 
