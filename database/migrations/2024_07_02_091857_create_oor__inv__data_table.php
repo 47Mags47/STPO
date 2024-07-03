@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('oor__inv__data', function (Blueprint $table) {
             $table->id();
             $table->foreignId('raport_id')->constrained('oor__inv__raports');
+            $table->foreignId('sheet_id')->constrained('glossary__oor_inv_sheets');
             $table->string('coord');
             $table->string('value')->nullable()->default(0);
         });

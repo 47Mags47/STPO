@@ -1,13 +1,14 @@
 <?php
 
-namespace App\Models\Main;
+namespace App\Models\Glossary;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Main_ModulSheet extends Model
+class Glossary_Oor_inv_sheet extends Model
 {
     use HasFactory;
+
 
     public $timestamps = false;
 
