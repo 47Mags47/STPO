@@ -2,6 +2,10 @@
 
 namespace App\Models\Oor;
 
+use App\Models\Main\Main_Access;
+use App\Models\Main\Main_Division;
+use App\Models\Main\Main_User;
+use Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 

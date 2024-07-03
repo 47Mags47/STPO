@@ -1,5 +1,5 @@
 <div class="excel-box {{ $attributes['class'] ? $attributes['class'] : '' }}">
-    <div class="meny">
+    <div class="page-meny excel">
         {{ $meny }}
     </div>
     <form action="{{ $action }}" method="POST" class="mini-scroll" id="data-form">

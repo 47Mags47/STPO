@@ -12,4 +12,9 @@ class Main_Division extends Model
     public $timestamps = false;
 
     protected $fillable = [];
+
+    public function Completed($class) :bool{
+        $raports = new $class;
+        return $raports->where('division_id', $this->id)->count() > 0;
+    }
 }
