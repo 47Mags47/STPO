@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('oor__inv__raports', function (Blueprint $table) {
             $table->id();
             $table->foreignId('worker_id')->constrained('main__users');
+            $table->foreignId('division_id')->constrained('main__divisions');
             $table->foreignId('in_date_id')->constrained('oor__inv__in_dates');
             $table->boolean('checked')->default(false);
             $table->boolean('error')->default(false);

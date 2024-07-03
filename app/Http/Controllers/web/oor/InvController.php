@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\web\oor;
 
+use App\Models\Main\Main_Access;
+use App\Models\Main\Main_Division;
 use App\Models\Main\Main_Modul;
 use App\Models\Main\Main_ModulSheet;
+use App\Models\Main\Main_User;
 use App\Models\Oor\Oor_Inv_Data;
 use App\Models\Oor\Oor_Inv_InDate;
 use App\Models\Oor\Oor_Inv_Raport;
@@ -44,7 +47,9 @@ class InvController
     {
         $raport = Oor_Inv_Raport::firstOrCreate([
             'worker_id' => auth()->user()->id,
-            'in_date_id' => Oor_Inv_InDate::actual(),
+            'in_date_id' => Oor_Inv_InDate::actual()->id,
+        ],[
+            'division_id' => auth()->user()->division_id
         ]);
         foreach ($request->data as $coord => $value) {
             Oor_Inv_Data::updateOrCreate([
@@ -59,7 +64,11 @@ class InvController
 
     public function inspector()
     {
-        //return view('page.oor.inv.inspector.index');
-        return 'is admin page';
+        // $raports = Oor_Inv_Raport::class;
+        $user_ids = Main_Access::where('modul_id', 7)->where('level_id', 2)->get()->pluck('user_id');
+        $division_ids = Main_User::whereIn('id', $user_ids)->get()->pluck('division_id');
+        $divisions = Main_Division::whereIn('id', $division_ids)->get();
+
+        return view('page.oor.inv.inspector.index', compact('divisions'));
     }
 }

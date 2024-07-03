@@ -1,0 +1,49 @@
+.admin-page-box
+    display: flex
+    flex-flow: row wrap
+    align-content: center
+    position: relative
+    width: 100%
+    height: calc( 100% - 60px )
+    .meny
+        flex: 1 100%
+        height: 50px
+    .division-list
+        width: 350px
+        height: calc( 100% - 50px )
+        max-height: calc( 100% - 50px )
+        overflow-y: scroll
+        background: var(--header-bottom-color)
+        border-top: 1px solid gray
+        ul
+            display: flex
+            flex-direction: column
+            li
+                list-style: none
+                width: 100%
+                &:hover
+                    background: #252c47
+                    a
+                        color: white
+                a
+                    display: block
+                    width: 100%
+                    padding: 5px 10px
+                    transition: var(--all-transition)
+
+                    color: #ddd
+                    font-weight: bold
+                    font-size: 1rem
+                &[completed="false"]
+                    padding: 5px 10px
+                    background: #383c4b
+                    span
+                        font-weight: bold
+                        font-size: 1rem
+                        color: #ddd
+                        text-decoration: line-through
+                        cursor: default
+
+
+    .content
+        flex: 1

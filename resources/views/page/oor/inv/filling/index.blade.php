@@ -4,11 +4,11 @@
 @section('body')
     <x-excel.box action="{{route('inv.filling.sheet.save', ['sheet'=> $sheet_id])}}">
         <x-slot:meny>
-            <x-excel.meny>
-                <x-excel.nav type="form-submit" title="Сохранить" form="data-form" />
-                <x-excel.nav title="Импорт" link="inv/import"/>
-                <x-excel.nav title="Экспорт" link="inv/export"/>
-            </x-excel.meny>
+            <x-page.meny>
+                <x-page.nav type="form-submit" title="Сохранить" form="data-form" />
+                <x-page.nav title="Импорт" link="inv/import"/>
+                <x-page.nav title="Экспорт" link="inv/export"/>
+            </x-page.meny>
         </x-slot:meny>
         <x-slot:sheet>
             @include('page.oor.inv.filling.sheets.' . $sheet_id)

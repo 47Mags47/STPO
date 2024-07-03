@@ -11,7 +11,7 @@
         @case('input')
             <td>
                 <div>
-                    <input type="text" value="{{ $value }}" name="data[{{ $coord }}]">
+                    <input type="text" value="{{ $value }}" name="data[{{ $coord }}]" autocomplete="off">
                 </div>
             </td>
         @break

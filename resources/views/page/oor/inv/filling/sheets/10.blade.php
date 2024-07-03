@@ -1,43 +1,15 @@
 <thead>
     <tr>
-        <x-table.th value="Наименование <br> показателей" rowspan=3 />
-        <x-table.th value="№ строки" rowspan=3 />
-        <x-table.th value="Всего, чел." rowspan=3 />
-        <x-table.th value="в том числе" colspan=10 />
-    </tr>
-    <tr>
-        <x-table.th value="Женщины" colspan=2 />
-        <x-table.th value="Мужчины" colspan=2 />
-        <x-table.th value="в возрасте от 0 до 3 лет" colspan=2 />
-        <x-table.th value="в возрасте от 4 до 7 лет" colspan=2 />
-        <x-table.th value="в возрасте от 8 до 17 лет" colspan=2 />
-    </tr>
-    <tr>
-        <x-table.th value="всего" />
-        <x-table.th value="от 18 до 59 лет" />
-        <x-table.th value="всего" />
-        <x-table.th value="от 18 до 64 лет" />
-        <x-table.th value="мальчики" />
-        <x-table.th value="девочки" />
-        <x-table.th value="мальчики" />
-        <x-table.th value="девочки" />
-        <x-table.th value="мальчики" />
-        <x-table.th value="девочки" />
+        <x-table.th value="Наименование <br> показателей" />
+        <x-table.th value="№ строки" />
+        <x-table.th value="Всего пунктов проката ТСР, ед." />
+        <x-table.th value="из них, филиалов пунктов проката ТСР*, ед." />
     </tr>
     <tr>
         <x-table.th value="1" />
         <x-table.th value="2" />
         <x-table.th value="3" />
         <x-table.th value="4" />
-        <x-table.th value="5" />
-        <x-table.th value="6" />
-        <x-table.th value="7" />
-        <x-table.th value="8" />
-        <x-table.th value="9" />
-        <x-table.th value="10" />
-        <x-table.th value="11" />
-        <x-table.th value="12" />
-        <x-table.th value="13" />
     </tr>
 </thead>
 <tbody>
