@@ -23,8 +23,6 @@ class DatabaseSeeder extends Seeder
 
         $this->call(CSVI\AppealSeeder::class);
 
-        if(env('APP_ENV') == 'local'){
-            $this->call(Oor\InvSeeder::class);
-        }
+        $this->call(Oor\InvSeeder::class);
     }
 }
