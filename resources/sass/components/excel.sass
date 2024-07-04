@@ -46,19 +46,28 @@
             td,th
                 div,span,input
                     font-size: inherit
+            th
+                padding: 3px
             td
+                position: relative
                 div
                     width: 100%
                     height: 100%
+                    position: absolute
+                    top: 0
+                    left: 0
                     input
                         padding: 0 5px
                         width: 100%
-                        height: 50px
+                        height: 100%
                         background: none
                         border: none
                         outline: none
+                    input[disabled]
+                        background: #ddd
+                        text-align: center
             td.td-header
-                padding: 0 5px
+                padding: 3px 5px
     .sheets
         width: 100%
         height: auto

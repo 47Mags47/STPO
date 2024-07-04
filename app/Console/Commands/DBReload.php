@@ -18,7 +18,7 @@ class DBReload extends Command
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Выполняет перезагрузку БД (сохранение данных->восстановление архитектуры->восстановление данных)';
 
     /**
      * Execute the console command.
@@ -26,14 +26,12 @@ class DBReload extends Command
     public function handle()
     {
         $this->call('down');
+        $this->call(CopyDB::class);
         $this->call('migrate:fresh', ['--seed' => 'default']);
+        $this->call(RestoreDB::class);
         $this->call('up');
 
         $this->call(CopyOldDB\copyUsers::class);
-        //$this->call(CopyOldDB\copyAppeals::class);
-
-        $this->call('down');
-        $this->call(\Database\Seeders\Restore::class);
-        $this->call('up');
+        $this->call(CopyOldDB\copyAppeals::class);
     }
 }

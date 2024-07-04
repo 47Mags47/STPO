@@ -19,7 +19,6 @@ class InvSeeder extends Seeder
         Glossary_Oor_inv_sheet::create(['id' => 5, 'name' => 5]);
         Glossary_Oor_inv_sheet::create(['id' => 6, 'name' => 6]);
         Glossary_Oor_inv_sheet::create(['id' => 7, 'name' => 7]);
-        Glossary_Oor_inv_sheet::create(['id' => 8, 'name' => 8]);
         Glossary_Oor_inv_sheet::create(['id' => 9, 'name' => 9]);
         Glossary_Oor_inv_sheet::create(['id' => 10, 'name' => 10]);
         Glossary_Oor_inv_sheet::create(['id' => 11, 'name' => 11]);

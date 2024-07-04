@@ -16,9 +16,6 @@
                     <x-page.division link="test2" title="{{$division->name}}"
                         complited="{{ $division->Completed($raportClass) }}" />
                 @endforeach
-
-
-
             </x-page.division-list>
         </x-slot:division-list>
         <x-slot:content>
