@@ -1,11 +1,9 @@
 <caption>{{ $sheet_header }}</caption>
 <thead>
     <tr>
-        <x-table.th rowspan=2 value="Наименование показателей" />
-        <x-table.th rowspan=2 value="№ строки" />
-        <x-table.th rowspan=2 value="Количество выписок, ед." />
-        <x-table.th rowspan=2 value="Всего, чел." />
-        <x-table.th colspan=2 value="из них:" />
+        <x-table.th rowspan=3 value="Наименование показателей" />
+        <x-table.th rowspan=3 value="№ строки" />
+        <x-table.th colspan=6 value="Количество организаций" />
     </tr>
     <tr>
         <x-table.th rowspan=2 value="Всего, ед." />

@@ -16,7 +16,7 @@
         <x-slot:sheets>
             <x-excel.sheet-list>
                 @foreach ($sheets as $sheet)
-                    <x-excel.sheet-link link="{{ route('inv.filling.sheet', ['sheet' => $sheet->id]) }}" title="{{$sheet->name}}"/>
+                    <x-excel.sheet-link link="{{ route('inv.filling.sheet', ['sheet' => $sheet->id]) }}" title="{{$sheet->name}}" opened="{{$sheet->id == $sheet_id}}" />
                 @endforeach
             </x-excel.sheet-list>
         </x-slot:sheets>

@@ -35,6 +35,7 @@ class InvController
         }
 
         $sheet_id = $request->sheet ? $request->sheet : 2;
+        $sheet_header = Glossary_Oor_inv_sheet::whereKey($sheet_id)->get()->first()->header;
         $sheets = Glossary_Oor_inv_sheet::get();
         $raport = Oor_Inv_Raport::where('worker_id', auth()->user()->id)
             ->where('in_date_id', Oor_Inv_InDate::actual()->id)
@@ -46,7 +47,7 @@ class InvController
                 ->get()
                 ->pluck('value', 'coord')
             : collect([]);
-        return view('page.oor.inv.filling.index', compact('sheet_id', 'sheets', 'data'));
+        return view('page.oor.inv.filling.index', compact('sheet_id', 'sheets', 'data', 'sheet_header'));
     }
 
     public function fillingSave(Request $request)
