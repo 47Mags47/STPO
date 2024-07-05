@@ -51,7 +51,7 @@
 <tbody>
     <tr>
         <x-table.td type="header" value="Общая численность населения субъекта Российской Федерации, в том числе:" />
-        <x-table.td type="header" value="01" />
+        <x-table.td value="01" h='center' />
         <x-table.td type="input" value="{{ $data->has('CA7') ? $data['CA7'] : '' }}" coord="CA7" />
         <x-table.td type="input" value="{{ $data->has('CB7') ? $data['CB7'] : '' }}" coord="CB7" />
         <x-table.td type="input" value="{{ $data->has('CC7') ? $data['CC7'] : '' }}" coord="CC7" />
@@ -69,7 +69,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Численность инвалидов в возрасте 18 лет и старше" />
-        <x-table.td type="header" value="02" />
+        <x-table.td value="02" h='center' />
         <x-table.td type="input" value="{{ $data->has('CA8') ? $data['CA8'] : '' }}" coord="CA8" />
         <x-table.td type="input" value="{{ $data->has('CB8') ? $data['CB8'] : '' }}" coord="CB8" />
         <x-table.td type="input" value="{{ $data->has('CC8') ? $data['CC8'] : '' }}" coord="CC8" />
@@ -89,7 +89,7 @@
         <x-table.td type="header"
             value="из них имеют индивидуальную программу реабилитации или абилитации инвалида (ИПРА инвалида) /
         индивидуальную программу реабилитации инвалида (ИПР инвалида)" />
-        <x-table.td type="header" value="03" />
+        <x-table.td value="03" h='center' />
         <x-table.td type="input" value="{{ $data->has('CA9') ? $data['CA9'] : '' }}" coord="CA9" />
         <x-table.td type="input" value="{{ $data->has('CB9') ? $data['CB9'] : '' }}" coord="CB9" />
         <x-table.td type="input" value="{{ $data->has('CC9') ? $data['CC9'] : '' }}" coord="CC9" />
@@ -107,7 +107,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Численность детей-инвалидов" />
-        <x-table.td type="header" value="04" />
+        <x-table.td value="04" h='center' />
         <x-table.td type="input" value="{{ $data->has('CA10') ? $data['CA10'] : '' }}" coord="CA10" />
         <x-table.td type="input" value="{{ $data->has('CB10') ? $data['CB10'] : '' }}" coord="CB10" />
         <x-table.td type="input" value="{{ $data->has('CC10') ? $data['CC10'] : '' }}" coord="CC10" />
@@ -128,7 +128,7 @@
         <x-table.td type="header"
             value="из них имеют индивидуальную программу реабилитации или абилитации ребенка-инвалида (ИПРА
         ребенка-инвалида) / индивидуальную программу реабилитации ребенка-инвалида (ИПР ребенка-инвалида)" />
-        <x-table.td type="header" value="05" />
+        <x-table.td value="05" h='center' />
         <x-table.td type="input" value="{{ $data->has('CA11') ? $data['CA11'] : '' }}" coord="CA11" />
         <x-table.td type="input" value="{{ $data->has('CB11') ? $data['CB11'] : '' }}" coord="CB11" />
         <x-table.td type="input" value="{{ $data->has('CC11') ? $data['CC11'] : '' }}" coord="CC11" />

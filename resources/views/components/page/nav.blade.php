@@ -8,10 +8,10 @@
     @endswitch
 @else
     <li>
-        @if (Route::has($link))
-            <a href="{{ route($link) }}">{{ $title }}</a>
-        @else
+        @if (isset($disabled))
             <a title="Ссылка не доступна" class="disabled">{{ $title }}</a>
+        @else
+            <a href="{{ $link }}" {{ isset($blank) ? 'target="_blank"' : '' }}>{{ $title }}</a>
         @endif
     </li>
 @endif

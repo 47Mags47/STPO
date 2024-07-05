@@ -1,9 +1,9 @@
 @if ($complited)
-    <li completed='true'>
+    <li completed='true' opened='{{ $opened }}'>
         <a href="{{ $link }}">{{ $title }}</a>
     </li>
 @else
-    <li completed='false'>
+    <li completed='false' opened='{{ $opened }}'>
         <span>{{ $title }}</span>
     </li>
 @endif

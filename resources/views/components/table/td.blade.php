@@ -31,7 +31,7 @@
         @break
     @endswitch
 @else
-    <td>
+    <td {{isset($h) ? "h=$h" : ''}}>
         <span>{!! $value !!}</span>
     </td>
 @endif

@@ -18,6 +18,11 @@ use Illuminate\Support\Facades\Storage;
 
 class InvController
 {
+    private function modul()
+    {
+        return Main_Modul::whereKey(7)->get()->first();
+    }
+
     public function hub()
     {
         $modul = Main_Modul::where('link', 'inv')->get()->first();
@@ -35,19 +40,20 @@ class InvController
         }
 
         $sheet_id = $request->sheet ? $request->sheet : 2;
-        $sheet_header = Glossary_Oor_inv_sheet::whereKey($sheet_id)->get()->first()->header;
+        $page_data = $this->fillingPageData($sheet_id);
+        return view('page.oor.inv.filling.index', $page_data);
+    }
+
+    public static function fillingPageData($sheet_id)
+    {
         $sheets = Glossary_Oor_inv_sheet::get();
+        $sheet_header = Glossary_Oor_inv_sheet::whereKey($sheet_id)->get()->first()->header;
         $raport = Oor_Inv_Raport::where('worker_id', auth()->user()->id)
             ->where('in_date_id', Oor_Inv_InDate::actual()->id)
             ->get()
             ->first();
-        $data = $raport
-            ? Oor_Inv_Data::where('raport_id', $raport->id)
-                ->where('sheet_id', $request->sheet)
-                ->get()
-                ->pluck('value', 'coord')
-            : collect([]);
-        return view('page.oor.inv.filling.index', compact('sheet_id', 'sheets', 'data', 'sheet_header'));
+        $data = $raport->data->where('sheet_id', $sheet_id)->pluck('value', 'coord');
+        return compact('sheet_id', 'sheets', 'sheet_header', 'data');
     }
 
     public function fillingSave(Request $request)
@@ -72,11 +78,46 @@ class InvController
 
     public function inspector()
     {
-        $user_ids = Main_Access::where('modul_id', 7)->where('level_id', 2)->get()->pluck('user_id');
-        $division_ids = Main_User::whereIn('id', $user_ids)->get()->pluck('division_id');
-        $divisions = Main_Division::whereIn('id', $division_ids)->get();
-        $raportClass = Oor_Inv_Raport::class;
+        $page_data = $this->inspectorPageData();
+        return view('page.oor.inv.inspector.index', $page_data);
+    }
 
-        return view('page.oor.inv.inspector.index', compact('divisions', 'raportClass'));
+    public function inspectorPageData()
+    {
+        $all_divisions = Main_Access::divisions($this->modul());
+        $raportClass = Oor_Inv_Raport::class;
+        return compact('all_divisions', 'raportClass');
+    }
+
+    public static function inspectorRaportData($division_id, $sheet_id)
+    {
+        $sheets = Glossary_Oor_inv_sheet::get();
+        $sheet_header = Glossary_Oor_inv_sheet::whereKey($sheet_id)->get()->first()->header;
+        $raport = Oor_Inv_Raport::where('division_id', $division_id)
+            ->where('in_date_id', Oor_Inv_InDate::actual()->id)
+            ->get()
+            ->first();
+        $data = $raport->data->where('sheet_id', $sheet_id)->pluck('value', 'coord');
+
+        return compact('sheets', 'sheet_header', 'data', 'division_id', 'raport');
+    }
+
+    public function raportShow(Request $request)
+    {
+        $inspector_page_data = $this->inspectorPageData();
+        $sheet_id = $request->sheet ? $request->sheet : 2;
+        $division_id = $request->division;
+        $inspector_raport_data = $this->inspectorRaportData($division_id, $sheet_id);
+
+        return view('page.oor.inv.inspector.raport', array_merge(compact('sheet_id'), $inspector_page_data, $inspector_raport_data));
+    }
+
+    public function RaportDownload(Request $request){
+        $raport = Oor_Inv_Raport::whereKey($request->raport)->get()->first();
+        $division = Main_Division::whereKey($raport->division_id)->get()->first();
+        $data = $raport->data;
+
+
+        dd($data);
     }
 }

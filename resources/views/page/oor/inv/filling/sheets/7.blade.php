@@ -68,8 +68,8 @@
 <tbody>
     <tr>
         <x-table.td type="header" value="Всего заболеваний, в том числе:" />
-        <x-table.td type="header" value="A00 - T98" />
-        <x-table.td type="header" value="01" />
+        <x-table.td value="A00 - T98" />
+        <x-table.td value="01" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT8') ? $data['BT8'] : '' }}" coord="BT8" />
         <x-table.td type="input" value="{{ $data->has('BU8') ? $data['BU8'] : '' }}" coord="BU8" />
         <x-table.td type="input" value="{{ $data->has('BV8') ? $data['BV8'] : '' }}" coord="BV8" />
@@ -88,8 +88,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="некоторые инфекционные и паразитарные болезни, из них A00 - В99" />
-        <x-table.td type="header" value="A00 - В99" />
-        <x-table.td type="header" value="02" />
+        <x-table.td value="A00 - В99" />
+        <x-table.td value="02" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT9') ? $data['BT9'] : '' }}" coord="BT9" />
         <x-table.td type="input" value="{{ $data->has('BU9') ? $data['BU9'] : '' }}" coord="BU9" />
         <x-table.td type="input" value="{{ $data->has('BV9') ? $data['BV9'] : '' }}" coord="BV9" />
@@ -108,8 +108,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="туберкулез A15 - A19" />
-        <x-table.td type="header" value="A15 - A19" />
-        <x-table.td type="header" value="03" />
+        <x-table.td value="A15 - A19" />
+        <x-table.td value="03" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT10') ? $data['BT10'] : '' }}" coord="BT10" />
         <x-table.td type="input" value="{{ $data->has('BU10') ? $data['BU10'] : '' }}" coord="BU10" />
         <x-table.td type="input" value="{{ $data->has('BV10') ? $data['BV10'] : '' }}" coord="BV10" />
@@ -130,8 +130,8 @@
 
     <tr>
         <x-table.td type="header" value="вирусные инфекции центральной нервной системы: A80 - A89" />
-        <x-table.td type="header" value="A80 - A89" />
-        <x-table.td type="header" value="04" />
+        <x-table.td value="A80 - A89" />
+        <x-table.td value="04" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT11') ? $data['BT11'] : '' }}" coord="BT11" />
         <x-table.td type="input" value="{{ $data->has('BU11') ? $data['BU11'] : '' }}" coord="BU11" />
         <x-table.td type="input" value="{{ $data->has('BV11') ? $data['BV11'] : '' }}" coord="BV11" />
@@ -150,8 +150,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="последствия инфекционных и паразитарных болезней В90 - В94" />
-        <x-table.td type="header" value="В90 - В94" />
-        <x-table.td type="header" value="05" />
+        <x-table.td value="В90 - В94" />
+        <x-table.td value="05" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT12') ? $data['BT12'] : '' }}" coord="BT12" />
         <x-table.td type="input" value="{{ $data->has('BU12') ? $data['BU12'] : '' }}" coord="BU12" />
         <x-table.td type="input" value="{{ $data->has('BV12') ? $data['BV12'] : '' }}" coord="BV12" />
@@ -170,8 +170,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="новообразования, из них: C00 - D48" />
-        <x-table.td type="header" value="C00 - D48" />
-        <x-table.td type="header" value="06" />
+        <x-table.td value="C00 - D48" />
+        <x-table.td value="06" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT13') ? $data['BT13'] : '' }}" coord="BT13" />
         <x-table.td type="input" value="{{ $data->has('BU13') ? $data['BU13'] : '' }}" coord="BU13" />
         <x-table.td type="input" value="{{ $data->has('BV13') ? $data['BV13'] : '' }}" coord="BV13" />
@@ -191,8 +191,8 @@
     <tr>
         <x-table.td type="header"
             value="злокачественные новообразования лимфоидной, кроветворной и родственных им тканей: C81 - C96" />
-        <x-table.td type="header" value="C81 - C96" />
-        <x-table.td type="header" value="07" />
+        <x-table.td value="C81 - C96" />
+        <x-table.td value="07" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT14') ? $data['BT14'] : '' }}" coord="BT14" />
         <x-table.td type="input" value="{{ $data->has('BU14') ? $data['BU14'] : '' }}" coord="BU14" />
         <x-table.td type="input" value="{{ $data->has('BV14') ? $data['BV14'] : '' }}" coord="BV14" />
@@ -212,8 +212,8 @@
     <tr>
         <x-table.td type="header"
             value="болезни крови, кроветворных органов и отдельные нарушения, вовлекающие имунный механизм, из них: D50 - D89" />
-        <x-table.td type="header" value="D50 - D89" />
-        <x-table.td type="header" value="08" />
+        <x-table.td value="D50 - D89" />
+        <x-table.td value="08" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT15') ? $data['BT15'] : '' }}" coord="BT15" />
         <x-table.td type="input" value="{{ $data->has('BU15') ? $data['BU15'] : '' }}" coord="BU15" />
         <x-table.td type="input" value="{{ $data->has('BV15') ? $data['BV15'] : '' }}" coord="BV15" />
@@ -233,8 +233,8 @@
     <tr>
         <x-table.td type="header"
             value="нарушения свертываемости крови, пурпура и другие гепорррагические состояния: D65 - D69" />
-        <x-table.td type="header" value="D65 - D69" />
-        <x-table.td type="header" value="09" />
+        <x-table.td value="D65 - D69" />
+        <x-table.td value="09" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT16') ? $data['BT16'] : '' }}" coord="BT16" />
         <x-table.td type="input" value="{{ $data->has('BU16') ? $data['BU16'] : '' }}" coord="BU16" />
         <x-table.td type="input" value="{{ $data->has('BV16') ? $data['BV16'] : '' }}" coord="BV16" />
@@ -254,8 +254,8 @@
     <tr>
         <x-table.td type="header"
             value="Болезни эндокринной системы, расстройства питания и нарушения обмена веществ, из них: E00 - E90" />
-        <x-table.td type="header" value="E00 - E90" />
-        <x-table.td type="header" value="10" />
+        <x-table.td value="E00 - E90" />
+        <x-table.td value="10" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT17') ? $data['BT17'] : '' }}" coord="BT17" />
         <x-table.td type="input" value="{{ $data->has('BU17') ? $data['BU17'] : '' }}" coord="BU17" />
         <x-table.td type="input" value="{{ $data->has('BV17') ? $data['BV17'] : '' }}" coord="BV17" />
@@ -274,8 +274,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="болезни щитовидной железы: E00 - E07" />
-        <x-table.td type="header" value="E00 - E07" />
-        <x-table.td type="header" value="11" />
+        <x-table.td value="E00 - E07" />
+        <x-table.td value="11" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT18') ? $data['BT18'] : '' }}" coord="BT18" />
         <x-table.td type="input" value="{{ $data->has('BU18') ? $data['BU18'] : '' }}" coord="BU18" />
         <x-table.td type="input" value="{{ $data->has('BV18') ? $data['BV18'] : '' }}" coord="BV18" />
@@ -294,8 +294,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="сахарный диабет: E10 - E14" />
-        <x-table.td type="header" value="E10 - E14" />
-        <x-table.td type="header" value="12" />
+        <x-table.td value="E10 - E14" />
+        <x-table.td value="12" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT19') ? $data['BT19'] : '' }}" coord="BT19" />
         <x-table.td type="input" value="{{ $data->has('BU19') ? $data['BU19'] : '' }}" coord="BU19" />
         <x-table.td type="input" value="{{ $data->has('BV19') ? $data['BV19'] : '' }}" coord="BV19" />
@@ -314,8 +314,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Психические расстройства и расстройства поведения, из них: F00 - F99" />
-        <x-table.td type="header" value="F00 - F99" />
-        <x-table.td type="header" value="13" />
+        <x-table.td value="F00 - F99" />
+        <x-table.td value="13" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT20') ? $data['BT20'] : '' }}" coord="BT20" />
         <x-table.td type="input" value="{{ $data->has('BU20') ? $data['BU20'] : '' }}" coord="BU20" />
         <x-table.td type="input" value="{{ $data->has('BV20') ? $data['BV20'] : '' }}" coord="BV20" />
@@ -334,8 +334,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="умственная отсталость:F70 - F79" />
-        <x-table.td type="header" value="F70 - F79" />
-        <x-table.td type="header" value="14" />
+        <x-table.td value="F70 - F79" />
+        <x-table.td value="14" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT21') ? $data['BT21'] : '' }}" coord="BT21" />
         <x-table.td type="input" value="{{ $data->has('BU21') ? $data['BU21'] : '' }}" coord="BU21" />
         <x-table.td type="input" value="{{ $data->has('BV21') ? $data['BV21'] : '' }}" coord="BV21" />
@@ -355,8 +355,8 @@
     <tr>
         <x-table.td type="header"
             value="детский аутизм, атипичный аутизм, синдром Ретта, дезинтегративное расстройство детского возраста:F84.0-3" />
-        <x-table.td type="header" value="F84.0-3" />
-        <x-table.td type="header" value="15" />
+        <x-table.td value="F84.0-3" />
+        <x-table.td value="15" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT22') ? $data['BT22'] : '' }}" coord="BT22" />
         <x-table.td type="input" value="{{ $data->has('BU22') ? $data['BU22'] : '' }}" coord="BU22" />
         <x-table.td type="input" value="{{ $data->has('BV22') ? $data['BV22'] : '' }}" coord="BV22" />
@@ -375,8 +375,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Болезни нервной системы, из них: G00 - G99" />
-        <x-table.td type="header" value="G00 - G99" />
-        <x-table.td type="header" value="16" />
+        <x-table.td value="G00 - G99" />
+        <x-table.td value="16" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT23') ? $data['BT23'] : '' }}" coord="BT23" />
         <x-table.td type="input" value="{{ $data->has('BU23') ? $data['BU23'] : '' }}" coord="BU23" />
         <x-table.td type="input" value="{{ $data->has('BV23') ? $data['BV23'] : '' }}" coord="BV23" />
@@ -395,8 +395,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="воспалительные болезни центральной нервной системы:G00-G09" />
-        <x-table.td type="header" value="G00-G09" />
-        <x-table.td type="header" value="17" />
+        <x-table.td value="G00-G09" />
+        <x-table.td value="17" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT24') ? $data['BT24'] : '' }}" coord="BT24" />
         <x-table.td type="input" value="{{ $data->has('BU24') ? $data['BU24'] : '' }}" coord="BU24" />
         <x-table.td type="input" value="{{ $data->has('BV24') ? $data['BV24'] : '' }}" coord="BV24" />
@@ -416,8 +416,8 @@
     <tr>
         <x-table.td type="header"
             value="системыне атрофии, поражающие преимущественно центральную нервную систему:G10-G13" />
-        <x-table.td type="header" value="G10-G13" />
-        <x-table.td type="header" value="18" />
+        <x-table.td value="G10-G13" />
+        <x-table.td value="18" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT25') ? $data['BT25'] : '' }}" coord="BT25" />
         <x-table.td type="input" value="{{ $data->has('BU25') ? $data['BU25'] : '' }}" coord="BU25" />
         <x-table.td type="input" value="{{ $data->has('BV25') ? $data['BV25'] : '' }}" coord="BV25" />
@@ -436,8 +436,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="эпизодические и пароксизмальные расстройства:G40-G47" />
-        <x-table.td type="header" value="G40-G47" />
-        <x-table.td type="header" value="19" />
+        <x-table.td value="G40-G47" />
+        <x-table.td value="19" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT26') ? $data['BT26'] : '' }}" coord="BT26" />
         <x-table.td type="input" value="{{ $data->has('BU26') ? $data['BU26'] : '' }}" coord="BU26" />
         <x-table.td type="input" value="{{ $data->has('BV26') ? $data['BV26'] : '' }}" coord="BV26" />
@@ -456,8 +456,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="церебральный паралич и другие паралитические синдромы:G80 - G83" />
-        <x-table.td type="header" value="G80 - G83" />
-        <x-table.td type="header" value="20" />
+        <x-table.td value="G80 - G83" />
+        <x-table.td value="20" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT27') ? $data['BT27'] : '' }}" coord="BT27" />
         <x-table.td type="input" value="{{ $data->has('BU27') ? $data['BU27'] : '' }}" coord="BU27" />
         <x-table.td type="input" value="{{ $data->has('BV27') ? $data['BV27'] : '' }}" coord="BV27" />
@@ -476,8 +476,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="другие нарушения нервной системы:G90-G99" />
-        <x-table.td type="header" value="другие нарушения нервной системы" />
-        <x-table.td type="header" value="21" />
+        <x-table.td value="другие нарушения нервной системы" />
+        <x-table.td value="21" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT28') ? $data['BT28'] : '' }}" coord="BT28" />
         <x-table.td type="input" value="{{ $data->has('BU28') ? $data['BU28'] : '' }}" coord="BU28" />
         <x-table.td type="input" value="{{ $data->has('BV28') ? $data['BV28'] : '' }}" coord="BV28" />
@@ -496,8 +496,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Болезни глаза и его придаточного аппарата, из них H00 - H59:" />
-        <x-table.td type="header" value="H00 - H59" />
-        <x-table.td type="header" value="22" />
+        <x-table.td value="H00 - H59" />
+        <x-table.td value="22" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT29') ? $data['BT29'] : '' }}" coord="BT29" />
         <x-table.td type="input" value="{{ $data->has('BU29') ? $data['BU29'] : '' }}" coord="BU29" />
         <x-table.td type="input" value="{{ $data->has('BV29') ? $data['BV29'] : '' }}" coord="BV29" />
@@ -516,8 +516,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="слепота обоих глаз H54.0" />
-        <x-table.td type="header" value="H54.0" />
-        <x-table.td type="header" value="23" />
+        <x-table.td value="H54.0" />
+        <x-table.td value="23" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT30') ? $data['BT30'] : '' }}" coord="BT30" />
         <x-table.td type="input" value="{{ $data->has('BU30') ? $data['BU30'] : '' }}" coord="BU30" />
         <x-table.td type="input" value="{{ $data->has('BV30') ? $data['BV30'] : '' }}" coord="BV30" />
@@ -536,8 +536,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Болезни уха и сосцевидного отростка, из них: H60 - H95" />
-        <x-table.td type="header" value="H60 - H95" />
-        <x-table.td type="header" value="24" />
+        <x-table.td value="H60 - H95" />
+        <x-table.td value="24" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT31') ? $data['BT31'] : '' }}" coord="BT31" />
         <x-table.td type="input" value="{{ $data->has('BU31') ? $data['BU31'] : '' }}" coord="BU31" />
         <x-table.td type="input" value="{{ $data->has('BV31') ? $data['BV31'] : '' }}" coord="BV31" />
@@ -556,8 +556,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="кондуктивная потеря слуха двусторонняя: H90" />
-        <x-table.td type="header" value="H90" />
-        <x-table.td type="header" value="25" />
+        <x-table.td value="H90" />
+        <x-table.td value="25" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT32') ? $data['BT32'] : '' }}" coord="BT32" />
         <x-table.td type="input" value="{{ $data->has('BU32') ? $data['BU32'] : '' }}" coord="BU32" />
         <x-table.td type="input" value="{{ $data->has('BV32') ? $data['BV32'] : '' }}" coord="BV32" />
@@ -576,8 +576,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="нейросенсорная потеря слуха двусторонняя: H90.3" />
-        <x-table.td type="header" value="H90.3" />
-        <x-table.td type="header" value="26" />
+        <x-table.td value="H90.3" />
+        <x-table.td value="26" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT33') ? $data['BT33'] : '' }}" coord="BT33" />
         <x-table.td type="input" value="{{ $data->has('BU33') ? $data['BU33'] : '' }}" coord="BU33" />
         <x-table.td type="input" value="{{ $data->has('BV33') ? $data['BV33'] : '' }}" coord="BV33" />
@@ -596,8 +596,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Болезни системы кровообращения: I00 - I99" />
-        <x-table.td type="header" value="I00 - I99" />
-        <x-table.td type="header" value="27" />
+        <x-table.td value="I00 - I99" />
+        <x-table.td value="27" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT34') ? $data['BT34'] : '' }}" coord="BT34" />
         <x-table.td type="input" value="{{ $data->has('BU34') ? $data['BU34'] : '' }}" coord="BU34" />
         <x-table.td type="input" value="{{ $data->has('BV34') ? $data['BV34'] : '' }}" coord="BV34" />
@@ -616,8 +616,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Болезнь органов дыхания, из них: J00 - J99" />
-        <x-table.td type="header" value="J00 - J99" />
-        <x-table.td type="header" value="28" />
+        <x-table.td value="J00 - J99" />
+        <x-table.td value="28" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT35') ? $data['BT35'] : '' }}" coord="BT35" />
         <x-table.td type="input" value="{{ $data->has('BU35') ? $data['BU35'] : '' }}" coord="BU35" />
         <x-table.td type="input" value="{{ $data->has('BV35') ? $data['BV35'] : '' }}" coord="BV35" />
@@ -636,8 +636,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="астма, астматический статус: J45, J46" />
-        <x-table.td type="header" value="J45, J46" />
-        <x-table.td type="header" value="29" />
+        <x-table.td value="J45, J46" />
+        <x-table.td value="29" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT36') ? $data['BT36'] : '' }}" coord="BT36" />
         <x-table.td type="input" value="{{ $data->has('BU36') ? $data['BU36'] : '' }}" coord="BU36" />
         <x-table.td type="input" value="{{ $data->has('BV36') ? $data['BV36'] : '' }}" coord="BV36" />
@@ -656,8 +656,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Болезни органов пищеварения, из них: K00 - K93" />
-        <x-table.td type="header" value="K00 - K93" />
-        <x-table.td type="header" value="30" />
+        <x-table.td value="K00 - K93" />
+        <x-table.td value="30" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT37') ? $data['BT37'] : '' }}" coord="BT37" />
         <x-table.td type="input" value="{{ $data->has('BU37') ? $data['BU37'] : '' }}" coord="BU37" />
         <x-table.td type="input" value="{{ $data->has('BV37') ? $data['BV37'] : '' }}" coord="BV37" />
@@ -676,8 +676,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="болезни пищевода, желудка и двенадцатиперстной кишки: K20 - K31" />
-        <x-table.td type="header" value="K20 - K31" />
-        <x-table.td type="header" value="31" />
+        <x-table.td value="K20 - K31" />
+        <x-table.td value="31" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT38') ? $data['BT38'] : '' }}" coord="BT38" />
         <x-table.td type="input" value="{{ $data->has('BU38') ? $data['BU38'] : '' }}" coord="BU38" />
         <x-table.td type="input" value="{{ $data->has('BV38') ? $data['BV38'] : '' }}" coord="BV38" />
@@ -697,8 +697,8 @@
     <tr>
         <x-table.td type="header"
             value="болезни печени, желчного пузыря, желчевыводящих путей и поджелудочной железы: K80 - K87" />
-            <x-table.td type="header" value="K70 - K77,K80 - K87" />
-            <x-table.td type="header" value="32" />
+            <x-table.td value="K70 - K77,K80 - K87" />
+            <x-table.td value="32" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT39') ? $data['BT39'] : '' }}" coord="BT39" />
         <x-table.td type="input" value="{{ $data->has('BU39') ? $data['BU39'] : '' }}" coord="BU39" />
         <x-table.td type="input" value="{{ $data->has('BV39') ? $data['BV39'] : '' }}" coord="BV39" />
@@ -717,8 +717,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Болезни кожи и подкожной клетчатки, из них: L00 - L99" />
-        <x-table.td type="header" value="L00 - L99" />
-        <x-table.td type="header" value="33" />
+        <x-table.td value="L00 - L99" />
+        <x-table.td value="33" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT40') ? $data['BT40'] : '' }}" coord="BT40" />
         <x-table.td type="input" value="{{ $data->has('BU40') ? $data['BU40'] : '' }}" coord="BU40" />
         <x-table.td type="input" value="{{ $data->has('BV40') ? $data['BV40'] : '' }}" coord="BV40" />
@@ -737,8 +737,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="атопический дерматит:" />
-        <x-table.td type="header" value="L20" />
-        <x-table.td type="header" value="34" />
+        <x-table.td value="L20" />
+        <x-table.td value="34" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT41') ? $data['BT41'] : '' }}" coord="BT41" />
         <x-table.td type="input" value="{{ $data->has('BU41') ? $data['BU41'] : '' }}" coord="BU41" />
         <x-table.td type="input" value="{{ $data->has('BV41') ? $data['BV41'] : '' }}" coord="BV41" />
@@ -758,8 +758,8 @@
     <tr>
         <x-table.td type="header"
             value="Болезни костно-мышечной системы и соединительной ткани, из них: M00 - M99" />
-            <x-table.td type="header" value="M00 - M99" />
-            <x-table.td type="header" value="35" />
+            <x-table.td value="M00 - M99" />
+            <x-table.td value="35" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT42') ? $data['BT42'] : '' }}" coord="BT42" />
         <x-table.td type="input" value="{{ $data->has('BU42') ? $data['BU42'] : '' }}" coord="BU42" />
         <x-table.td type="input" value="{{ $data->has('BV42') ? $data['BV42'] : '' }}" coord="BV42" />
@@ -778,8 +778,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="реактивные артропатии: M02" />
-        <x-table.td type="header" value="M02" />
-        <x-table.td type="header" value="36" />
+        <x-table.td value="M02" />
+        <x-table.td value="36" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT43') ? $data['BT43'] : '' }}" coord="BT43" />
         <x-table.td type="input" value="{{ $data->has('BU43') ? $data['BU43'] : '' }}" coord="BU43" />
         <x-table.td type="input" value="{{ $data->has('BV43') ? $data['BV43'] : '' }}" coord="BV43" />
@@ -798,8 +798,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="юношеский (ювенильный) артрит: M08" />
-        <x-table.td type="header" value="M08" />
-        <x-table.td type="header" value="37" />
+        <x-table.td value="M08" />
+        <x-table.td value="37" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT44') ? $data['BT44'] : '' }}" coord="BT44" />
         <x-table.td type="input" value="{{ $data->has('BU44') ? $data['BU44'] : '' }}" coord="BU44" />
         <x-table.td type="input" value="{{ $data->has('BV44') ? $data['BV44'] : '' }}" coord="BV44" />
@@ -819,8 +819,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="системные поражения соединительной ткани: M30 - M36" />
-        <x-table.td type="header" value="M30 - M36" />
-        <x-table.td type="header" value="38" />
+        <x-table.td value="M30 - M36" />
+        <x-table.td value="38" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT45') ? $data['BT45'] : '' }}" coord="BT45" />
         <x-table.td type="input" value="{{ $data->has('BU45') ? $data['BU45'] : '' }}" coord="BU45" />
         <x-table.td type="input" value="{{ $data->has('BV45') ? $data['BV45'] : '' }}" coord="BV45" />
@@ -839,8 +839,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="остеопатии и хондропатии:M80 - M94" />
-        <x-table.td type="header" value="M80 - M94" />
-        <x-table.td type="header" value="39" />
+        <x-table.td value="M80 - M94" />
+        <x-table.td value="39" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT46') ? $data['BT46'] : '' }}" coord="BT46" />
         <x-table.td type="input" value="{{ $data->has('BU46') ? $data['BU46'] : '' }}" coord="BU46" />
         <x-table.td type="input" value="{{ $data->has('BV46') ? $data['BV46'] : '' }}" coord="BV46" />
@@ -859,8 +859,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Болезни мочеполовой системы, из них: N00 - N99" />
-        <x-table.td type="header" value="N00 - N99" />
-        <x-table.td type="header" value="40" />
+        <x-table.td value="N00 - N99" />
+        <x-table.td value="40" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT47') ? $data['BT47'] : '' }}" coord="BT47" />
         <x-table.td type="input" value="{{ $data->has('BU47') ? $data['BU47'] : '' }}" coord="BU47" />
         <x-table.td type="input" value="{{ $data->has('BV47') ? $data['BV47'] : '' }}" coord="BV47" />
@@ -879,8 +879,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="гломерулярные, тубулоинтерстициальные болезни почек, почечная недостаточность, другие болезни почек N00 - N19, N25 - N29" />
-        <x-table.td type="header" value="N00 - N19, N25 - N29" />
-        <x-table.td type="header" value="41" />
+        <x-table.td value="N00 - N19, N25 - N29" />
+        <x-table.td value="41" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT48') ? $data['BT48'] : '' }}" coord="BT48" />
         <x-table.td type="input" value="{{ $data->has('BU48') ? $data['BU48'] : '' }}" coord="BU48" />
         <x-table.td type="input" value="{{ $data->has('BV48') ? $data['BV48'] : '' }}" coord="BV48" />
@@ -899,8 +899,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Беременность, роды и послеродовой период: O00 - O99" />
-        <x-table.td type="header" value="O00 - O99" />
-        <x-table.td type="header" value="42" />
+        <x-table.td value="O00 - O99" />
+        <x-table.td value="42" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT49') ? $data['BT49'] : '' }}" coord="BT49" />
         <x-table.td type="input" value="{{ $data->has('BU49') ? $data['BU49'] : '' }}" coord="BU49" />
         <x-table.td type="input" value="{{ $data->has('BV49') ? $data['BV49'] : '' }}" coord="BV49" />
@@ -919,8 +919,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Отдельные состояния, возникающие в перинатальном периоде: P05 - P96" />
-        <x-table.td type="header" value="P05 - P96" />
-        <x-table.td type="header" value="43" />
+        <x-table.td value="P05 - P96" />
+        <x-table.td value="43" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT50') ? $data['BT50'] : '' }}" coord="BT50" />
         <x-table.td type="input" value="{{ $data->has('BU50') ? $data['BU50'] : '' }}" coord="BU50" />
         <x-table.td type="input" value="{{ $data->has('BV50') ? $data['BV50'] : '' }}" coord="BV50" />
@@ -939,8 +939,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Врожденные аномалии (пороки развития), деформации и хромосомные нарушения, из них: Q00 - Q99" />
-        <x-table.td type="header" value="Q00 - Q99" />
-        <x-table.td type="header" value="44" />
+        <x-table.td value="Q00 - Q99" />
+        <x-table.td value="44" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT51') ? $data['BT51'] : '' }}" coord="BT51" />
         <x-table.td type="input" value="{{ $data->has('BU51') ? $data['BU51'] : '' }}" coord="BU51" />
         <x-table.td type="input" value="{{ $data->has('BV51') ? $data['BV51'] : '' }}" coord="BV51" />
@@ -959,8 +959,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="врожденные аномалии (пороки развития) центральной нервной системы и органов чувств: Q00 - Q07" />
-        <x-table.td type="header" value="Q00 - Q07" />
-        <x-table.td type="header" value="45" />
+        <x-table.td value="Q00 - Q07" />
+        <x-table.td value="45" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT52') ? $data['BT52'] : '' }}" coord="BT52" />
         <x-table.td type="input" value="{{ $data->has('BU52') ? $data['BU52'] : '' }}" coord="BU52" />
         <x-table.td type="input" value="{{ $data->has('BV52') ? $data['BV52'] : '' }}" coord="BV52" />
@@ -979,8 +979,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="врожденные аномалии (пороки развития) системы кровообращения:Q20 - Q28" />
-        <x-table.td type="header" value="Q20 - Q28" />
-        <x-table.td type="header" value="46" />
+        <x-table.td value="Q20 - Q28" />
+        <x-table.td value="46" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT53') ? $data['BT53'] : '' }}" coord="BT53" />
         <x-table.td type="input" value="{{ $data->has('BU53') ? $data['BU53'] : '' }}" coord="BU53" />
         <x-table.td type="input" value="{{ $data->has('BV53') ? $data['BV53'] : '' }}" coord="BV53" />
@@ -999,8 +999,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="хромосомные аномалии, не классифицированные в других рубриках, из них: Q90 - Q99" />
-        <x-table.td type="header" value="Q90 - Q99" />
-        <x-table.td type="header" value="47" />
+        <x-table.td value="Q90 - Q99" />
+        <x-table.td value="47" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT54') ? $data['BT54'] : '' }}" coord="BT54" />
         <x-table.td type="input" value="{{ $data->has('BU54') ? $data['BU54'] : '' }}" coord="BU54" />
         <x-table.td type="input" value="{{ $data->has('BV54') ? $data['BV54'] : '' }}" coord="BV54" />
@@ -1019,8 +1019,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Травмы, отравления и некоторые другие последствия воздействия внешних причин: S00 - T98" />
-        <x-table.td type="header" value="S00 - T98" />
-        <x-table.td type="header" value="48" />
+        <x-table.td value="S00 - T98" />
+        <x-table.td value="48" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT55') ? $data['BT55'] : '' }}" coord="BT55" />
         <x-table.td type="input" value="{{ $data->has('BU55') ? $data['BU55'] : '' }}" coord="BU55" />
         <x-table.td type="input" value="{{ $data->has('BV55') ? $data['BV55'] : '' }}" coord="BV55" />
@@ -1039,8 +1039,8 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Факторы, влияющие на состояние здоровья населения и обращения в медицинские организации:Z00-Z99" />
-        <x-table.td type="header" value="Z00-Z99" />
-        <x-table.td type="header" value="49" />
+        <x-table.td value="Z00-Z99" />
+        <x-table.td value="49" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT56') ? $data['BT56'] : '' }}" coord="BT56" />
         <x-table.td type="input" value="{{ $data->has('BU56') ? $data['BU56'] : '' }}" coord="BU56" />
         <x-table.td type="input" value="{{ $data->has('BV56') ? $data['BV56'] : '' }}" coord="BV56" />

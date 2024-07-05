@@ -1,9 +1,12 @@
 <div class="admin-page-box">
-    <div class="page-meny">
-        <x-page.meny>
-            {{ $meny }}
-        </x-page.meny>
-    </div>
+    @isset($meny)
+        <div class="page-meny">
+            <x-page.meny>
+                {{ $meny }}
+            </x-page.meny>
+        </div>
+    @endisset
+
     <div class="division-list mini-scroll">
         {{ $divisionList }}
     </div>

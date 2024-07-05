@@ -37,7 +37,7 @@
 <tbody>
     <tr>
         <x-table.td type="header" value="Всего медицинских организаций, в том числе:" />
-        <x-table.td type="header" value="01" />
+        <x-table.td value="01" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM6') ? $data['BM6'] : '' }}" coord="BM6" />
         <x-table.td type="input" value="{{ $data->has('BN6') ? $data['BN6'] : '' }}" coord="BN6" />
         <x-table.td type="input" value="{{ $data->has('BO6') ? $data['BO6'] : '' }}" coord="BO6" />
@@ -49,7 +49,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Больница" />
-        <x-table.td type="header" value="02" />
+        <x-table.td value="02" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM7') ? $data['BM7'] : '' }}" coord="BM7" />
         <x-table.td type="input" value="{{ $data->has('BN7') ? $data['BN7'] : '' }}" coord="BN7" />
         <x-table.td type="input" value="{{ $data->has('BO7') ? $data['BO7'] : '' }}" coord="BO7" />
@@ -61,7 +61,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Детская больница" />
-        <x-table.td type="header" value="03" />
+        <x-table.td value="03" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM8') ? $data['BM8'] : '' }}" coord="BM8" />
         <x-table.td type="input" value="{{ $data->has('BN8') ? $data['BN8'] : '' }}" coord="BN8" />
         <x-table.td type="input" value="{{ $data->has('BO8') ? $data['BO8'] : '' }}" coord="BO8" />
@@ -73,7 +73,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Участковая больница" />
-        <x-table.td type="header" value="04" />
+        <x-table.td value="04" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM9') ? $data['BM9'] : '' }}" coord="BM9" />
         <x-table.td type="input" value="{{ $data->has('BN9') ? $data['BN9'] : '' }}" coord="BN9" />
         <x-table.td type="input" value="{{ $data->has('BO9') ? $data['BO9'] : '' }}" coord="BO9" />
@@ -85,7 +85,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Госпиталь" />
-        <x-table.td type="header" value="05" />
+        <x-table.td value="05" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM10') ? $data['BM10'] : '' }}" coord="BM10" />
         <x-table.td type="input" value="{{ $data->has('BN10') ? $data['BN10'] : '' }}" coord="BN10" />
         <x-table.td type="input" value="{{ $data->has('BO10') ? $data['BO10'] : '' }}" coord="BO10" />
@@ -97,7 +97,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Медико-санитарная часть, в том числе центральная" />
-        <x-table.td type="header" value="06" />
+        <x-table.td value="06" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM11') ? $data['BM11'] : '' }}" coord="BM11" />
         <x-table.td type="input" value="{{ $data->has('BN11') ? $data['BN11'] : '' }}" coord="BN11" />
         <x-table.td type="input" value="{{ $data->has('BO11') ? $data['BO11'] : '' }}" coord="BO11" />
@@ -109,7 +109,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Диспансер" />
-        <x-table.td type="header" value="07" />
+        <x-table.td value="07" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM12') ? $data['BM12'] : '' }}" coord="BM12" />
         <x-table.td type="input" value="{{ $data->has('BN12') ? $data['BN12'] : '' }}" coord="BN12" />
         <x-table.td type="input" value="{{ $data->has('BO12') ? $data['BO12'] : '' }}" coord="BO12" />
@@ -121,7 +121,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Амбулатория, в том числе врачебная" />
-        <x-table.td type="header" value="08" />
+        <x-table.td value="08" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM13') ? $data['BM13'] : '' }}" coord="BM13" />
         <x-table.td type="input" value="{{ $data->has('BN13') ? $data['BN13'] : '' }}" coord="BN13" />
         <x-table.td type="input" value="{{ $data->has('BO13') ? $data['BO13'] : '' }}" coord="BO13" />
@@ -133,7 +133,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Поликлиника" />
-        <x-table.td type="header" value="09" />
+        <x-table.td value="09" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM14') ? $data['BM14'] : '' }}" coord="BM14" />
         <x-table.td type="input" value="{{ $data->has('BN14') ? $data['BN14'] : '' }}" coord="BN14" />
         <x-table.td type="input" value="{{ $data->has('BO14') ? $data['BO14'] : '' }}" coord="BO14" />
@@ -145,7 +145,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Детская поликлиника" />
-        <x-table.td type="header" value="10" />
+        <x-table.td value="10" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM15') ? $data['BM15'] : '' }}" coord="BM15" />
         <x-table.td type="input" value="{{ $data->has('BN15') ? $data['BN15'] : '' }}" coord="BN15" />
         <x-table.td type="input" value="{{ $data->has('BO15') ? $data['BO15'] : '' }}" coord="BO15" />
@@ -157,7 +157,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Дом ребенка, в том числе специализированный" />
-        <x-table.td type="header" value="11" />
+        <x-table.td value="11" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM16') ? $data['BM16'] : '' }}" coord="BM16" />
         <x-table.td type="input" value="{{ $data->has('BN16') ? $data['BN16'] : '' }}" coord="BN16" />
         <x-table.td type="input" value="{{ $data->has('BO16') ? $data['BO16'] : '' }}" coord="BO16" />
@@ -169,7 +169,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Центры - всего, в том числе:" />
-        <x-table.td type="header" value="12" />
+        <x-table.td value="12" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM17') ? $data['BM17'] : '' }}" coord="BM17" />
         <x-table.td type="input" value="{{ $data->has('BN17') ? $data['BN17'] : '' }}" coord="BN17" />
         <x-table.td type="input" value="{{ $data->has('BO17') ? $data['BO17'] : '' }}" coord="BO17" />
@@ -181,7 +181,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="лечебно-реабилитационный" />
-        <x-table.td type="header" value="13" />
+        <x-table.td value="13" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM18') ? $data['BM18'] : '' }}" coord="BM18" />
         <x-table.td type="input" value="{{ $data->has('BN18') ? $data['BN18'] : '' }}" coord="BN18" />
         <x-table.td type="input" value="{{ $data->has('BO18') ? $data['BO18'] : '' }}" coord="BO18" />
@@ -193,7 +193,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="лечебной физкультуры и спортивной медицины" />
-        <x-table.td type="header" value="14" />
+        <x-table.td value="14" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM19') ? $data['BM19'] : '' }}" coord="BM19" />
         <x-table.td type="input" value="{{ $data->has('BN19') ? $data['BN19'] : '' }}" coord="BN19" />
         <x-table.td type="input" value="{{ $data->has('BO19') ? $data['BO19'] : '' }}" coord="BO19" />
@@ -205,7 +205,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="мануальной терапии" />
-        <x-table.td type="header" value="15" />
+        <x-table.td value="15" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM20') ? $data['BM20'] : '' }}" coord="BM20" />
         <x-table.td type="input" value="{{ $data->has('BN20') ? $data['BN20'] : '' }}" coord="BN20" />
         <x-table.td type="input" value="{{ $data->has('BO20') ? $data['BO20'] : '' }}" coord="BO20" />
@@ -217,7 +217,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="медицинской реабилитации для воинов-интернационалистов" />
-        <x-table.td type="header" value="16" />
+        <x-table.td value="16" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM21') ? $data['BM21'] : '' }}" coord="BM21" />
         <x-table.td type="input" value="{{ $data->has('BN21') ? $data['BN21'] : '' }}" coord="BN21" />
         <x-table.td type="input" value="{{ $data->has('BO21') ? $data['BO21'] : '' }}" coord="BO21" />
@@ -229,7 +229,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="медицинской реабилитации, в том числе детский" />
-        <x-table.td type="header" value="17" />
+        <x-table.td value="17" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM22') ? $data['BM22'] : '' }}" coord="BM22" />
         <x-table.td type="input" value="{{ $data->has('BN22') ? $data['BN22'] : '' }}" coord="BN22" />
         <x-table.td type="input" value="{{ $data->has('BO22') ? $data['BO22'] : '' }}" coord="BO22" />
@@ -241,7 +241,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="медицинской реабилитации для инвалидов и детей-инвалидов с последствиями детского церебрального паралича" />
-        <x-table.td type="header" value="18" />
+        <x-table.td value="18" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM23') ? $data['BM23'] : '' }}" coord="BM23" />
         <x-table.td type="input" value="{{ $data->has('BN23') ? $data['BN23'] : '' }}" coord="BN23" />
         <x-table.td type="input" value="{{ $data->has('BO23') ? $data['BO23'] : '' }}" coord="BO23" />
@@ -253,7 +253,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="медицинской и социальной реабилитации, в том числе с отделением постоянного проживания инвалидов и детей-инвалидов с тяжелыми формами детского церебрального паралича, самостоятельно не передвигающихся и себя не обслуживающих" />
-        <x-table.td type="header" value="19" />
+        <x-table.td value="19" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM24') ? $data['BM24'] : '' }}" coord="BM24" />
         <x-table.td type="input" value="{{ $data->has('BN24') ? $data['BN24'] : '' }}" coord="BN24" />
         <x-table.td type="input" value="{{ $data->has('BO24') ? $data['BO24'] : '' }}" coord="BO24" />
@@ -265,7 +265,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="реабилитации слуха" />
-        <x-table.td type="header" value="20" />
+        <x-table.td value="20" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM25') ? $data['BM25'] : '' }}" coord="BM25" />
         <x-table.td type="input" value="{{ $data->has('BN25') ? $data['BN25'] : '' }}" coord="BN25" />
         <x-table.td type="input" value="{{ $data->has('BO25') ? $data['BO25'] : '' }}" coord="BO25" />
@@ -277,7 +277,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="реабилитационный" />
-        <x-table.td type="header" value="21" />
+        <x-table.td value="21" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM26') ? $data['BM26'] : '' }}" coord="BM26" />
         <x-table.td type="input" value="{{ $data->has('BN26') ? $data['BN26'] : '' }}" coord="BN26" />
         <x-table.td type="input" value="{{ $data->has('BO26') ? $data['BO26'] : '' }}" coord="BO26" />
@@ -289,7 +289,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Санаторно-курортная организация - всего, в том числе:" />
-        <x-table.td type="header" value="22" />
+        <x-table.td value="22" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM27') ? $data['BM27'] : '' }}" coord="BM27" />
         <x-table.td type="input" value="{{ $data->has('BN27') ? $data['BN27'] : '' }}" coord="BN27" />
         <x-table.td type="input" value="{{ $data->has('BO27') ? $data['BO27'] : '' }}" coord="BO27" />
@@ -301,7 +301,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="бальнеологическая лечебница" />
-        <x-table.td type="header" value="23" />
+        <x-table.td value="23" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM28') ? $data['BM28'] : '' }}" coord="BM28" />
         <x-table.td type="input" value="{{ $data->has('BN28') ? $data['BN28'] : '' }}" coord="BN28" />
         <x-table.td type="input" value="{{ $data->has('BO28') ? $data['BO28'] : '' }}" coord="BO28" />
@@ -313,7 +313,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="грязелечебница" />
-        <x-table.td type="header" value="24" />
+        <x-table.td value="24" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM29') ? $data['BM29'] : '' }}" coord="BM29" />
         <x-table.td type="input" value="{{ $data->has('BN29') ? $data['BN29'] : '' }}" coord="BN29" />
         <x-table.td type="input" value="{{ $data->has('BO29') ? $data['BO29'] : '' }}" coord="BO29" />
@@ -325,7 +325,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="курортная поликлиника" />
-        <x-table.td type="header" value="25" />
+        <x-table.td value="25" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM30') ? $data['BM30'] : '' }}" coord="BM30" />
         <x-table.td type="input" value="{{ $data->has('BN30') ? $data['BN30'] : '' }}" coord="BN30" />
         <x-table.td type="input" value="{{ $data->has('BO30') ? $data['BO30'] : '' }}" coord="BO30" />
@@ -337,7 +337,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="санаторий" />
-        <x-table.td type="header" value="26" />
+        <x-table.td value="26" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM31') ? $data['BM31'] : '' }}" coord="BM31" />
         <x-table.td type="input" value="{{ $data->has('BN31') ? $data['BN31'] : '' }}" coord="BN31" />
         <x-table.td type="input" value="{{ $data->has('BO31') ? $data['BO31'] : '' }}" coord="BO31" />
@@ -349,7 +349,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="санатории для детей, в том числе для детей с родителями" />
-        <x-table.td type="header" value="27" />
+        <x-table.td value="27" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM32') ? $data['BM32'] : '' }}" coord="BM32" />
         <x-table.td type="input" value="{{ $data->has('BN32') ? $data['BN32'] : '' }}" coord="BN32" />
         <x-table.td type="input" value="{{ $data->has('BO32') ? $data['BO32'] : '' }}" coord="BO32" />
@@ -361,7 +361,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="санаторий-профилакторий" />
-        <x-table.td type="header" value="28" />
+        <x-table.td value="28" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM33') ? $data['BM33'] : '' }}" coord="BM33" />
         <x-table.td type="input" value="{{ $data->has('BN33') ? $data['BN33'] : '' }}" coord="BN33" />
         <x-table.td type="input" value="{{ $data->has('BO33') ? $data['BO33'] : '' }}" coord="BO33" />
@@ -373,7 +373,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="санаторный оздоровительный лагерь круглогодичного действия" />
-        <x-table.td type="header" value="29" />
+        <x-table.td value="29" h='center' />
         <x-table.td type="input" value="{{ $data->has('BM34') ? $data['BM34'] : '' }}" coord="BM34" />
         <x-table.td type="input" value="{{ $data->has('BN34') ? $data['BN34'] : '' }}" coord="BN34" />
         <x-table.td type="input" value="{{ $data->has('BO34') ? $data['BO34'] : '' }}" coord="BO34" />

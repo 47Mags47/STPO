@@ -4,7 +4,12 @@
     position: absolute
 
     display: grid
-    grid-template-rows: 50px auto 25px
+    grid-template-rows: 50px auto 30px
+    grid-template-columns: 100%
+    &.box-2
+        grid-template-rows: auto 30px
+        width: 100%
+        height: 100%
     form
         width: 100%
         max-width: 100%
@@ -23,13 +28,14 @@
             thead
                 position: sticky
                 top: 0
-                z-index: 1
+                z-index: 2
                 th
                     background: white
             tbody tr .td-header
                 position: sticky
                 left: 0
-                background: white
+                background: #fff
+                z-index: 1
             thead th,
             tbody td
                 margin: 0
@@ -37,17 +43,19 @@
             th
                 border-bottom: 1px solid
                 border-right: 1px solid
-                font-size: .9rem
+                font-size: .8rem
             td
                 border-bottom: 1px solid
                 border-right: 1px solid
                 padding: 0
-                font-size: .9rem
+                font-size: .8rem
             tbody tr:first-child td
                 border-top: 1px solid
             // Разметка
             td,th,div,span
                 cursor: default
+            td[h='center']
+                text-align: center
             td,th
                 div,span,input
                     font-size: inherit
@@ -78,22 +86,21 @@
         height: auto
         ul
             display: flex
-            align-items: center
             flex-wrap: nowrap
-            overflow-y: auto
+
             width: 100%
             height: 100%
             background: #ddd
+            overflow-y: scroll
             li
                 height: 100%
-                padding: 0 3px
+                padding: 0 5px
                 list-style: none
                 display: grid
                 justify-content: center
                 align-content: center
                 border-right: 2px solid #999
-                min-width: 25px
-                width: auto
+                width: initial
                 a
                     color: #666
                     font-weight: bold

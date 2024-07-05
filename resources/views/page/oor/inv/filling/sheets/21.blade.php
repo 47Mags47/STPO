@@ -19,7 +19,7 @@
 <tbody>
     <tr>
         <x-table.td type="header" value="Численность выпускников-инвалидов 9 и 11 классов, охваченных профориентационной работой" />
-        <x-table.td type="header" value="01" />
+        <x-table.td value="01" h='center' />
         <x-table.td type="input" value="{{ $data->has('DO5') ? $data['DO5'] : '' }}" coord="DO5" />
         <x-table.td type="input" value="{{ $data->has('DP5') ? $data['DP5'] : '' }}" coord="DP5" />
     </tr>

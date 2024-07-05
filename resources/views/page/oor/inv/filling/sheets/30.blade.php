@@ -11,7 +11,7 @@
 <tbody>
     <tr>
         <x-table.td type="header" value="Сведения о проведении оценки" />
-        <x-table.td type="header" value="01" />
+        <x-table.td value="01" h='center' />
         <x-table.td type="input" value="{{ $data->has('CA5') ? $data['CA5'] : '' }}" coord="CA5" />
         <x-table.td type="input" value="{{ $data->has('CB5') ? $date : '' }}" coord="CB5" />
         <x-table.td type="input" value="{{ $data->has('CC5') ? $data['CC5'] : '' }}" coord="CC5" />
