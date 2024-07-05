@@ -9,8 +9,6 @@ export function load() {
     var positionCetner = (containerOuterWidth / 2 - itemOuterWidth / 2);
     var scrollLeftUpd = containerScrollLeft + itemOffsetLeft - positionCetner;
 
-    console.log(elem);
-
     $('.content .sheets ul').animate({
         scrollLeft: scrollLeftUpd
     }, 800);

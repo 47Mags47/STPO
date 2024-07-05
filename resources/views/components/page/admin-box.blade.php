@@ -7,7 +7,7 @@
         </div>
     @endisset
 
-    <div class="division-list mini-scroll">
+    <div class="division-list mini-scroll open">
         {{ $divisionList }}
     </div>
     <div class="content">

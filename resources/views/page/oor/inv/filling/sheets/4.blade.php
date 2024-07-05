@@ -38,7 +38,6 @@
         <x-table.td type="header"
             value=" Численность инвалидов в возрасте 18 лет и старше и детей-инвалидов, <br>
                         имеющих рекомендации в ИПРА/ ИПР по направлениям реабилитации и абилитации" />
-                        <x-table.td value="01" h='center' />
         <x-table.td value="01" h='center' />
         <x-table.td type="input" value="{{ $data->has('EJ7') ? $data['EJ7'] : '' }}" coord="EJ7" />
         <x-table.td type="input" value="{{ $data->has('EK7') ? $data['EK7'] : '' }}" coord="EK7" />

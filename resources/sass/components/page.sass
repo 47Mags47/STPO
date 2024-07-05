@@ -9,18 +9,24 @@
         flex: 1 100%
         height: 50px
     .division-list
-        width: 350px
+        position: relative
         height: calc( 100% - 50px )
         max-height: calc( 100% - 50px )
         overflow-y: scroll
         background: var(--header-bottom-color)
         border-top: 1px solid gray
+
+        width: 1px
+        transition: var(--all-transition)
+        &.open
+            width: 350px
         ul
             display: flex
             flex-direction: column
+            overflow: hidden
             li
                 list-style: none
-                width: 100%
+                width: 350px
                 &:hover
                     background: #252c47
                     a
@@ -45,8 +51,6 @@
                         cursor: default
                 &[opened="1"]
                     background: #252c47
-
-
     .content
         position: relative
         flex: 1

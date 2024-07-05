@@ -16,7 +16,7 @@
 <tbody>
     <tr>
         <x-table.td type="header" value="Количество пунктов в прокате ТСР" />
-        <x-table.td value="01" />
+        <x-table.td value="01" h='center' />
         <x-table.td type="input" value="{{ $data->has('CA5') ? $data['CA5'] : '' }}" coord="CA5" />
         <x-table.td type="input" value="{{ $data->has('CB5') ? $data['CB5'] : '' }}" coord="CB5" />
 
