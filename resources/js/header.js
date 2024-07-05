@@ -48,5 +48,15 @@ export function load() {
             alert('У вас нет доступа к данному модулю\nОбратитесь к своему администратору или программисту')
         })
     })
+
+    //burger
+    $('#burger-check').on('change', function () {
+        let box = $($('.burger-box').attr('box'))
+        if($(this).prop('checked')){
+            box.addClass('open')
+        }else{
+            box.removeClass('open')
+        }
+    })
 }
 
