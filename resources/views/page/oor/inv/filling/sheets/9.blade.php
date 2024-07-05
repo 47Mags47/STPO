@@ -35,7 +35,7 @@
     <tr>
         <x-table.td type="header"
             value="Численность инвалидов в возрасте 18 лет и старше и детей-инвалидов, получивших услуги по санаторно-курортному лечению:" />
-        <x-table.td type="header" value="01" />
+        <x-table.td value="01" />
         <x-table.td type="input" value="{{ $data->has('CA7') ? $data['CA6'] : '' }}" coord="CA6" />
         <x-table.td type="input" value="{{ $data->has('CB7') ? $data['CB6'] : '' }}" coord="CB6" />
         <x-table.td type="input" value="{{ $data->has('CC7') ? $data['CC6'] : '' }}" coord="CC6" />

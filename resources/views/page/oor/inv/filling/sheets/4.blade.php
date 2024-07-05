@@ -38,7 +38,8 @@
         <x-table.td type="header"
             value=" Численность инвалидов в возрасте 18 лет и старше и детей-инвалидов, <br>
                         имеющих рекомендации в ИПРА/ ИПР по направлениям реабилитации и абилитации" />
-        <x-table.td type="header" value="01" />
+                        <x-table.td value="01" h='center' />
+        <x-table.td value="01" h='center' />
         <x-table.td type="input" value="{{ $data->has('EJ7') ? $data['EJ7'] : '' }}" coord="EJ7" />
         <x-table.td type="input" value="{{ $data->has('EK7') ? $data['EK7'] : '' }}" coord="EK7" />
         <x-table.td type="input" value="{{ $data->has('EL7') ? $data['EL7'] : '' }}" coord="EL7" />
@@ -50,7 +51,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="по медицинской реабилитации" />
-        <x-table.td type="header" value="02" />
+        <x-table.td value="02" h='center' />
         <x-table.td type="input" value="{{ $data->has('EJ8') ? $data['EJ8'] : '' }}" coord="EJ8" />
         <x-table.td type="input" value="{{ $data->has('EK8') ? $data['EK8'] : '' }}" coord="EK8" />
         <x-table.td type="input" value="{{ $data->has('EL8') ? $data['EL8'] : '' }}" coord="EL8" />
@@ -62,7 +63,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="по реконструктивной хирургии" />
-        <x-table.td type="header" value="03" />
+        <x-table.td value="03" h='center' />
         <x-table.td type="input" value="{{ $data->has('EJ9') ? $data['EJ9'] : '' }}" coord="EJ9" />
         <x-table.td type="input" value="{{ $data->has('EK9') ? $data['EK9'] : '' }}" coord="EK9" />
         <x-table.td type="input" value="{{ $data->has('EL9') ? $data['EL9'] : '' }}" coord="EL9" />
@@ -74,7 +75,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="по протезированию и ортезированию" />
-        <x-table.td type="header" value="04" />
+        <x-table.td value="04" h='center'/>
         <x-table.td type="input" value="{{ $data->has('EJ10') ? $data['EJ10'] : '' }}" coord="EJ10" />
         <x-table.td type="input" value="{{ $data->has('EK10') ? $data['EK10'] : '' }}" coord="EK10" />
         <x-table.td type="input" value="{{ $data->has('EL10') ? $data['EL10'] : '' }}" coord="EL10" />
@@ -86,7 +87,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="по санаторно-курортному лечению " />
-        <x-table.td type="header" value="05" />
+        <x-table.td value="05" h='center' />
         <x-table.td type="input" value="{{ $data->has('EJ11') ? $data['EJ11'] : '' }}" coord="EJ11" />
         <x-table.td type="input" value="{{ $data->has('EK11') ? $data['EK11'] : '' }}" coord="EK11" />
         <x-table.td type="input" value="{{ $data->has('EL11') ? $data['EL11'] : '' }}" coord="EL11" />
@@ -98,7 +99,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="по профессиональной ориентации " />
-        <x-table.td type="header" value="06" />
+        <x-table.td value="06" h='center'/>
         <x-table.td type="input" value="{{ $data->has('EJ12') ? $data['EJ12'] : '' }}" coord="EJ12" />
         <x-table.td type="input" value="{{ $data->has('EK12') ? $data['EK12'] : '' }}" coord="EK12" />
         <x-table.td type="input" value="{{ $data->has('EL12') ? $data['EL12'] : '' }}" coord="EL12" />
@@ -111,7 +112,7 @@
     <tr>
         <x-table.td type="header"
             value="по общему и профессиональному образованию (рекомендации по условиям организации обучения) " />
-        <x-table.td type="header" value="07" />
+        <x-table.td value="07" h='center' />
         <x-table.td type="input" value="{{ $data->has('EJ13') ? $data['EJ13'] : '' }}" coord="EJ13" />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />
@@ -123,7 +124,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="по профессиональному обучению " />
-        <x-table.td type="header" value="08" />
+        <x-table.td value="08" h='center' />
         <x-table.td type="input" value="{{ $data->has('EJ14') ? $data['EJ14'] : '' }}" coord="EJ14" />
         <x-table.td type="input" value="{{ $data->has('EK14') ? $data['EK14'] : '' }}" coord="EK14" />
         <x-table.td type="input" value="{{ $data->has('EL14') ? $data['EL14'] : '' }}" coord="EL14" />
@@ -136,7 +137,7 @@
     <tr>
         <x-table.td type="header"
             value="по содействию в трудоустройстве (в том числе на специальных рабочих местах)" />
-        <x-table.td type="header" value="09" />
+        <x-table.td value="09" h='center' />
         <x-table.td type="input" value="{{ $data->has('EJ15') ? $data['EJ15'] : '' }}" coord="EJ15" />
         <x-table.td type="input" value="{{ $data->has('EK15') ? $data['EK15'] : '' }}" coord="EK15" />
         <x-table.td type="input" value="{{ $data->has('EL15') ? $data['EL15'] : '' }}" coord="EL15" />
@@ -148,7 +149,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="по производственной адаптации" />
-        <x-table.td type="header" value="10" />
+        <x-table.td value="10" h='center' />
         <x-table.td type="input" value="{{ $data->has('EJ16') ? $data['EJ16'] : '' }}" coord="EJ16" />
         <x-table.td type="input" value="{{ $data->has('EK16') ? $data['EK16'] : '' }}" coord="EK16" />
         <x-table.td type="input" value="{{ $data->has('EL16') ? $data['EL16'] : '' }}" coord="EL16" />
@@ -160,7 +161,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="по социально-средовой реабилитации и абилитации" />
-        <x-table.td type="header" value="11" />
+        <x-table.td value="11" h='center' />
         <x-table.td type="input" value="{{ $data->has('EJ17') ? $data['EJ17'] : '' }}" coord="EJ17" />
         <x-table.td type="input" value="{{ $data->has('EK17') ? $data['EK17'] : '' }}" coord="EK17" />
         <x-table.td type="input" value="{{ $data->has('EL17') ? $data['EL17'] : '' }}" coord="EL17" />
@@ -174,7 +175,7 @@
     <tr>
         <x-table.td type="header"
             value="по психолого-педагогической реабилитации и абилитации (рекомендации по условиям организации обучения)" />
-        <x-table.td type="header" value="12" />
+        <x-table.td value="12" h='center' />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />
@@ -186,7 +187,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="по социально-психологической реабилитации и абилитации" />
-        <x-table.td type="header" value="13" />
+        <x-table.td value="13" h='center' />
         <x-table.td type="input" value="{{ $data->has('EJ19') ? $data['EJ19'] : '' }}" coord="EJ19" />
         <x-table.td type="input" value="{{ $data->has('EK19') ? $data['EK19'] : '' }}" coord="EK19" />
         <x-table.td type="input" value="{{ $data->has('EL19') ? $data['EL19'] : '' }}" coord="EL19" />
@@ -198,7 +199,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="по социокультурной реабилитации и абилитации" />
-        <x-table.td type="header" value="14" />
+        <x-table.td value="14" h='center' />
         <x-table.td type="input" value="{{ $data->has('EJ20') ? $data['EJ20'] : '' }}" coord="EJ20" />
         <x-table.td type="input" value="{{ $data->has('EK20') ? $data['EK20'] : '' }}" coord="EK20" />
         <x-table.td type="input" value="{{ $data->has('EL20') ? $data['EL20'] : '' }}" coord="EL20" />
@@ -210,7 +211,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="по социокультурной реабилитации и абилитации" />
-        <x-table.td type="header" value="15" />
+        <x-table.td value="15" h='center' />
         <x-table.td type="input" value="{{ $data->has('EJ21') ? $data['EJ21'] : '' }}" coord="EJ21" />
         <x-table.td type="input" value="{{ $data->has('EK21') ? $data['EK21'] : '' }}" coord="EK21" />
         <x-table.td type="input" value="{{ $data->has('EL21') ? $data['EL21'] : '' }}" coord="EL21" />
@@ -222,7 +223,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="по физкультурно-оздоровительным мероприятиям, спорту" />
-        <x-table.td type="header" value="16" />
+        <x-table.td value="16" h='center' />
         <x-table.td type="input" value="{{ $data->has('EJ22') ? $data['EJ22'] : '' }}" coord="EJ22" />
         <x-table.td type="input" value="{{ $data->has('EK22') ? $data['EK22'] : '' }}" coord="EK22" />
         <x-table.td type="input" value="{{ $data->has('EL22') ? $data['EL22'] : '' }}" coord="EL22" />
@@ -234,7 +235,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="по обеспечению техническими средствами реабилитации" />
-        <x-table.td type="header" value="17" />
+        <x-table.td value="17" h='center' />
         <x-table.td type="input" value="{{ $data->has('EJ23') ? $data['EJ23'] : '' }}" coord="EJ23" />
         <x-table.td type="input" value="{{ $data->has('EK23') ? $data['EK23'] : '' }}" coord="EK23" />
         <x-table.td type="input" value="{{ $data->has('EL23') ? $data['EL23'] : '' }}" coord="EL23" />

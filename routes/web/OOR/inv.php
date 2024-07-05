@@ -14,5 +14,7 @@ Route::middleware(['auth', 'has-access:inv'])->group(function () {
 
     Route::middleware('modul-admin:inv')->group(function () {
         Route::get('/inv/inspector', [InvController::class, 'inspector'])->name('inv.inspector');
+        Route::get('/inv/inspector/{division}/{sheet}/show', [InvController::class, 'raportShow'])->name('inv.inspector.raport.show');
+        Route::get('/inv/inspector/{raport}/download', [InvController::class, 'RaportDownload'])->name('inv.inspector.raport.download');
     });
 });

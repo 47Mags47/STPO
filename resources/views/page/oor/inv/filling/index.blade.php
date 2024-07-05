@@ -21,5 +21,4 @@
             </x-excel.sheet-list>
         </x-slot:sheets>
     </x-excel.box>
-
 @endsection

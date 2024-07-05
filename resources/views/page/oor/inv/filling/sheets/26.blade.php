@@ -67,7 +67,7 @@
 <tbody>
     <tr>
         <x-table.td type="header" value="Всего должностей специалистов, из них:" />
-        <x-table.td type="header" value="01" />
+        <x-table.td value="01" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF7') ? $data['BF7'] : '' }}" coord="BF7" />
         <x-table.td type="input" value="{{ $data->has('BG7') ? $data['BG7'] : '' }}" coord="BG7" />
         <x-table.td type="input" value="{{ $data->has('BH7') ? $data['BH7'] : '' }}" coord="BH7" />
@@ -92,7 +92,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Должности медицинских работников - всего, из них:" />
-        <x-table.td type="header" value="02" />
+        <x-table.td value="02" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF8') ? $data['BF8'] : '' }}" coord="BF8" />
         <x-table.td type="input" value="{{ $data->has('BG8') ? $data['BG8'] : '' }}" coord="BG8" />
         <x-table.td type="input" value="{{ $data->has('BH8') ? $data['BH8'] : '' }}" coord="BH8" />
@@ -117,7 +117,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="врачи - специалисты по профилю оказания медицинской помощи - всего, из них:" />
-        <x-table.td type="header" value="03" />
+        <x-table.td value="03" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF9') ? $data['BF9'] : '' }}" coord="BF9" />
         <x-table.td type="input" value="{{ $data->has('BG9') ? $data['BG9'] : '' }}" coord="BG9" />
         <x-table.td type="input" value="{{ $data->has('BH9') ? $data['BH9'] : '' }}" coord="BH9" />
@@ -142,7 +142,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="врач по медицинской реабилитации" />
-        <x-table.td type="header" value="04" />
+        <x-table.td value="04" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF10') ? $data['BF10'] : '' }}" coord="BF10" />
         <x-table.td type="input" value="{{ $data->has('BG10') ? $data['BG10'] : '' }}" coord="BG10" />
         <x-table.td type="input" value="{{ $data->has('BH10') ? $data['BH10'] : '' }}" coord="BH10" />
@@ -167,7 +167,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="врач по лечебной физкультуре" />
-        <x-table.td type="header" value="05" />
+        <x-table.td value="05" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF11') ? $data['BF11'] : '' }}" coord="BF11" />
         <x-table.td type="input" value="{{ $data->has('BG11') ? $data['BG11'] : '' }}" coord="BG11" />
         <x-table.td type="input" value="{{ $data->has('BH11') ? $data['BH11'] : '' }}" coord="BH11" />
@@ -192,7 +192,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="врач физиотерапевт" />
-        <x-table.td type="header" value="06" />
+        <x-table.td value="06" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF12') ? $data['BF12'] : '' }}" coord="BF12" />
         <x-table.td type="input" value="{{ $data->has('BG12') ? $data['BG12'] : '' }}" coord="BG12" />
         <x-table.td type="input" value="{{ $data->has('BH12') ? $data['BH12'] : '' }}" coord="BH12" />
@@ -217,7 +217,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="врач-диетолог" />
-        <x-table.td type="header" value="07" />
+        <x-table.td value="07" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF13') ? $data['BF13'] : '' }}" coord="BF13" />
         <x-table.td type="input" value="{{ $data->has('BG13') ? $data['BG13'] : '' }}" coord="BG13" />
         <x-table.td type="input" value="{{ $data->has('BH13') ? $data['BH13'] : '' }}" coord="BH13" />
@@ -242,7 +242,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="врач мануальной терапии" />
-        <x-table.td type="header" value="08" />
+        <x-table.td value="08" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF14') ? $data['BF14'] : '' }}" coord="BF14" />
         <x-table.td type="input" value="{{ $data->has('BG14') ? $data['BG14'] : '' }}" coord="BG14" />
         <x-table.td type="input" value="{{ $data->has('BH14') ? $data['BH14'] : '' }}" coord="BH14" />
@@ -267,7 +267,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="рефлексотерапевт" />
-        <x-table.td type="header" value="09" />
+        <x-table.td value="09" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF15') ? $data['BF15'] : '' }}" coord="BF15" />
         <x-table.td type="input" value="{{ $data->has('BG15') ? $data['BG15'] : '' }}" coord="BG15" />
         <x-table.td type="input" value="{{ $data->has('BH15') ? $data['BH15'] : '' }}" coord="BH15" />
@@ -292,7 +292,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="психотерапевт" />
-        <x-table.td type="header" value="10" />
+        <x-table.td value="10" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF16') ? $data['BF16'] : '' }}" coord="BF16" />
         <x-table.td type="input" value="{{ $data->has('BG16') ? $data['BG16'] : '' }}" coord="BG16" />
         <x-table.td type="input" value="{{ $data->has('BH16') ? $data['BH16'] : '' }}" coord="BH16" />
@@ -317,7 +317,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="специалисты с высшим немедицинским образованием - всего, в том числе:" />
-        <x-table.td type="header" value="11" />
+        <x-table.td value="11" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF17') ? $data['BF17'] : '' }}" coord="BF17" />
         <x-table.td type="input" value="{{ $data->has('BG17') ? $data['BG17'] : '' }}" coord="BG17" />
         <x-table.td type="input" value="{{ $data->has('BH17') ? $data['BH17'] : '' }}" coord="BH17" />
@@ -342,7 +342,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="медицинский психолог" />
-        <x-table.td type="header" value="12" />
+        <x-table.td value="12" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF18') ? $data['BF18'] : '' }}" coord="BF18" />
         <x-table.td type="input" value="{{ $data->has('BG18') ? $data['BG18'] : '' }}" coord="BG18" />
         <x-table.td type="input" value="{{ $data->has('BH18') ? $data['BH18'] : '' }}" coord="BH18" />
@@ -367,7 +367,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="нейропсихолог" />
-        <x-table.td type="header" value="13" />
+        <x-table.td value="13" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF19') ? $data['BF19'] : '' }}" coord="BF19" />
         <x-table.td type="input" value="{{ $data->has('BG19') ? $data['BG19'] : '' }}" coord="BG19" />
         <x-table.td type="input" value="{{ $data->has('BH19') ? $data['BH19'] : '' }}" coord="BH19" />
@@ -392,7 +392,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="средний медицинский персонал - всего, из них:" />
-        <x-table.td type="header" value="14" />
+        <x-table.td value="14" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF20') ? $data['BF20'] : '' }}" coord="BF20" />
         <x-table.td type="input" value="{{ $data->has('BG20') ? $data['BG20'] : '' }}" coord="BG20" />
         <x-table.td type="input" value="{{ $data->has('BH20') ? $data['BH20'] : '' }}" coord="BH20" />
@@ -417,7 +417,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="инструктор по лечебной физкультуре" />
-        <x-table.td type="header" value="15" />
+        <x-table.td value="15" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF21') ? $data['BF21'] : '' }}" coord="BF21" />
         <x-table.td type="input" value="{{ $data->has('BG21') ? $data['BG21'] : '' }}" coord="BG21" />
         <x-table.td type="input" value="{{ $data->has('BH21') ? $data['BH21'] : '' }}" coord="BH21" />
@@ -442,7 +442,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="инструктор-методист по лечебной физкультуре" />
-        <x-table.td type="header" value="16" />
+        <x-table.td value="16" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF22') ? $data['BF22'] : '' }}" coord="BF22" />
         <x-table.td type="input" value="{{ $data->has('BG22') ? $data['BG22'] : '' }}" coord="BG22" />
         <x-table.td type="input" value="{{ $data->has('BH22') ? $data['BH22'] : '' }}" coord="BH22" />
@@ -467,7 +467,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="медицинская сестра по медицинской реабилитации" />
-        <x-table.td type="header" value="17" />
+        <x-table.td value="17" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF23') ? $data['BF23'] : '' }}" coord="BF23" />
         <x-table.td type="input" value="{{ $data->has('BG23') ? $data['BG23'] : '' }}" coord="BG23" />
         <x-table.td type="input" value="{{ $data->has('BH23') ? $data['BH23'] : '' }}" coord="BH23" />
@@ -492,7 +492,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="медицинская сестра по массажу" />
-        <x-table.td type="header" value="18" />
+        <x-table.td value="18" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF24') ? $data['BF24'] : '' }}" coord="BF24" />
         <x-table.td type="input" value="{{ $data->has('BG24') ? $data['BG24'] : '' }}" coord="BG24" />
         <x-table.td type="input" value="{{ $data->has('BH24') ? $data['BH24'] : '' }}" coord="BH24" />
@@ -517,7 +517,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="медицинская сестра по физиотерапии" />
-        <x-table.td type="header" value="19" />
+        <x-table.td value="19" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF25') ? $data['BF25'] : '' }}" coord="BF25" />
         <x-table.td type="input" value="{{ $data->has('BG25') ? $data['BG25'] : '' }}" coord="BG25" />
         <x-table.td type="input" value="{{ $data->has('BH25') ? $data['BH25'] : '' }}" coord="BH25" />
@@ -542,7 +542,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="кинезиоспециалист" />
-        <x-table.td type="header" value="20" />
+        <x-table.td value="20" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF26') ? $data['BF26'] : '' }}" coord="BF26" />
         <x-table.td type="input" value="{{ $data->has('BG26') ? $data['BG26'] : '' }}" coord="BG26" />
         <x-table.td type="input" value="{{ $data->has('BH26') ? $data['BH26'] : '' }}" coord="BH26" />
@@ -567,7 +567,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="эргоспециалист" />
-        <x-table.td type="header" value="21" />
+        <x-table.td value="21" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF27') ? $data['BF27'] : '' }}" coord="BF27" />
         <x-table.td type="input" value="{{ $data->has('BG27') ? $data['BG27'] : '' }}" coord="BG27" />
         <x-table.td type="input" value="{{ $data->has('BH27') ? $data['BH27'] : '' }}" coord="BH27" />
@@ -592,7 +592,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Должности специалистов в области социального обслуживания - всего, из них:" />
-        <x-table.td type="header" value="22" />
+        <x-table.td value="22" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF28') ? $data['BF28'] : '' }}" coord="BF28" />
         <x-table.td type="input" value="{{ $data->has('BG28') ? $data['BG28'] : '' }}" coord="BG28" />
         <x-table.td type="input" value="{{ $data->has('BH28') ? $data['BH28'] : '' }}" coord="BH28" />
@@ -617,7 +617,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="специалист по социальной работе" />
-        <x-table.td type="header" value="23" />
+        <x-table.td value="23" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF29') ? $data['BF29'] : '' }}" coord="BF29" />
         <x-table.td type="input" value="{{ $data->has('BG29') ? $data['BG29'] : '' }}" coord="BG29" />
         <x-table.td type="input" value="{{ $data->has('BH29') ? $data['BH29'] : '' }}" coord="BH29" />
@@ -642,7 +642,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="социальный работник" />
-        <x-table.td type="header" value="24" />
+        <x-table.td value="24" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF30') ? $data['BF30'] : '' }}" coord="BF30" />
         <x-table.td type="input" value="{{ $data->has('BG30') ? $data['BG30'] : '' }}" coord="BG30" />
         <x-table.td type="input" value="{{ $data->has('BH30') ? $data['BH30'] : '' }}" coord="BH30" />
@@ -667,7 +667,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="специалист по реабилитационной работе в социальной сфере" />
-        <x-table.td type="header" value="25" />
+        <x-table.td value="25" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF31') ? $data['BF31'] : '' }}" coord="BF31" />
         <x-table.td type="input" value="{{ $data->has('BG31') ? $data['BG31'] : '' }}" coord="BG31" />
         <x-table.td type="input" value="{{ $data->has('BH31') ? $data['BH31'] : '' }}" coord="BH31" />
@@ -692,7 +692,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="психолог в социальной сфере" />
-        <x-table.td type="header" value="26" />
+        <x-table.td value="26" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF32') ? $data['BF32'] : '' }}" coord="BF32" />
         <x-table.td type="input" value="{{ $data->has('BG32') ? $data['BG32'] : '' }}" coord="BG32" />
         <x-table.td type="input" value="{{ $data->has('BH32') ? $data['BH32'] : '' }}" coord="BH32" />
@@ -717,7 +717,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="специалист по работе с семьей" />
-        <x-table.td type="header" value="27" />
+        <x-table.td value="27" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF33') ? $data['BF33'] : '' }}" coord="BF33" />
         <x-table.td type="input" value="{{ $data->has('BG33') ? $data['BG33'] : '' }}" coord="BG33" />
         <x-table.td type="input" value="{{ $data->has('BH33') ? $data['BH33'] : '' }}" coord="BH33" />
@@ -742,7 +742,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="ассистент (помощник) по оказанию технической помощи инвалидами и лицам с ограниченными возможностями здоровья" />
-        <x-table.td type="header" value="28" />
+        <x-table.td value="28" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF34') ? $data['BF34'] : '' }}" coord="BF34" />
         <x-table.td type="input" value="{{ $data->has('BG34') ? $data['BG34'] : '' }}" coord="BG34" />
         <x-table.td type="input" value="{{ $data->has('BH34') ? $data['BH34'] : '' }}" coord="BH34" />
@@ -767,7 +767,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="переводчик русского жестового языка" />
-        <x-table.td type="header" value="29" />
+        <x-table.td value="29" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF35') ? $data['BF35'] : '' }}" coord="BF35" />
         <x-table.td type="input" value="{{ $data->has('BG35') ? $data['BG35'] : '' }}" coord="BG35" />
         <x-table.td type="input" value="{{ $data->has('BH35') ? $data['BH35'] : '' }}" coord="BH35" />
@@ -792,7 +792,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="тифлосурдопереводчик" />
-        <x-table.td type="header" value="30" />
+        <x-table.td value="30" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF36') ? $data['BF36'] : '' }}" coord="BF36" />
         <x-table.td type="input" value="{{ $data->has('BG36') ? $data['BG36'] : '' }}" coord="BG36" />
         <x-table.td type="input" value="{{ $data->has('BH36') ? $data['BH36'] : '' }}" coord="BH36" />
@@ -817,7 +817,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Должности специалистов в области физической культуры и спорта - всего, из них:" />
-        <x-table.td type="header" value="31" />
+        <x-table.td value="31" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF37') ? $data['BF37'] : '' }}" coord="BF37" />
         <x-table.td type="input" value="{{ $data->has('BG37') ? $data['BG37'] : '' }}" coord="BG37" />
         <x-table.td type="input" value="{{ $data->has('BH37') ? $data['BH37'] : '' }}" coord="BH37" />
@@ -842,7 +842,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="инструктор по адаптивной физической культуре" />
-        <x-table.td type="header" value="32" />
+        <x-table.td value="32" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF38') ? $data['BF38'] : '' }}" coord="BF38" />
         <x-table.td type="input" value="{{ $data->has('BG38') ? $data['BG38'] : '' }}" coord="BG38" />
         <x-table.td type="input" value="{{ $data->has('BH38') ? $data['BH38'] : '' }}" coord="BH38" />
@@ -867,7 +867,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="инструктор-методист по адаптивной физической культуре и адаптивному спорту" />
-        <x-table.td type="header" value="33" />
+        <x-table.td value="33" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF39') ? $data['BF39'] : '' }}" coord="BF39" />
         <x-table.td type="input" value="{{ $data->has('BG39') ? $data['BG39'] : '' }}" coord="BG39" />
         <x-table.td type="input" value="{{ $data->has('BH39') ? $data['BH39'] : '' }}" coord="BH39" />
@@ -892,7 +892,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="тренер по адаптивной физической культуре и адаптивному спорту" />
-        <x-table.td type="header" value="34" />
+        <x-table.td value="34" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF40') ? $data['BF40'] : '' }}" coord="BF40" />
         <x-table.td type="input" value="{{ $data->has('BG40') ? $data['BG40'] : '' }}" coord="BG40" />
         <x-table.td type="input" value="{{ $data->has('BH40') ? $data['BH40'] : '' }}" coord="BH40" />
@@ -917,7 +917,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Должности специалистов в области образования и науки - всего, из них:" />
-        <x-table.td type="header" value="35" />
+        <x-table.td value="35" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF41') ? $data['BF41'] : '' }}" coord="BF41" />
         <x-table.td type="input" value="{{ $data->has('BG41') ? $data['BG41'] : '' }}" coord="BG41" />
         <x-table.td type="input" value="{{ $data->has('BH41') ? $data['BH41'] : '' }}" coord="BH41" />
@@ -942,7 +942,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="педагог-психолог (психолог в сфере образования)" />
-        <x-table.td type="header" value="36" />
+        <x-table.td value="36" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF42') ? $data['BF42'] : '' }}" coord="BF42" />
         <x-table.td type="input" value="{{ $data->has('BG42') ? $data['BG42'] : '' }}" coord="BG42" />
         <x-table.td type="input" value="{{ $data->has('BH42') ? $data['BH42'] : '' }}" coord="BH42" />
@@ -967,7 +967,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="ассистент (помощник)" />
-        <x-table.td type="header" value="37" />
+        <x-table.td value="37" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF43') ? $data['BF43'] : '' }}" coord="BF43" />
         <x-table.td type="input" value="{{ $data->has('BG43') ? $data['BG43'] : '' }}" coord="BG43" />
         <x-table.td type="input" value="{{ $data->has('BH43') ? $data['BH43'] : '' }}" coord="BH43" />
@@ -992,7 +992,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="тьютор" />
-        <x-table.td type="header" value="38" />
+        <x-table.td value="38" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF44') ? $data['BF44'] : '' }}" coord="BF44" />
         <x-table.td type="input" value="{{ $data->has('BG44') ? $data['BG44'] : '' }}" coord="BG44" />
         <x-table.td type="input" value="{{ $data->has('BH44') ? $data['BH44'] : '' }}" coord="BH44" />
@@ -1017,7 +1017,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="логопед (в том числе учитель-логопед)" />
-        <x-table.td type="header" value="39" />
+        <x-table.td value="39" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF45') ? $data['BF45'] : '' }}" coord="BF45" />
         <x-table.td type="input" value="{{ $data->has('BG45') ? $data['BG45'] : '' }}" coord="BG45" />
         <x-table.td type="input" value="{{ $data->has('BH45') ? $data['BH45'] : '' }}" coord="BH45" />
@@ -1042,7 +1042,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="дефектолог (в том числе учитель-дефектолог) - всего, в том числе:" />
-        <x-table.td type="header" value="40" />
+        <x-table.td value="40" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF46') ? $data['BF46'] : '' }}" coord="BF46" />
         <x-table.td type="input" value="{{ $data->has('BG46') ? $data['BG46'] : '' }}" coord="BG46" />
         <x-table.td type="input" value="{{ $data->has('BH46') ? $data['BH46'] : '' }}" coord="BH46" />
@@ -1067,7 +1067,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="тифлопедагог" />
-        <x-table.td type="header" value="41" />
+        <x-table.td value="41"  h='center' />
         <x-table.td type="input" value="{{ $data->has('BF47') ? $data['BF47'] : '' }}" coord="BF47" />
         <x-table.td type="input" value="{{ $data->has('BG47') ? $data['BG47'] : '' }}" coord="BG47" />
         <x-table.td type="input" value="{{ $data->has('BH47') ? $data['BH47'] : '' }}" coord="BH47" />
@@ -1092,7 +1092,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="сурдопедагог" />
-        <x-table.td type="header" value="42" />
+        <x-table.td value="42" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF48') ? $data['BF48'] : '' }}" coord="BF48" />
         <x-table.td type="input" value="{{ $data->has('BG48') ? $data['BG48'] : '' }}" coord="BG48" />
         <x-table.td type="input" value="{{ $data->has('BH48') ? $data['BH48'] : '' }}" coord="BH48" />
@@ -1117,7 +1117,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="олигофренопедагог" />
-        <x-table.td type="header" value="43" />
+        <x-table.td value="43" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF49') ? $data['BF49'] : '' }}" coord="BF49" />
         <x-table.td type="input" value="{{ $data->has('BG49') ? $data['BG49'] : '' }}" coord="BG49" />
         <x-table.td type="input" value="{{ $data->has('BH49') ? $data['BH49'] : '' }}" coord="BH49" />
@@ -1142,7 +1142,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="методист" />
-        <x-table.td type="header" value="44" />
+        <x-table.td value="44" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF50') ? $data['BF50'] : '' }}" coord="BF50" />
         <x-table.td type="input" value="{{ $data->has('BG50') ? $data['BG50'] : '' }}" coord="BG50" />
         <x-table.td type="input" value="{{ $data->has('BH50') ? $data['BH50'] : '' }}" coord="BH50" />
@@ -1167,7 +1167,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Технический персонал, из них:" />
-        <x-table.td type="header" value="45" />
+        <x-table.td value="45" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF51') ? $data['BF51'] : '' }}" coord="BF51" />
         <x-table.td type="input" value="{{ $data->has('BG51') ? $data['BG51'] : '' }}" coord="BG51" />
         <x-table.td type="input" value="{{ $data->has('BH51') ? $data['BH51'] : '' }}" coord="BH51" />
@@ -1192,7 +1192,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="протезист" />
-        <x-table.td type="header" value="46" />
+        <x-table.td value="46" h='center' />
         <x-table.td type="input" value="{{ $data->has('BF52') ? $data['BF52'] : '' }}" coord="BF52" />
         <x-table.td type="input" value="{{ $data->has('BG52') ? $data['BG52'] : '' }}" coord="BG52" />
         <x-table.td type="input" value="{{ $data->has('BH52') ? $data['BH52'] : '' }}" coord="BH52" />
