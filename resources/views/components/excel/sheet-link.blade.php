@@ -1,3 +1,3 @@
-<li>
-    <a href="{{ $link }}">стр. {{ $title }}</a>
+<li opened={!! $opened !!}>
+    <a href="{{ $link }}">{{ $title }}</a>
 </li>

@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('glossary__oor_inv_sheets', function (Blueprint $table) {
             $table->id();
             $table->string('name');
+            $table->text('header');
         });
     }
 

@@ -24,5 +24,9 @@ class DatabaseSeeder extends Seeder
         $this->call(CSVI\AppealSeeder::class);
 
         $this->call(Oor\InvSeeder::class);
+
+        if(env('APP_ENV') == 'local'){
+            $this->call(Restore::class);
+        }
     }
 }
