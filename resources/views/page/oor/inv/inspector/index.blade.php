@@ -4,11 +4,12 @@
 @section('body')
     <x-page.admin-box>
         <x-slot:meny>
-            <x-page.nav title="Отчеты" link="" disabled />
+            <x-page.nav title="Отчеты" link="{{ route('inv.inspector.raports') }}" />
             <x-page.nav title="Даты" link="" disabled />
             <x-page.nav title="Доступ" link="" disabled />
-            <x-page.nav title="Текущий" link="{{ isset($raport) ? route('inv.inspector.raport.download', ['raport' => $raport->id]) : '' }}" blank />
-            <x-page.nav title="Общий" link="" blank disabled />
+            <x-page.nav title="Текущий"
+                link="{{ isset($raport) ? route('inv.inspector.raport.download', ['raport' => $raport->id]) : '' }}" blank />
+            <x-page.nav title="Общий" link="{{ route('inv.inspector.download') }}" blank />
         </x-slot:meny>
         <x-slot:division-list>
             <x-page.division-list>

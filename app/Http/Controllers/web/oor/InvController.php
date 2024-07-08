@@ -4,17 +4,14 @@ namespace App\Http\Controllers\web\oor;
 
 use App\Models\Glossary\Glossary_Oor_inv_sheet;
 use App\Models\Main\Main_Access;
-use App\Models\Main\Main_Division;
 use App\Models\Main\Main_Modul;
-use App\Models\Main\Main_ModulSheet;
-use App\Models\Main\Main_User;
 use App\Models\Oor\Oor_Inv_Data;
 use App\Models\Oor\Oor_Inv_InDate;
 use App\Models\Oor\Oor_Inv_Raport;
 use Illuminate\Http\Request;
-use Illuminate\Support\Carbon;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Storage;
+use Str;
 
 class InvController
 {
@@ -91,6 +88,13 @@ class InvController
         return compact('all_divisions', 'raportClass');
     }
 
+    public function raports(){
+        $page_data = $this->inspectorPageData();
+        // $dates = Oor_Inv_InDate::orderBy('id', 'desc')->get();
+        $raports = Oor_Inv_Raport::where('in_date_id', Oor_Inv_InDate::actual()->id)->get();
+        return view('page.oor.inv.inspector.raports', array_merge($page_data, compact('raports')));
+    }
+
     public static function inspectorRaportData($division_id, $sheet_id)
     {
         $sheets = Glossary_Oor_inv_sheet::get();
@@ -114,12 +118,40 @@ class InvController
         return view('page.oor.inv.inspector.raport', array_merge(compact('sheet_id'), $inspector_page_data, $inspector_raport_data));
     }
 
-    public function RaportDownload(Request $request){
+    public function RaportDownload(Request $request)
+    {
         $raport = Oor_Inv_Raport::whereKey($request->raport)->get()->first();
-        $division = Main_Division::whereKey($raport->division_id)->get()->first();
         $data = $raport->data;
 
+        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load(Storage::disk('patterns')->path('OOR_INV_RAPORT.xlsx'));
+        $data->map(function ($model) use ($spreadsheet) {
+            $sheet_index = $model->sheet->sheet_index;
+            $activeSheet = $spreadsheet->setActiveSheetIndex($sheet_index);
+            $activeSheet->setCellValue($model->coord, $model->value);
+        });
 
-        dd($data);
+        $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
+        $file_name = Str::random(40) . '.xlsx';
+        $writer->save(Storage::disk('tmp')->path('') . '/' . $file_name);
+
+        return Storage::disk('tmp')->download($file_name, $raport->division->name . '.xlsx');
     }
+
+    public function Download(){
+        $data = Oor_Inv_InDate::data();
+        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load(Storage::disk('patterns')->path('OOR_INV_RAPORT.xlsx'));
+        $data->map(function($sheet_data, $sheet_index) use ($spreadsheet){
+            $activeSheet = $spreadsheet->setActiveSheetIndex($sheet_index);
+            $sheet_data->map(function($value, $coord) use ($activeSheet){
+                $activeSheet->setCellValue($coord, $value);
+            });
+        });
+
+        $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
+        $file_name = Str::random(40) . '.xlsx';
+        $writer->save(Storage::disk('tmp')->path('') . '/' . $file_name);
+        return Storage::disk('tmp')->download($file_name, Oor_Inv_InDate::actual()->date . ' формирования и развития системы комплексной реабилитации и абилитации инвалидов.xlsx');
+    }
+
+
 }

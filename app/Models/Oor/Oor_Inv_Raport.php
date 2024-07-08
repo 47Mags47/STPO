@@ -15,7 +15,23 @@ class Oor_Inv_Raport extends Model
 
     protected $guarded = [];
 
-    public function data(){
+    public function data()
+    {
         return $this->hasMany(Oor_Inv_Data::class, 'raport_id');
+    }
+
+    public function in_date()
+    {
+        return $this->belongsTo(Oor_Inv_InDate::class, 'in_date_id');
+    }
+
+    public function worker()
+    {
+        return $this->belongsTo(Main_User::class, 'worker_id');
+    }
+
+    public function division()
+    {
+        return $this->belongsTo(Main_Division::class, 'division_id');
     }
 }
