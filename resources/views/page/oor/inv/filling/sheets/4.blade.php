@@ -209,7 +209,7 @@
         <x-table.td type="input" value="{{ $data->has('EQ20') ? $data['EQ20'] : '' }}" coord="EQ20" />
     </tr>
     <tr>
-        <x-table.td type="header" value="по социокультурной реабилитации и абилитации" />
+        <x-table.td type="header" value="по социально-бытовой адаптации" />
         <x-table.td value="15" h='center' />
         <x-table.td type="input" value="{{ $data->has('EJ21') ? $data['EJ21'] : '' }}" coord="EJ21" />
         <x-table.td type="input" value="{{ $data->has('EK21') ? $data['EK21'] : '' }}" coord="EK21" />

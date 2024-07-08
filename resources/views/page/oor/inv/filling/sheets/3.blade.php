@@ -50,7 +50,7 @@
 </thead>
 <tbody>
     <tr>
-        <x-table.td type="header" value="Общая численность населения субъекта Российской Федерации, в том числе:" />
+        <x-table.td type="header" value="Общая численность инвалидов в возрасте 18 лет и старше и детей-инвалидов, в том числе:" />
         <x-table.td value="01" h='center' />
         <x-table.td type="input" value="{{ $data->has('CA7') ? $data['CA7'] : '' }}" coord="CA7" />
         <x-table.td type="input" value="{{ $data->has('CB7') ? $data['CB7'] : '' }}" coord="CB7" />
