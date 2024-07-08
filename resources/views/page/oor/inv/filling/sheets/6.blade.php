@@ -157,7 +157,7 @@
         <x-table.td type="input" value="{{ $data->has('CE9') ? $data['CE9'] : '' }}" coord="CE9" />
     </tr>
     <tr>
-        <x-table.td type="header" value="с нарушением функций эндокринной системы и метаболизма" />
+        <x-table.td type="header" value="с нарушением функций системы крови и имунной системы" />
         <x-table.td value="15" h='center' />
         <x-table.td type="input" value="{{ $data->has('CA22') ? $data['CA22'] : '' }}" coord="CA22" />
         <x-table.td type="input" value="{{ $data->has('CB22') ? $data['CB22'] : '' }}" coord="CB22" />

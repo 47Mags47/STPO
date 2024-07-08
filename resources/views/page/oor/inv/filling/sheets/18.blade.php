@@ -41,7 +41,7 @@
         <x-table.td type="input" value="{{ $data->has('CC26') ? $data['CC26'] : '' }}" coord="CC26" />
     </tr>
     <tr>
-        <x-table.td type="header" value="общеобразовательные организации" />
+        <x-table.td type="header" value="Профессиональное образование - всего организаций, из них:" />
         <x-table.td value="04" h='center' />
         <x-table.td type="input" value="{{ $data->has('CA27') ? $data['CA27'] : '' }}" coord="CA27" />
         <x-table.td type="input" value="{{ $data->has('CB27') ? $data['CB27'] : '' }}" coord="CB27" />

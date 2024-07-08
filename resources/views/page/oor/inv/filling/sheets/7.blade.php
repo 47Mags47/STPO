@@ -475,8 +475,8 @@
         <x-table.td type="input" value="{{ $data->has('CH27') ? $data['CH27'] : '' }}" coord="CH27" />
     </tr>
     <tr>
-        <x-table.td type="header" value="другие нарушения нервной системы:G90-G99" />
-        <x-table.td value="другие нарушения нервной системы" />
+        <x-table.td type="header" value="другие нарушения нервной системы" />
+        <x-table.td value="G90-G99" />
         <x-table.td value="21" h='center' />
         <x-table.td type="input" value="{{ $data->has('BT28') ? $data['BT28'] : '' }}" coord="BT28" />
         <x-table.td type="input" value="{{ $data->has('BU28') ? $data['BU28'] : '' }}" coord="BU28" />
