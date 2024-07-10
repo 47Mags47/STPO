@@ -20,7 +20,7 @@
     <tr>
         <x-table.td type="header" value="Численность детей-инвалидов, получивших услуги по психолого-педагогической реабилитации и абилитации" />
         <x-table.td value="01" h='center' />
-        <x-table.td type="input" value="{{ $data->has('DO5') ? $data['DO5'] : '' }}" coord="DO5" />
-        <x-table.td type="input" value="{{ $data->has('DP5') ? $data['DP5'] : '' }}" coord="DP5" />
+        <x-table.td type="input" value="{{ $data->has('DO6') ? $data['DO6'] : '' }}" name="DO6" />
+        <x-table.td type="input" value="{{ $data->has('DP6') ? $data['DP6'] : '' }}" name="DP6" />
     </tr>
 </tbody>

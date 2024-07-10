@@ -15,7 +15,7 @@ class Oor_Inv_InDate extends Model
 
     public static function actual()
     {
-        return $in_date = Oor_Inv_InDate::where('is_active', true)->get()->first();
+        return Oor_Inv_InDate::where('is_active', true)->get()->first();
     }
 
     public static function data()
@@ -39,5 +39,16 @@ class Oor_Inv_InDate extends Model
             });
         });
         return $data;
+    }
+
+    public function raport_count(){
+        return Oor_Inv_Raport::where('in_date_id', $this->id)->count();
+    }
+
+    public static function activate($date_id){
+        Oor_Inv_InDate::unguard();
+        Oor_Inv_InDate::whereNotNull('id')->update(['is_active' => false]);
+        Oor_Inv_InDate::whereKey($date_id)->update(['is_active' => true]);
+        Oor_Inv_InDate::reguard();
     }
 }

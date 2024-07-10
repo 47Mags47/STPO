@@ -6,9 +6,12 @@ use App\Models\Main\Main_Modul;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
 
-class HubController extends Controller
+class HubController
 {
-    public function __invoke()
+    /**
+     * Handle the incoming request.
+     */
+    public function __invoke(Request $request)
     {
         $modul = Main_Modul::where('link', 'inv')->get()->first();
         if (Gate::allows('user-modul-adminer', $modul)) {

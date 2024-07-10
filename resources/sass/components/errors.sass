@@ -1,23 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Abel&display=swap')
-
-body
-    background: var(--error-background)
-    display: grid
-    justify-content: center
-    align-content: center
-    div.message
-        width: auto
-        height: auto
+.message-box
+    width: 100%
+    height: auto
+    ul
+        width: 100%
+        padding: 5px 10px
         display: flex
-        align-items: center
-        gap: 10px
-        span
-            font-size: 1.5rem
-            font-family: Abel
-            font-weight: 600
-            color: var(--error-title)
-        .line
-            width: 2px
-            height: 2rem
-            background: var(--error-title)
-
+        flex-direction: column
+        gap: 1px
+        border-radius: 7px
+        &.errors
+            background-color: #ffc6c6
+            color: #9b0000
+        &.message
+            background-color: #c6ffc6
+            color: #002c00
+        li
+            list-style: disc inside
+            font-size: 1rem
+            font-style: italic
+            font-weight: bold
+            color: inherit
+.table-box .message-box ul
+    border-radius: 0

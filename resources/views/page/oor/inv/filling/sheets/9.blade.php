@@ -36,14 +36,14 @@
         <x-table.td type="header"
             value="Численность инвалидов в возрасте 18 лет и старше и детей-инвалидов, получивших услуги по санаторно-курортному лечению:" />
         <x-table.td value="01" h='center' />
-        <x-table.td type="input" value="{{ $data->has('CA7') ? $data['CA6'] : '' }}" coord="CA6" />
-        <x-table.td type="input" value="{{ $data->has('CB7') ? $data['CB6'] : '' }}" coord="CB6" />
-        <x-table.td type="input" value="{{ $data->has('CC7') ? $data['CC6'] : '' }}" coord="CC6" />
-        <x-table.td type="input" value="{{ $data->has('CA7') ? $data['CD6'] : '' }}" coord="CD6" />
-        <x-table.td type="input" value="{{ $data->has('CA7') ? $data['CE6'] : '' }}" coord="CE6" />
-        <x-table.td type="input" value="{{ $data->has('CA7') ? $data['CF6'] : '' }}" coord="CF6" />
-        <x-table.td type="input" value="{{ $data->has('CA7') ? $data['CG6'] : '' }}" coord="CG6" />
-        <x-table.td type="input" value="{{ $data->has('CA7') ? $data['CH6'] : '' }}" coord="CH6" />
+        <x-table.td type="input" value="{{ $data->has('CA6') ? $data['CA6'] : '' }}" name="CA6" />
+        <x-table.td type="input" value="{{ $data->has('CB6') ? $data['CB6'] : '' }}" name="CB6" />
+        <x-table.td type="input" value="{{ $data->has('CC6') ? $data['CC6'] : '' }}" name="CC6" />
+        <x-table.td type="input" value="{{ $data->has('CA6') ? $data['CD6'] : '' }}" name="CD6" />
+        <x-table.td type="input" value="{{ $data->has('CA6') ? $data['CE6'] : '' }}" name="CE6" />
+        <x-table.td type="input" value="{{ $data->has('CA6') ? $data['CF6'] : '' }}" name="CF6" />
+        <x-table.td type="input" value="{{ $data->has('CA6') ? $data['CG6'] : '' }}" name="CG6" />
+        <x-table.td type="input" value="{{ $data->has('CA6') ? $data['CH6'] : '' }}" name="CH6" />
 
     </tr>
         </tr>

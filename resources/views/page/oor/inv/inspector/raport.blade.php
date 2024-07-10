@@ -8,7 +8,7 @@
         <x-slot:sheets>
             <x-excel.sheet-list>
                 @foreach ($sheets as $sheet)
-                    <x-excel.sheet-link link="{{ route('inv.inspector.raport.show', ['division' => $division_id, 'sheet' => $sheet->id]) }}"
+                    <x-excel.sheet-link link="{{ route('inv.inspector.raport.show', ['raport' => $raport_id, 'sheet' => $sheet->id]) }}"
                         title="{{ $sheet->name }}" opened="{{ $sheet->id == $sheet_id }}"/>
                 @endforeach
             </x-excel.sheet-list>

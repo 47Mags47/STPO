@@ -45,11 +45,11 @@
     <tr>
         <x-table.td type="header" value="Общая численность населения субъекта Российской Федерации, в том числе:" />
         <x-table.td value="01" h='center' />
-        <x-table.td type="input" value="{{ $data->has('CA7') ? $data['CA7'] : '' }}" coord="CA7" />
-        <x-table.td type="input" value="{{ $data->has('CB7') ? $data['CB7'] : '' }}" coord="CB7" />
-        <x-table.td type="input" value="{{ $data->has('CC7') ? $data['CC7'] : '' }}" coord="CC7" />
-        <x-table.td type="input" value="{{ $data->has('CA7') ? $data['CA7'] : '' }}" coord="CA7" />
-        <x-table.td type="input" value="{{ $data->has('CA7') ? $data['CA7'] : '' }}" coord="CA7" />
+        <x-table.td type="input" value="{{ $data->has('CA7') ? $data['CA7'] : '' }}" name="CA7" />
+        <x-table.td type="input" value="{{ $data->has('CB7') ? $data['CB7'] : '' }}" name="CB7" />
+        <x-table.td type="input" value="{{ $data->has('CC7') ? $data['CC7'] : '' }}" name="CC7" />
+        <x-table.td type="input" value="{{ $data->has('CD7') ? $data['CD7'] : '' }}" name="CD7" />
+        <x-table.td type="input" value="{{ $data->has('CE7') ? $data['CE7'] : '' }}" name="CE7" />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />
@@ -60,11 +60,11 @@
     <tr>
         <x-table.td type="header" value="Численность взрослого населения в возрасте 18 лет и старше" />
         <x-table.td value="02" h='center' />
-        <x-table.td type="input" value="{{ $data->has('CA8') ? $data['CA8'] : '' }}" coord="CA8" />
-        <x-table.td type="input" value="{{ $data->has('CB8') ? $data['CB8'] : '' }}" coord="CB8" />
-        <x-table.td type="input" value="{{ $data->has('CC8') ? $data['CC8'] : '' }}" coord="CC8" />
-        <x-table.td type="input" value="{{ $data->has('CD8') ? $data['CD8'] : '' }}" coord="CD8" />
-        <x-table.td type="input" value="{{ $data->has('CE8') ? $data['CE8'] : '' }}" coord="CE8" />
+        <x-table.td type="input" value="{{ $data->has('CA8') ? $data['CA8'] : '' }}" name="CA8" />
+        <x-table.td type="input" value="{{ $data->has('CB8') ? $data['CB8'] : '' }}" name="CB8" />
+        <x-table.td type="input" value="{{ $data->has('CC8') ? $data['CC8'] : '' }}" name="CC8" />
+        <x-table.td type="input" value="{{ $data->has('CD8') ? $data['CD8'] : '' }}" name="CD8" />
+        <x-table.td type="input" value="{{ $data->has('CE8') ? $data['CE8'] : '' }}" name="CE8" />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />
@@ -75,17 +75,17 @@
     <tr>
         <x-table.td type="header" value="Численность детского населения" />
         <x-table.td value="03" h='center' />
-        <x-table.td type="input" value="{{ $data->has('CA9') ? $data['CA9'] : '' }}" coord="CA9" />
+        <x-table.td type="input" value="{{ $data->has('CA9') ? $data['CA9'] : '' }}" name="CA9" />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />
-        <x-table.td type="input" value="{{ $data->has('CF9') ? $data['CF9'] : '' }}" coord="CF9" />
-        <x-table.td type="input" value="{{ $data->has('CG9') ? $data['CG9'] : '' }}" coord="CG9" />
-        <x-table.td type="input" value="{{ $data->has('CH9') ? $data['CH9'] : '' }}" coord="CH9" />
-        <x-table.td type="input" value="{{ $data->has('CI9') ? $data['CI9'] : '' }}" coord="CI9" />
-        <x-table.td type="input" value="{{ $data->has('CJ9') ? $data['CJ9'] : '' }}" coord="CJ9" />
-        <x-table.td type="input" value="{{ $data->has('CK9') ? $data['CK9'] : '' }}" coord="CK9" />
+        <x-table.td type="input" value="{{ $data->has('CF9') ? $data['CF9'] : '' }}" name="CF9" />
+        <x-table.td type="input" value="{{ $data->has('CG9') ? $data['CG9'] : '' }}" name="CG9" />
+        <x-table.td type="input" value="{{ $data->has('CH9') ? $data['CH9'] : '' }}" name="CH9" />
+        <x-table.td type="input" value="{{ $data->has('CI9') ? $data['CI9'] : '' }}" name="CI9" />
+        <x-table.td type="input" value="{{ $data->has('CJ9') ? $data['CJ9'] : '' }}" name="CJ9" />
+        <x-table.td type="input" value="{{ $data->has('CK9') ? $data['CK9'] : '' }}" name="CK9" />
 
     </tr>
 </tbody>

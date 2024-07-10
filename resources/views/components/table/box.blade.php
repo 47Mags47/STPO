@@ -31,11 +31,14 @@
             </ul>
         @endif
     </div>
-    <table {{ isset($pd) ? 'pd=' . $pd : '' }}>
-        @isset($cols)
-            <colgroup>{{ $cols }}</colgroup>
-        @endisset
-        <thead>{{ $header }}</thead>
-        <tbody>{{ $body }}</tbody>
-    </table>
+    <form action="{{ isset($action) ? $action : '' }}" method="{{ isset($method) ? $mthod : 'POST' }}">
+        @csrf
+        <table {{ isset($pd) ? 'pd=' . $pd : '' }}>
+            @isset($cols)
+                <colgroup>{{ $cols }}</colgroup>
+            @endisset
+            <thead>{{ $header }}</thead>
+            <tbody>{{ $body }}</tbody>
+        </table>
+    </form>
 </div>

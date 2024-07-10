@@ -1,4 +1,8 @@
 <ul>
-    <x-header.burger box=".division-list"/>
+    @isset($burger)
+        @if ($burger)
+            <x-header.burger box=".division-list"/>
+        @endif
+    @endisset
     {{ $slot }}
 </ul>
