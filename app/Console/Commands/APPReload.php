@@ -26,12 +26,13 @@ class APPReload extends Command
      */
     public function handle()
     {
-        Process::path(base_path());
-        Process::run('git pull')->throw();
-        if($this->option('DBReload')){
+        $process = Process::path(base_path())->run('git pull')->throw();
+        $process->output();
+        if ($this->option('DBReload')) {
             $this->call(DBReload::class);
         }
-        Process::run('npm run build')->throw();
+        $process = Process::path(base_path())->run('npm run build')->throw();
+        $process->output();
     }
 }
 
