@@ -1,7 +1,7 @@
 <div class="admin-page-box">
     @isset($meny)
         <div class="page-meny">
-            <x-page.meny>
+            <x-page.meny burger="{{ isset($burger) ? true : false }}">
                 {{ $meny }}
             </x-page.meny>
         </div>

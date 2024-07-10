@@ -19,14 +19,6 @@
                     <x-table.td value="{{ $raport->updated_at->format('d.m.Y') }}" />
                     <x-table.td type="link-button"
                         value="{{ route('inv.inspector.raport.download', ['raport' => $raport->id]) }}" title="Загрузить" />
-
-                    {{-- <x-table.td value="{{ date('d.m.Y', strtotime($date->date)) }}" />
-                    <x-table.td value="{{ $date->is_active ? 'Да' : 'Нет' }}" h='center' />
-                    @if (!$date->is_active)
-                        <x-table.td type='link-button' title='Активировать' value='' />
-                    @else
-                    <x-table.td value='' />
-                    @endif --}}
                 </x-table.btr>
             @endforeach
         </x-slot:body>

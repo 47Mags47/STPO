@@ -20,6 +20,10 @@ class Oor_Inv_Raport extends Model
         return $this->hasMany(Oor_Inv_Data::class, 'raport_id');
     }
 
+    public static function sheetData($raport_id, $sheet_id){
+        return Oor_Inv_Data::where('raport_id', $raport_id)->where('sheet_id', $sheet_id)->pluck('value', 'coord');
+    }
+
     public function in_date()
     {
         return $this->belongsTo(Oor_Inv_InDate::class, 'in_date_id');

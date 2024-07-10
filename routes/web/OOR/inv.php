@@ -1,25 +1,31 @@
 <?php
+use App\Http\Controllers\web\oor\inv\FillingController;
 use App\Http\Controllers\web\oor\inv\HubController;
-use App\Http\Controllers\web\oor\InvController;
+use App\Http\Controllers\web\oor\inv\InspectorController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'has-access:inv'])->group(function () {
-    Route::get('/inv', [InvController::class, 'hub'])->name('inv');
-    //Route::get('/inv', [HubController::class])->name('inv');
-
+    Route::get('/inv', HubController::class)->name('inv');
     Route::middleware('modul-user:inv')->group(function () {
-        Route::get('/inv/filling', [InvController::class, 'filling'])->name('inv.filling');
-        Route::get('/inv/filling/{sheet}', [InvController::class, 'filling'])->name('inv.filling.sheet');
-
-        Route::post('/inv/filling/{sheet}/save', [InvController::class, 'fillingSave'])->name('inv.filling.sheet.save');
+        Route::get('/inv/filling', [FillingController::class, 'index'])->name('inv.filling');
+        Route::get('/inv/filling/{sheet}', [FillingController::class, 'index'])->name('inv.filling.sheet');
+        Route::post('/inv/filling/{sheet}/save', [FillingController::class, 'fillingSave'])->name('inv.filling.sheet.save');
     });
-
     Route::middleware('modul-admin:inv')->group(function () {
-        Route::get('/inv/inspector', [InvController::class, 'inspector'])->name('inv.inspector');
-        Route::get('/inv/inspector/{division}/{sheet}/show', [InvController::class, 'raportShow'])->name('inv.inspector.raport.show');
-        Route::get('/inv/inspector/raports', [InvController::class, 'raports'])->name('inv.inspector.raports');
-        Route::get('/inv/inspector/dates', [InvController::class, 'dates'])->name('inv.inspector.dates');
-        Route::get('/inv/inspector/{raport}/download', [InvController::class, 'RaportDownload'])->name('inv.inspector.raport.download');
-        Route::get('/inv/inspector/download', [InvController::class, 'Download'])->name('inv.inspector.download');
+        Route::get('/inv/inspector', [InspectorController::class, 'index'])->name('inv.inspector');
+
+        Route::get('/inv/inspector/raports', [InspectorController::class, 'raports'])->name('inv.inspector.raports');
+
+        Route::get('/inv/inspector/dates', [InspectorController::class, 'dates'])->name('inv.inspector.dates');
+        Route::post('/inv/inspector/dates', [InspectorController::class, 'dateAdd']);
+        Route::get('/inv/inspector/date/{date_id}/activate', [InspectorController::class, 'dateActivete'])->name('inv.inspector.date.activate');
+
+        Route::get('/inv/inspector/accesses', [InspectorController::class, 'accesses'])->name('inv.inspector.accesses');
+        Route::get('/inv/inspector/accesses/{access}/delete', [InspectorController::class, 'accessesDelete'])->name('inv.inspector.accesses.delete');
+
+        Route::get('/inv/inspector/{raport}/{sheet}/show', [InspectorController::class, 'raportShow'])->name('inv.inspector.raport.show');
+        Route::get('/inv/inspector/{raport}/download', [InspectorController::class, 'RaportDownload'])->name('inv.inspector.raport.download');
+
+        Route::get('/inv/inspector/download', [InspectorController::class, 'SvodDownload'])->name('inv.inspector.svod.download');
     });
 });
