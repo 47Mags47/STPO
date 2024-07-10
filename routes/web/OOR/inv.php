@@ -21,6 +21,7 @@ Route::middleware(['auth', 'has-access:inv'])->group(function () {
         Route::get('/inv/inspector/date/{date_id}/activate', [InspectorController::class, 'dateActivete'])->name('inv.inspector.date.activate');
 
         Route::get('/inv/inspector/accesses', [InspectorController::class, 'accesses'])->name('inv.inspector.accesses');
+        Route::post('/inv/inspector/accesses', [InspectorController::class, 'accessesAdd']);
         Route::get('/inv/inspector/accesses/{access}/delete', [InspectorController::class, 'accessesDelete'])->name('inv.inspector.accesses.delete');
 
         Route::get('/inv/inspector/{raport}/{sheet}/show', [InspectorController::class, 'raportShow'])->name('inv.inspector.raport.show');

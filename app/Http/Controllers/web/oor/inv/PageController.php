@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\web\oor\inv;
 
+use App\Models\Glossary\Glossary_Main_AccessLevel;
 use App\Models\Glossary\Glossary_Oor_inv_sheet;
 use App\Models\Main\Main_Access;
+use App\Models\Main\Main_City;
 use App\Models\Main\Main_Division;
 use App\Models\Main\Main_Modul;
 use App\Models\Main\Main_User;
@@ -42,5 +44,13 @@ class PageController
         $division_id = Oor_Inv_Raport::whereKey($raport_id)->get()->first()->division_id;
 
         return compact('sheets', 'sheet_header', 'data', 'sheet_id', 'raport_id', 'division_id');
+    }
+
+    public static function inspectorAccessData(){
+        $select_cityes = Main_City::orderBy('name')->get();
+        $select_divisions = Main_Division::orderBy('name')->get();
+        $select_users = Main_User::orderBy('nickname')->get();
+        $select_access_levels = Glossary_Main_AccessLevel::get();
+        return compact('select_cityes', 'select_divisions', 'select_users', 'select_access_levels');
     }
 }
