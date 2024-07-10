@@ -13,6 +13,10 @@ class Main_Division extends Model
 
     protected $fillable = [];
 
+    public function city(){
+        return $this->belongsTo(Main_City::class, 'city_id');
+    }
+
     public function Completed($class) :bool{
         $raports = new $class;
         return $raports->where('division_id', $this->id)->count() > 0;

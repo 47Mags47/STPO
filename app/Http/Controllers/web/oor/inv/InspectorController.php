@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\web\oor\inv;
 
+use App\Models\Glossary\Glossary_Main_AccessLevel;
 use App\Models\Main\Main_Access;
+use App\Models\Main\Main_City;
 use App\Models\Main\Main_Division;
+use App\Models\Main\Main_User;
 use App\Models\Oor\Oor_Inv_Data;
 use App\Models\Oor\Oor_Inv_InDate;
 use App\Models\Oor\Oor_Inv_Raport;
@@ -76,10 +79,35 @@ class InspectorController
         return back();
     }
 
-    public function accesses(){
+    public function accesses()
+    {
         $page_data = PageController::inspectorPageData();
         $accesses = Main_Access::where('modul_id', 7)->get();
-        return view('page.oor.inv.inspector.accesses', array_merge($page_data, compact('accesses')));
+        $acces_page_data = PageController::inspectorAccessData();
+
+        return view('page.oor.inv.inspector.accesses', array_merge($page_data, $acces_page_data, compact('accesses')));
+    }
+
+    public function accessesAdd(Request $request)
+    {
+        $validated = $request->validate([
+            'data.user_id' => ['required'],
+            'data.level_id' => ['required'],
+        ]);
+        if (
+            Main_Access::where('modul_id', 7)
+                ->where('user_id', $validated['data']['user_id'])
+                ->count() > 0
+        ) {
+            return back()->withInput()->withErrors(['user_id' => 'У данного пользователя уже есть доступ']);
+        }
+        Main_Access::create(array_merge($validated['data'], ['modul_id' => 7]));
+        return back()->with(['message' => 'Доступ добавлен']);
+    }
+
+    public function accessesDelete(Request $request){
+        Main_Access::whereKey($request->access)->delete();
+        return back()->with(['message' => 'Доступ удален']);
     }
 
     public function SvodDownload()
