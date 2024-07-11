@@ -44,21 +44,21 @@ class Restore extends Seeder
             'division_id' => 2,
         ]);
 
-        Main_Access::create([
-            'modul_id' => 7,
-            'user_id' => 7,
-            'level_id' => 2
-        ]);
-        Main_Access::create([
-            'modul_id' => 7,
-            'user_id' => 17,
-            'level_id' => 4
-        ]);
+        // Main_Access::create([
+        //     'modul_id' => 7,
+        //     'user_id' => 7,
+        //     'level_id' => 2
+        // ]);
+        // Main_Access::create([
+        //     'modul_id' => 7,
+        //     'user_id' => 17,
+        //     'level_id' => 4
+        // ]);
 
-        Oor_Inv_InDate::create([
-            'date' => Carbon::createFromTimestamp(0)->format('Y-m-d'),
-            'is_active' => true
-        ]);
+        // Oor_Inv_InDate::create([
+        //     'date' => Carbon::createFromTimestamp(0)->format('Y-m-d'),
+        //     'is_active' => true
+        // ]);
 
         Model::reguard();
     }

@@ -15,7 +15,7 @@ class Main_Access extends Model
     protected $guarded = [];
 
     public static function division_access($modul_id){
-        $user_ids = Main_Access::where('modul_id', 7)->get()->pluck('user_id');
+        $user_ids = Main_Access::where('modul_id', 7)->where('level_id', 2)->get()->pluck('user_id');
         $division_ids = Main_User::whereIn('id', $user_ids)->get()->pluck('division_id');
         return Main_Division::whereIn('id', $division_ids)->get();
     }
