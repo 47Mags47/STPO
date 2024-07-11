@@ -10,7 +10,7 @@ export default defineConfig({
                 'resources/sass/app.sass',
                 'resources/js/app.js',
 
-                'resources/sass/components/errors.sass',
+                'resources/sass/components/page-errors.sass',
             ],
             refresh: true,
         }),

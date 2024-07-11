@@ -15,7 +15,7 @@ class Oor_Inv_InDate extends Model
 
     public static function actual()
     {
-        return Oor_Inv_InDate::where('is_active', true)->get()->first();
+        return Oor_Inv_InDate::firstOrCreate(['is_active' => true], ['date'=>'1977-01-01']);
     }
 
     public static function data()
