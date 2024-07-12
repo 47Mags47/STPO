@@ -32,7 +32,7 @@ class copyUser extends Command
         $sql = "SELECT * FROM `users` LEFT JOIN `user_new_hash` ON `user_new_hash`.`user` = " . $this->argument('user_id') . " WHERE `id` = " . $this->argument('user_id');
         $user = $old_DB->query($sql)->fetch_assoc();
 
-        if ($user['hash'] or $user['hash'] == NULL) {
+        if (!isset($user['hash']) or $user['hash'] == NULL) {
             echo "Хеш пользователя не найден\n";
             return;
         }
