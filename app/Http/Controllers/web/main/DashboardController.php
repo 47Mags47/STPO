@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 class DashboardController
 {
     public function index(){
-        return view('page.main.dashboard.index');
+        $user = auth()->user();
+        return view('page.main.dashboard.index', compact('user'));
     }
 }

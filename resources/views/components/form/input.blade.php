@@ -3,11 +3,17 @@
 {{-- LABEL  --}}
 {{-- CLASS  ?= CLASSIC --}}
 
-@if (in_array($type, ['text', 'number', 'password', 'date', 'email']))
+@if (in_array($type, ['text', 'number', 'password', 'date', 'email', 'phone']))
     <label for="{{ $name }}" class='{{ $attributes['class'] }}'>
         <span>{{ $label ? $label : '' }}</span>
-        <input type="{{ $type }}" name="{{ $name }}" id="{{ $name }}"
-            {{ str_contains($attributes['class'], 'req') ? 'required' : '' }}>
+        <input
+            type="{{ $type }}"
+            name="{{ $name }}"
+            id="{{ $name }}"
+            placeholder="{{ isset($ph) ? $ph : '' }}"
+            @required(str_contains($attributes['class'], 'req'))
+            @disabled(isset($disabled))
+            >
     </label>
 @endif
 
