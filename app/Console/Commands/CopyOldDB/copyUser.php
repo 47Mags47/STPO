@@ -37,8 +37,8 @@ class copyUser extends Command
             return;
         }
 
-        if (Main_User::where('id', $user['id'])->count() != 0) {
-            echo "Пользователь уже существует\n";
+        if (Main_User::where('login', $user['login'])->count() != 0) {
+            echo "Пользователь с таким login уже существует\n";
             return;
         }
 
