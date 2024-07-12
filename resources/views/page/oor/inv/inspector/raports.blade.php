@@ -18,7 +18,7 @@
                     <x-table.td value="{{ date('d.m.Y', strtotime($raport->in_date->date)) }}" />
                     <x-table.td value="{{ $raport->updated_at->format('d.m.Y') }}" />
                     <x-table.td type="link-button"
-                        value="{{ route('inv.inspector.raport.download', ['raport' => $raport->id]) }}" title="Загрузить" />
+                        value="{{ route('inv.inspector.raport.download', ['raport' => $raport->id, 'stmp' => time()]) }}" title="Загрузить" />
                 </x-table.btr>
             @endforeach
         </x-slot:body>

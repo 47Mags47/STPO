@@ -10,7 +10,7 @@
     <div class="division-list mini-scroll open">
         {{ $divisionList }}
     </div>
-    <div class="content">
+    <div class="content mini-scroll">
         {{ $content }}
     </div>
 </div>

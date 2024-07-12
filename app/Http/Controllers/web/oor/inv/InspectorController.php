@@ -2,12 +2,7 @@
 
 namespace App\Http\Controllers\web\oor\inv;
 
-use App\Models\Glossary\Glossary_Main_AccessLevel;
 use App\Models\Main\Main_Access;
-use App\Models\Main\Main_City;
-use App\Models\Main\Main_Division;
-use App\Models\Main\Main_User;
-use App\Models\Oor\Oor_Inv_Data;
 use App\Models\Oor\Oor_Inv_InDate;
 use App\Models\Oor\Oor_Inv_Raport;
 use Illuminate\Http\Request;
@@ -42,14 +37,22 @@ class InspectorController
     {
         $raport = Oor_Inv_Raport::whereKey($request->raport)->get()->first();
         $data = $raport->data;
-        $pattern = Storage::disk('patterns')->path('OOR_INV_RAPORT2.xlsx');
+        $pattern = Storage::disk('patterns')->path('OOR_INV_RAPORT.xlsx');
 
+        $new_data = [];
+        foreach ($data as $item) {
+            if (!isset($new_data[$item->sheet_id])) {
+                $new_data[$item->sheet_id] = [];
+            }
+            $new_data[$item->sheet_id][$item->coord] = $item->value;
+        }
         $spreadsheet = IOFactory::load($pattern);
-        $data->map(function ($model) use ($spreadsheet) {
-            $sheet_index = $model->sheet->sheet_index;
+        foreach ($new_data as $sheet_index => $data) {
             $activeSheet = $spreadsheet->setActiveSheetIndex($sheet_index);
-            $activeSheet->setCellValue($model->coord, $model->value);
-        });
+            foreach ($data as $coord => $value) {
+                $activeSheet->setCellValue($coord, $value);
+            }
+        }
 
         $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
         $file_name = Str::random(40) . '.xlsx';
@@ -107,7 +110,8 @@ class InspectorController
         return back()->with(['message' => 'Доступ добавлен']);
     }
 
-    public function accessesDelete(Request $request){
+    public function accessesDelete(Request $request)
+    {
         Main_Access::whereKey($request->access)->delete();
         return back()->with(['message' => 'Доступ удален']);
     }
