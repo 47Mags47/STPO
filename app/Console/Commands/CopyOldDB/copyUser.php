@@ -45,7 +45,6 @@ class copyUser extends Command
         try {
             Main_User::unguard();
             Main_User::create([
-                'id' => $user['id'],
                 'first_name' => $user['last_name'],
                 'middle_name' => $user['patronymic'],
                 'last_name' => $user['first_name'],
