@@ -13,6 +13,7 @@ use App\Models\Oor\Oor_Inv_Raport;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
+use PhpOffice\PhpSpreadsheet\IOFactory;
 
 class InspectorController
 {
@@ -41,15 +42,16 @@ class InspectorController
     {
         $raport = Oor_Inv_Raport::whereKey($request->raport)->get()->first();
         $data = $raport->data;
+        $pattern = Storage::disk('patterns')->path('OOR_INV_RAPORT2.xlsx');
 
-        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load(Storage::disk('patterns')->path('OOR_INV_RAPORT.xlsx'));
+        $spreadsheet = IOFactory::load($pattern);
         $data->map(function ($model) use ($spreadsheet) {
             $sheet_index = $model->sheet->sheet_index;
             $activeSheet = $spreadsheet->setActiveSheetIndex($sheet_index);
             $activeSheet->setCellValue($model->coord, $model->value);
         });
 
-        $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
+        $writer = IOFactory::createWriter($spreadsheet, 'Xlsx');
         $file_name = Str::random(40) . '.xlsx';
         $writer->save(Storage::disk('tmp')->path('') . '/' . $file_name);
 
