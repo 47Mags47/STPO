@@ -33,12 +33,12 @@ class copyUser extends Command
         $user = $old_DB->query($sql)->fetch_assoc();
 
         if ($user['hash'] == '') {
-            echo "Хеш пользователя не найден";
+            echo "Хеш пользователя не найден\n";
             return;
         }
 
         if (Main_User::where('id', $user['id'])->count() != 0) {
-            echo "Пользователь уже существует";
+            echo "Пользователь уже существует\n";
             return;
         }
 
@@ -59,7 +59,7 @@ class copyUser extends Command
                 'division_id' => $user['division'],
                 'created_at' => now(),
             ]);
-            echo "Пользователь добавлен";
+            echo "Пользователь добавлен\n";
         } catch (\Throwable $th) {
             dd($th);
         }
