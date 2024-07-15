@@ -5,26 +5,33 @@
                 <x-dashboard.header title="{{ isset($header) ? $header : '' }}" id="{{ isset($id) ? $id : '' }}" />
                 <form action="" method="POST">
                     @csrf
-                    <div class="message-box">
-                        @if ($errors->any())
-                            <ul class="errors">
-                                @foreach ($errors->all() as $message)
-                                    <li>{{ $message }}</li>
-                                @endforeach
-                            </ul>
-                        @endif
-                        @if (session('message'))
-                            <ul class="message">
-                                <li>{{ session('message') }}</li>
-                            </ul>
-                        @endif
-                    </div>
+                    @if (!isset($messages) or $messages)
+                        <div class="message-box">
+                            @if ($errors->any())
+                                <ul class="form-message errors">
+                                    @foreach ($errors->all() as $message)
+                                        <li>{{ $message }}</li>
+                                    @endforeach
+                                </ul>
+                            @endif
+                            @if (session('message'))
+                                <ul class="message">
+                                    <li>{{ session('message') }}</li>
+                                </ul>
+                            @endif
+                        </div>
+                    @endisset
                     {{ $slot }}
-                </form>
-            @break
+            </form>
+        @break
 
-        @endswitch
-    @else
-        {{ $slot }}
-    @endisset
+        @case('info')
+            <x-dashboard.header title="{{ isset($header) ? $header : '' }}" id="{{ isset($id) ? $id : '' }}" />
+            {{ $slot }}
+        @break
+
+    @endswitch
+@else
+    {{ $slot }}
+@endisset
 </div>
