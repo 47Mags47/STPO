@@ -69,6 +69,8 @@ label
         &.dashboard
             width: 450px
             padding: 5px
+            input
+                width: 100%
             &.dashboard-email
                 display: grid
                 grid-template-areas: 'A A' 'B C'
@@ -89,6 +91,13 @@ label
                         color: var(--blue-shield)
                     &[status='dont-active']
                         color: var(--red-shield)
+            &.submit
+                padding: 0
+                overflow: hidden
+                height: 0
+                transition: var(--all-transition)
+                &.open
+                    height: 35px
     &.req
         span::after
             content: '*'

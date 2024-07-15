@@ -8,6 +8,10 @@ class DashboardController
 {
     public function index(){
         $user = auth()->user();
-        return view('page.main.dashboard.index', compact('user'));
+        $respone = view('page.main.dashboard.index', compact('user'));
+        if(!$user->email){
+            $respone->withErrors(['email' => 'Пожалуйста, привяжите эл. почту']);
+        }
+        return $respone;
     }
 }

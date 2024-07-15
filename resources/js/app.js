@@ -20,3 +20,8 @@ $(window).on('load', function () {
 })
 
 import.meta.glob('./pages/*.js')
+
+import * as dashboard from './pages/dashboard.js'
+$(window).on('load', function () {
+    dashboard.load()
+})

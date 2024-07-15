@@ -1,4 +1,4 @@
-<div class="dashboard-box">
+<div class="dashboard-box" id="{{ $id }}">
     @isset($type)
         @switch($type)
             @case('form')

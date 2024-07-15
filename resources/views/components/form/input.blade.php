@@ -11,6 +11,7 @@
             name="{{ $name }}"
             id="{{ $name }}"
             placeholder="{{ isset($ph) ? $ph : '' }}"
+            value="{{ isset($value) ? $value : '' }}"
             @required(str_contains($attributes['class'], 'req'))
             @disabled(isset($disabled))
             >
@@ -18,13 +19,13 @@
 @endif
 
 @if ($type == 'sbm')
-    <label class="submit">
+    <label class='submit {{ $attributes['class'] }}'>
         <input type="submit" value="{{ $label }}" class="button blue-button">
     </label>
 @endif
 
 @if ($type == 'reset')
-    <label class="submit">
+    <label class='submit {{ $attributes['class'] }}'>
         <input type="label" value="{{ $label }}" class="button red-button">
     </label>
 @endif
