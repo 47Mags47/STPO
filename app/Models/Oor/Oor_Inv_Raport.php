@@ -8,10 +8,12 @@ use App\Models\Main\Main_User;
 use Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Oor_Inv_Raport extends Model
 {
     use HasFactory;
+    use SoftDeletes;
 
     protected $guarded = [];
 
