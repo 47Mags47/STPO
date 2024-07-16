@@ -48,6 +48,6 @@ class RegisterController
         Main_User::reguard();
         Auth::login($user);
         event(new Registered($user));
-        //return redirect('dashboard');
+        return redirect('dashboard')->with(['message' => 'На эл. почту высланно письмо для подтверждения']);
     }
 }

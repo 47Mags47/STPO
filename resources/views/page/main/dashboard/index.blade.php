@@ -8,52 +8,48 @@
             <li><a href="#division">Подразделение</a></li>
             <li><a href="#adminers">Администраторы</a></li>
             <li><a href="#adminers">Программисты</a></li>
-
         </x-slot:nav-list>
         <x-slot:content>
-            <x-dashboard.box type="form" header="Пользователь" action="" id="logo" :errors=$errors>
+            <x-dashboard.box header="Пользователь" id="logo">
                 <x-dashboard.logo src="{{ isset($user->logo) ? $user->logo : asset('media/default_logo.png') }}" />
             </x-dashboard.box>
-            <x-dashboard.box type='form' :messages=false id="user">
-                <x-dashboard.input name="last_name" label="Фамилия" ph="{{ $user->last_name }}"
-                    value="{{ $user->last_name }}" />
-                <x-dashboard.input name="first_name" label="Имя" ph="{{ $user->first_name }}"
-                    value="{{ $user->first_name }}" />
-                <x-dashboard.input name="middle_name" label="Отчество" ph="{{ $user->middle_name }}"
-                    value="{{ $user->middle_name }}" />
-                <x-dashboard.input name="last_name" label="test" ph="{{ $user->last_name }}"
-                    value="{{ $user->last_name }}" />
-                <x-dashboard.input name="nickname" label="Псевдоним" ph="{{ $user->nickname }}"
-                    value="{{ $user->nickname }}" disabled />
-                <x-dashboard.input type="email" name="email" label="Адресс эл. почты" ph="{{ $user->email }}"
-                    value="{{ $user->email }}" />
-                <x-dashboard.input type="phone" name="phone" label="Телефон" ph="{{ $user->phone }}"
-                    value="{{ $user->phone }}" />
-                <x-dashboard.input name="dop_phone" label="Добавочный" ph="{{ $user->dop_phone }}"
-                    value="{{ $user->dop_phone }}" />
-                <x-dashboard.input type="sbm" />
+            <x-dashboard.box header="" id="user">
+                <x-form.form>
+                    <x-form.input name="last_name" label="Фамилия" value="{{ $user->last_name }}" />
+                    <x-form.input name="first_name" label="Имя" value="{{ $user->first_name }}" />
+                    <x-form.input name="middle_name" label="Отчетсво" value="{{ $user->middle_name }}" />
+                    <x-form.input name="nickname" label="Псевдоним" value="{{ $user->nickname }}" />
+                    <x-form.input type="email" name="email" label="Эл. Почта" value="{{ $user->email }}" />
+                    <x-form.input type="tel" name="phone" label="Телефон" value="{{ $user->phone }}" />
+                    <x-form.input name="dop_phone" label="Добавочный" value="{{ $user->dop_phone }}" />
+                    <x-form.sbm title="сохранить" />
+                </x-form.form>
+            </x-dashboard.box>
 
+            <x-dashboard.box header="Подразделение" id="division">
+                <x-text.ul>
+                    <x-text.li title="Город: " value="{{ $user->division->city->name }}" />
+                    <x-text.li title="Наименование: " value="{{ $user->division->name }}" />
+                </x-text.ul>
             </x-dashboard.box>
-            <x-dashboard.box type='info' header="подразделение" id="division">
-                <x-dashboard.input name="division" label="Наименование" ph="{{ $user->division->name }}"
-                    value="{{ $user->division->name }}" disabled />
-            </x-dashboard.box>
-            <x-dashboard.box type='info' header="Администраторы" id="adminers">
+            <x-dashboard.box header="Администраторы" id="adminers">
                 @foreach ($user->division->adminers as $admin)
-                    <x-text.box type="info">
-                        <x-text.li title="ФИО:" value="{{ $admin->last_name }} {{ $admin->first_name }} {{ $admin->middle_name }}" />
-                        <x-text.li title="Телефон:" value="{{ $admin->phone }}, {{ $admin->dop_phone }}" />
-                        <x-text.li title="Email:" value="{{ $admin->email }}" />
-                    </x-text.box>
+                    <x-text.ul>
+                        <x-text.li title="ФИО: "
+                            value="{{ $admin->last_name }} {{ $admin->first_name }} {{ $admin->middle_name }}" />
+                        <x-text.li title="Телефон: " value="{{ $admin->phone }} {{ $admin->dop_phone }}" />
+                        <x-text.li title="Почта: " value="{{ $admin->email }}" />
+                    </x-text.ul>
                 @endforeach
             </x-dashboard.box>
-            <x-dashboard.box type='info' header="Программисты" id="programmers">
+            <x-dashboard.box header="Программисты" id="programmers">
                 @foreach ($user->division->programmers as $programmer)
-                    <x-text.box type="info">
-                        <x-text.li title="ФИО:" value="{{ $programmer->last_name }} {{ $programmer->first_name }} {{ $programmer->middle_name }}" />
-                        <x-text.li title="Телефон:" value="{{ $programmer->phone }}, {{ $programmer->dop_phone }}" />
-                        <x-text.li title="Email:" value="{{ $programmer->email }}" />
-                    </x-text.box>
+                    <x-text.ul>
+                        <x-text.li title="ФИО: "
+                            value="{{ $programmer->last_name }} {{ $programmer->first_name }} {{ $programmer->middle_name }}" />
+                        <x-text.li title="Телефон: " value="{{ $programmer->phone }} {{ $programmer->dop_phone }}" />
+                        <x-text.li title="Почта: " value="{{ $programmer->email }}" />
+                    </x-text.ul>
                 @endforeach
             </x-dashboard.box>
         </x-slot:content>
