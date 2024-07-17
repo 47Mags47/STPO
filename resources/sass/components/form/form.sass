@@ -1,0 +1,86 @@
+.form-box
+    width: 100%
+    height: 100%
+    max-height: 100%
+    overflow-y: auto
+    &.center
+        display: grid
+        justify-content: center
+        align-content: center
+    form
+        width: auto
+        max-width: 100%
+        min-width: 500px
+        overflow: hidden
+        padding: 30px 25px
+        display: flex
+        flex-direction: column
+        flex-wrap: wrap
+        gap: 10px
+        border-radius: 9px
+        &.shadow
+            box-shadow: 4px 4px 12px 5px #999
+        .form-header
+            width: 100%
+            font-size: 1.2rem
+            text-align: center
+            color: #333
+            font-weight: 500
+        .message-box
+            width: 100%
+            height: auto
+            ul
+                width: 100%
+                padding: 5px 10px
+                display: flex
+                flex-direction: column
+                gap: 1px
+                border-radius: 7px
+                &.errors
+                    background-color: #ffc6c6
+                    color: #9b0000
+                &.message
+                    background-color: #c6ffc6
+                    color: #002c00
+                li
+                    list-style: disc inside
+                    font-size: 1rem
+                    font-style: italic
+                    font-weight: bold
+                    color: inherit
+        label
+            display: flex
+            flex-direction: column
+            gap: 5px
+            span
+                padding-left: 7px
+                color: #333
+                font-size: 1rem
+                font-weight: bold
+                font-style: italic
+            input,select
+                padding: 4px 7px
+                border: 1px solid #999
+                outline: none
+                border-radius: 7px
+                font-size: .9rem
+                transition: var(--all-transition)
+                &:focus
+                    border: 1px solid #333
+        .sbm-box
+            width: 100%
+            height: auto
+            display: grid
+            input
+                height: 100%
+                transition: var(--all-transition)
+            input.close
+                overflow: hidden
+                height: 0
+                padding: 0
+        .other-box
+            display: flex
+            flex-direction: column
+            gap: 5px
+            p,a
+                font-size: .9rem
