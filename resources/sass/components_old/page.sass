@@ -1,0 +1,150 @@
+.admin-page-box
+    display: flex
+    flex-flow: row wrap
+    align-content: center
+    position: relative
+    width: 100%
+    height: calc( 100% - 60px )
+    .meny
+        flex: 1 100%
+        height: 50px
+    .division-list
+        position: relative
+        height: calc( 100% - 50px )
+        max-height: calc( 100% - 50px )
+        overflow-y: scroll
+        background: var(--header-bottom-color)
+        border-top: 1px solid gray
+
+        width: 1px
+        transition: var(--all-transition)
+        &.open
+            width: 350px
+        ul
+            display: flex
+            flex-direction: column
+            overflow: hidden
+            li
+                list-style: none
+                width: 350px
+                &:hover
+                    background: #252c47
+                    a
+                        color: white
+                a
+                    display: block
+                    width: 100%
+                    padding: 5px 10px
+                    transition: var(--all-transition)
+
+                    color: #ddd
+                    font-weight: bold
+                    font-size: 1rem
+                &[completed="false"]
+                    padding: 5px 10px
+                    background: #383c4b
+                    span
+                        font-weight: bold
+                        font-size: 1rem
+                        color: #ddd
+                        text-decoration: line-through
+                        cursor: default
+                &[opened="1"]
+                    background: #252c47
+    .content
+        max-height: calc( 100% - 50px )
+        overflow-y: scroll
+        position: relative
+        flex: 1
+.info-page-box
+    height: 100%
+    display: grid
+    grid-auto-flow: column
+    grid-template-columns: 400px auto
+    .nav-list-box
+        height: 100%
+        padding: 50px 25px
+        .nav-list
+            position: sticky
+            top: 110px
+            width: 100%
+            height: auto
+            max-height: 100%
+            display: flex
+            flex-direction: column
+            gap: 7px
+            border: 1px solid var(--modul-color)
+            border-radius: 15px
+            padding: 20px
+            li
+                list-style: none
+                a
+                    width: initial
+                    color: var(--modul-color)
+                    position: relative
+                    &::after
+                        content: ''
+                        position: absolute
+                        display: block
+                        width: 0
+                        height: 2px
+                        background: var(--modul-color)
+                        transition: var(--all-transition)
+                &:hover
+                    a::after
+                        width: 100%
+    .content
+        .dashboard-box
+            padding: 15px 25px
+            .header
+                width: 100%
+                height: auto
+                text-align: center
+                a
+                    font-size: 1.4rem
+                    color: #333
+                &::before
+                    content: ''
+                    display: block
+                    margin-top: -75px
+                    padding-top: 100px
+                    visibility: hidden
+
+
+        .image-box
+            display: flex
+            justify-content: center
+            align-items: center
+            .image
+                width: 300px
+                height: 300px
+                display: flex
+                justify-content: center
+                align-items: center
+                border-radius: 50%
+                overflow: hidden
+                position: relative
+                cursor: pointer
+                img
+                    width: 300px
+                    height: 300px
+                .edit
+                    position: absolute
+                    top: 100%
+                    left: 0
+                    background: #eeeeeed7
+                    backdrop-filter: blure(2px)
+                    bottom: 0
+                    border-radius: 50%
+                    width: 300px
+                    height: 300px
+
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    overflow: hidden
+                &:hover
+                    .edit
+                        top: 0
+
+
