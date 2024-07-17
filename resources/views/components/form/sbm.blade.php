@@ -4,6 +4,10 @@
     <input
         type="submit"
         value="{{ isset($title) ? $title : 'Отправить' }}"
-        class="button blue-button"
+        @class([
+            'button',
+            'blue-button',
+            'close' => isset($close)
+        ])
     >
 </div>

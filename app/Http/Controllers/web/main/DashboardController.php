@@ -4,6 +4,7 @@ namespace App\Http\Controllers\web\main;
 
 use App\Models\Main\Main_User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class DashboardController
 {
@@ -33,5 +34,12 @@ class DashboardController
         auth()->user()->update($validated);
         Main_User::reguard();
         return back();
+    }
+
+    public function logout(Request $request){
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect()->route('home');
     }
 }

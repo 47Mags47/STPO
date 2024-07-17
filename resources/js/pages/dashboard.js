@@ -1,18 +1,17 @@
 export function load() {
-    console.log($('#user'));
-    $('#user .dashboard-inp input:not([type="submit"])').each(function () {
+
+    $('#user-form input:not([type="submit"], [type="hidden"])').each(function () {
         $(this).on('change', function () {
             let flag = false
-            $('#user .dashboard-inp input:not([type="submit"])').each(function () {
-                console.log($(this).val(), $(this).attr('placeholder'));
+            $('#user-form input:not([type="submit"], [type="hidden"])').each(function () {
                 if ($(this).val() != $(this).attr('placeholder')) {
                     flag = true
                 }
             })
             if (flag) {
-                $(this).parent().parent().find('input[type="submit"]').parent().addClass('open')
+                $('#user-form .sbm-box input').removeClass('close')
             } else {
-                $(this).parent().parent().find('input[type="submit"]').parent().removeClass('open')
+                $('#user-form .sbm-box input').addClass('close')
             }
         })
     })
