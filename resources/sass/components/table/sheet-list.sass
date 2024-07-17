@@ -1,0 +1,38 @@
+.sheets
+    height: 30px
+    border-top: 2px solid gray
+    ul
+        width: 100%
+        max-width: 100vw
+        overflow-x: auto
+        display: flex
+        justify-content: start
+        align-items: center
+        height: 100%
+        background: #eee
+        li
+            list-style: none
+            width: initial
+            height: 100%
+            display: flex
+            justify-content: center
+            align-items: center
+            border-right: 1px solid gray
+            a
+                display: block
+                padding: 0 3px
+                width: initial
+                height: 100%
+                font-size: .75rem
+                font-weight: bold
+                display: flex
+                justify-content: center
+                align-items: center
+                white-space: nowrap
+                color: #666
+                transition: var(--all-transition)
+                &.opened, &:hover
+                    color: black
+                    background: white
+
+

@@ -2,8 +2,8 @@
     @isset($colspan)
         colspan={{ $colspan }}
     @endisset
-    @isset($colspan)
-        colspan={{ $colspan }}
+    @isset($rowspan)
+        rowspan={{ $rowspan }}
     @endisset
 >
     <div>{!! $value !!}</div>

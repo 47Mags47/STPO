@@ -44,7 +44,7 @@
 <tbody>
     <tr>
         <x-table.td type="header" value="Общая численность населения субъекта Российской Федерации, в том числе:" />
-        <x-table.td value="01" h='center' />
+        <x-table.td value="01" center />
         <x-table.td type="input" value="{{ $data->has('CA7') ? $data['CA7'] : '' }}" name="CA7" />
         <x-table.td type="input" value="{{ $data->has('CB7') ? $data['CB7'] : '' }}" name="CB7" />
         <x-table.td type="input" value="{{ $data->has('CC7') ? $data['CC7'] : '' }}" name="CC7" />
@@ -59,7 +59,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Численность взрослого населения в возрасте 18 лет и старше" />
-        <x-table.td value="02" h='center' />
+        <x-table.td value="02" center />
         <x-table.td type="input" value="{{ $data->has('CA8') ? $data['CA8'] : '' }}" name="CA8" />
         <x-table.td type="input" value="{{ $data->has('CB8') ? $data['CB8'] : '' }}" name="CB8" />
         <x-table.td type="input" value="{{ $data->has('CC8') ? $data['CC8'] : '' }}" name="CC8" />
@@ -74,7 +74,7 @@
     </tr>
     <tr>
         <x-table.td type="header" value="Численность детского населения" />
-        <x-table.td value="03" h='center' />
+        <x-table.td value="03" center />
         <x-table.td type="input" value="{{ $data->has('CA9') ? $data['CA9'] : '' }}" name="CA9" />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />

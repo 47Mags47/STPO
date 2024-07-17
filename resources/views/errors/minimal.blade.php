@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>@yield('title')</title>
         @vite('resources/sass/app.sass')
-        @vite('resources/sass/components/page-errors.sass')
+        @vite('resources/sass/page/page-errors.sass')
     </head>
     <body class="antialiased">
         <div class="message">
