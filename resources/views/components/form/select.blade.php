@@ -6,11 +6,20 @@
         <span>{!! $label !!}</span>
     @endisset
     <select
-        name="{{ isset($name) ? $name : '' }}"
+        @php
+            $select_name = '';
+            if (isset($name)) {
+                $select_name = $name;
+                if (isset($data)) {
+                    $select_name = 'data[' . $select_name . ']';
+                }
+            }
+        @endphp
+        name="{{ $select_name }}"
         id="{{ isset($name) ? $name : '' }}"
-        @required(isset($required))
+        @required(isset($req))
         @disabled(isset($disabled))
-        @class(['depend' => isset($depend)])
+        @class(['mini-scroll', 'depend' => isset($depend)])
         @isset($depend)
             depend="{{ $depend }}"
         @endisset

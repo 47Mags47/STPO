@@ -14,15 +14,13 @@
             @include('page.oor.inv.filling.sheets.' . $sheet_id)
         </x-slot:sheet>
         <x-slot:sheets>
-            <x-excel.sheet-list>
-                @foreach ($sheets as $sheet)
-                    <x-excel.sheet-link
-                        link="{{ route('inv.filling.sheet', ['sheet' => $sheet->id]) }}"
-                        title="{{$sheet->name}}"
-                        opened="{{$sheet->id == $sheet_id}}"
-                    />
-                @endforeach
-            </x-excel.sheet-list>
+            @foreach ($sheets as $sheet)
+                <x-excel.sheet-link
+                    link="{{ route('inv.filling.sheet', ['sheet' => $sheet->id]) }}"
+                    title="{{$sheet->name}}"
+                    opened="{{$sheet->id == $sheet_id}}"
+                />
+            @endforeach
         </x-slot:sheets>
     </x-excel.box>
 @endsection

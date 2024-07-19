@@ -8,6 +8,7 @@
             id={{ isset($formId) ? $formId : '' }}
         >
             @csrf
+            <x-messages.all />
             <table
             @isset($top0)
                 top-0

@@ -2,7 +2,7 @@
 @section('page-name', 'формирования и развития системы комплексной реабилитации и абилитации инвалидов')
 
 @section('body')
-    <x-page.admin-box burger>
+    <x-admin.box burger>
         <x-slot:meny>
             <x-page.nav title="Отчеты" link="{{ route('inv.inspector.raports') }}" />
             <x-page.nav title="Даты" link="{{ route('inv.inspector.dates') }}" />
@@ -14,18 +14,19 @@
             <x-page.nav title="Общий" link="{{ route('inv.inspector.svod.download', ['stmp' => time()]) }}" blank />
         </x-slot:meny>
         <x-slot:division-list>
-            <x-page.division-list>
+            <x-admin.division-list>
                 @foreach ($divisions as $division)
-                    @if ($division->raport($raportClass))
-                        <x-page.division
-                            link="{{ route('inv.inspector.raport.show', ['raport' => $division->raport($raportClass)->id, 'sheet' => 2]) }}"
-                            title="{{ $division->name }}" complited="{{ $division->Completed($raportClass) }}"
-                            opened='{{ isset($division_id) ? $division_id == $division->id : false }}' />
+                    @if ($division->raport($raportClass) == null)
+                        <x-admin.division title="{{ $division->name }}" disable/>
                     @else
-                        <x-page.division link="" title="{{ $division->name }}" :complited=false :opened=false />
-                    @endisset
+                        <x-admin.division
+                            title="{{ $division->name }}"
+                            link="{{ route('inv.inspector.raport.show', ['raport' => $division->raport($raportClass)->id, 'sheet' => 2]) }}"
+                            active="{{ isset($division_id) ? $division_id == $division->id : false }}"
+                        />
+                    @endif
                 @endforeach
-        </x-page.division-list>
+        </x-admin.division-list>
     </x-slot:division-list>
     <x-slot:content>
         @yield('content')

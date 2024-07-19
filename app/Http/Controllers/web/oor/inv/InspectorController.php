@@ -22,7 +22,6 @@ class InspectorController
     {
         $inspectorPageData = PageController::inspectorPageData();
         $inspectorRaportData = PageController::inspectorRaportData($request->raport, $request->sheet);
-        // $division_id = Main_Division::where('id', Oor_Inv_Raport::where(''))
         return view('page.oor.inv.inspector.raport', array_merge($inspectorRaportData, $inspectorPageData));
     }
 
@@ -41,10 +40,10 @@ class InspectorController
 
         $new_data = [];
         foreach ($data as $item) {
-            if (!isset($new_data[$item->sheet_id])) {
-                $new_data[$item->sheet_id] = [];
+            if (!isset($new_data[$item->sheet->index])) {
+                $new_data[$item->sheet->index] = [];
             }
-            $new_data[$item->sheet_id][$item->coord] = $item->value;
+            $new_data[$item->sheet->index][$item->coord] = $item->value;
         }
         $spreadsheet = IOFactory::load($pattern);
         foreach ($new_data as $sheet_index => $data) {
@@ -74,6 +73,7 @@ class InspectorController
         $validated = $request->validate([
             'data.date' => ['required', 'date', 'after_or_equal:today', 'unique:oor__inv__in_dates,date']
         ]);
+
         Oor_Inv_InDate::create($validated['data']);
         return back()->with(['message' => date('d.m.Y', strtotime($validated['data']['date'])) . ' Успешно добавлено']);
     }

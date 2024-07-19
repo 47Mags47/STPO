@@ -5,13 +5,20 @@
         </div>
     @endisset
 
-    <x-table.box action="{{isset($action) ? $action : ''}}" form="{{isset($form) ? 'true' : 'false'}}" form-id="{{isset($formId) ? $formId : ''}}" top-0>
+    <x-table.box
+        action="{{ isset($action) ? $action : '' }}"
+        form="{{ isset($form) ? 'true' : 'false' }}"
+        form-id="{{ isset($formId) ? $formId : '' }}"
+        top-0
+    >
         {{ $sheet }}
     </x-table.box>
 
     @isset($sheets)
         <div class="sheets">
-            {{ $sheets }}
+            <ul class="mini-scroll">
+                {{ $sheets }}
+            </ul>
         </div>
     @endisset
 </div>

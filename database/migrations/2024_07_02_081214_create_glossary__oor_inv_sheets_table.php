@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->text('header');
-            $table->integer('sheet_index');
+            $table->integer('index');
         });
     }
 
