@@ -17,10 +17,10 @@
             <x-admin.division-list>
                 @foreach ($divisions as $division)
                     @if ($division->raport($raportClass) == null)
-                        <x-admin.division title="{{ $division->name }}" disable/>
+                        <x-admin.division title="{{ $division->name . ' (' . $division->city->name . ')' }}" disable/>
                     @else
                         <x-admin.division
-                            title="{{ $division->name }}"
+                            title="{{ $division->name . ' (' . $division->city->name . ')' }}"
                             link="{{ route('inv.inspector.raport.show', ['raport' => $division->raport($raportClass)->id, 'sheet' => 2]) }}"
                             active="{{ isset($division_id) ? $division_id == $division->id : false }}"
                         />
