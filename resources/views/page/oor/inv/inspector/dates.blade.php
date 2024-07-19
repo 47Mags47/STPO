@@ -1,33 +1,37 @@
 @extends('page.oor.inv.inspector.index')
 @section('content')
-    <x-table.box pd=5 action="">
-        <x-slot:header>
+    <x-table.box :form=true action="">
+        <thead>
             <tr>
                 <x-table.th value="Дата" />
                 <x-table.th value="Активность" />
                 <x-table.th value="Отчетов" />
                 <x-table.th value="" />
             </tr>
-        </x-slot:header>
-        <x-slot:body>
-            <x-table.btr>
-                <x-table.td type="input" colspan=3 name="date" inp-type="date" dtpd/>
-                <x-table.td type="smb" class="test" title="Добавить"/>
-            </x-table.btr>
+        </thead>
+        <tbody>
+            <tr>
+                <x-table.td type='input' inp-type='date' name='date' colspan='3'/>
+                <x-table.td
+                    type="sbm"
+                    title="Добавить" />
+            </tr>
             @foreach ($dates as $date)
-                <x-table.btr>
-                    <x-table.td value="{{ date('d.m.Y', strtotime($date->date)) }}" />
-                    <x-table.td value="{{ $date->is_active ? 'Да' : 'Нет' }}" h='center' />
-                    <x-table.td value="{{ $date->raport_count() }}" h='center' />
+                <tr>
+                    <x-table.td value="{!! date('d.m.Y', strtotime($date->date)) !!}" />
+                    <x-table.td value="{!! $date->is_active ? 'Да' : 'Нет' !!}" h='center' />
+                    <x-table.td value="{!! $date->raport_count() !!}" h='center' />
                     @if ($date->is_active)
-                        <x-table.td value='' />
+                        <x-table.td />
                     @else
-                        <x-table.td type="link-button"
-                            value="{{ route('inv.inspector.date.activate', ['date_id' => $date->id]) }}"
+                        <x-table.td
+                            type="link"
+                            blue-button
+                            link="{{ route('inv.inspector.date.activate', ['date_id' => $date->id]) }}"
                             title="Активировать" />
                     @endif
-                </x-table.btr>
+                </tr>
             @endforeach
-        </x-slot:body>
+        </tbody>
     </x-table.box>
 @endsection

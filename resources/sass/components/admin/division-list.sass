@@ -1,0 +1,47 @@
+.division-list
+    width: 0
+    grid-area: B
+    transition: var(--all-transition)
+    overflow-x: hidden
+    background: var(--header-top-background-color)
+    &.open
+        width: 350px
+    ul
+        display: flex
+        flex-direction: column
+        li
+            width: 350px
+            list-style: none
+            background: var(--header-top-background-color)
+            transition: var(--all-transition)
+            a
+                font-size: .9rem
+                display: block
+                width: 100%
+                height: 100%
+                padding: 5px 10px
+                color: #ccc
+                font-weight: bold
+                transition: var(--all-transition)
+            &:first-child
+                border-top: 2px solid #383c4b
+            &:hover
+                background: #252c47
+                a
+                    color: white
+            &.disable
+                background: #383c4b
+                a
+                    text-decoration: line-through
+                    cursor: default
+                &:hover
+                    background: #383c4b
+                    a
+                        color: #ccc
+            &.active
+                background: #252c47
+                a
+                    color: white
+
+
+

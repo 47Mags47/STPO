@@ -1,8 +1,6 @@
 <ul>
-    @isset($burger)
-        @if ($burger)
-            <x-header.burger box=".division-list"/>
-        @endif
+    @if(isset($burger) and $burger == 'true' )
+        <x-custom.burger box=".division-list"/>
     @endisset
     {{ $slot }}
 </ul>

@@ -1,32 +1,40 @@
 {{-- ACTION  --}}
 {{-- METHOD  --}}
-{{-- CLASS ?= CLASSIC --}}
+{{-- ? formId | method | header --}}
 
-<div class="form-box">
-    <form action="{{ $action }}" method="{{ $method == 'GET' ? 'GET' : 'POST' }}"
-        class="mini-scroll {{ $attributes['class'] != null ? $attributes['class'] : 'classic' }}">
-        @if ($attributes['header'])
-            <p class="form-header">{{ $attributes['header'] }}</p>
-        @endif
-        <div class="message-box">
-            @if ($errors->any())
-                <ul class="errors">
-                    @foreach ($errors->all() as $message)
-                        <li>{{ $message }}</li>
-                    @endforeach
-                </ul>
-            @endif
-            @if (session('message'))
-                <ul class="message">
-                    <li>{{ session('message') }}</li>
-                </ul>
-            @endif
-        </div>
-        @csrf
-        @if ($method != 'GET')
-            @method($method)
-        @endif
+@isset($type)
 
-        {{ $slot }}
-    </form>
-</div>
+@else
+    <div @class([
+        'form-box',
+        'mini-scroll',
+        'font-bold' => true,
+        'center' => isset($center),
+    ])>
+        <form
+            action="{{ isset($action) ? $action : '' }}"
+            id="{{ isset($formId) ? $formId : '' }}"
+            method="{{ isset($method) ? $method : 'POST' }}"
+            @class(['shadow' => isset($shadow)])
+        >
+            @isset($header)
+                <p class="form-header">{{ $header }}</p>
+            @endisset
+
+            @if(!isset($errorDisplay) or (isset($errorDisplay) and $errorDisplay))
+                <x-messages.all />
+            @endif
+            @csrf
+            @isset($method)
+                @method($method)
+            @endisset
+            {{ $slot }}
+            @isset($other)
+                <div class="other-box">
+                    {{ $other }}
+                </div>
+            @endisset
+        </form>
+    </div>
+@endisset
+

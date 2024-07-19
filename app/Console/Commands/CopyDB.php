@@ -29,6 +29,8 @@ class CopyDB extends Command
         $models = [
             \App\Models\Main\Main_User::class,
             \App\Models\Main\Main_Access::class,
+            \App\Models\Main\Main_Division_Adminer::class,
+            \App\Models\Main\Main_Division_Programmer::class,
 
             \App\Models\Oor\Oor_Inv_InDate::class,
             \App\Models\Oor\Oor_Inv_Raport::class,

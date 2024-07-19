@@ -1,44 +1,29 @@
-<div class="table-box {{ $attributes['class'] ? $attributes['class'] : '' }}">
-    @isset($options)
-        @if ($options)
-            <div class="options">
-                <div class="search">
-                    <x-table.search action="" />
-                </div>
-                <form action="{{ isset($filterAction) ? $filterAction : '' }}" method="POST">
-                    @csrf
-                    <ul class="filters">
-                        {{ $filters }}
-                        <input type="submit" value="Применить" class="accept-button button blue-button">
-                        <input type="reset" value="X" class="reset-button button red-button">
-                    </ul>
-                </form>
-            </div>
-        @endif
-    @endisset
-
-    <div class="message-box">
-        @if ($errors->any())
-            <ul class="errors">
-                @foreach ($errors->all() as $message)
-                    <li>{{ $message }}</li>
-                @endforeach
-            </ul>
-        @endif
-        @if (session('message'))
-            <ul class="message">
-                <li>{{ session('message') }}</li>
-            </ul>
-        @endif
-    </div>
-    <form action="{{ isset($action) ? $action : '' }}" method="{{ isset($method) ? $mthod : 'POST' }}">
-        @csrf
-        <table {{ isset($pd) ? 'pd=' . $pd : '' }}>
-            @isset($cols)
-                <colgroup>{{ $cols }}</colgroup>
+{{-- parametrs: form(true|false) | action | method --}}
+{{-- flags: top-0 --}}
+<div class="table-box mini-scroll">
+    @if($form == 'true')
+        <form
+            action="{{ isset($action) ? $action : '' }}"
+            method="{{ isset($method) ? $method : 'POST' }}"
+            id={{ isset($formId) ? $formId : '' }}
+        >
+            @csrf
+            <x-messages.all />
+            <table
+            @isset($top0)
+                top-0
             @endisset
-            <thead>{{ $header }}</thead>
-            <tbody>{{ $body }}</tbody>
+            >
+                {{ $slot }}
+            </table>
+        </form>
+    @else
+        <table
+        @isset($top0)
+            top-0
+        @endisset
+        >
+            {{ $slot }}
         </table>
-    </form>
+    @endisset
 </div>

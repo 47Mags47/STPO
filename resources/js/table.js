@@ -21,34 +21,4 @@ export function load() {
             $('ul.filters li.open').removeClass('open')
         }
     })
-
-    /* зависимость select */
-    // Запретить выбор при наличии зависимости
-    $('.content .table-box select.depended').each(function () {
-        let select = $(this)
-        select.prop('disabled', true)
-        $(`#${select.attr('depend')}`).on('change', function () {
-            if($(this).val() != 0){
-                select.prop('disabled', false)
-            }else{
-                select.val(0)
-                select.prop('disabled', true)
-                select.trigger('change')
-            }
-        })
-    })
-
-    // Оставить только варианты зависимости
-    $('.content .table-box select.depended').each(function (i, select) {
-        let parent = $(`#${$(this).attr('depend')}`)
-        parent.on('change', function () {
-            let depend_val = $(this).val()
-            $(select).find('option').each(function () {
-                $(this).addClass('no-display')
-                if ($(this).attr('depend-val') == depend_val) {
-                    $(this).removeClass('no-display')
-                }
-            })
-         })
-    })
 }

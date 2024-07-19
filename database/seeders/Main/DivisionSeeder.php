@@ -109,7 +109,7 @@ class DivisionSeeder extends Seeder
         Main_Division::create(['id' => 87, 'name' => 'МКУ СРЦ "Полярная звезда"', 'type_id' => 2, 'city_id' => 16]);
         Main_Division::create(['id' => 88, 'name' => 'МКУ СРЦ "Уютный дом"', 'type_id' => 2, 'city_id' => 16]);
         Main_Division::create(['id' => 89, 'name' => 'МКУ ЦСПСиД', 'type_id' => 2, 'city_id' => 16]);
-        Main_Division::create(['id' => 90, 'name' => 'МКУ "Центр социальной помощи семье и детям"', 'type_id' => 2, 'city_id' => 16]);
+        Main_Division::create(['id' => 90, 'name' => 'МКУ ЦСПСиД "Виктория""', 'type_id' => 2, 'city_id' => 16]);
         Main_Division::create(['id' => 91, 'name' => 'МКУ Центр реабилитации детей и подростков сограниченными возможностями', 'type_id' => 2, 'city_id' => 16]);
         Main_Division::create(['id' => 92, 'name' => 'ООО "Росток"', 'type_id' => 4, 'city_id' => 16]);
         Main_Division::create(['id' => 93, 'name' => 'ООО "Здоровье"', 'type_id' => 4, 'city_id' => 16]);

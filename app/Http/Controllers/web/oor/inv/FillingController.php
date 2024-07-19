@@ -23,10 +23,10 @@ class FillingController
     public function fillingSave(Request $request)
     {
         $raport = Oor_Inv_Raport::firstOrCreate([
-            'worker_id' => auth()->user()->id,
+            'division_id' => auth()->user()->division_id,
             'in_date_id' => Oor_Inv_InDate::actual()->id,
         ], [
-            'division_id' => auth()->user()->division_id
+            'worker_id' => auth()->user()->id,
         ]);
         foreach ($request->data as $coord => $value) {
             Oor_Inv_Data::updateOrCreate([

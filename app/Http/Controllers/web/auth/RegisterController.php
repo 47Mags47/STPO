@@ -47,7 +47,8 @@ class RegisterController
         $user = Main_User::create($data);
         Main_User::reguard();
         Auth::login($user);
-        event(new Registered($user));
-        //return redirect('dashboard');
+        //event(new Registered($user));
+        return redirect('dashboard');
+            //->with(['message' => 'На эл. почту высланно письмо для подтверждения']);
     }
 }
