@@ -18,7 +18,7 @@ class PageController
     public static function fillingPageData($sheet_id)
     {
         $sheets = Glossary_Oor_inv_sheet::get();
-        $sheet_header = Glossary_Oor_inv_sheet::whereKey($sheet_id)->get()->first()->header;
+        $sheet = Glossary_Oor_inv_sheet::find($sheet_id);
         $raport = Oor_Inv_Raport::firstOrCreate([
             'division_id' => auth()->user()->division_id,
             'in_date_id' => Oor_Inv_InDate::actual()->id,
@@ -26,7 +26,7 @@ class PageController
             'worker_id' => auth()->user()->id
         ]);
         $data = $raport->data->where('sheet_id', $sheet_id)->pluck('value', 'coord');
-        return compact('sheet_id', 'sheets', 'sheet_header', 'data');
+        return compact('sheet_id', 'sheets', 'sheet', 'data');
     }
 
     public static function inspectorPageData()
