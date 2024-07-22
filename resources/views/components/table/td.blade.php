@@ -21,6 +21,7 @@
                         @required(isset($req))
                         @disabled(isset($disabled))
                         @checked(isset($checked))
+                        step="{{ isset($step) ? $step : 1 }}"
                     >
                 @break
                 @case('input-d')
