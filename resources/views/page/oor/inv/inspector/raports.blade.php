@@ -1,6 +1,9 @@
 @extends('page.oor.inv.inspector.index')
 @section('content')
-    <x-table.box :form=false>
+    <x-table.box :form=false :paginate=true>
+            <x-slot:paginate-link>
+                {{ $raport_table->links()  }}
+            </x-slot:paginate-link>
         <thead>
             <tr>
                 <x-table.th value="Подразделение" />
@@ -11,7 +14,7 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($raports as $raport)
+            @foreach ($raport_table as $raport)
                 <tr>
                     <x-table.td value="{!! $raport->worker->division->name !!}" />
                     <x-table.td value="{!! $raport->worker->nickname !!}" />
@@ -22,6 +25,7 @@
                         blue-button
                         link="{{ route('inv.inspector.raport.download', ['raport' => $raport->id, 'stmp' => time()]) }}"
                         title="Загрузить"
+                        new-page
                     />
                 </tr>
             @endforeach

@@ -15,15 +15,16 @@
         </x-slot:meny>
         <x-slot:division-list>
             <x-admin.division-list>
-                @foreach ($divisions as $division)
-                    @if ($division->raport($raportClass) == null)
-                        <x-admin.division title="{{ $division->name . ' (' . $division->city->name . ')' }}" disable/>
-                    @else
+                @foreach ($all_divisions as $division)
+
+                    @if (in_array($division->id, $raports->pluck('division_id')->toArray()))
                         <x-admin.division
-                            title="{{ $division->name . ' (' . $division->city->name . ')' }}"
-                            link="{{ route('inv.inspector.raport.show', ['raport' => $division->raport($raportClass)->id, 'sheet' => 2]) }}"
-                            active="{{ isset($division_id) ? $division_id == $division->id : false }}"
+                            title="{{ $division->city->name . ': ' . $division->name }}"
+                            link="{{ route('inv.inspector.raport.show', ['raport' => $raports->firstWhere('division_id', $division->id)->id, 'sheet' => 2]) }}"
+                            active="{{ isset($current_raport) and $current_raport->division->id == $division->id }}"
                         />
+                    @else
+                        <x-admin.division title="{{ $division->city->name . ': ' . $division->name }}" disable/>
                     @endif
                 @endforeach
         </x-admin.division-list>

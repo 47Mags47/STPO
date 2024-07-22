@@ -31,19 +31,25 @@ class PageController
 
     public static function inspectorPageData()
     {
-        $divisions = Main_Access::division_access(7);
-        $raportClass = Oor_Inv_Raport::class;
-        return compact('divisions', 'raportClass');
+        $all_divisions = Main_Access::division_access(7);
+        $raports = Oor_Inv_Raport::select('oor__inv__raports.*')
+            ->join('main__divisions', 'main__divisions.id', '=', 'oor__inv__raports.division_id')
+            ->join('main__cities', 'main__cities.id', '=', 'main__divisions.city_id')
+            ->where('in_date_id', Oor_Inv_InDate::actual()->id)
+            ->orderBy('main__cities.name')
+            ->orderBy('main__divisions.name')
+            ->get();
+        return compact('all_divisions', 'raports');
     }
 
-    public static function inspectorRaportData($raport_id, $sheet_id = null)
+    public static function inspectorRaportData($raport_id, $sheet_id = 2)
     {
-        $sheets = Glossary_Oor_inv_sheet::get();
-        $sheet_header = Glossary_Oor_inv_sheet::whereKey($sheet_id)->get()->first()->header;
-        $data = Oor_Inv_Raport::sheetData($raport_id, $sheet_id ? $sheet_id : 2);
-        $division_id = Oor_Inv_Raport::whereKey($raport_id)->get()->first()->division_id;
+        $sheets = Glossary_Oor_inv_sheet::orderBy('index')->get();
+        $sheet = Glossary_Oor_inv_sheet::find($sheet_id);
+        $current_raport = Oor_Inv_Raport::find($raport_id);
+        $data = $current_raport::sheetData($current_raport->id, $sheet_id);
 
-        return compact('sheets', 'sheet_header', 'data', 'sheet_id', 'raport_id', 'division_id');
+        return compact('sheets', 'sheet', 'current_raport', 'data');
     }
 
     public static function inspectorAccessData(){

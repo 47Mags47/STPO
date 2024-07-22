@@ -1,6 +1,9 @@
 @extends('page.oor.inv.inspector.index')
 @section('content')
-    <x-table.box :form=true>
+    <x-table.box :form=true :paginate=true>
+        <x-slot:paginate-link>
+            {{ $accesses->links()  }}
+        </x-slot:paginate-link>
         <thead>
             <tr>
                 <x-table.th value="Город" />
