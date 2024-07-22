@@ -1,4 +1,4 @@
-<caption>{{ $sheet->name }}</caption>
+<caption>{{ $sheet->header }}</caption>
 <thead>
     <tr>
         <x-table.th value="Наименование <br> показателей" rowspan=2 header />
@@ -38,12 +38,11 @@
         <x-table.td type="input" inp-type="number" value="{{ $data->has('CA6') ? $data['CA6'] : '' }}" name="CA6" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('CB6') ? $data['CB6'] : '' }}" name="CB6" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('CC6') ? $data['CC6'] : '' }}" name="CC6" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA6') ? $data['CD6'] : '' }}" name="CD6" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA6') ? $data['CE6'] : '' }}" name="CE6" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA6') ? $data['CF6'] : '' }}" name="CF6" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA6') ? $data['CG6'] : '' }}" name="CG6" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA6') ? $data['CH6'] : '' }}" name="CH6" />
-
+        <x-table.td type="input" inp-type="number" value="{{ $data->has('CD6') ? $data['CD6'] : '' }}" name="CD6" />
+        <x-table.td type="input" inp-type="number" value="{{ $data->has('CE6') ? $data['CE6'] : '' }}" name="CE6" />
+        <x-table.td type="input" inp-type="number" value="{{ $data->has('CF6') ? $data['CF6'] : '' }}" name="CF6" />
+        <x-table.td type="input" inp-type="number" value="{{ $data->has('CG6') ? $data['CG6'] : '' }}" name="CG6" />
+        <x-table.td type="input" inp-type="number" value="{{ $data->has('CH6') ? $data['CH6'] : '' }}" name="CH6" />
     </tr>
         </tr>
 </tbody>

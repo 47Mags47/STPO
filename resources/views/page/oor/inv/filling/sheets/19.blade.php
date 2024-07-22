@@ -1,4 +1,4 @@
-<caption>{{ $sheet->name }}</caption>
+<caption>{{ $sheet->header }}</caption>
 <thead>
     <tr>
         <x-table.th rowspan=2 value="Наименование <br> показателей" header />
