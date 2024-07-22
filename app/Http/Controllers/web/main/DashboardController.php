@@ -26,9 +26,9 @@ class DashboardController
             'phone' => ['nullable', 'regex:/8[0-9]{10}/'],
             'dop_phone' => ['nullable'],
         ]);
-        if (auth()->user()->email != $validated['email']) {
+        // if (auth()->user()->email != $validated['email']) {
 
-        }
+        // }
 
         Main_User::unguard();
         auth()->user()->update($validated);
