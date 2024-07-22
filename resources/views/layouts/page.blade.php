@@ -15,7 +15,7 @@
 
 <body>
     @include('include.header')
-    {{-- <x-page.popup /> --}}
+    <x-page.popup />
     <div class="page-content mini-scroll">
         @yield('body')
     </div>

@@ -1,4 +1,4 @@
-export function load() {
+export async function load() {
     /* Фильтры */
     $('ul.filters li .check-open').on('change', function () {
         $('ul.filters li.open').each(function () {

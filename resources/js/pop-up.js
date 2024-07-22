@@ -1,4 +1,4 @@
-export function load() {
+export async function load() {
     $('#pop-up').on('mouseup', function (event) {
         if(
             !$('#pop-up .load').is(Event.target) &&
@@ -10,18 +10,20 @@ export function load() {
     })
 }
 
-export function openLoad() {
-    $('#load-pop-up').addClass('open')
+export async function openLoad() {
+    $('.pop-up-box').addClass('open')
+    $('.pop-up-box .load').addClass('open')
 }
-export function closeLoad() {
-    $('#load-pop-up').removeClass('open')
+export async function closeLoad() {
+    $('.pop-up-box').removeClass('open')
+    $('.pop-up-box .load').removeClass('open')
 }
 
-export function openPopUp(html) {
+export async function openPopUp(html) {
     $('#pop-up').addClass('open')
     $('#pop-up .load').html(html)
 }
-export function closePopUp() {
+export async function closePopUp() {
     $('#pop-up').removeClass('open')
     $('#pop-up .load').html()
 }

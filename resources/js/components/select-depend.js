@@ -1,4 +1,4 @@
-export function load() {
+export async function load() {
     $('label select.depend').each(function () {
         let select = $(this)
         let parent = $(`#${$(this).attr('depend')}`)

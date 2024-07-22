@@ -1,4 +1,4 @@
-export function load() {
+export async function load() {
     /* Автоскролл списка страниц */
     let container = $('.excel-box .sheets ul')
     if (container[0]) {
