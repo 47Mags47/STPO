@@ -1,4 +1,4 @@
-export function load() {
+export async function load() {
     /* Окно оповещений */
     //Открыть окно
     $('#alert-bell i').on('click', function () {
