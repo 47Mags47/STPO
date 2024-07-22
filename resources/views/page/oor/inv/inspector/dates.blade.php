@@ -1,6 +1,9 @@
 @extends('page.oor.inv.inspector.index')
 @section('content')
-    <x-table.box :form=true action="">
+    <x-table.box :form=true action="" :paginate=true>
+        <x-slot:paginate-link>
+            {{ $dates->links()  }}
+        </x-slot:paginate-link>
         <thead>
             <tr>
                 <x-table.th value="Дата" />

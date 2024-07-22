@@ -28,8 +28,10 @@ class InspectorController
     public function raports()
     {
         $page_data = PageController::inspectorPageData();
-        $raports = Oor_Inv_Raport::where('in_date_id', Oor_Inv_InDate::actual()->id)->get();
-        return view('page.oor.inv.inspector.raports', array_merge($page_data, compact('raports')));
+        $raport_table = Oor_Inv_Raport::where('in_date_id', Oor_Inv_InDate::actual()->id)
+            ->orderBy('in_date_id', 'desc')
+            ->paginate(50);
+        return view('page.oor.inv.inspector.raports', array_merge($page_data, compact('raport_table')));
     }
 
     public function RaportDownload(Request $request)
@@ -64,7 +66,7 @@ class InspectorController
     public function dates()
     {
         $page_data = PageController::inspectorPageData();
-        $dates = Oor_Inv_InDate::orderBy('date', 'desc')->get();
+        $dates = Oor_Inv_InDate::orderBy('date', 'desc')->paginate(50);
         return view('page.oor.inv.inspector.dates', array_merge($page_data, compact('dates')));
     }
 
@@ -87,7 +89,7 @@ class InspectorController
     public function accesses()
     {
         $page_data = PageController::inspectorPageData();
-        $accesses = Main_Access::where('modul_id', 7)->get();
+        $accesses = Main_Access::where('modul_id', 7)->paginate(50);
         $acces_page_data = PageController::inspectorAccessData();
 
         return view('page.oor.inv.inspector.accesses', array_merge($page_data, $acces_page_data, compact('accesses')));

@@ -6,6 +6,7 @@ use App\Models\Csvi\Csvi_Appeal_Appeal;
 use App\Models\Main\Main_Access;
 use App\Models\Main\Main_Modul;
 use App\Models\Main\Main_User;
+use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
@@ -25,6 +26,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        Paginator::defaultView('components.paginate.default');
+
         /* РОЛИ */
         Gate::define('is_admin', function () {
             return auth()->user()->role_id == 1;

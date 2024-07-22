@@ -1,6 +1,11 @@
-{{-- parametrs: form(true|false) | action | method --}}
+{{-- parametrs: form(true|false) | paginate(true|false) | action | method --}}
 {{-- flags: top-0 --}}
 <div class="table-box mini-scroll">
+    @if (isset($paginate) and $paginate)
+        <div class="paginate">
+            {{ $paginateLink }}
+        </div>
+    @endif
     @if($form == 'true')
         <form
             action="{{ isset($action) ? $action : '' }}"

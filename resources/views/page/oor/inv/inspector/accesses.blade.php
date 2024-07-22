@@ -1,6 +1,9 @@
 @extends('page.oor.inv.inspector.index')
 @section('content')
-    <x-table.box :form=true>
+    <x-table.box :form=true :paginate=true>
+        <x-slot:paginate-link>
+            {{ $accesses->links()  }}
+        </x-slot:paginate-link>
         <thead>
             <tr>
                 <x-table.th value="Город" />
@@ -27,7 +30,7 @@
                         <x-form.select-option title="{{ $user->nickname }}" value="{{ $user->id }}" dependVal="{{ $user->division->id }}"/>
                     @endforeach
                 </x-table.td>
-                <x-table.td type="select" name="access_level_id">
+                <x-table.td type="select" name="level_id">
                     @foreach ($select_access_levels as $access_level)
                         <x-form.select-option title="{{ $access_level->name }}" value="{{ $access_level->id }}"/>
                     @endforeach

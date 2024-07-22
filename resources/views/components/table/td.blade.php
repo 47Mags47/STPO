@@ -44,7 +44,10 @@
                         'red-button' => isset($redButton),
                         'gray-button' => isset($grayButton),
                         'default' => isset($default),
-                    ])>
+                    ])
+                    @isset($newPage)
+                        target="_blank"
+                    @endisset>
                         {{ $title }}
                     </a>
                 @break
