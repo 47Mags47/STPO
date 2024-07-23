@@ -13,7 +13,7 @@
     @yield('include-vite')
 </head>
 
-<body>
+<body class=@yield('vip')>
     @include('include.header')
     <x-page.popup />
     <div class="page-content mini-scroll">

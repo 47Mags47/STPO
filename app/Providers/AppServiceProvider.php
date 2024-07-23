@@ -46,7 +46,7 @@ class AppServiceProvider extends ServiceProvider
             return
                 $modul != null and
                 (
-                    $user->role_id == 2
+                    $user->role_id == 1
                     or $user->role_id == 2
                     or Main_Access::where('user_id', $user->id)->where('modul_id', $modul->id)->count() > 0
                 )

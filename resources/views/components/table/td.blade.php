@@ -22,7 +22,23 @@
                         @disabled(isset($disabled))
                         @checked(isset($checked))
                         step="{{ isset($step) ? $step : 1 }}"
+                        placeholder="{{ isset($placeholder) ? $placeholder : '' }}"
                     >
+                @break
+                @case('input-file')
+                    <label
+                        for="file[{{ isset($name) ? $name : '' }}]"
+                        class="upload-file-box"
+                    >
+                        <span class="button blue-button">{!! isset($title) ? $title : 'Загрузить' !!}</span>
+                        <input
+                            type="file"
+                            name="file[{{ isset($name) ? $name : '' }}]"
+                            id="file[{{ isset($name) ? $name : '' }}]"
+                            @required(isset($req))
+                            @disabled(isset($disabled))
+                        >
+                    </label>
                 @break
                 @case('input-d')
                     <input
@@ -58,7 +74,7 @@
                     </x-form.select>
                 @break
             @endswitch
-            @else
+        @else
             {!! isset($value) ? $value : '' !!}
         @endisset
     </div>
