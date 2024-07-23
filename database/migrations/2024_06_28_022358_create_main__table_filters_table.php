@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('user_id')->constrained('main__users');
             $table->foreignId('table_id')->constrained('glossary__main__page_tables');
-            $table->string('filters');
+            $table->json('filters');
         });
     }
 

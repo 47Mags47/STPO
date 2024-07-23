@@ -1,5 +1,5 @@
 <?php
-use App\Http\Controllers\web\main\AppealController;
+use App\Http\Controllers\web\main\appeals\AppealController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth')->group(function () {

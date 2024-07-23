@@ -19,10 +19,26 @@
                         placeholder="{!! $value !!}"
                     @endisset
                 @endisset
-
                 @required(isset($req))
                 @disabled(isset($disabled))
             >
+        </label>
+    @endif
+    @if ($type == 'checkbox')
+        <label for="{{ isset($name) ? $name : '' }}"
+            @class(['set_all' => isset($all)])
+        >
+            <input
+                type="checkbox"
+                name="{{ isset($name) ? $name : '' }}"
+                id="{{ isset($name) ? $name : '' }}"
+                @disabled(isset($disabled))
+                @checked(isset($checked))
+                class="{{$attributes['class']}}"
+            >
+            @isset($label)
+                <span>{!! $label !!}</span>
+            @endisset
         </label>
     @endif
 @else

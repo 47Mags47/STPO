@@ -30,9 +30,9 @@ class AppealSeeder extends Seeder
 
         /* THEM */
         Glossary_Csvi_Appeal_Them::create(['id' => 1, 'name' => 'Проблема с доступом к сетевым ресурсам', 'category_id' => 9]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 2, 'name' => 'Восстановление | перенос данных СТПО', 'category_id' => 1]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 3, 'name' => 'Предложения для СТПО', 'category_id' => 1]);
-        Glossary_Csvi_Appeal_Them::create(['id' => 4, 'name' => 'Вопросы по СТПО', 'category_id' => 1]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 2, 'name' => 'Восстановление | перенос данных', 'category_id' => 1]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 3, 'name' => 'Предложения для', 'category_id' => 1]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 4, 'name' => 'Вопросы', 'category_id' => 1]);
         Glossary_Csvi_Appeal_Them::create(['id' => 5, 'name' => 'Неполадки с сервером', 'category_id' => 9]);
         Glossary_Csvi_Appeal_Them::create(['id' => 6, 'name' => 'Неполадки с компьютером', 'category_id' => 2]);
         Glossary_Csvi_Appeal_Them::create(['id' => 7, 'name' => 'Неполадки с МФУ | принтером', 'category_id' => 2]);

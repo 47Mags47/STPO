@@ -1,0 +1,79 @@
+.filters
+    display: flex
+    gap: 5px
+    position: relative
+    ul
+        display: flex
+        gap: 5px
+        li
+            list-style: none
+            label.preview
+                width: initial
+                padding: 0 10px
+                border-radius: 7px
+                height: 35px
+                display: flex
+                gap: 5px
+                justify-content: center
+                align-items: center
+                background: #eee
+                cursor: pointer
+                span, i
+                    font-size: 0.9rem
+                    font-weight: bold
+                    color: #666
+                    transition: var(--all-transition)
+                input
+                    display: none
+                &:hover
+                    span, i
+                        color: black
+            .box
+                width: 300px
+                position: absolute
+                top: calc( 100% + 15px )
+                right: 0
+                background: white
+                z-index: 10
+
+                display: grid
+                grid-template-rows: 40px auto
+                transition: var(--all-transition)
+
+                overflow: hidden
+                max-height: 0
+                padding: 0 5px
+                box-shadow: none
+                &.open
+                    max-height: 440px
+                    padding: 5px
+                    box-shadow: -4px 8px 12px 4px #ddd
+                .search
+                    width: 100%
+                    height: auto
+                    padding: 5px
+                    input
+                        width: 100%
+                        padding: 3px 5px
+                        outline: none
+                        border: 1px solid #999
+                        border-radius: 7px
+                .list
+                    max-height: 380px
+                    display: flex
+                    flex-direction: column
+                    overflow-y: auto
+                    label
+                        display: flex
+                        gap: 5px
+                        transition: var(--all-transition)
+                        cursor: pointer
+                        padding: 3px 5px
+                        &:hover
+                            background: #eee
+                        input, span
+                            font-size: 0.9rem
+
+    input[type='submit'],
+    input[type='reset']
+        height: 35px
