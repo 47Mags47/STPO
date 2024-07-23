@@ -93,5 +93,14 @@ class ModulSeeder extends Seeder
             'visible' => true,
             'local' => false,
         ]);
+
+        Main_Modul::create([
+            'id' => 8,
+            'name' => 'Сертификаты',
+            'link' => 'cert',
+            'department_id' => 2,
+            'visible' => true,
+            'local' => true,
+        ]);
     }
 }

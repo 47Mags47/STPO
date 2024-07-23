@@ -25,7 +25,8 @@
         <form
             action="{{ isset($action) ? $action : '' }}"
             method="{{ isset($method) ? $method : 'POST' }}"
-            id={{ isset($formId) ? $formId : '' }}
+            id="{{ isset($formId) ? $formId : '' }}"
+            enctype="multipart/form-data"
         >
             @csrf
             <x-messages.all />
