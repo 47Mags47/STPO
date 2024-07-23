@@ -13,6 +13,8 @@ class Csvi_Appeal_Appeal extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function sender(){
         return $this->belongsTo(Main_User::class, 'sender_id');
     }

@@ -2,13 +2,14 @@
 @section('page-name', 'Обращения')
 
 @section('body')
-    <x-table.box :paginate=true w100>
+    <x-table.box :paginate=true w100 top0 reset="{{ route('appeal.reset') }}" :form=true>
         <x-slot:paginate-link>
             {{ $appeals->links() }}
         </x-slot:paginate-link>
         <x-slot:filters>
             @if (auth()->user()->can('is_administration'))
-                <x-table.filter :items=$senders pole="sender_id" value='id' name='nickname' title='Отправитель' />
+                <x-table.filter :items=$senders pole="sender_id" value='id' name='nickname' title='Отправитель'
+                    :user-arr=$user_filters />
             @endif
             <x-table.filter :items=$workers pole="worker_id" value='id' name='nickname' title='Исполнитель' />
             <x-table.filter :items=$statuses pole="status_id" value='id' name='name' title='Статус' />
@@ -39,6 +40,23 @@
             <x-table.th value="" />
         </thead>
         <tbody>
+            <tr>
+                <x-table.td type='select' colspan="{{auth()->user()->can('is_administration') ? 3 : 2}}" name="category_id">
+                    @foreach ($categories as $category)
+                        <x-form.select-option
+                            title="{{ $category->name }}"
+                            value="{{ $category->id }}"
+                        />
+                    @endforeach
+                </x-table.td>
+                <x-table.td type='select' depend="category_id" name="them_id">
+                    @foreach ($thems as $them)
+                        <x-form.select-option title="{{ $them->name }}" value="{{ $them->id }}" depend-val="{{ $them->category_id }}"/>
+                    @endforeach
+                </x-table.td>
+                <x-table.td type='area' placeholder="Ничего не работает..." name="comment" />
+                <x-table.td type='sbm' colspan=3 />
+            </tr>
             @foreach ($appeals as $appeal)
                 <tr>
                     <x-table.td value="{{ $appeal->id }}" center />

@@ -1,6 +1,6 @@
 export async function load() {
     /* Фильтры */
-    $('ul.filters li .check-open').on('change', function () {
+    $('ul.filters li .check-open').on('change', function () { // Открыть
         $('ul.filters li.open').each(function () {
             $(this).removeClass('open')
             $(this).find('.check-open').prop('checked', false)
@@ -12,7 +12,7 @@ export async function load() {
             $(this).parent().parent().removeClass('open')
         }
     })
-    $(document).on('mouseup', function (Event) {
+    $(document).on('mouseup', function (Event) { // Закрыть
         if (
             !$('ul.filters li').is(Event.target) &&
             $('ul.filters li').has(Event.target).length === 0 &&
@@ -20,5 +20,13 @@ export async function load() {
         ) {
             $('ul.filters li.open').removeClass('open')
         }
+    })
+
+    $('.filters li .box .set_all input').on('change', function () { // Выбрать всё
+        let parent = $(this).parent().parent()
+        let checked = $(this).prop('checked')
+        parent.find('label:not(.set_all) input').each(function () {
+            $(this).prop('checked', checked)
+        })
     })
 }

@@ -1,9 +1,12 @@
 <td
-    @class(['header' => isset($type) and $type == 'header',])
+    @class([
+        'header' => isset($type) and $type == 'header',
+        'high' => isset($type) and $type == 'area'
+    ])
     colspan="{{ isset($colspan) ? $colspan : '' }}"
     rowspan="{{ isset($rowspan) ? $rowspan : '' }}">
     <div @class([
-        'input' => isset($type) and ($type == 'input' or $type == 'input-d'),
+        'input' => isset($type) and ($type == 'input' or $type == 'input-d' or $type == 'area'),
         'select' => isset($type) and $type == 'select',
         'sbm' => isset($type) and $type == 'sbm',
         'center' => isset($center),
@@ -24,6 +27,14 @@
                         step="{{ isset($step) ? $step : 1 }}"
                         placeholder="{{ isset($placeholder) ? $placeholder : '' }}"
                     >
+                @break
+                @case('area')
+                    <textarea
+                        name="data[{{ isset($name) ? $name : '' }}]"
+                        @disabled(isset($disabled))
+                        placeholder="{{ isset($placeholder) ? $placeholder : '' }}"
+                        class="mini-scroll"
+                    ></textarea>
                 @break
                 @case('input-file')
                     <label

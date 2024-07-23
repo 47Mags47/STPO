@@ -33,7 +33,7 @@
                 name="{{ isset($name) ? $name : '' }}"
                 id="{{ isset($name) ? $name : '' }}"
                 @disabled(isset($disabled))
-                @checked(isset($checked))
+                @checked(isset($checked) or (isset($uChecked) and $uChecked == 'true'))
                 class="{{$attributes['class']}}"
             >
             @isset($label)
