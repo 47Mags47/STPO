@@ -2,12 +2,17 @@
 @section('page-name', 'Обращения')
 
 @section('body')
-    <x-table.box :paginate=true>
+    <x-table.box :paginate=true w100>
         <x-slot:paginate-link>
             {{ $appeals->links() }}
         </x-slot:paginate-link>
         <x-slot:filters>
-            <x-table.filter />
+            @if (auth()->user()->can('is_administration'))
+                <x-table.filter :items=$senders pole="sender_id" value='id' name='nickname' title='Отправитель' />
+            @endif
+            <x-table.filter :items=$workers pole="worker_id" value='id' name='nickname' title='Исполнитель' />
+            <x-table.filter :items=$statuses pole="status_id" value='id' name='name' title='Статус' />
+            <x-table.filter :items=$thems pole="them_id" value='id' name='nameType' title='Тема' />
         </x-slot:filters>
         <colgroup>
             <x-table.col w="75" />

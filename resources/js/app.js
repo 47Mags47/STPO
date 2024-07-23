@@ -13,6 +13,7 @@ import * as excel from './excel.js'
 import * as admin from './components/admin.js'
 import * as selectDepend from './components/select-depend.js'
 import * as form from './components/form.js'
+import * as tableFilter from './components/table-filter.js'
 
 $(window).on('load', async function () {
     await popup.load()
@@ -26,6 +27,7 @@ $(window).on('load', async function () {
     await admin.load()
     await selectDepend.load()
     await form.load()
+    await tableFilter.load()
 
     await popup.closeLoad()
 })

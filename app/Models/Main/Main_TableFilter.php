@@ -12,4 +12,8 @@ class Main_TableFilter extends Model
     public $timestamps = false;
 
     protected $guarded = [];
+
+    protected $casts = [
+        'filters' => 'array'
+    ];
 }

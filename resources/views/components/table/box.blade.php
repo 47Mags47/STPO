@@ -4,10 +4,12 @@
     <div class="table-options">
         @isset($filters)
             <form action="" method="GET" class="search">
+                @csrf
                 <input type="search" name="search">
                 <input type="submit" value="Найти" class="button blue-button">
             </form>
-            <form action="" method="POST" class="filters">
+            <form action="" method="GET" class="filters">
+                @csrf
                 <ul>{{ $filters }}</ul>
                 <x-form.sbm title="Применить"/>
                 <input type="reset" value="X" class="button red-button">
@@ -31,6 +33,9 @@
         <table
             @isset($top0)
                 top-0
+            @endisset
+            @isset($w100)
+                w100
             @endisset
         >
             {{ $slot }}
