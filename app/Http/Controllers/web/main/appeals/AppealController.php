@@ -96,12 +96,10 @@ class AppealController
 
     private function sortTable($builder)
     {
-        $builder->joinRelationshipUsingAlias('sender', 'sender')
-            ->joinRelationshipUsingAlias('worker', 'worker')
-            ->joinRelationshipUsingAlias('them', 'them')
-            ->joinRelationshipUsingAlias('status', 'status')
-            ->joinRelationshipUsingAlias('them.category', );
-
+        $builder->leftJoinRelationshipUsingAlias('sender', 'sender')
+            ->leftJoinRelationshipUsingAlias('worker', 'worker')
+            ->leftJoinRelationshipUsingAlias('status', 'status')
+            ->leftJoinRelationshipUsingAlias('them.category', 'category');
         $builder = mb_strpos($this->sort->sort['pole'], '.')
             ? $builder->orderByPowerJoins($this->sort->sort['pole'], $this->sort->sort['type'])
             : $builder->orderBy($this->sort->sort['pole'], $this->sort->sort['type']);
@@ -112,7 +110,7 @@ class AppealController
     public function pageData()
     {
         $new_row_data = [
-            'thems' => Glossary_Csvi_Appeal_Them::joinRelationshipUsingAlias('category', 'category')
+            'thems' => Glossary_Csvi_Appeal_Them::leftJoinRelationshipUsingAlias('category', 'category')
                 ->orderByPowerJoins('category.name')
                 ->get()
         ];
@@ -142,8 +140,6 @@ class AppealController
                 'type' => $this->sort->sort['type'] == 'asc' ? 'desc' : 'asc'
             ],
         ];
-
-        dump($view_data);
 
         return view('page.main.appeal.index', $view_data);
     }
