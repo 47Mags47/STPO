@@ -2,23 +2,51 @@
 @section('page-name', 'Обращения')
 
 @section('body')
-    <x-table.box :paginate=true w100>
+    <x-table.box :paginate=true w100 top0 reset="{{ route('appeal.reset') }}" :form=true>
         <x-slot:paginate-link>
             {{ $appeals->links() }}
         </x-slot:paginate-link>
-        <x-slot:filters>
+         <x-slot:filters>
             @if (auth()->user()->can('is_administration'))
-                <x-table.filter :items=$senders pole="sender_id" value='id' name='nickname' title='Отправитель' />
+                <x-table.filter
+                    :items="$page_data['table_filters']['senders']"
+                    pole="sender_id"
+                    value='id'
+                    name='nickname'
+                    title='Отправитель'
+                    :user-arr=$user_filters
+                />
             @endif
-            <x-table.filter :items=$workers pole="worker_id" value='id' name='nickname' title='Исполнитель' />
-            <x-table.filter :items=$statuses pole="status_id" value='id' name='name' title='Статус' />
-            <x-table.filter :items=$thems pole="them_id" value='id' name='nameType' title='Тема' />
+            <x-table.filter
+                :items="$page_data['table_filters']['workers']"
+                pole="worker_id"
+                value='id'
+                name='nickname'
+                title='Исполнитель'
+                :user-arr=$user_filters
+            />
+            <x-table.filter
+                :items="$page_data['table_filters']['statuses']"
+                pole="status_id"
+                value='id'
+                name='name'
+                title='Статус'
+                :user-arr=$user_filters
+            />
+            <x-table.filter
+                :items="$page_data['table_filters']['thems']"
+                pole="them_id"
+                value='id'
+                name='nameType'
+                title='Тема'
+                :user-arr=$user_filters
+            />
         </x-slot:filters>
         <colgroup>
             <x-table.col w="75" />
             <x-table.col w="100" />
             @if (auth()->user()->can('is_administration'))
-                <x-table.col w="200" />
+                <x-table.col w="300" />
             @endif
             <x-table.col w="250" />
             <x-table.col />
@@ -27,50 +55,19 @@
             <x-table.col w="100" />
         </colgroup>
         <thead>
-            <x-table.th value="номер" />
-            <x-table.th value="Дата" />
+            <x-table.th value="номер" sort-pole="id" sort-type="{{ $user_sort['pole'] == 'id' ? $user_sort['type'] : 'asc' }}" />
+            <x-table.th value="Дата" sort-pole="created_at" sort-type="{{ $user_sort['pole'] == 'created_at' ? $user_sort['type'] : 'asc' }}" />
             @if (auth()->user()->can('is_administration'))
-                <x-table.th value="Отправитель" />
+                <x-table.th value="Отправитель" sort-pole="sender" sort-type="{{ $user_sort['pole'] == 'sender' ? $user_sort['type'] : 'asc' }}" />
             @endif
-            <x-table.th value="Тема" />
+            <x-table.th value="Тема" sort-pole="them" sort-type="{{ $user_sort['pole'] == 'them' ? $user_sort['type'] : 'asc' }}" />
             <x-table.th value="Комментарий" />
-            <x-table.th value="Статус" />
-            <x-table.th value="Исполнитель" />
+            <x-table.th value="Статус" sort-pole="status" sort-type="{{ $user_sort['pole'] == 'status' ? $user_sort['type'] : 'asc' }}" />
+            <x-table.th value="Исполнитель" sort-pole="worker" sort-type="{{ $user_sort['pole'] == 'worker' ? $user_sort['type'] : 'asc' }}" />
             <x-table.th value="" />
         </thead>
         <tbody>
-            @foreach ($appeals as $appeal)
-                <tr>
-                    <x-table.td value="{{ $appeal->id }}" center />
-                    <x-table.td value="{{ $appeal->created_at->format('d.m.Y H:i') }}" />
-                    @if (auth()->user()->can('is_administration'))
-                        <x-table.td value="{{ $appeal->sender->nickname }}" />
-                    @endif
-                    <x-table.td value="{{ $appeal->them->category->name }} <br> {{ $appeal->them->name }}" />
-                    <x-table.td value="{{ $appeal->comment }}" />
-                    <x-table.td value="{{ $appeal->status->name }}" />
-                    <x-table.td value="{{ $appeal->worker ? $appeal->worker->nickname : '' }}" />
-                    @can('appeal-job', $appeal)
-                        <x-table.td type="link-button" value="{{ route('appeal.chat', ['appeal' => $appeal->id]) }}"
-                            title="Перейти" />
-                    @else
-                        @if (auth()->user()->can('is_administration') and ($appeal->status_id == 1 or $appeal->status_id == 2))
-                            <x-table.td type="link-button" value="{{ route('appeal.chat', ['appeal' => $appeal->id]) }}"
-                                title="Принять" />
-                        @else
-                            <x-table.td value="" title="" />
-                        @endif
-                    @endcan
-                </tr>
-            @endforeach
+            @include('page.main.appeal.tbody')
         </tbody>
-        {{--
-        <x-slot:filters>
-            <x-table.filter pole="sender_id" title="Отправитель" :items="$page_filters['senders']"  :userfilters="$user_filters" name="nickname" value="id" />
-            <x-table.filter pole="worker_id" title="Исполнитель" :items="$page_filters['workers']"  :userfilters="$user_filters" name="nickname" value="id" />
-            <x-table.filter pole="status_id" title="Статус"      :items="$page_filters['statuses']" :userfilters="$user_filters" name="name"     value="id" />
-            <x-table.filter pole="them_id"   title="Тема"        :items="$page_filters['thems']"    :userfilters="$user_filters" name="name"     value="id" />
-        </x-slot:filters>
-        --}}
     </x-table.box>
 @endsection

@@ -1,0 +1,55 @@
+<tr>
+    <x-table.td type='input' placeholder="Кабинет" name="office" />
+    <x-table.td type='input-d' placeholder="Кабинет" name="office" />
+
+    @can('is_administration')
+        <x-table.td type='input-d' />
+    @endcan
+    <x-table.td type='select' name="them_id">
+        @foreach ($page_data['new_row_data']['thems'] as $them)
+            <x-form.select-option
+                title="{{ $them->nameType }}"
+                value="{{ $them->id }}"
+            />
+        @endforeach
+    </x-table.td>
+    <x-table.td type='area' placeholder="Ничего не работает..." name="comment" />
+    <x-table.td type='input-d' />
+    <x-table.td type='input-d' />
+    <x-table.td type='sbm' />
+</tr>
+@foreach ($appeals as $appeal)
+    <tr>
+        <x-table.td value="{{ $appeal->id }}" center />
+        <x-table.td value="{{ $appeal->created_at->format('d.m.Y H:i') }}" />
+        @if (auth()->user()->can('is_administration'))
+            <x-table.td >
+                {{ $appeal->sender->nickname }} ({{ $appeal->sender->division->city->name }}) <br>
+                {{ $appeal->sender->division->name }}
+            </x-table.td>
+        @endif
+        <x-table.td value="{{ $appeal->them->category->name }} <br> {{ $appeal->them->name }}" />
+        <x-table.td value="{{ $appeal->comment }}" />
+        <x-table.td value="{{ $appeal->status->name }}" />
+        <x-table.td value="{{ $appeal->worker ? $appeal->worker->nickname : '' }}" />
+        @can('appeal-job', $appeal)
+            <x-table.td
+                type="link"
+                link="{{ route('appeal.chat', ['appeal' => $appeal->id]) }}"
+                title="Перейти"
+                blue-button
+            />
+        @else
+            @if (auth()->user()->can('is_administration') and ($appeal->status_id == 1 or $appeal->status_id == 4))
+                <x-table.td
+                    type="link"
+                    link=""
+                    title="Принять"
+                    blue-button
+                />
+            @else
+                <x-table.td />
+            @endif
+        @endcan
+    </tr>
+@endforeach

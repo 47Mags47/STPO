@@ -7,6 +7,7 @@
     "require": {
         "php": "^8.2",
         "kerigard/laravel-lang-ru": "^2.0",
+        "kirschbaum-development/eloquent-power-joins": "^3.5",
         "laravel/framework": "^11.9",
         "laravel/tinker": "^2.9",
         "maatwebsite/excel": "^3.1",

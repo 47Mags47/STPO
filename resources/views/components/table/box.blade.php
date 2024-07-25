@@ -12,7 +12,9 @@
                 @csrf
                 <ul>{{ $filters }}</ul>
                 <x-form.sbm title="Применить"/>
-                <input type="reset" value="X" class="button red-button">
+                @if (isset($reset) and $reset != '')
+                    <a href="{{ $reset }}" class="button red-button">X</a>
+                @endif
             </form>
         @endisset
         @if (isset($paginate) and $paginate)
