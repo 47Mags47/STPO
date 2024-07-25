@@ -46,7 +46,7 @@
             <x-table.col w="75" />
             <x-table.col w="100" />
             @if (auth()->user()->can('is_administration'))
-                <x-table.col w="200" />
+                <x-table.col w="300" />
             @endif
             <x-table.col w="250" />
             <x-table.col />

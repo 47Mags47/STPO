@@ -86,7 +86,7 @@
                 @break
             @endswitch
         @else
-            {!! isset($value) ? $value : '' !!}
+            {!! isset($value) ? $value : $slot !!}
         @endisset
     </div>
 </td>

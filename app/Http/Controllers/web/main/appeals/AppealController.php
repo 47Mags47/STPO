@@ -112,8 +112,9 @@ class AppealController
     public function pageData()
     {
         $new_row_data = [
-            'categories' => Glossary_Csvi_Appeal_Category::orderBy('name')->get(),
-            'thems' => Glossary_Csvi_Appeal_Them::orderBy('name')->get(),
+            'thems' => Glossary_Csvi_Appeal_Them::joinRelationshipUsingAlias('category', 'category')
+                ->orderByPowerJoins('category.name')
+                ->get()
         ];
         $table_filters = [
             'senders' => Csvi_Appeal_Appeal::senders(),
@@ -157,10 +158,10 @@ class AppealController
     public function store(Request $request)
     {
         $validate = $request->validate([
-            'data.them_id' => 'required',
-            'data.comment' => 'required'
+            'data.office' => [],
+            'data.them_id' => ['required', 'not_in:0'],
+            'data.comment' => ['required']
         ]);
-
 
         Csvi_Appeal_Appeal::create(array_merge($validate['data'], [
             'status_id' => 1,
@@ -168,6 +169,5 @@ class AppealController
         ]));
 
         return back()->with(['message' => 'Обращение успешно создано']);
-
     }
 }

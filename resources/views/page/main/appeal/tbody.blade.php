@@ -1,26 +1,32 @@
 <tr>
-    <x-table.td type='select' colspan="{{auth()->user()->can('is_administration') ? 3 : 2}}" name="category_id">
-        @foreach ($page_data['new_row_data']['categories'] as $category)
+    <x-table.td type='input' placeholder="Кабинет" name="office" />
+    <x-table.td type='input-d' placeholder="Кабинет" name="office" />
+
+    @can('is_administration')
+        <x-table.td type='input-d' />
+    @endcan
+    <x-table.td type='select' name="them_id">
+        @foreach ($page_data['new_row_data']['thems'] as $them)
             <x-form.select-option
-                title="{{ $category->name }}"
-                value="{{ $category->id }}"
+                title="{{ $them->nameType }}"
+                value="{{ $them->id }}"
             />
         @endforeach
     </x-table.td>
-    <x-table.td type='select' depend="category_id" name="them_id">
-        @foreach ($page_data['new_row_data']['thems'] as $them)
-            <x-form.select-option title="{{ $them->name }}" value="{{ $them->id }}" depend-val="{{ $them->category_id }}"/>
-        @endforeach
-    </x-table.td>
     <x-table.td type='area' placeholder="Ничего не работает..." name="comment" />
-    <x-table.td type='sbm' colspan=3 />
+    <x-table.td type='input-d' />
+    <x-table.td type='input-d' />
+    <x-table.td type='sbm' />
 </tr>
 @foreach ($appeals as $appeal)
     <tr>
         <x-table.td value="{{ $appeal->id }}" center />
         <x-table.td value="{{ $appeal->created_at->format('d.m.Y H:i') }}" />
         @if (auth()->user()->can('is_administration'))
-            <x-table.td value="{{ $appeal->sender->nickname }}" />
+            <x-table.td >
+                {{ $appeal->sender->nickname }} ({{ $appeal->sender->division->city->name }}) <br>
+                {{ $appeal->sender->division->name }}
+            </x-table.td>
         @endif
         <x-table.td value="{{ $appeal->them->category->name }} <br> {{ $appeal->them->name }}" />
         <x-table.td value="{{ $appeal->comment }}" />
