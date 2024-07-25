@@ -19,7 +19,7 @@
                     type="checkbox"
                     name="filter[{{ $pole }}][{{ $item->$value }}]"
                     label="{{ $item->$name }}"
-                    u-checked="{{ (isset($userArr[$pole]) and (isset($userArr[$pole]) and in_array($item->$value, $userArr[$pole]))) ? 'true' : 'false' }}"
+                    u-checked="{{ (isset($userArr[$pole]) and in_array($item->$value, $userArr[$pole])) ? 'true' : 'false' }}"
                 />
             @endforeach
         </div>
