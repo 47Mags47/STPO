@@ -66,18 +66,7 @@
                     >
                 @break
                 @case('link')
-                    <a href="{{ $link }}" @class([
-                        'button' => isset($blueButton) or isset($redButton) or isset($grayButton) ,
-                        'blue-button' => isset($blueButton),
-                        'red-button' => isset($redButton),
-                        'gray-button' => isset($grayButton),
-                        'default' => isset($default),
-                    ])
-                    @isset($newPage)
-                        target="_blank"
-                    @endisset>
-                        {{ $title }}
-                    </a>
+                    <x-custom.link {{ $attributes }}/>
                 @break
                 @case('select')
                     <x-form.select {{ $attributes }} data>

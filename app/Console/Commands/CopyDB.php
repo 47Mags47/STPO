@@ -32,6 +32,9 @@ class CopyDB extends Command
             \App\Models\Main\Main_Division_Adminer::class,
             \App\Models\Main\Main_Division_Programmer::class,
 
+            \App\Models\Csvi\Csvi_Appeal_Appeal::class,
+            \App\Models\Csvi\Csvi_Cert_Certificate::class,
+
             \App\Models\Oor\Oor_Inv_InDate::class,
             \App\Models\Oor\Oor_Inv_Raport::class,
             \App\Models\Oor\Oor_Inv_Data::class,

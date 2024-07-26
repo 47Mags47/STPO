@@ -16,11 +16,11 @@
             id="{{ isset($formId) ? $formId : '' }}"
             method="{{ isset($method) ? $method : 'POST' }}"
             @class(['shadow' => isset($shadow)])
+            enctype="multipart/form-data"
         >
             @isset($header)
                 <p class="form-header">{{ $header }}</p>
             @endisset
-
             @if(!isset($errorDisplay) or (isset($errorDisplay) and $errorDisplay))
                 <x-messages.all />
             @endif

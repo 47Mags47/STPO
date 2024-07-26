@@ -14,4 +14,5 @@ Route::middleware('auth')->group(function () {
 
     //Chat
     Route::get('/appeal/{appeal}/chat', [ChatController::class, 'index'])->name('appeal.chat');
+    Route::post('/appeal/{appeal}/chat', [ChatController::class, 'store']);
 });

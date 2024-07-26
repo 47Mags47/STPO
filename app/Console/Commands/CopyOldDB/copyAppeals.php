@@ -14,7 +14,7 @@ class copyAppeals extends Command
      *
      * @var string
      */
-    protected $signature = 'app:copy-appeals';
+    protected $signature = 'app:CopyAppeal';
 
     /**
      * The console command description.

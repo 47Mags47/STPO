@@ -33,5 +33,6 @@ class DBReload extends Command
 
         $this->call(CopyOldDB\copyUsers::class);
         $this->call(CopyOldDB\copyAppeals::class);
+        $this->call(CopyOldDB\CopyAppealChat::class);
     }
 }

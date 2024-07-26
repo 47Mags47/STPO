@@ -233,7 +233,8 @@ return [
 
         'data.office' => 'Тема',
         'data.them_id' => 'Тема',
-        'data.comment' => 'Комментарий'
+        'data.comment' => 'Комментарий',
+        'data.message' => 'Сообщение',
     ],
 
     'dates' => [

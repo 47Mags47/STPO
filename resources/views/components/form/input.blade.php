@@ -13,12 +13,14 @@
                 id="{{ isset($name) ? $name : '' }}"
                 @isset($value)
                     value="{{ isset($value) ? $value : '' }}"
-                    @isset($ph)
-                        placeholder="{!! isset($ph) ? $ph : '' !!}"
-                    @else
-                        placeholder="{!! $value !!}"
-                    @endisset
                 @endisset
+                @isset($ph)
+                    placeholder="{!! isset($ph) ? $ph : '' !!}"
+                @endisset
+                @isset($autocomplete)
+                    autocomplete="{!! isset($autocomplete) ? 'off' : 'on' !!}"
+                @endisset
+
                 @required(isset($req))
                 @disabled(isset($disabled))
             >
@@ -39,6 +41,27 @@
             @isset($label)
                 <span>{!! $label !!}</span>
             @endisset
+        </label>
+    @endif
+    @if ($type == 'file')
+        <label
+            for="{{ isset($name) ? $name : '' }}"
+            @class([
+                'upload-ico' => isset($uploadIco),
+                'button' => isset($uploadIco),
+                'blue-button' => isset($uploadIco)
+            ])
+        >
+            @isset($uploadIco)
+                <i class="fa fa-paperclip" aria-hidden="true"></i>
+            @endisset
+            <input
+                type="file"
+                name="{{ isset($name) ? $name : '' }}"
+                id="{{ isset($name) ? $name : '' }}"
+                @disabled(isset($disabled))
+                class="{{$attributes['class']}}"
+            />
         </label>
     @endif
 @else

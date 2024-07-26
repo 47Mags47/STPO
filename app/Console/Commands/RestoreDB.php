@@ -14,14 +14,14 @@ class RestoreDB extends Command
      *
      * @var string
      */
-    protected $signature = 'app:restoreDB';
+    protected $signature = 'app:restoreDB {folder?}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Восстановление БД из файлов json Storage/app/backup';
 
     /**
      * Execute the console command.
@@ -29,8 +29,14 @@ class RestoreDB extends Command
     public function handle()
     {
         $folders = File::directories(Storage::disk('backup')->path('json'));
-        $last = collect($folders)->last();
+        $last = $this->argument('folder')
+            ? Storage::disk('backup')->path('json/' .$this->argument('folder'))
+            : collect($folders)->last();
         $classes = json_decode(File::get(Storage::disk('backup')->path('json') . '/classes.json'), true);
+
+        if($this->argument('folder') and !Storage::disk('backup')->has('json/' . $this->argument('folder'))){
+            dd('Путь к backup дирректории не найден');
+        }
 
         Model::unguard();
         foreach ($classes as $name => $class) {

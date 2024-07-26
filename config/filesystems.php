@@ -44,6 +44,11 @@ return [
             'throw' => false,
         ],
 
+        'appeal-chat' => [
+            'driver' => 'local',
+            'root' => storage_path('app/public/appeal-chat'),
+        ],
+
         'backup' => [
             'driver' => 'local',
             'root' => storage_path('app/backup'),
