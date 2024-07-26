@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\web\main\appeals;
+namespace App\Http\Controllers\web\csvi\appeals;
 
 use App\Models\Csvi\Csvi_Appeal_Appeal;
 use App\Models\Glossary\Glossary_Csvi_Appeal_Category;
@@ -107,7 +107,7 @@ class AppealController
         return $builder;
     }
 
-    public function pageData()
+    private function pageData()
     {
         $new_row_data = [
             'thems' => Glossary_Csvi_Appeal_Them::leftJoinRelationshipUsingAlias('category', 'category')
@@ -141,7 +141,7 @@ class AppealController
             ],
         ];
 
-        return view('page.main.appeal.index', $view_data);
+        return view('page.csvi.appeal.index', $view_data);
     }
 
     public function reset()

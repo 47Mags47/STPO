@@ -67,7 +67,7 @@
             <x-table.th value="" />
         </thead>
         <tbody>
-            @include('page.main.appeal.tbody')
+            @include('page.csvi.appeal.tbody')
         </tbody>
     </x-table.box>
 @endsection

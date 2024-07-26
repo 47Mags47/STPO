@@ -15,10 +15,12 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
         then: function(){
             Route::middleware(['web'])->group([
-                base_path('routes/web/CSVI/cert.php'),
                 base_path('routes/web/Main/auth.php'),
                 base_path('routes/web/Main/dashboard.php'),
-                base_path('routes/web/Main/appeal.php'),
+
+                base_path('routes/web/CSVI/cert.php'),
+                base_path('routes/web/CSVI/appeal.php'),
+
                 base_path('routes/web/OOR/inv.php'),
             ]);
             Route::post('/postUser', [\App\Http\Controllers\api\CopyController::class, 'user']);
