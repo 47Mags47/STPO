@@ -61,7 +61,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         /* ОБРАЩЕНИЯ */
-        Gate::define('appeal-job', function (Main_User $user, Csvi_Appeal_Appeal $appeal) {
+        Gate::define('appeal-chat-access', function (Main_User $user, Csvi_Appeal_Appeal $appeal) {
             return auth()->user()->id == $appeal->sender_id or auth()->user()->id == $appeal->worker_id;
         });
     }

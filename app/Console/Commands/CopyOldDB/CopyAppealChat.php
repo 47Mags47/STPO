@@ -2,6 +2,7 @@
 
 namespace App\Console\Commands\CopyOldDB;
 
+use App\Models\Csvi\Csvi_Appeal_Appeal;
 use App\Models\Csvi\Csvi_Appeal_AppealMessage;
 use App\Models\Main\Main_User;
 use Illuminate\Console\Command;
@@ -38,7 +39,8 @@ class CopyAppealChat extends Command
         $counter = [
             'copy' => 0,
             'skeep' => 0,
-            'errors' => 0
+            'errors' => 0,
+            'test' => 0
         ];
         $progressBar = $this->output->createProgressBar();
 
@@ -58,30 +60,38 @@ class CopyAppealChat extends Command
             $progressBar->start();
             foreach ($res as $row) {
                 $progressBar->advance();
-                if (Csvi_Appeal_AppealMessage::where('id', $row['id'])->count() != 0) {
+                if ($row['SYSTEM'] == 1) {
+                    continue;
+                }
+                if (Csvi_Appeal_AppealMessage::whereKey($row['id'])->count() != 0) {
                     $counter['skeep']++;
                     continue;
                 }
-                if (Main_User::where('id', $row['sender'])->count() == 0) {
+                if (Csvi_Appeal_Appeal::whereKey($row['application'])->count() == 0) {
                     $counter['skeep']++;
                     continue;
                 }
-                if (Main_User::where('id', $row['recipient'])->count() == 0) {
+                if (Main_User::whereKey($row['sender'])->count() == 0) {
                     $counter['skeep']++;
                     continue;
                 }
                 try {
+                    $message = $row['file'] == 1
+                        ? date('Y-m-d-H-i-s', strtotime($row['datetime'])) . '_' . substr($row['message'], 21)
+                        : $row['message'];
                     Csvi_Appeal_AppealMessage::create([
+                        'id' => $row['id'],
                         'appeal_id' => $row['application'],
                         'sender_id' => $row['sender'],
-                        'recipient_id' => $row['recipient'],
                         'is_file' => $row['file'],
                         'is_system' => $row['SYSTEM'],
+                        'message' => $message,
                         'created_at' => $row['datetime'],
                         'updated_at' => $row['datetime'],
                     ]);
                     $counter['copy']++;
                 } catch (\Throwable $th) {
+                    dd($th);
                     $counter['errors']++;
                 }
             }
@@ -90,6 +100,8 @@ class CopyAppealChat extends Command
             echo "Перенесено " . $counter['copy'] . " сообщений \n";
             echo "Пропущено " . $counter['skeep'] . " сообщений \n";
             echo "Ошибок " . $counter['errors'] . "\n";
+
+            echo "Тест " . $counter['test'] . "\n";
         }
 
         Csvi_Appeal_AppealMessage::reguard();

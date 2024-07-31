@@ -32,7 +32,7 @@
         <x-table.td value="{{ $appeal->comment }}" />
         <x-table.td value="{{ $appeal->status->name }}" />
         <x-table.td value="{{ $appeal->worker ? $appeal->worker->nickname : '' }}" />
-        @can('appeal-job', $appeal)
+        @can('appeal-chat-access', $appeal)
             <x-table.td
                 type="link"
                 link="{{ route('appeal.chat', ['appeal' => $appeal->id]) }}"
@@ -43,7 +43,7 @@
             @if (auth()->user()->can('is_administration') and ($appeal->status_id == 1 or $appeal->status_id == 4))
                 <x-table.td
                     type="link"
-                    link=""
+                    link="{{ route('appeal.accept', ['appeal' => $appeal->id]) }}"
                     title="Принять"
                     blue-button
                 />

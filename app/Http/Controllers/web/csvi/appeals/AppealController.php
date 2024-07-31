@@ -166,4 +166,13 @@ class AppealController
 
         return back()->with(['message' => 'Обращение успешно создано']);
     }
+
+    public function accept(Request $request)
+    {
+        Csvi_Appeal_Appeal::whereKey($request->appeal)
+            ->update([
+                'worker_id' => auth()->user()->id
+            ]);
+        return redirect()->route('appeal.chat', ['appeal' => $request->appeal]);
+    }
 }

@@ -25,13 +25,13 @@
         <x-custom.link link="{{ route('appeal') }}" blue-button title="Выйти" />
     </div>
     <x-messages.all />
-    <div class="chat">
+    <ul class="chat mini-scroll">
         {{ $slot }}
-    </div>
+    </ul>
     <div class="options">
         <x-form.form action="" :error-display=false>
-            <x-form.input name="file" type='file' upload-ico/>
-            <x-form.input type=text name="data[message]" ph="Написать сообщение..." autocomplete/>
+            <x-form.input name="file[]" type='file' upload-ico multiple/>
+            <x-form.area type=text name="data[message]" ph="Написать сообщение..."/>
             <x-form.sbm name="send-message" send-button />
         </x-form.form>
     </div>
