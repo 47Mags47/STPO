@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Middleware\IsAdministration;
 use App\Http\Middleware\UserHasModul;
 use App\Http\Middleware\UserModulAdminer;
 use App\Http\Middleware\UserModulUser;
@@ -32,6 +33,8 @@ return Application::configure(basePath: dirname(__DIR__))
             'has-access' => UserHasModul::class,
             'modul-admin' => UserModulAdminer::class,
             'modul-user' => UserModulUser::class,
+
+            'is-administration' => IsAdministration::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

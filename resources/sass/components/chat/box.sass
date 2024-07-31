@@ -34,6 +34,68 @@
             width: 100%
             height: 30px
             z-index: 5
+    .chat
+        height: 100%
+        display: flex
+        gap: 15px
+        flex-direction: column-reverse
+        overflow-y: scroll
+        position: relative
+        padding: 15px 50px
+        li:not(.system)
+            width: 100%
+            list-style: none
+            padding: 5px 0
+
+            display: grid
+            grid-template-areas: 'A B' 'C C'
+            grid-template-columns: 50px auto
+            grid-auto-rows: max-content
+            gap: 3px 10px
+            .logo
+                width: 100%
+                height: 100%
+
+                display: flex
+                justify-content: center
+                align-items: flex-end
+                img
+                    width: 50px
+                    height: 50px
+                    border-radius: 50%
+                    overflow: hidden
+            .text
+                height: initial
+                display: flex
+                justify-content: start
+                span
+                    height: initial
+                    display: block
+                    padding: 10px
+                    width: auto
+                    max-width: 45%
+                    overflow: hidden
+                    height: 100%
+                    background: #0f368b
+                    border-radius: 10px 10px 10px 0
+                    color: white
+                    font-size: .9rem
+            .datetime
+                grid-area: C
+                span
+                    font-size: .8rem
+            &.own
+                grid-template-columns: auto 50px
+                .logo
+                    grid-area: B
+                .text
+                    grid-area: A
+                    justify-content: end
+                    span
+                        border-radius: 10px 10px 0 10px
+                        background: #5b5377
+                .datetime
+                    text-align: right
     .options
         padding: 10px 0
         display: flex
@@ -49,12 +111,15 @@
                 display: grid
             label[for="file"]
                 width: 35px
-            label[for="message"]
+            label[for="data[message]"]
                 width: 100%
-                input
+                textarea
                     padding: 5px 10px
                     width: 100%
-                    height: 100%
+                    height: 35px
                     font-size: .9rem
+                    resize: none
+                    &::-webkit-scrollbar
+                        display: none
 
 

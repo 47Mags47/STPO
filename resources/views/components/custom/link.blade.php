@@ -4,6 +4,7 @@
     'red-button' => $attributes['red-button'],
     'gray-button' => $attributes['gray-button'],
     'default' => $attributes['default'],
+    $attributes['class']
 ])
     @isset($newPage)
         target="_blank"

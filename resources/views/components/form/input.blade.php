@@ -61,6 +61,9 @@
                 id="{{ isset($name) ? $name : '' }}"
                 @disabled(isset($disabled))
                 class="{{$attributes['class']}}"
+                @isset($multiple)
+                    multiple
+                @endisset
             />
         </label>
     @endif
