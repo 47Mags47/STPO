@@ -11,7 +11,7 @@ class DBReload extends Command
      *
      * @var string
      */
-    protected $signature = 'app:DBReload';
+    protected $signature = 'app:DBReload {--skeep}';
 
     /**
      * The console command description.
@@ -26,7 +26,8 @@ class DBReload extends Command
     public function handle()
     {
         $this->call('down');
-        $this->call(CopyDB::class);
+
+        $this->call('app:copyDB', ['--skeep' => $this->option('skeep')]);
         $this->call('migrate:fresh', ['--seed' => 'default']);
         $this->call(RestoreDB::class);
         $this->call('up');

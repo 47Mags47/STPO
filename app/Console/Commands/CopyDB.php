@@ -12,7 +12,7 @@ class CopyDB extends Command
      *
      * @var string
      */
-    protected $signature = 'app:copyDB';
+    protected $signature = 'app:copyDB {--skeep}';
 
     /**
      * The console command description.
@@ -32,13 +32,18 @@ class CopyDB extends Command
             \App\Models\Main\Main_Division_Adminer::class,
             \App\Models\Main\Main_Division_Programmer::class,
 
-            \App\Models\Csvi\Csvi_Appeal_Appeal::class,
             \App\Models\Csvi\Csvi_Cert_Certificate::class,
-
             \App\Models\Oor\Oor_Inv_InDate::class,
-            \App\Models\Oor\Oor_Inv_Raport::class,
-            \App\Models\Oor\Oor_Inv_Data::class,
         ];
+
+        if(!$this->option('skeep')){
+            $models = array_merge($models, [
+                \App\Models\Csvi\Csvi_Appeal_Appeal::class,
+                \App\Models\Oor\Oor_Inv_Raport::class,
+                \App\Models\Oor\Oor_Inv_Data::class,
+            ]);
+        }
+
         $progressBar = $this->output->createProgressBar();
         $progressBar->setMaxSteps(count($models));
         $progressBar->start();
