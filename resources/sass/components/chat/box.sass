@@ -10,6 +10,7 @@
         gap: 15px
         padding: 5px 50px
         box-shadow: 4px 0 12px 4px #333
+        z-index: 2
         ul
             display: flex
             align-items: center
@@ -42,81 +43,25 @@
         overflow-y: scroll
         position: relative
         padding: 15px 50px
-        li:not(.system)
-            width: 100%
-            list-style: none
-            padding: 5px 0
-
-            display: grid
-            grid-template-areas: 'A B' 'C C'
-            grid-template-columns: 50px auto
-            grid-auto-rows: max-content
-            gap: 3px 10px
-            .logo
-                width: 100%
-                height: 100%
-
-                display: flex
-                justify-content: center
-                align-items: flex-end
-                img
-                    width: 50px
-                    height: 50px
-                    border-radius: 50%
-                    overflow: hidden
-            .text
-                height: initial
-                display: flex
-                justify-content: start
-                span
-                    height: initial
-                    display: block
-                    padding: 10px
-                    width: auto
-                    max-width: 45%
-                    overflow: hidden
-                    height: 100%
-                    background: #0f368b
-                    border-radius: 10px 10px 10px 0
-                    color: white
-                    font-size: .9rem
-            .datetime
-                grid-area: C
-                span
-                    font-size: .8rem
-            &.own
-                grid-template-columns: auto 50px
-                .logo
-                    grid-area: B
-                .text
-                    grid-area: A
-                    justify-content: end
-                    span
-                        border-radius: 10px 10px 0 10px
-                        background: #5b5377
-                .datetime
-                    text-align: right
     .options
-        padding: 10px 0
+        padding: 5px 0
         display: flex
         align-items: center
         form
             height: 100%
             display: grid
             grid-auto-flow: column
-            grid-template-columns: 35px auto 35px
+            grid-template-columns: 45px auto 50px
             gap: 15px
             padding: 0 50px
             label
                 display: grid
-            label[for="file"]
-                width: 35px
             label[for="data[message]"]
                 width: 100%
                 textarea
                     padding: 5px 10px
                     width: 100%
-                    height: 35px
+                    height: 100%
                     font-size: .9rem
                     resize: none
                     &::-webkit-scrollbar

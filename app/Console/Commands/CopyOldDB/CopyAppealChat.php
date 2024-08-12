@@ -84,6 +84,7 @@ class CopyAppealChat extends Command
                         'appeal_id' => $row['application'],
                         'sender_id' => $row['sender'],
                         'is_file' => $row['file'],
+                        'is_image' => $row['img'],
                         'is_system' => $row['SYSTEM'],
                         'message' => $message,
                         'created_at' => $row['datetime'],

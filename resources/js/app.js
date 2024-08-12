@@ -14,20 +14,26 @@ import * as admin from './components/admin.js'
 import * as selectDepend from './components/select-depend.js'
 import * as form from './components/form.js'
 import * as tableFilter from './components/table-filter.js'
+import * as chat from './components/chat.js'
 
 $(window).on('load', async function () {
     await popup.load()
-    await popup.openLoad()
-    await pageMeny.load()
-    await header.load()
-    await table.load()
-    await excel.load()
+    try {
+        await popup.openLoad()
+        await pageMeny.load()
+        await header.load()
+        await table.load()
+        await excel.load()
 
-    // Компоненты
-    await admin.load()
-    await selectDepend.load()
-    await form.load()
-    await tableFilter.load()
+        // Компоненты
+        await admin.load()
+        await selectDepend.load()
+        await form.load()
+        await tableFilter.load()
+        await chat.load()
+    } catch (error) {
+        console.log(error);
+    }
 
     await popup.closeLoad()
 })

@@ -17,6 +17,7 @@ return new class extends Migration
             $table->foreignId('sender_id')->nullable()->constrained('main__users');
             //$table->foreignId('recipient_id')->nullable()->constrained('main__users');
             $table->boolean('is_file')->default(false);
+            $table->boolean('is_image')->default(false);
             $table->boolean('is_system')->default(false);
 
             $table->text('message');
