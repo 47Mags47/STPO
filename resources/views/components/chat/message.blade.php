@@ -18,92 +18,43 @@
             @else
                 <span>
                     @if ($message->is_file)
-                        {{ mime_content_type(Storage::disk('appeal-chat')->path($message->appeal_id . '/' . $message->message)) }}
-                        @switch(mime_content_type(Storage::disk('appeal-chat')->path($message->appeal_id . '/' .
-                            $message->message)))
-                            {{-- PDF --}}
-                            @case('application/pdf')
-                                <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
-                            @break
-
-                            {{-- Файлы с кодом --}}
-                            @case('application/xml-dtd')
-                                <i class="fa fa-file-code-o" aria-hidden="true"></i>
-                            @break
-
-                            @case('text/x-php')
-                                <i class="fa fa-file-code-o" aria-hidden="true"></i>
-                            @break
-
-                            @case('text/x-java')
-                                <i class="fa fa-file-code-o" aria-hidden="true"></i>
-                            @break
-
-                            @case('text/x-script.python')
-                                <i class="fa fa-file-code-o" aria-hidden="true"></i>
-                            @break
-
-                            {{-- EXCEL --}}
-                            @case('application/vnd.ms-excel')
-                                <i class="fa fa-file-excel-o" aria-hidden="true"></i>
-                            @break
-
-                            @case('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
-                                <i class="fa fa-file-excel-o" aria-hidden="true"></i>
-                            @break
-
-                            {{-- WORD --}}
-                            @case('application/msword')
-                                <i class="fa fa-file-word-o" aria-hidden="true"></i>
-                            @break
-
-                            @case('application/vnd.openxmlformats-officedocument.wordprocessingml.document')
-                                <i class="fa fa-file-word-o" aria-hidden="true"></i>
-                            @break
-
-                            {{-- Архивы --}}
-                            @case('application/vnd.rar')
-                                <i class="fa fa-archive" aria-hidden="true"></i>
-                            @break
-
-                            @case('application/x-rar')
-                                <i class="fa fa-archive" aria-hidden="true"></i>
-                            @break
-
-                            @case('application/zip')
-                                <i class="fa fa-archive" aria-hidden="true"></i>
-                            @break
-
-                            {{-- Презентация --}}
-                            @case('application/vnd.ms-powerpoint')
-                                <i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>
-                            @break
-
-                            @case('application/vnd.openxmlformats-officedocument.presentationml.presentation')
-                                <i class="fa fa-file-powerpoint-o" aria-hidden="true"></i>
-                            @break
-
-                            {{-- Текст --}}
-                            @case('text/plain')
-                                <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                            @break
-
-                            @case('application/x-empty')
-                                <i class="fa fa-file-text-o" aria-hidden="true"></i>
-                            @break
-
-                            {{-- ИНОЕ --}}
-
-                            @default
-                                <i class="fa fa-download" aria-hidden="true"></i>
-                        @endswitch
-                    @endif
-                    @if ($message->is_file)
+                        @php
+                            $path = Storage::disk('appeal-chat')->path($message->appeal_id . '/' . $message->message);
+                            $meme = mime_content_type($path);
+                            $meme_arr = [
+                                'application/pdf' => 'pdf',
+                                'text/xml' => 'code',
+                                'application/xml-dtd' => 'code',
+                                'text/x-php' => 'code',
+                                'text/x-java' => 'code',
+                                'text/x-script.python' => 'code',
+                                'application/vnd.ms-excel' => 'excel',
+                                'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' => 'excel',
+                                'application/msword' => 'word',
+                                'application/vnd.openxmlformats-officedocument.wordprocessingml.document' => 'word',
+                                'application/vnd.rar' => 'archive',
+                                'application/x-rar' => 'archive',
+                                'application/zip' => 'archive',
+                                'application/vnd.ms-powerpoint' => 'powerpoint',
+                                'application/vnd.openxmlformats-officedocument.presentationml.presentation' =>
+                                    'powerpoint',
+                            ];
+                            $type = isset($meme_arr[$meme]) ? $meme_arr[$meme] : null;
+                        @endphp
+                        <i @class([
+                            'fa',
+                            'fa-file-pdf-o' => $type == 'pdf',
+                            'fa-file-code-o' => $type == 'code',
+                            'fa-file-excel-o' => $type == 'excel',
+                            'fa fa-file-word-o' => $type == 'word',
+                            'fa-file-archive-o' => $type == 'archive',
+                            'fa-file-powerpoint-o' => $type == 'powerpoint',
+                            'fa-file-text-o' => $type == null,
+                        ]) aria-hidden="true"></i>
                         <x-custom.link link="" title="{!! $message->message !!}" white />
                     @else
-                        {!! $message->message !!}
+                        <pre>{!! $message->message !!}</pre>
                     @endif
-
                 </span>
             @endif
         </div>

@@ -16,7 +16,7 @@
     <x-table.td type='area' placeholder="Ничего не работает..." name="comment" />
     <x-table.td type='input-d' />
     <x-table.td type='input-d' />
-    <x-table.td type='sbm' />
+    <x-table.td type='sbm' colspan="2"/>
 </tr>
 @foreach ($appeals as $appeal)
     <tr>
@@ -36,9 +36,24 @@
             <x-table.td
                 type="link"
                 link="{{ route('appeal.chat', ['appeal' => $appeal->id]) }}"
-                title="Перейти"
+                title="Чат"
                 blue-button
             />
+            @if ($appeal->status_id == 1 or $appeal->status_id == 2 or $appeal->status_id == 4)
+                <x-table.td
+                    type="link"
+                    link="{{ route('appeal.close', ['appeal' => $appeal->id]) }}"
+                    title="Закрыть"
+                    red-button
+                />
+            @else
+                <x-table.td
+                    type="link"
+                    link="{{ route('appeal.restore', ['appeal' => $appeal->id]) }}"
+                    title="возобновить"
+                    blue-button
+                />
+            @endif
         @else
             @if (auth()->user()->can('is_administration') and ($appeal->status_id == 1 or $appeal->status_id == 4))
                 <x-table.td
@@ -50,6 +65,7 @@
             @else
                 <x-table.td />
             @endif
+            <td></td>
         @endcan
     </tr>
 @endforeach

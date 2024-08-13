@@ -53,6 +53,7 @@
             <x-table.col w="75" />
             <x-table.col w="150" />
             <x-table.col w="100" />
+            <x-table.col w="100" />
         </colgroup>
         <thead>
             <x-table.th value="номер" sort-pole="id" sort-type="{{ $user_sort['pole'] == 'id' ? $user_sort['type'] : 'asc' }}" />
@@ -64,7 +65,7 @@
             <x-table.th value="Комментарий" />
             <x-table.th value="Статус" sort-pole="status" sort-type="{{ $user_sort['pole'] == 'status' ? $user_sort['type'] : 'asc' }}" />
             <x-table.th value="Исполнитель" sort-pole="worker" sort-type="{{ $user_sort['pole'] == 'worker' ? $user_sort['type'] : 'asc' }}" />
-            <x-table.th value="" />
+            <x-table.th value="" colspan="2"/>
         </thead>
         <tbody>
             @include('page.csvi.appeal.tbody')

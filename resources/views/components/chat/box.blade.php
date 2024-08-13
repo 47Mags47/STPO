@@ -22,10 +22,15 @@
                 <span class="value">{!! $appeal->status->name !!}</span>
             </li>
         </ul>
-        <x-custom.link link="{{ route('appeal') }}" blue-button title="Выйти" />
+        <div>
+            <x-custom.link link="{{ route('appeal.close', ['appeal' => $appeal->id]) }}" blue-button title="Закрыть обращение" red-button />
+            <x-custom.link link="{{ route('appeal') }}" blue-button title="Выйти" />
+        </div>
     </div>
     <x-messages.all />
+
     <ul class="chat mini-scroll">
+        <x-chat.drag-and-drop />
         {{ $slot }}
     </ul>
     <div class="options">
