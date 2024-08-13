@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers\web\csvi\appeals;
 
+use App\Console\Commands\CopyOldDB\CopyAppealChat;
 use App\Models\Csvi\Csvi_Appeal_Appeal;
+use App\Models\Csvi\Csvi_Appeal_AppealMessage;
 use App\Models\Glossary\Glossary_Csvi_Appeal_Category;
 use App\Models\Glossary\Glossary_Csvi_Appeal_Status;
 use App\Models\Glossary\Glossary_Csvi_Appeal_Them;
@@ -159,10 +161,16 @@ class AppealController
             'data.comment' => ['required']
         ]);
 
-        Csvi_Appeal_Appeal::create(array_merge($validate['data'], [
+        $appeal = Csvi_Appeal_Appeal::create(array_merge($validate['data'], [
             'status_id' => 1,
             'sender_id' => auth()->user()->id,
         ]));
+
+        Csvi_Appeal_AppealMessage::create([
+            'appeal_id' => $appeal->id,
+            'sender_id' => auth()->user()->id,
+            'message' => $validate['data']['comment'],
+        ]);
 
         return back()->with(['message' => 'Обращение успешно создано']);
     }
