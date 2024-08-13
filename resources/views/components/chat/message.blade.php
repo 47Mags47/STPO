@@ -51,7 +51,7 @@
                             'fa-file-powerpoint-o' => $type == 'powerpoint',
                             'fa-file-text-o' => $type == null,
                         ]) aria-hidden="true"></i>
-                        <x-custom.link link="" title="{!! $message->message !!}" white />
+                        <x-custom.link link="{{ route('appeal.download', ['appeal' => $message->appeal_id, 'file' => $message->message, 'stamp' => now()->timestamp]) }}" title="{!! mb_substr($message->message, 20) !!}" white />
                     @else
                         <pre>{!! $message->message !!}</pre>
                     @endif

@@ -29,7 +29,7 @@
             </x-table.td>
         @endif
         <x-table.td value="{{ $appeal->them->category->name }} <br> {{ $appeal->them->name }}" />
-        <x-table.td value="{{ $appeal->comment }}" />
+        <x-table.td value="{{ $appeal->office ? '(' . $appeal->office . ') ' : '' }}{{ $appeal->comment }}" />
         <x-table.td value="{{ $appeal->status->name }}" />
         <x-table.td value="{{ $appeal->worker ? $appeal->worker->nickname : '' }}" />
         @can('appeal-chat-access', $appeal)
