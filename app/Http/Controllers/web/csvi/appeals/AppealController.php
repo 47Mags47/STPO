@@ -75,8 +75,8 @@ class AppealController
     private function getTableData()
     {
         $builder = auth()->user()->can('is_administration')
-            ? Csvi_Appeal_Appeal::select('csvi__appeal__appeals.*')
-            : Csvi_Appeal_Appeal::where('sender_id', auth()->user()->id)->select('csvi__appeal__appeals.*');
+            ? Csvi_Appeal_Appeal::withTrashed()->select('csvi__appeal__appeals.*')
+            : Csvi_Appeal_Appeal::withTrashed()->where('sender_id', auth()->user()->id)->select('csvi__appeal__appeals.*');
         $this->filterTable($builder);
         $this->sortTable($builder);
 
@@ -174,5 +174,23 @@ class AppealController
                 'worker_id' => auth()->user()->id
             ]);
         return redirect()->route('appeal.chat', ['appeal' => $request->appeal]);
+    }
+
+    public function close(Request $request){
+        Csvi_Appeal_Appeal::whereKey($request->appeal)->update([
+            'status_id' => 3,
+            'closet_at' => auth()->user()->id,
+            'deleted_at' => now(),
+        ]);
+        return redirect()->route('appeal');
+    }
+
+    public function restore(Request $request){
+        Csvi_Appeal_Appeal::withTrashed()->whereKey($request->appeal)->update([
+            'status_id' => 4,
+            'closet_at' => null,
+            'deleted_at' => null
+        ]);
+        return redirect()->route('appeal');
     }
 }

@@ -3,6 +3,8 @@
 
 @section('body')
     <x-chat.box :$appeal>
-        <x-chat.message />
+        @foreach ($messages as $message)
+            <x-chat.message :$message />
+        @endforeach
     </x-chat.box>
 @endsection

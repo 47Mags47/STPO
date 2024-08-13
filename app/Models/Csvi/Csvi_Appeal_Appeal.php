@@ -2,16 +2,17 @@
 
 namespace App\Models\Csvi;
 
-use App\Models\Glossary\Glossary_Csvi_Appeal_Category;
 use App\Models\Glossary\Glossary_Csvi_Appeal_Status;
 use App\Models\Glossary\Glossary_Csvi_Appeal_Them;
 use App\Models\Main\Main_User;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Csvi_Appeal_Appeal extends Model
 {
-    use HasFactory;
+    use HasFactory, SoftDeletes;
 
     protected $guarded = [];
 

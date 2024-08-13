@@ -35,7 +35,7 @@ class ChatController
             'appeal' => $this->getAppeal($request->appeal),
             'messages' => Csvi_Appeal_AppealMessage::orderBy('created_at', 'desc')->where('appeal_id', $request->appeal)->paginate(50),
         ];
-        return view('page.main.appeal.chat', $page_data);
+        return view('page.csvi.appeal.chat', $page_data);
     }
 
     public function store(Request $request)

@@ -1,0 +1,36 @@
+.drag-and-drop-box
+    position: absolute
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+
+    justify-content: center
+    align-items: center
+    display: none
+    .drag-and-drop
+        width: 800px
+        height: 300px
+        background: rgba(82, 197, 15, 0.3)
+        border: 6px dashed rgba(82, 197, 15, 1)
+        border-radius: 7px
+        display: none
+        justify-content: center
+        align-items: center
+        gap: 10px
+        i, span
+            color: #333
+        i
+            font-size: 3rem
+        span
+            font-size: 2rem
+    .zone
+        position: absolute
+        width: 100%
+        height: 100%
+        z-index: 999
+    &.open
+        display: flex
+        backdrop-filter: blur(8px)
+        .drag-and-drop
+            display: flex

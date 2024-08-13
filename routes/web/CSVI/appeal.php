@@ -11,6 +11,8 @@ Route::middleware('auth')->group(function () {
 
     Route::get('/appeal', [AppealController::class, 'index'])->name('appeal');
     Route::get('/appeal/reset', [AppealController::class, 'reset'])->name('appeal.reset');
+    Route::get('/appeal/{appeal}/close', [AppealController::class, 'close'])->name('appeal.close');
+    Route::get('/appeal/{appeal}/restore', [AppealController::class, 'restore'])->name('appeal.restore');
     Route::post('/appeal', [AppealController::class, 'store']);
 
     Route::middleware('is-administration')->group(function () {
