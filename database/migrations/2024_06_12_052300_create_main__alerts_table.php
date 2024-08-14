@@ -15,7 +15,7 @@ return new class extends Migration {
             $table->foreignId('type_id')->constrained('glossary__main__alert_types');
             $table->foreignId('from_id')->constrained('main__users');
             $table->foreignId('sender_id')->nullable()->constrained('main__users');
-            $table->foreignId('link')->nullable();
+            $table->text('link')->nullable();
             $table->text('message');
             $table->boolean('visible')->default(false);
             $table->timestamps();

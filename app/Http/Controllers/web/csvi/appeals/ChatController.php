@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\web\csvi\appeals;
 
+use App\Events\SendAppealMessage;
 use App\Models\Csvi\Csvi_Appeal_Appeal;
 use App\Models\Csvi\Csvi_Appeal_AppealMessage;
 use Illuminate\Http\Request;
@@ -47,7 +48,7 @@ class ChatController
                 $message = date('Y-m-d-H-i-s') . '_' . $file->getClientOriginalName();
                 Storage::disk('appeal-chat')->putFileAs($request->appeal, $file, $message);
 
-                Csvi_Appeal_AppealMessage::create([
+                $message = Csvi_Appeal_AppealMessage::create([
                     'appeal_id' => $request->appeal,
                     'sender_id' => auth()->user()->id,
                     'is_file' => true,
@@ -60,11 +61,15 @@ class ChatController
                 'data.message' => ['required']
             ]);
 
-            Csvi_Appeal_AppealMessage::create([
+            $message = Csvi_Appeal_AppealMessage::create([
                 'appeal_id' => $request->appeal,
                 'sender_id' => auth()->user()->id,
                 'message' => $validate['data']['message'],
             ]);
+        }
+
+        if($message->appeal->worker_id){
+            SendAppealMessage::dispatch($message);
         }
 
         return back();

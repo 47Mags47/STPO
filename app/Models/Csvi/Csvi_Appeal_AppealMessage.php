@@ -12,6 +12,10 @@ class Csvi_Appeal_AppealMessage extends Model
 
     protected $guarded = [];
 
+    public function appeal(){
+        return $this->belongsTo(Csvi_Appeal_Appeal::class, 'appeal_id');
+    }
+
     public function sender(){
         return $this->belongsTo(Main_User::class, 'sender_id');
     }

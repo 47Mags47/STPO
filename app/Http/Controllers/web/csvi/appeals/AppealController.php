@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\web\csvi\appeals;
 
 use App\Console\Commands\CopyOldDB\CopyAppealChat;
+use App\Events\EditAppealStatus;
+use App\Events\SendAlert;
 use App\Models\Csvi\Csvi_Appeal_Appeal;
 use App\Models\Csvi\Csvi_Appeal_AppealMessage;
 use App\Models\Glossary\Glossary_Csvi_Appeal_Category;
@@ -177,28 +179,39 @@ class AppealController
 
     public function accept(Request $request)
     {
-        Csvi_Appeal_Appeal::whereKey($request->appeal)
-            ->update([
-                'worker_id' => auth()->user()->id
-            ]);
+        $builder = Csvi_Appeal_Appeal::whereKey($request->appeal);
+        $appeal = $builder->first();
+        $builder->update([
+            'worker_id' => auth()->user()->id,
+            'status_id' => 2,
+        ]);
+        EditAppealStatus::dispatch($appeal->fresh());
         return redirect()->route('appeal.chat', ['appeal' => $request->appeal]);
     }
 
-    public function close(Request $request){
-        Csvi_Appeal_Appeal::whereKey($request->appeal)->update([
+    public function close(Request $request)
+    {
+        $builder = Csvi_Appeal_Appeal::whereKey($request->appeal);
+        $appeal = $builder->first();
+        $builder->update([
             'status_id' => 3,
             'closet_at' => auth()->user()->id,
             'deleted_at' => now(),
         ]);
+        EditAppealStatus::dispatch($appeal->fresh());
         return redirect()->route('appeal');
     }
 
-    public function restore(Request $request){
-        Csvi_Appeal_Appeal::withTrashed()->whereKey($request->appeal)->update([
+    public function restore(Request $request)
+    {
+        $builder = Csvi_Appeal_Appeal::withTrashed()->whereKey($request->appeal);
+        $appeal = $builder->first();
+        $builder->update([
             'status_id' => 4,
             'closet_at' => null,
             'deleted_at' => null
         ]);
+        EditAppealStatus::dispatch($appeal->fresh());
         return redirect()->route('appeal');
     }
 }

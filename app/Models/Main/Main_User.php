@@ -51,7 +51,6 @@ class Main_User extends Authenticatable implements MustVerifyEmail
     {
         return $this
             ->hasMany(Main_Alert::class, 'from_id')
-            ->orderBy('visible')
             ->orderBy('id', 'desc')
             ->take(25);
     }

@@ -28,9 +28,8 @@ class DBBackUp extends Command
         $filename = "backup-" . now()->format('Y-m-d-H-i-s') . ".gz";
         $full_path = storage_path('app/backup/sql/') . $filename;
         $connect_attr = "--user=" . env('DB_USERNAME') . " --password=" . env('DB_PASSWORD');
-        $command = "mysqldump --no-tablespaces " . $connect_attr. " STPO | gzip > " . $full_path;
-        // dd($command);
-
+        $command = "mysqldump --no-tablespaces --complete-insert " . $connect_attr. " --no-create-info STPO | gzip > " . $full_path;
+        
         $returnVar = NULL;
         $output  = NULL;
 
