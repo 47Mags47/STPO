@@ -39,8 +39,7 @@
                             ];
                             $caught = false;
                             try {
-                                $path = Storage::disk('appeal-chat')->path($message->appeal_id . '/' . $message->message);
-                                $meme = mime_content_type($path);
+                                $meme = Storage::disk('appeal-chat')->mimeType($message->appeal_id . '/' . $message->message);
                                 $type = isset($meme_arr[$meme]) ? $meme_arr[$meme] : null;
                             } catch (\Throwable $th) {
                                 $caught = true;
