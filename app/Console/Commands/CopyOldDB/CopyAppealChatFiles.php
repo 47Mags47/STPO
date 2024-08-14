@@ -37,7 +37,8 @@ class CopyAppealChatFiles extends Command
         $counter = [
             'copy' => 0,
             'skeep' => 0,
-            'errors' => 0
+            'errors' => 0,
+            'error_list' => [],
         ];
         $progressBar = $this->output->createProgressBar();
         $path = "site\\CSVI\\statesment\\chat\\files";
@@ -75,7 +76,7 @@ class CopyAppealChatFiles extends Command
                         $counter['copy']++;
                     } catch (\Throwable $th) {
                         $counter['errors']++;
-                        echo "\nОШИБКА ПРИ КОПИРОВАНИИ ФАЙЛА \n" . $folder . '/' . $file->getFilename() . "\n";
+                        $counter['error_list'][] = $file;
                     }
                 }
                 $progressBar->advance();
@@ -87,6 +88,10 @@ class CopyAppealChatFiles extends Command
             echo "Перенесено " . $counter['copy'] . " дирректорий \n";
             echo "Пропущено " . $counter['skeep'] . " дирректорий \n";
             echo "Ошибок " . $counter['errors'] . "\n";
+            echo "Ошибка при копирании файлов:\n";
+            foreach ($counter['error_list'] as $file) {
+                echo $file . "\n";
+            }
             $this->call('up');
         }
     }
