@@ -14,7 +14,7 @@ class CopyAppealChatFiles extends Command
      *
      * @var string
      */
-    protected $signature = 'app:CopyAppealChatFiles';
+    protected $signature = 'old:CopyAppealChatFiles';
 
     /**
      * The console command description.
@@ -40,26 +40,24 @@ class CopyAppealChatFiles extends Command
             'errors' => 0
         ];
         $progressBar = $this->output->createProgressBar();
-        $path = "\\\\192.168.0.110\\c$\\gord_project\\OSPanel\\domains\\server\\MSZN\\site\\CSVI\\statesment\\chat\\files";
+        $path = "site\\CSVI\\statesment\\chat\\files";
         $folders = [];
 
         /* ОПРОС СЕРВЕРА */
         try {
-            $folders = File::directories($path);
+            $folders = Storage::disk('ftp110')->directories($path);
             $folder_count = count($folders);
         } catch (\Throwable $th) {
             echo "ОШИБКА ДОСТУПА К УДАЛЕННОМУ СЕРВЕРУ\n";
             $caught = true;
         }
 
-
-
         /* ПЕРЕНОС */
         if (!$caught) {
             $progressBar->setMaxSteps($folder_count);
             $progressBar->start();
             foreach ($folders as $folder) {
-                $files = File::allFiles($folder);
+                $files = Storage::disk('ftp110')->allFiles($folder);
                 foreach ($files as $file) {
                     try {
                         $file_name = basename($file);
@@ -71,7 +69,7 @@ class CopyAppealChatFiles extends Command
                             continue;
                         }
 
-                        $content = file_get_contents($file);
+                        $content = Storage::disk('ftp110')->get($file);
                         Storage::disk('appeal-chat')->put(basename($folder) . '/' . $new_file_name, $content);
 
                         $counter['copy']++;
