@@ -60,7 +60,7 @@
                         @if ($caught)
                             <x-custom.link title="{!! mb_substr($message->message, 20) !!}" disabled/>
                         @else
-                            <x-custom.link link="{{ route('appeal.download', ['appeal' => $message->appeal_id, 'file' => $message->message, 'stamp' => now()->timestamp]) }}" title="{!! mb_substr($message->message, 20) !!}" white />
+                            <x-custom.link link="{{ route('appeal.download', ['appeal' => $message->appeal_id, 'file_name' => $message->message, 'stamp' => now()->timestamp]) }}" title="{!! mb_substr($message->message, 20) !!}" white />
                         @endif
                     @else
                         <pre>{!! $message->message !!}</pre>
