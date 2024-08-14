@@ -81,6 +81,14 @@ return [
             'throw' => false,
         ],
 
+        'ftp110' => [
+            'driver' => 'ftp',
+            'host' => '192.168.0.110',
+            'username' => 'stpo',
+            'password' => 'stpo',
+            'port' => 21,
+        ],
+
     ],
 
     /*
