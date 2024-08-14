@@ -19,8 +19,6 @@
                 <span>
                     @if ($message->is_file)
                         @php
-                            $path = Storage::disk('appeal-chat')->path($message->appeal_id . '/' . $message->message);
-                            $meme = mime_content_type($path);
                             $meme_arr = [
                                 'application/pdf' => 'pdf',
                                 'text/xml' => 'code',
@@ -39,7 +37,16 @@
                                 'application/vnd.openxmlformats-officedocument.presentationml.presentation' =>
                                     'powerpoint',
                             ];
-                            $type = isset($meme_arr[$meme]) ? $meme_arr[$meme] : null;
+                            $caught = false;
+                            try {
+                                $path = Storage::disk('appeal-chat')->path($message->appeal_id . '/' . $message->message);
+                                $meme = mime_content_type($path);
+                                $type = isset($meme_arr[$meme]) ? $meme_arr[$meme] : null;
+                            } catch (\Throwable $th) {
+                                $caught = true;
+                                $type = null;
+                            }
+                            
                         @endphp
                         <i @class([
                             'fa',
@@ -51,7 +58,11 @@
                             'fa-file-powerpoint-o' => $type == 'powerpoint',
                             'fa-file-text-o' => $type == null,
                         ]) aria-hidden="true"></i>
-                        <x-custom.link link="{{ route('appeal.download', ['appeal' => $message->appeal_id, 'file' => $message->message, 'stamp' => now()->timestamp]) }}" title="{!! mb_substr($message->message, 20) !!}" white />
+                        @if ($caught)
+                            <x-custom.link title="{!! mb_substr($message->message, 20) !!}" disabled/>
+                        @else
+                            <x-custom.link link="{{ route('appeal.download', ['appeal' => $message->appeal_id, 'file' => $message->message, 'stamp' => now()->timestamp]) }}" title="{!! mb_substr($message->message, 20) !!}" white />
+                        @endif
                     @else
                         <pre>{!! $message->message !!}</pre>
                     @endif
