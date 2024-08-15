@@ -28,17 +28,21 @@ class DBReload extends Command
         $this->call('down');
         $this->call(DB\backup\SaveDB::class);
 
-        if($this->call(DB\backup\SaveDBData::class)){
-            $this->call('migrate:fresh', ['--seed' => 'default']);
-            $this->call(DB\restore\RestoreData::class);
-        }else{
+        try {
+            if($this->call(DB\backup\SaveDBData::class)){
+                $this->call('migrate:fresh', ['--seed' => 'default']);
+                $this->call(DB\restore\RestoreData::class);
+            }else{
+                $this->call(DB\restore\RestoreDB::class);
+            }
+    
+            $this->call(DB\old\Users::class);
+            $this->call(DB\old\Appeal::class);
+            $this->call(DB\old\AppealChat::class);
+        } catch (\Throwable $th) {
+            dump($th);
             $this->call(DB\restore\RestoreDB::class);
         }
-
-        $this->call(DB\old\Users::class);
-        $this->call(DB\old\Appeal::class);
-        $this->call(DB\old\AppealChat::class);
-
         $this->call('up');
     }
 }
