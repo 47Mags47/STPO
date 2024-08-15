@@ -32,7 +32,7 @@ class RestoreDB extends Command
             : collect(Storage::disk('backup')->files('full'))->last();
         $connect_attr = "--user=" . env('DB_USERNAME') . " --password=" . env('DB_PASSWORD');
 
-        $drop_command = "mysql $connect_attr -e " . '"DROP DATABASE `STPO`; CREATE DATABASE `STPO`"';
+        $drop_command = "mysql $connect_attr -e " . '"DROP DATABASE STPO; CREATE DATABASE STPO"';
         $change_dir_path = Storage::disk('backup')->path('');
         $restore_command = "mysql $connect_attr STPO < $path";
 
