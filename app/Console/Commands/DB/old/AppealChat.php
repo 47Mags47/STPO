@@ -1,37 +1,36 @@
 <?php
 
-namespace App\Console\Commands\CopyOldDB;
+namespace App\Console\Commands\DB\old;
 
 use App\Models\Csvi\Csvi_Appeal_Appeal;
 use App\Models\Csvi\Csvi_Appeal_AppealMessage;
 use App\Models\Main\Main_User;
 use Illuminate\Console\Command;
+
 use mysqli;
 
-class CopyAppealChat extends Command
+class AppealChat extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'app:CopyAppealChat';
+    protected $signature = 'pld:appeal-chat';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Копирует сообщения чата со старого сервера';
+    protected $description = 'Копирует чат обращений со 110 сервера';
 
     /**
      * Execute the console command.
      */
     public function handle()
     {
-        $this->call('down');
-        echo "Приложение отключено\n";
-        echo "\n  ПЕРЕНОС AppealChat ............................................................................................................................\n";
+        $this->info("ПЕРЕНОС AppealChat");
         Csvi_Appeal_AppealMessage::unguard();
 
         /* ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ */
@@ -39,8 +38,7 @@ class CopyAppealChat extends Command
         $counter = [
             'copy' => 0,
             'skeep' => 0,
-            'errors' => 0,
-            'test' => 0
+            'errors' => 0
         ];
         $progressBar = $this->output->createProgressBar();
 
@@ -101,13 +99,10 @@ class CopyAppealChat extends Command
             echo "Перенесено " . $counter['copy'] . " сообщений \n";
             echo "Пропущено " . $counter['skeep'] . " сообщений \n";
             echo "Ошибок " . $counter['errors'] . "\n";
-
-            echo "Тест " . $counter['test'] . "\n";
         }
 
         Csvi_Appeal_AppealMessage::reguard();
-        $this->call('up');
 
-        $this->call(CopyAppealChatFiles::class);
+        $this->call(AppealChatFiles::class);
     }
 }

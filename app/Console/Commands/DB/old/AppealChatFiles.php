@@ -1,36 +1,33 @@
 <?php
 
-namespace App\Console\Commands\CopyOldDB;
+namespace App\Console\Commands\DB\old;
 
 use Illuminate\Console\Command;
-use Illuminate\Support\Facades\File;
 use DateTime;
 use Illuminate\Support\Facades\Storage;
 
-class CopyAppealChatFiles extends Command
+class AppealChatFiles extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'old:CopyAppealChatFiles';
+    protected $signature = 'old:appeal-chat-files';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Копирует файлы чата со старого сервера';
+    protected $description = 'Копирует файлы чата обращений со 110 сервера';
 
     /**
      * Execute the console command.
      */
     public function handle()
     {
-        $this->call('down');
-        echo "Приложение отключено\n";
-        echo "\n  ПЕРЕНОС Appeal Chat Files ............................................................................................................................\n";
+        $this->info("ПЕРЕНОС Appeal Chat Files");
 
         /* ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ */
         $caught = false;
@@ -92,7 +89,6 @@ class CopyAppealChatFiles extends Command
             foreach ($counter['error_list'] as $file) {
                 echo $file . "\n";
             }
-            $this->call('up');
         }
     }
 }

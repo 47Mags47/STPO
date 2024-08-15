@@ -54,78 +54,86 @@ return [
 
         'stack' => [
             'driver' => 'stack',
-            'channels' => explode(',', env('LOG_STACK', 'single')),
+            'channels' => ['daily', 'app'],
             'ignore_exceptions' => false,
         ],
 
-        'single' => [
-            'driver' => 'single',
-            'path' => storage_path('logs/laravel.log'),
-            'level' => env('LOG_LEVEL', 'debug'),
-            'replace_placeholders' => true,
-        ],
+        // 'single' => [
+        //     'driver' => 'single',
+        //     'path' => storage_path('logs/laravel.log'),
+        //     'level' => env('LOG_LEVEL', 'debug'),
+        //     'replace_placeholders' => true,
+        // ],
 
-        'daily' => [
+        'app' => [ //Ежедневный журнал важных ошибок
             'driver' => 'daily',
-            'path' => storage_path('logs/laravel.log'),
-            'level' => env('LOG_LEVEL', 'debug'),
-            'days' => env('LOG_DAILY_DAYS', 14),
+            'path' => storage_path('logs/error/app.log'),
+            'level' => env('LOG_LEVEL', 'error'),
+            'days' => 14,
             'replace_placeholders' => true,
         ],
 
-        'slack' => [
-            'driver' => 'slack',
-            'url' => env('LOG_SLACK_WEBHOOK_URL'),
-            'username' => env('LOG_SLACK_USERNAME', 'Laravel Log'),
-            'emoji' => env('LOG_SLACK_EMOJI', ':boom:'),
-            'level' => env('LOG_LEVEL', 'critical'),
+        'daily' => [ //Ежедневный журнал ошибок
+            'driver' => 'daily',
+            'path' => storage_path('logs/daily/daily.log'),
+            'level' => env('LOG_LEVEL', 'debug'),
+            'days' => 14,
             'replace_placeholders' => true,
         ],
 
-        'papertrail' => [
-            'driver' => 'monolog',
-            'level' => env('LOG_LEVEL', 'debug'),
-            'handler' => env('LOG_PAPERTRAIL_HANDLER', SyslogUdpHandler::class),
-            'handler_with' => [
-                'host' => env('PAPERTRAIL_URL'),
-                'port' => env('PAPERTRAIL_PORT'),
-                'connectionString' => 'tls://'.env('PAPERTRAIL_URL').':'.env('PAPERTRAIL_PORT'),
-            ],
-            'processors' => [PsrLogMessageProcessor::class],
-        ],
+        // 'slack' => [
+        //     'driver' => 'slack',
+        //     'url' => env('LOG_SLACK_WEBHOOK_URL'),
+        //     'username' => env('LOG_SLACK_USERNAME', 'Laravel Log'),
+        //     'emoji' => env('LOG_SLACK_EMOJI', ':boom:'),
+        //     'level' => env('LOG_LEVEL', 'critical'),
+        //     'replace_placeholders' => true,
+        // ],
 
-        'stderr' => [
-            'driver' => 'monolog',
-            'level' => env('LOG_LEVEL', 'debug'),
-            'handler' => StreamHandler::class,
-            'formatter' => env('LOG_STDERR_FORMATTER'),
-            'with' => [
-                'stream' => 'php://stderr',
-            ],
-            'processors' => [PsrLogMessageProcessor::class],
-        ],
+        // 'papertrail' => [
+        //     'driver' => 'monolog',
+        //     'level' => env('LOG_LEVEL', 'debug'),
+        //     'handler' => env('LOG_PAPERTRAIL_HANDLER', SyslogUdpHandler::class),
+        //     'handler_with' => [
+        //         'host' => env('PAPERTRAIL_URL'),
+        //         'port' => env('PAPERTRAIL_PORT'),
+        //         'connectionString' => 'tls://'.env('PAPERTRAIL_URL').':'.env('PAPERTRAIL_PORT'),
+        //     ],
+        //     'processors' => [PsrLogMessageProcessor::class],
+        // ],
 
-        'syslog' => [
-            'driver' => 'syslog',
-            'level' => env('LOG_LEVEL', 'debug'),
-            'facility' => env('LOG_SYSLOG_FACILITY', LOG_USER),
-            'replace_placeholders' => true,
-        ],
+        // 'stderr' => [
+        //     'driver' => 'monolog',
+        //     'level' => env('LOG_LEVEL', 'debug'),
+        //     'handler' => StreamHandler::class,
+        //     'formatter' => env('LOG_STDERR_FORMATTER'),
+        //     'with' => [
+        //         'stream' => 'php://stderr',
+        //     ],
+        //     'processors' => [PsrLogMessageProcessor::class],
+        // ],
 
-        'errorlog' => [
-            'driver' => 'errorlog',
-            'level' => env('LOG_LEVEL', 'debug'),
-            'replace_placeholders' => true,
-        ],
+        // 'syslog' => [
+        //     'driver' => 'syslog',
+        //     'level' => env('LOG_LEVEL', 'error'),
+        //     'facility' => env('LOG_SYSLOG_FACILITY', LOG_USER),
+        //     'replace_placeholders' => true,
+        // ],
 
-        'null' => [
-            'driver' => 'monolog',
-            'handler' => NullHandler::class,
-        ],
+        // 'errorlog' => [
+        //     'driver' => 'errorlog',
+        //     'level' => env('LOG_LEVEL', 'debug'),
+        //     'replace_placeholders' => true,
+        // ],
 
-        'emergency' => [
-            'path' => storage_path('logs/laravel.log'),
-        ],
+        // 'null' => [
+        //     'driver' => 'monolog',
+        //     'handler' => NullHandler::class,
+        // ],
+
+        // 'emergency' => [
+        //     'path' => storage_path('logs/laravel.log'),
+        // ],
 
     ],
 
