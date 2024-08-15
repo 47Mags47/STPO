@@ -26,14 +26,19 @@ class DBReload extends Command
     public function handle()
     {
         $this->call('down');
+        $this->call(DB\backup\SaveDB::class);
 
-        $this->call('app:copyDB', ['--skeep' => $this->option('skeep')]);
-        $this->call('migrate:fresh', ['--seed' => 'default']);
-        $this->call(RestoreDB::class);
+        if($this->call(DB\backup\SaveDBData::class)){
+            $this->call('migrate:fresh', ['--seed' => 'default']);
+            $this->call(DB\restore\RestoreData::class);
+        }else{
+            $this->call(DB\restore\RestoreDB::class);
+        }
+
+        $this->call(DB\old\Users::class);
+        $this->call(DB\old\Appeal::class);
+        $this->call(DB\old\AppealChat::class);
+
         $this->call('up');
-
-        $this->call(CopyOldDB\copyUsers::class);
-        $this->call(CopyOldDB\copyAppeals::class);
-        $this->call(CopyOldDB\CopyAppealChat::class);
     }
 }

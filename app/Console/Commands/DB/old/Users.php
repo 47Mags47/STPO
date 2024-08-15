@@ -1,35 +1,33 @@
 <?php
 
-namespace App\Console\Commands\CopyOldDB;
+namespace App\Console\Commands\DB\old;
 
 use App\Models\Main\Main_User;
 use Illuminate\Console\Command;
 use mysqli;
 
-class copyUsers extends Command
+class Users extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'app:copy-users';
+    protected $signature = 'old:users';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Копирует пользователей со 110 сервера';
 
     /**
      * Execute the console command.
      */
     public function handle()
     {
-        $this->call('down');
-        echo "Приложение отключено\n";
-        echo "\n  ПЕРЕНОС USERS ............................................................................................................................\n";
+        $this->info("ПЕРЕНОС USERS");
         Main_User::unguard();
 
         /* ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ */
@@ -90,8 +88,6 @@ class copyUsers extends Command
             echo "Ошибок " . $counter['errors'] . "\n";
         }
 
-
         Main_User::reguard();
-        $this->call('up');
     }
 }

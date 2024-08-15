@@ -1,37 +1,34 @@
 <?php
 
-namespace App\Console\Commands\CopyOldDB;
+namespace App\Console\Commands\DB\old;
 
 use App\Models\Csvi\Csvi_Appeal_Appeal;
 use App\Models\Main\Main_User;
 use Illuminate\Console\Command;
 use mysqli;
 
-class copyAppeals extends Command
+class Appeal extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'app:CopyAppeal';
+    protected $signature = 'old:appeal';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Command description';
+    protected $description = 'Копирует обращения со 110 сервера';
 
     /**
      * Execute the console command.
      */
     public function handle()
     {
-        $this->call('down');
-        echo "Приложение отключено\n";
-
-        echo "\n  ПЕРЕНОС APPEAL ...........................................................................................................................\n";
+        $this->info("ПЕРЕНОС APPEAL");
         Csvi_Appeal_Appeal::unguard();
         /* ГЛОБАЛЬНЫЕ ПЕРЕМЕННЫЕ */
         $caught = false;
@@ -116,6 +113,5 @@ class copyAppeals extends Command
         }
 
         Csvi_Appeal_Appeal::reguard();
-        $this->call('up');
     }
 }
