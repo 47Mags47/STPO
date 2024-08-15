@@ -2,7 +2,13 @@
 @section('page-name', 'Обращения')
 
 @section('body')
-    <x-table.box :paginate=true w100 top0 reset="{{ route('appeal.reset') }}" :form=true>
+    <x-table.box 
+        :paginate=true
+        :form=true
+        w100 
+        top0 
+        reset="{{ route('appeal.reset') }}" 
+    >
         <x-slot:paginate-link>
             {{ $appeals->links() }}
         </x-slot:paginate-link>
