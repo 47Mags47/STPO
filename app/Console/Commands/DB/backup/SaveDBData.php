@@ -54,7 +54,7 @@ class SaveDBData extends Command
         $ignore_list = collect($this->ignore_list)->map(function ($table) {
             return ' --ignore-table=' . env('DB_DATABASE') . '.' . $table;
         })->toArray();
-        return implode(' ', $ignore_list) . ')';
+        return implode(' ', $ignore_list);
     }
 
     public function handle()
