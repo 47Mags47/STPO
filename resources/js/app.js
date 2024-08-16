@@ -5,7 +5,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 import jQuery from 'jquery';
 window.$ = jQuery
 
-import * as popup from './pop-up.js'
+import PopUp from './popup.js';
 import * as pageMeny from './page-meny.js'
 import * as header from './header.js'
 import * as table from './table.js'
@@ -17,9 +17,10 @@ import * as tableFilter from './components/table-filter.js'
 import * as chat from './components/chat.js'
 
 $(window).on('load', async function () {
-    await popup.load()
+    let load = new PopUp('load')
+    load.open()
+
     try {
-        await popup.openLoad()
         await pageMeny.load()
         await header.load()
         await table.load()
@@ -35,7 +36,7 @@ $(window).on('load', async function () {
         console.log(error);
     }
 
-    await popup.closeLoad()
+    load.close()
 })
 
 import * as dashboard from './pages/dashboard.js'
