@@ -18,7 +18,7 @@ use Illuminate\Support\Facades\DB;
 
 class AppealController
 {
-    private $sort, $filters, $appeals, $page_data;
+    private $sort, $filters, $search, $appeals, $page_data;
     private $sort_arr = [
         'id' => 'id',
         'created_at' => 'created_at',
@@ -83,6 +83,7 @@ class AppealController
             : Csvi_Appeal_Appeal::withTrashed()->where('sender_id', auth()->user()->id)->select('csvi__appeal__appeals.*');
         $this->filterTable($builder);
         $this->sortTable($builder);
+        $this->searchTable($builder);
 
         return $builder->paginate(100);
     }
@@ -97,6 +98,13 @@ class AppealController
 
         return $builder;
     }
+    private function searchTable($builder)
+    {
+        return $this->search == null
+            ? $builder
+            : $builder->where('comment', 'LIKE', '%' . $this->search . '%');
+    }
+
 
     private function sortTable($builder)
     {
@@ -132,6 +140,7 @@ class AppealController
     {
         $this->sort = $this->getSort($request->sort_pole, $request->sort_type);
         $this->filters = $this->getFilters($request->filter);
+        $this->search = $request->search;
         $this->page_data = $this->pageData();
         $this->appeals = $this->getTableData();
 

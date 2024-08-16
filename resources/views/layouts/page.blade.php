@@ -15,7 +15,7 @@
 
 <body class=@yield('vip')>
     @include('include.header')
-    <x-page.popup />
+    <x-popup.box />
     <div class="page-content mini-scroll">
         @yield('body')
     </div>

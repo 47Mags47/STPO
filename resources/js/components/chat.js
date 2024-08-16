@@ -1,3 +1,5 @@
+import PopUp from "../popup"
+
 export async function load() {
     const textarea = $('.chat-box .options textarea[name="data[message]"]')
     const fileinput = $('.chat-box .options input[type="file"]')
@@ -44,4 +46,13 @@ export async function load() {
             $('.drag-and-drop-box').removeClass('open')
             $('.chat-box .options form').trigger('submit')
         })
+
+    
+    
+    $('.chat-box .chat .text img').each(function () {
+        let popup = new PopUp('image', $(this).prop('outerHTML'))
+        $(this).on('click', function () { 
+            popup.open()
+        })
+    })
 }

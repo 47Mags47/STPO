@@ -3,12 +3,12 @@
 <div class="table-box mini-scroll">
     <div class="table-options">
         @isset($filters)
-            <form action="" method="GET" class="search">
+            <form action="{{ isset($searchLink) ? $searchLink : '' }}" method="GET" class="search">
                 @csrf
                 <input type="search" name="search">
                 <input type="submit" value="Найти" class="button blue-button">
             </form>
-            <form action="" method="GET" class="filters">
+            <form action="{{ isset($filterLink) ? $filterLink : '' }}" method="GET" class="filters">
                 @csrf
                 <ul>{{ $filters }}</ul>
                 <x-form.sbm title="Применить"/>
