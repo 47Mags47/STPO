@@ -43,7 +43,7 @@ export default class FormulImport {
     }
 
     calc(formul) {
-        // if (formul == '{CB9}+{CD9}') {
+        // if (formul.indexOf(this.input.attr('id'))>= 0) {
         //     console.log(1);
         // }
         this.getDepended(formul).forEach(elem => {
