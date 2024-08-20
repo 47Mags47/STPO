@@ -33,8 +33,8 @@
             value="Численность инвалидов в возрасте 18 лет и старше и детей-инвалидов - всего, в том числе:" />
         <x-table.td value="02" center />
         <x-table.td type="input-d" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('DP7') ? $data['DP7'] : '' }}" name="DP7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('DQ7') ? $data['DQ7'] : '' }}" name="DQ7" />
+        <x-table.td type="input" formul="({DP8}+{DP9})>=({DQ8}+{DQ9})" bool-val="{DP8}+{DP9}" name="DP7" disabled />
+        <x-table.td type="input" formul="{DQ8}+{DQ9}" name="DQ7" disabled />
     </tr>
     <tr>
         <x-table.td type="header" value="инвалидов в возрасте 18 лет и старше" />

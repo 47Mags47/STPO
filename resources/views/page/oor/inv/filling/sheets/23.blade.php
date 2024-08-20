@@ -22,9 +22,9 @@
     <tr>
         <x-table.td type="header" value="Организации сферы физической культуры и спорта - всего, из них:" />
         <x-table.td value="01" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA18') ? $data['CA18'] : '' }}" name="CA18" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CB18') ? $data['CB18'] : '' }}" name="CB18" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CC18') ? $data['CC18'] : '' }}" name="CC18" />
+        <x-table.td type="input" formul="{CA19}+{CA20}+{CA21}+{CA22}+{CA23}+{CA24}+{CA25}+{CA26}" name="CA18" />
+        <x-table.td type="input" formul="{CB19}+{CB20}+{CB21}+{CB22}+{CB23}+{CB24}+{CB25}+{CB26}" name="CB18" />
+        <x-table.td type="input" formul="{CC19}+{CC20}+{CC21}+{CC22}+{CC23}+{CC24}+{CC25}+{CC26}" name="CC18" />
     </tr>
     <tr>
         <x-table.td type="header" value="Центры спортивной подготовки по спорту инвалидов" />

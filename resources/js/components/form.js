@@ -4,4 +4,13 @@ export async function load() {
     $('input[type="number"]').on('input', function (event) {
         let val = $(this).val()
     })
+
+    $('input.bool').each(function () { 
+        $(this).on('input', function (event) { 
+            if(!/[01]/.test($(this).val())){
+                event.preventDefault()
+                $(this).val(0)
+            }
+         })
+    })
 }

@@ -5,7 +5,7 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 import jQuery from 'jquery';
 window.$ = jQuery
 
-import PopUp from './popup.js';
+import PopUp from './classes/PopUp.js';
 import * as pageMeny from './page-meny.js'
 import * as header from './header.js'
 import * as table from './table.js'
@@ -40,6 +40,7 @@ $(window).on('load', async function () {
 })
 
 import * as dashboard from './pages/dashboard.js'
+
 $(window).on('load', function () {
     dashboard.load()
 })

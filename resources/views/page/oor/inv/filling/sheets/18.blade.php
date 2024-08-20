@@ -22,9 +22,9 @@
     <tr>
         <x-table.td type="header" value="Общее образование - всего организаций, из них:" />
         <x-table.td value="01" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA24') ? $data['CA24'] : '' }}" name="CA24" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CB24') ? $data['CB24'] : '' }}" name="CB24" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CC24') ? $data['CC24'] : '' }}" name="CC24" />
+        <x-table.td type="input" formul="{CA26}" name="CA24" disabled />
+        <x-table.td type="input" formul="{CB25}+{CC26}" name="CB24" disabled />
+        <x-table.td type="input" formul="{CC26}" name="CC24" disabled />
     </tr>
     <tr>
         <x-table.td type="header" value="дошкольные образовательные организации" />
@@ -43,9 +43,9 @@
     <tr>
         <x-table.td type="header" value="Профессиональное образование - всего организаций, из них:" />
         <x-table.td value="04" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA27') ? $data['CA27'] : '' }}" name="CA27" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CB27') ? $data['CB27'] : '' }}" name="CB27" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CC27') ? $data['CC27'] : '' }}" name="CC27" />
+        <x-table.td type="input" formul="{CA28}+{CA29}" name="CA27" disabled />
+        <x-table.td type="input" formul="{CB28}+{CB29}" name="CB27" disabled />
+        <x-table.td type="input" formul="{CC28}+{CC29}" name="CC27" disabled />
     </tr>
     <tr>
         <x-table.td type="header" value="профессиональные образовательные организации" />
@@ -64,9 +64,9 @@
     <tr>
         <x-table.td type="header" value="Дополнительное образование - всего организаций, из них:" />
         <x-table.td value="07" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA30') ? $data['CA30'] : '' }}" name="CA30" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CB30') ? $data['CB30'] : '' }}" name="CB30" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CC30') ? $data['CC30'] : '' }}" name="CC30" />
+        <x-table.td type="input" formul="{CA31}+{CA32}" name="CA30" disabled />
+        <x-table.td type="input" formul="{CB31}+{CB32}" name="CB30" disabled />
+        <x-table.td type="input" formul="{CC31}+{CC32}" name="CC30" disabled />
     </tr>
     <tr>
         <x-table.td type="header" value="организации дополнительного образования" />

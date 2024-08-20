@@ -38,8 +38,8 @@
     <tr>
         <x-table.td type="header" value="Всего медицинских организаций, в том числе:" />
         <x-table.td value="01" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM6') ? $data['BM6'] : '' }}" name="BM6" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN6') ? $data['BN6'] : '' }}" name="BN6" />
+        <x-table.td type="input" formul="({BM7}+{BM8}+{BM9}+{BM10}+{BM11}+{BM12}+{BM13}+{BM14}+{BM15}+{BM16}+{BM17}+{BM27})==({BO6}+{BP6}+{BQ6}+{BR6}+{BS6}+{BT6})" bool-val="{BO6}+{BP6}+{BQ6}+{BR6}+{BS6}+{BT6}" name="BM6" disabled />
+        <x-table.td type="input-d" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO6') ? $data['BO6'] : '' }}" name="BO6" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP6') ? $data['BP6'] : '' }}" name="BP6" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ6') ? $data['BQ6'] : '' }}" name="BQ6" />
@@ -50,8 +50,8 @@
     <tr>
         <x-table.td type="header" value="Больница" />
         <x-table.td value="02" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM7') ? $data['BM7'] : '' }}" name="BM7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN7') ? $data['BN7'] : '' }}" name="BN7" />
+        <x-table.td type="input" formul="{BO7}+{BP7}+{BQ7}+{BR7}+{BS7}+{BT7}" name="BM7" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN7') ? $data['BN7'] : '' }}" name="BN7" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO7') ? $data['BO7'] : '' }}" name="BO7" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP7') ? $data['BP7'] : '' }}" name="BP7" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ7') ? $data['BQ7'] : '' }}" name="BQ7" />
@@ -62,8 +62,8 @@
     <tr>
         <x-table.td type="header" value="Детская больница" />
         <x-table.td value="03" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM8') ? $data['BM8'] : '' }}" name="BM8" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN8') ? $data['BN8'] : '' }}" name="BN8" />
+        <x-table.td type="input" formul="{BO8}+{BP8}+{BQ8}+{BR8}+{BS8}+{BT8}" name="BM8" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN8') ? $data['BN8'] : '' }}" name="BN8" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO8') ? $data['BO8'] : '' }}" name="BO8" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP8') ? $data['BP8'] : '' }}" name="BP8" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ8') ? $data['BQ8'] : '' }}" name="BQ8" />
@@ -74,8 +74,8 @@
     <tr>
         <x-table.td type="header" value="Участковая больница" />
         <x-table.td value="04" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM9') ? $data['BM9'] : '' }}" name="BM9" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN9') ? $data['BN9'] : '' }}" name="BN9" />
+        <x-table.td type="input" formul="{BO9}+{BP9}+{BQ9}+{BR9}+{BS9}+{BT9}" name="BM9" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN9') ? $data['BN9'] : '' }}" name="BN9" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO9') ? $data['BO9'] : '' }}" name="BO9" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP9') ? $data['BP9'] : '' }}" name="BP9" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ9') ? $data['BQ9'] : '' }}" name="BQ9" />
@@ -86,8 +86,8 @@
     <tr>
         <x-table.td type="header" value="Госпиталь" />
         <x-table.td value="05" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM10') ? $data['BM10'] : '' }}" name="BM10" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN10') ? $data['BN10'] : '' }}" name="BN10" />
+        <x-table.td type="input" formul="{BO10}+{BP10}+{BQ10}+{BR10}+{BS10}+{BT10}" name="BM10" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN10') ? $data['BN10'] : '' }}" name="BN10" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO10') ? $data['BO10'] : '' }}" name="BO10" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP10') ? $data['BP10'] : '' }}" name="BP10" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ10') ? $data['BQ10'] : '' }}" name="BQ10" />
@@ -98,8 +98,8 @@
     <tr>
         <x-table.td type="header" value="Медико-санитарная часть, в том числе центральная" />
         <x-table.td value="06" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM11') ? $data['BM11'] : '' }}" name="BM11" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN11') ? $data['BN11'] : '' }}" name="BN11" />
+        <x-table.td type="input" formul="{BO11}+{BP11}+{BQ11}+{BR11}+{BS11}+{BT11}" name="BM11" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN11') ? $data['BN11'] : '' }}" name="BN11" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO11') ? $data['BO11'] : '' }}" name="BO11" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP11') ? $data['BP11'] : '' }}" name="BP11" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ11') ? $data['BQ11'] : '' }}" name="BQ11" />
@@ -110,8 +110,8 @@
     <tr>
         <x-table.td type="header" value="Диспансер" />
         <x-table.td value="07" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM12') ? $data['BM12'] : '' }}" name="BM12" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN12') ? $data['BN12'] : '' }}" name="BN12" />
+        <x-table.td type="input" formul="{BO12}+{BP12}+{BQ12}+{BR12}+{BS12}+{BT12}" name="BM12" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN12') ? $data['BN12'] : '' }}" name="BN12" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO12') ? $data['BO12'] : '' }}" name="BO12" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP12') ? $data['BP12'] : '' }}" name="BP12" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ12') ? $data['BQ12'] : '' }}" name="BQ12" />
@@ -122,8 +122,8 @@
     <tr>
         <x-table.td type="header" value="Амбулатория, в том числе врачебная" />
         <x-table.td value="08" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM13') ? $data['BM13'] : '' }}" name="BM13" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN13') ? $data['BN13'] : '' }}" name="BN13" />
+        <x-table.td type="input" formul="{BO13}+{BP13}+{BQ13}+{BR13}+{BS13}+{BT13}" name="BM13" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN13') ? $data['BN13'] : '' }}" name="BN13" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO13') ? $data['BO13'] : '' }}" name="BO13" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP13') ? $data['BP13'] : '' }}" name="BP13" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ13') ? $data['BQ13'] : '' }}" name="BQ13" />
@@ -134,8 +134,8 @@
     <tr>
         <x-table.td type="header" value="Поликлиника" />
         <x-table.td value="09" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM14') ? $data['BM14'] : '' }}" name="BM14" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN14') ? $data['BN14'] : '' }}" name="BN14" />
+        <x-table.td type="input" formul="{BO14}+{BP14}+{BQ14}+{BR14}+{BS14}+{BT14}" name="BM14" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN14') ? $data['BN14'] : '' }}" name="BN14" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO14') ? $data['BO14'] : '' }}" name="BO14" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP14') ? $data['BP14'] : '' }}" name="BP14" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ14') ? $data['BQ14'] : '' }}" name="BQ14" />
@@ -146,8 +146,8 @@
     <tr>
         <x-table.td type="header" value="Детская поликлиника" />
         <x-table.td value="10" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM15') ? $data['BM15'] : '' }}" name="BM15" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN15') ? $data['BN15'] : '' }}" name="BN15" />
+        <x-table.td type="input" formul="{BO15}+{BP15}+{BQ15}+{BR15}+{BS15}+{BT15}" name="BM15" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN15') ? $data['BN15'] : '' }}" name="BN15" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO15') ? $data['BO15'] : '' }}" name="BO15" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP15') ? $data['BP15'] : '' }}" name="BP15" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ15') ? $data['BQ15'] : '' }}" name="BQ15" />
@@ -158,8 +158,8 @@
     <tr>
         <x-table.td type="header" value="Дом ребенка, в том числе специализированный" />
         <x-table.td value="11" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM16') ? $data['BM16'] : '' }}" name="BM16" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN16') ? $data['BN16'] : '' }}" name="BN16" />
+        <x-table.td type="input" formul="{BO16}+{BP16}+{BQ16}+{BR16}+{BS16}+{BT16}" name="BM16" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN16') ? $data['BN16'] : '' }}" name="BN16" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO16') ? $data['BO16'] : '' }}" name="BO16" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP16') ? $data['BP16'] : '' }}" name="BP16" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ16') ? $data['BQ16'] : '' }}" name="BQ16" />
@@ -170,8 +170,8 @@
     <tr>
         <x-table.td type="header" value="Центры - всего, в том числе:" />
         <x-table.td value="12" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM17') ? $data['BM17'] : '' }}" name="BM17" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN17') ? $data['BN17'] : '' }}" name="BN17" />
+        <x-table.td type="input" formul="({BM18}+{BM19}+{BM20}+{BM21}+{BM22}+{BM23}+{BM24}+{BM25}+{BM26})==({BO17}+{BP17}+{BQ17}+{BR17}+{BS17}+{BT17})" bool-val="{BO17}+{BP17}+{BQ17}+{BR17}+{BS17}+{BT17}" name="BM17" disabled />
+        <x-table.td type="input-d" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO17') ? $data['BO17'] : '' }}" name="BO17" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP17') ? $data['BP17'] : '' }}" name="BP17" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ17') ? $data['BQ17'] : '' }}" name="BQ17" />
@@ -182,8 +182,8 @@
     <tr>
         <x-table.td type="header" value="лечебно-реабилитационный" />
         <x-table.td value="13" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM18') ? $data['BM18'] : '' }}" name="BM18" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN18') ? $data['BN18'] : '' }}" name="BN18" />
+        <x-table.td type="input" formul="{BO18}+{BP18}+{BQ18}+{BR18}+{BS18}+{BT18}" name="BM18" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN18') ? $data['BN18'] : '' }}" name="BN18" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO18') ? $data['BO18'] : '' }}" name="BO18" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP18') ? $data['BP18'] : '' }}" name="BP18" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ18') ? $data['BQ18'] : '' }}" name="BQ18" />
@@ -194,8 +194,8 @@
     <tr>
         <x-table.td type="header" value="лечебной физкультуры и спортивной медицины" />
         <x-table.td value="14" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM19') ? $data['BM19'] : '' }}" name="BM19" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN19') ? $data['BN19'] : '' }}" name="BN19" />
+        <x-table.td type="input" formul="{BO19}+{BP19}+{BQ19}+{BR19}+{BS19}+{BT19}" name="BM19" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN19') ? $data['BN19'] : '' }}" name="BN19" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO19') ? $data['BO19'] : '' }}" name="BO19" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP19') ? $data['BP19'] : '' }}" name="BP19" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ19') ? $data['BQ19'] : '' }}" name="BQ19" />
@@ -206,8 +206,8 @@
     <tr>
         <x-table.td type="header" value="мануальной терапии" />
         <x-table.td value="15" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM20') ? $data['BM20'] : '' }}" name="BM20" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN20') ? $data['BN20'] : '' }}" name="BN20" />
+        <x-table.td type="input" formul="{BO20}+{BP20}+{BQ20}+{BR20}+{BS20}+{BT20}" name="BM20" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN20') ? $data['BN20'] : '' }}" name="BN20" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO20') ? $data['BO20'] : '' }}" name="BO20" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP20') ? $data['BP20'] : '' }}" name="BP20" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ20') ? $data['BQ20'] : '' }}" name="BQ20" />
@@ -218,8 +218,8 @@
     <tr>
         <x-table.td type="header" value="медицинской реабилитации для воинов-интернационалистов" />
         <x-table.td value="16" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM21') ? $data['BM21'] : '' }}" name="BM21" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN21') ? $data['BN21'] : '' }}" name="BN21" />
+        <x-table.td type="input" formul="{BO21}+{BP21}+{BQ21}+{BR21}+{BS21}+{BT21}" name="BM21" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN21') ? $data['BN21'] : '' }}" name="BN21" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO21') ? $data['BO21'] : '' }}" name="BO21" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP21') ? $data['BP21'] : '' }}" name="BP21" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ21') ? $data['BQ21'] : '' }}" name="BQ21" />
@@ -230,8 +230,8 @@
     <tr>
         <x-table.td type="header" value="медицинской реабилитации, в том числе детский" />
         <x-table.td value="17" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM22') ? $data['BM22'] : '' }}" name="BM22" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN22') ? $data['BN22'] : '' }}" name="BN22" />
+        <x-table.td type="input" formul="{BO22}+{BP22}+{BQ22}+{BR22}+{BS22}+{BT22}" name="BM22" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN22') ? $data['BN22'] : '' }}" name="BN22" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO22') ? $data['BO22'] : '' }}" name="BO22" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP22') ? $data['BP22'] : '' }}" name="BP22" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ22') ? $data['BQ22'] : '' }}" name="BQ22" />
@@ -242,8 +242,8 @@
     <tr>
         <x-table.td type="header" value="медицинской реабилитации для инвалидов и детей-инвалидов с последствиями детского церебрального паралича" />
         <x-table.td value="18" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM23') ? $data['BM23'] : '' }}" name="BM23" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN23') ? $data['BN23'] : '' }}" name="BN23" />
+        <x-table.td type="input" formul="{BO23}+{BP23}+{BQ23}+{BR23}+{BS23}+{BT23}" name="BM23" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN23') ? $data['BN23'] : '' }}" name="BN23" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO23') ? $data['BO23'] : '' }}" name="BO23" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP23') ? $data['BP23'] : '' }}" name="BP23" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ23') ? $data['BQ23'] : '' }}" name="BQ23" />
@@ -254,8 +254,8 @@
     <tr>
         <x-table.td type="header" value="медицинской и социальной реабилитации, в том числе с отделением постоянного проживания инвалидов и детей-инвалидов с тяжелыми формами детского церебрального паралича, самостоятельно не передвигающихся и себя не обслуживающих" />
         <x-table.td value="19" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM24') ? $data['BM24'] : '' }}" name="BM24" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN24') ? $data['BN24'] : '' }}" name="BN24" />
+        <x-table.td type="input" formul="{BO24}+{BP24}+{BQ24}+{BR24}+{BS24}+{BT24}" name="BM24" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN24') ? $data['BN24'] : '' }}" name="BN24" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO24') ? $data['BO24'] : '' }}" name="BO24" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP24') ? $data['BP24'] : '' }}" name="BP24" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ24') ? $data['BQ24'] : '' }}" name="BQ24" />
@@ -266,8 +266,8 @@
     <tr>
         <x-table.td type="header" value="реабилитации слуха" />
         <x-table.td value="20" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM25') ? $data['BM25'] : '' }}" name="BM25" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN25') ? $data['BN25'] : '' }}" name="BN25" />
+        <x-table.td type="input" formul="{BO25}+{BP25}+{BQ25}+{BR25}+{BS25}+{BT25}" name="BM25" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN25') ? $data['BN25'] : '' }}" name="BN25" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO25') ? $data['BO25'] : '' }}" name="BO25" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP25') ? $data['BP25'] : '' }}" name="BP25" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ25') ? $data['BQ25'] : '' }}" name="BQ25" />
@@ -278,8 +278,8 @@
     <tr>
         <x-table.td type="header" value="реабилитационный" />
         <x-table.td value="21" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM26') ? $data['BM26'] : '' }}" name="BM26" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN26') ? $data['BN26'] : '' }}" name="BN26" />
+        <x-table.td type="input" formul="{BO26}+{BP26}+{BQ26}+{BR26}+{BS26}+{BT26}" name="BM26" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN26') ? $data['BN26'] : '' }}" name="BN26" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO26') ? $data['BO26'] : '' }}" name="BO26" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP26') ? $data['BP26'] : '' }}" name="BP26" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ26') ? $data['BQ26'] : '' }}" name="BQ26" />
@@ -290,8 +290,8 @@
     <tr>
         <x-table.td type="header" value="Санаторно-курортная организация - всего, в том числе:" />
         <x-table.td value="22" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM27') ? $data['BM27'] : '' }}" name="BM27" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN27') ? $data['BN27'] : '' }}" name="BN27" />
+        <x-table.td type="input" formul="({BM28}+{BM29}+{BM30}+{BM31}+{BM32}+{BM33}+{BM34})==({BO27}+{BP27}+{BQ27}+{BR27}+{BS27}+{BT27})" bool-val="{BO27}+{BP27}+{BQ27}+{BR27}+{BS27}+{BT27}" name="BM27" disabled />
+        <x-table.td type="input-d" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO27') ? $data['BO27'] : '' }}" name="BO27" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP27') ? $data['BP27'] : '' }}" name="BP27" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ27') ? $data['BQ27'] : '' }}" name="BQ27" />
@@ -302,8 +302,8 @@
     <tr>
         <x-table.td type="header" value="бальнеологическая лечебница" />
         <x-table.td value="23" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM28') ? $data['BM28'] : '' }}" name="BM28" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN28') ? $data['BN28'] : '' }}" name="BN28" />
+        <x-table.td type="input" formul="{BO28}+{BP28}+{BQ28}+{BR28}+{BS28}+{BT28}" name="BM28" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN28') ? $data['BN28'] : '' }}" name="BN28" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO28') ? $data['BO28'] : '' }}" name="BO28" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP28') ? $data['BP28'] : '' }}" name="BP28" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ28') ? $data['BQ28'] : '' }}" name="BQ28" />
@@ -314,8 +314,8 @@
     <tr>
         <x-table.td type="header" value="грязелечебница" />
         <x-table.td value="24" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM29') ? $data['BM29'] : '' }}" name="BM29" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN29') ? $data['BN29'] : '' }}" name="BN29" />
+        <x-table.td type="input" formul="{BO29}+{BP29}+{BQ29}+{BR29}+{BS29}+{BT29}" name="BM29" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN29') ? $data['BN29'] : '' }}" name="BN29" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO29') ? $data['BO29'] : '' }}" name="BO29" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP29') ? $data['BP29'] : '' }}" name="BP29" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ29') ? $data['BQ29'] : '' }}" name="BQ29" />
@@ -326,8 +326,8 @@
     <tr>
         <x-table.td type="header" value="курортная поликлиника" />
         <x-table.td value="25" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM30') ? $data['BM30'] : '' }}" name="BM30" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN30') ? $data['BN30'] : '' }}" name="BN30" />
+        <x-table.td type="input" formul="{BO30}+{BP30}+{BQ30}+{BR30}+{BS30}+{BT30}" name="BM30" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN30') ? $data['BN30'] : '' }}" name="BN30" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO30') ? $data['BO30'] : '' }}" name="BO30" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP30') ? $data['BP30'] : '' }}" name="BP30" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ30') ? $data['BQ30'] : '' }}" name="BQ30" />
@@ -338,8 +338,8 @@
     <tr>
         <x-table.td type="header" value="санаторий" />
         <x-table.td value="26" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM31') ? $data['BM31'] : '' }}" name="BM31" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN31') ? $data['BN31'] : '' }}" name="BN31" />
+        <x-table.td type="input" formul="{BO31}+{BP31}+{BQ31}+{BR31}+{BS31}+{BT31}" name="BM31" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN31') ? $data['BN31'] : '' }}" name="BN31" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO31') ? $data['BO31'] : '' }}" name="BO31" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP31') ? $data['BP31'] : '' }}" name="BP31" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ31') ? $data['BQ31'] : '' }}" name="BQ31" />
@@ -350,8 +350,8 @@
     <tr>
         <x-table.td type="header" value="санатории для детей, в том числе для детей с родителями" />
         <x-table.td value="27" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM32') ? $data['BM32'] : '' }}" name="BM32" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN32') ? $data['BN32'] : '' }}" name="BN32" />
+        <x-table.td type="input" formul="{BO32}+{BP32}+{BQ32}+{BR32}+{BS32}+{BT32}" name="BM32" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN32') ? $data['BN32'] : '' }}" name="BN32" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO32') ? $data['BO32'] : '' }}" name="BO32" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP32') ? $data['BP32'] : '' }}" name="BP32" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ32') ? $data['BQ32'] : '' }}" name="BQ32" />
@@ -362,8 +362,8 @@
     <tr>
         <x-table.td type="header" value="санаторий-профилакторий" />
         <x-table.td value="28" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM33') ? $data['BM33'] : '' }}" name="BM33" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN33') ? $data['BN33'] : '' }}" name="BN33" />
+        <x-table.td type="input" formul="{BO33}+{BP33}+{BQ33}+{BR33}+{BS33}+{BT33}" name="BM33" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN33') ? $data['BN33'] : '' }}" name="BN33" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO33') ? $data['BO33'] : '' }}" name="BO33" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP33') ? $data['BP33'] : '' }}" name="BP33" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ33') ? $data['BQ33'] : '' }}" name="BQ33" />
@@ -374,8 +374,8 @@
     <tr>
         <x-table.td type="header" value="санаторный оздоровительный лагерь круглогодичного действия" />
         <x-table.td value="29" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM34') ? $data['BM34'] : '' }}" name="BM34" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN34') ? $data['BN34'] : '' }}" name="BN34" />
+        <x-table.td type="input" formul="{BO34}+{BP34}+{BQ34}+{BR34}+{BS34}+{BT34}" name="BM34" disabled />
+        <x-table.td type="bool-inp" value="{{ $data->has('BN34') ? $data['BN34'] : '' }}" name="BN34" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BO34') ? $data['BO34'] : '' }}" name="BO34" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BP34') ? $data['BP34'] : '' }}" name="BP34" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ34') ? $data['BQ34'] : '' }}" name="BQ34" />
