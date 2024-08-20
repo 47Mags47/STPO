@@ -1,4 +1,4 @@
-import PopUp from "../popup"
+import PopUp from "../classes/PopUp"
 
 export async function load() {
     const textarea = $('.chat-box .options textarea[name="data[message]"]')

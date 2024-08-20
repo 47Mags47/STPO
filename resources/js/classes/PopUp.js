@@ -1,5 +1,3 @@
-
-
 export default class PopUp {
     parent = $('.popup-box');
     html = '';
