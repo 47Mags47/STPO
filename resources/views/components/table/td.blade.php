@@ -6,7 +6,7 @@
     colspan="{{ isset($colspan) ? $colspan : '' }}"
     rowspan="{{ isset($rowspan) ? $rowspan : '' }}">
     <div @class([
-        'input' => isset($type) and ($type == 'input' or $type == 'input-d' or $type == 'area'),
+        'input' => isset($type) and ($type == 'input' or $type == 'input-d' or $type == 'area' or $type == 'bool-inp'),
         'select' => isset($type) and $type == 'select',
         'sbm' => isset($type) and $type == 'sbm',
         'center' => isset($center),
@@ -18,14 +18,30 @@
                 @break
                 @case('input')
                     <input
+                        @class([
+                            'formul' => isset($formul)
+                        ])
                         type="{{ isset($inpType) ? $inpType : 'text' }}"
                         value="{{ isset($value) ? $value : '' }}"
                         name="data[{{ isset($name) ? $name : '' }}]"
+                        id="{{ isset($name) ? $name : '' }}"
                         @required(isset($req))
                         @disabled(isset($disabled))
                         @checked(isset($checked))
                         step="{{ isset($step) ? $step : 1 }}"
                         placeholder="{{ isset($placeholder) ? $placeholder : '' }}"
+                        formul="{{ isset($formul) ? $formul : '' }}"
+                        bool-val="{{ isset($boolVal) ? $boolVal : '' }}"
+                    >
+                @break
+                @case('bool-inp')
+                    <input 
+                        class="bool"
+                        type="number"
+                        value="{{ isset($value) ? $value : '' }}"
+                        name="data[{{ isset($name) ? $name : '' }}]"
+                        id="{{ isset($name) ? $name : '' }}"
+                        @checked(isset($checked)) 
                     >
                 @break
                 @case('area')

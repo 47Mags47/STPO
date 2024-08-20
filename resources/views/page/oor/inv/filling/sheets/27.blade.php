@@ -21,6 +21,7 @@
     <tr>
         <x-table.td type="header" value="Всего организаций, из них:" />
         <x-table.td value="01" center />
+        <x-table.td type="input" formul = "{}+{}+{}" name="" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('CA5') ? $data['CA5'] : '' }}" name="CA5" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('CB5') ? $data['CB5'] : '' }}" name="CB5" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('CC5') ? $data['CC5'] : '' }}" name="CC5" />

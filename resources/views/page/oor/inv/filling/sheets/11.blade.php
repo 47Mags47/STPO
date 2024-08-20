@@ -22,7 +22,7 @@
     <tr>
         <x-table.td type="header" value="Численность инвалидов в возрасте 18 лет и старше и детей-инвалидов, получивших ТСР:" />
         <x-table.td value="01" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA6') ? $data['CA6'] : '' }}" name="CA6" />
+        <x-table.td type="input" formul="{CB6}+{CC6}" name="CA6" disabled />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('CB6') ? $data['CB6'] : '' }}" name="CB6" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('CC6') ? $data['CC6'] : '' }}" name="CC6" />
 

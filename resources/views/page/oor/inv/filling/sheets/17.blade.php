@@ -22,16 +22,16 @@
     <tr>
         <x-table.td type="header" value="Организации социального обслуживания - всего, из них:" />
         <x-table.td value="01" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA6') ? $data['CA6'] : '' }}" name="CA6" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CB6') ? $data['CB6'] : '' }}" name="CB6" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CC6') ? $data['CC6'] : '' }}" name="CC6" />
+        <x-table.td type="input" formul="{CA7}+{CA11}+{CA17}" name="CA6" disabled />
+        <x-table.td type="input" formul="{CB7}+{CB11}+{CB17}" name="CB6" disabled />
+        <x-table.td type="input" formul="{CC7}+{CC11}+{CC17}" name="CC6" disabled />
     </tr>
     <tr>
         <x-table.td type="header" value="организации, осуществляющие стационарное социальное обслуживание, из них имеющие структурные подразделения:" />
         <x-table.td value="02" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA7') ? $data['CA7'] : '' }}" name="CA7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CB7') ? $data['CB7'] : '' }}" name="CB7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CC7') ? $data['CC7'] : '' }}" name="CC7" />
+        <x-table.td type="input" formul="{CA8}+{CA9}+{CA10}" name="CA7" disabled />
+        <x-table.td type="input" formul="{CB8}+{CB9}+{CB10}" name="CB7" disabled />
+        <x-table.td type="input" formul="{CC8}+{CC9}+{CC10}" name="CC7" disabled />
     </tr>
     <tr>
         <x-table.td type="header" value="центр (отделение) реабилитации" />
@@ -57,9 +57,9 @@
     <tr>
         <x-table.td type="header" value="организации, осуществляющие полустационарное социальное обслуживание, из них имеющие структурные подразделения:" />
         <x-table.td value="06" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA11') ? $data['CA11'] : '' }}" name="CA11" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CB11') ? $data['CB11'] : '' }}" name="CB11" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CC11') ? $data['CC11'] : '' }}" name="CC11" />
+        <x-table.td type="input" formul="{CA12}+{CA13}+{CA14}+{CA15}" name="CA11" disabled />
+        <x-table.td type="input" formul="{CB12}+{CB13}+{CB14}+{CB15}" name="CB11" disabled />
+        <x-table.td type="input" formul="{CC12}+{CC13}+{CC14}+{CC15}" name="CC11" disabled />
     </tr>
     <tr>
         <x-table.td type="header" value="центр (отделение) реабилитации" />
@@ -92,9 +92,9 @@
     <tr>
         <x-table.td type="header" value="медико-социальные" />
         <x-table.td value="11" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA16') ? $data['CA16'] : '' }}" name="CA16" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CB16') ? $data['CB16'] : '' }}" name="CB16" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CC16') ? $data['CC16'] : '' }}" name="CC16" />
+        <x-table.td type="input" formul="{this}<={CA15}" value="{{ $data->has('CA16') ? $data['CA16'] : '' }}" name="CA16" />
+        <x-table.td type="input" formul="{this}<={CB15}" value="{{ $data->has('CB16') ? $data['CB16'] : '' }}" name="CB16" />
+        <x-table.td type="input" formul="{this}<={CC15}" value="{{ $data->has('CC16') ? $data['CC16'] : '' }}" name="CC16" />
     </tr>
     <tr>
         <x-table.td type="header" value="организации осуществляющие социальное обслуживание на дому" />

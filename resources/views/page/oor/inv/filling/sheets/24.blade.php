@@ -68,77 +68,77 @@
     <tr>
         <x-table.td type="header" value="Всего должностей специалистов, из них:" />
         <x-table.td value="01" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BF7') ? $data['BF7'] : '' }}" name="BF7" step='0.25'/>
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BG7') ? $data['BG7'] : '' }}" name="BG7" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BH7') ? $data['BH7'] : '' }}" name="BH7" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BI7') ? $data['BI7'] : '' }}" name="BI7" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BJ7') ? $data['BJ7'] : '' }}" name="BJ7" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BK7') ? $data['BK7'] : '' }}" name="BK7" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BL7') ? $data['BL7'] : '' }}" name="BL7" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM7') ? $data['BM7'] : '' }}" name="BM7" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN7') ? $data['BN7'] : '' }}" name="BN7" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BO7') ? $data['BO7'] : '' }}" name="BO7" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BP7') ? $data['BP7'] : '' }}" name="BP7" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ7') ? $data['BQ7'] : '' }}" name="BQ7" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BR7') ? $data['BR7'] : '' }}" name="BR7" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BS7') ? $data['BS7'] : '' }}" name="BS7" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BT7') ? $data['BT7'] : '' }}" name="BT7" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BU7') ? $data['BU7'] : '' }}" name="BU7" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BV7') ? $data['BV7'] : '' }}" name="BV7" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BW7') ? $data['BW7'] : '' }}" name="BW7" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BX7') ? $data['BX7'] : '' }}" name="BX7" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BY7') ? $data['BY7'] : '' }}" name="BY7" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BZ7') ? $data['BZ7'] : '' }}" name="BZ7" step='0.25' />
+        <x-table.td type="input" formul="({BI7}+{BO7}+{BU7})==({BF8}+{BF28}+{BF37}+{BF41}+{BF51})" bool-val="{BI7}+{BO7}+{BU7}" name="BF7" disabled />
+        <x-table.td type="input" formul="({BJ7}+{BP7}+{BV7})==({BG8}+{BG28}+{BG37}+{BG41}+{BG51})" bool-val="{BJ7}+{BP7}+{BV7}" name="BG7" disabled />
+        <x-table.td type="input" formul="({BK7}+{BQ7}+{BW7})==({BH8}+{BH28}+{BH37}+{BH41}+{BH51})" bool-val="{BK7}+{BQ7}+{BW7}" name="BH7" disabled />
+        <x-table.td type="input" formul="{BI8}+{BI28}+{BI37}+{BI41}+{BI51}" name="BI7" disabled />
+        <x-table.td type="input" formul="{BJ8}+{BJ28}+{BJ37}+{BJ41}+{BJ51}" name="BJ7" disabled />
+        <x-table.td type="input" formul="{BK8}+{BK28}+{BK37}+{BK41}+{BK51}" name="BK7" disabled />
+        <x-table.td type="input" formul="{BL8}+{BL28}+{BL37}+{BL41}+{BL51}" name="BL7" disabled />
+        <x-table.td type="input" formul="{BM8}+{BM28}+{BM37}+{BM41}+{BM51}" name="BM7" disabled />
+        <x-table.td type="input" formul="{BN8}+{BN28}+{BN37}+{BN41}+{BN51}" name="BN7" disabled />
+        <x-table.td type="input" formul="{BO8}+{BO28}+{BO37}+{BO41}+{BO51}" name="BO7" disabled />
+        <x-table.td type="input" formul="{BP8}+{BP28}+{BP37}+{BP41}+{BP51}" name="BP7" disabled />
+        <x-table.td type="input" formul="{BQ8}+{BQ28}+{BQ37}+{BQ41}+{BQ51}" name="BQ7" disabled />
+        <x-table.td type="input" formul="{BR8}+{BR28}+{BR37}+{BR41}+{BR51}" name="BR7" disabled />
+        <x-table.td type="input" formul="{BS8}+{BS28}+{BS37}+{BS41}+{BS51}" name="BS7" disabled />
+        <x-table.td type="input" formul="{BT8}+{BT28}+{BT37}+{BT41}+{BT51}" name="BT7" disabled />
+        <x-table.td type="input" formul="{BU8}+{BU28}+{BU37}+{BU41}+{BU51}" name="BU7" disabled />
+        <x-table.td type="input" formul="{BV8}+{BV28}+{BV37}+{BV41}+{BV51}" name="BV7" disabled />
+        <x-table.td type="input" formul="{BW8}+{BW28}+{BW37}+{BW41}+{BW51}" name="BW7" disabled />
+        <x-table.td type="input" formul="{BX8}+{BX28}+{BX37}+{BX41}+{BX51}" name="BX7" disabled />
+        <x-table.td type="input" formul="{BY8}+{BY28}+{BY37}+{BY41}+{BY51}" name="BY7" disabled />
+        <x-table.td type="input" formul="{BZ8}+{BZ28}+{BZ37}+{BZ41}+{BZ51}" name="BZ7" disabled />
     </tr>
     <tr>
         <x-table.td type="header" value="Должности медицинских работников - всего, из них:" />
         <x-table.td value="02" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BF8') ? $data['BF8'] : '' }}" name="BF8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BG8') ? $data['BG8'] : '' }}" name="BG8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BH8') ? $data['BH8'] : '' }}" name="BH8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BI8') ? $data['BI8'] : '' }}" name="BI8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BJ8') ? $data['BJ8'] : '' }}" name="BJ8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BK8') ? $data['BK8'] : '' }}" name="BK8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BL8') ? $data['BL8'] : '' }}" name="BL8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM8') ? $data['BM8'] : '' }}" name="BM8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN8') ? $data['BN8'] : '' }}" name="BN8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BO8') ? $data['BO8'] : '' }}" name="BO8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BP8') ? $data['BP8'] : '' }}" name="BP8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ8') ? $data['BQ8'] : '' }}" name="BQ8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BR8') ? $data['BR8'] : '' }}" name="BR8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BS8') ? $data['BS8'] : '' }}" name="BS8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BT8') ? $data['BT8'] : '' }}" name="BT8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BU8') ? $data['BU8'] : '' }}" name="BU8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BV8') ? $data['BV8'] : '' }}" name="BV8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BW8') ? $data['BW8'] : '' }}" name="BW8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BX8') ? $data['BX8'] : '' }}" name="BX8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BY8') ? $data['BY8'] : '' }}" name="BY8" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BZ8') ? $data['BZ8'] : '' }}" name="BZ8" step='0.25' />
+        <x-table.td type="input" formul="{BF9}+{BF17}+{BF20}" name="BF8" disabled />
+        <x-table.td type="input" formul="{BG9}+{BG17}+{BG20}" name="BG8" disabled />
+        <x-table.td type="input" formul="{BH9}+{BH17}+{BH20}" name="BH8" disabled />
+        <x-table.td type="input" formul="{BI9}+{BI17}+{BI20}" name="BI8" disabled />
+        <x-table.td type="input" formul="{BJ9}+{BJ17}+{BJ20}" name="BJ8" disabled />
+        <x-table.td type="input" formul="{BK9}+{BK17}+{BK20}" name="BK8" disabled />
+        <x-table.td type="input" formul="{BL9}+{BL17}+{BL20}" name="BL8" disabled />
+        <x-table.td type="input" formul="{BM9}+{BM17}+{BM20}" name="BM8" disabled />
+        <x-table.td type="input" formul="{BN9}+{BN17}+{BN20}" name="BN8" disabled />
+        <x-table.td type="input" formul="{BO9}+{BO17}+{BO20}" name="BO8" disabled />
+        <x-table.td type="input" formul="{BP9}+{BP17}+{BP20}" name="BP8" disabled />
+        <x-table.td type="input" formul="{BQ9}+{BQ17}+{BQ20}" name="BQ8" disabled />
+        <x-table.td type="input" formul="{BR9}+{BR17}+{BR20}" name="BR8" disabled />
+        <x-table.td type="input" formul="{BS9}+{BS17}+{BS20}" name="BS8" disabled />
+        <x-table.td type="input" formul="{BT9}+{BT17}+{BT20}" name="BT8" disabled />
+        <x-table.td type="input" formul="{BU9}+{BU17}+{BU20}" name="BU8" disabled />
+        <x-table.td type="input" formul="{BV9}+{BV17}+{BV20}" name="BV8" disabled />
+        <x-table.td type="input" formul="{BW9}+{BW17}+{BW20}" name="BW8" disabled />
+        <x-table.td type="input" formul="{BX9}+{BX17}+{BX20}" name="BX8" disabled />
+        <x-table.td type="input" formul="{BY9}+{BY17}+{BY20}" name="BY8" disabled />
+        <x-table.td type="input" formul="{BZ9}+{BZ17}+{BZ20}" name="BZ8" disabled />
     </tr>
     <tr>
         <x-table.td type="header" value="врачи - специалисты по профилю оказания медицинской помощи - всего, из них:" />
         <x-table.td value="03" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BF9') ? $data['BF9'] : '' }}" name="BF9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BG9') ? $data['BG9'] : '' }}" name="BG9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BH9') ? $data['BH9'] : '' }}" name="BH9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BI9') ? $data['BI9'] : '' }}" name="BI9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BJ9') ? $data['BJ9'] : '' }}" name="BJ9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BK9') ? $data['BK9'] : '' }}" name="BK9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BL9') ? $data['BL9'] : '' }}" name="BL9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM9') ? $data['BM9'] : '' }}" name="BM9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN9') ? $data['BN9'] : '' }}" name="BN9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BO9') ? $data['BO9'] : '' }}" name="BO9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BP9') ? $data['BP9'] : '' }}" name="BP9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ9') ? $data['BQ9'] : '' }}" name="BQ9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BR9') ? $data['BR9'] : '' }}" name="BR9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BS9') ? $data['BS9'] : '' }}" name="BS9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BT9') ? $data['BT9'] : '' }}" name="BT9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BU9') ? $data['BU9'] : '' }}" name="BU9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BV9') ? $data['BV9'] : '' }}" name="BV9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BW9') ? $data['BW9'] : '' }}" name="BW9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BX9') ? $data['BX9'] : '' }}" name="BX9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BY9') ? $data['BY9'] : '' }}" name="BY9" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BZ9') ? $data['BZ9'] : '' }}" name="BZ9" step='0.25' />
+        <x-table.td type="input" formul="{this}>=({BF10}+{BF11}+{BF12}+{BF13}+{BF14}+{BF15}+{BF16})" value="{{ $data->has('BF9') ? $data['BF9'] : '' }}" name="BF9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BG10}+{BG11}+{BG12}+{BG13}+{BG14}+{BG15}+{BG16})" value="{{ $data->has('BG9') ? $data['BG9'] : '' }}" name="BG9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BH10}+{BH11}+{BH12}+{BH13}+{BH14}+{BH15}+{BH16})" value="{{ $data->has('BH9') ? $data['BH9'] : '' }}" name="BH9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BI10}+{BI11}+{BI12}+{BI13}+{BI14}+{BI15}+{BI16})" value="{{ $data->has('BI9') ? $data['BI9'] : '' }}" name="BI9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BJ10}+{BJ11}+{BJ12}+{BJ13}+{BJ14}+{BJ15}+{BJ16})" value="{{ $data->has('BJ9') ? $data['BJ9'] : '' }}" name="BJ9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BK10}+{BK11}+{BK12}+{BK13}+{BK14}+{BK15}+{BK16})" value="{{ $data->has('BK9') ? $data['BK9'] : '' }}" name="BK9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BL10}+{BL11}+{BL12}+{BL13}+{BL14}+{BL15}+{BL16})" value="{{ $data->has('BL9') ? $data['BL9'] : '' }}" name="BL9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BM10}+{BM11}+{BM12}+{BM13}+{BM14}+{BM15}+{BM16})" value="{{ $data->has('BM9') ? $data['BM9'] : '' }}" name="BM9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BN10}+{BN11}+{BN12}+{BN13}+{BN14}+{BN15}+{BN16})" value="{{ $data->has('BN9') ? $data['BN9'] : '' }}" name="BN9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BO10}+{BO11}+{BO12}+{BO13}+{BO14}+{BO15}+{BO16})" value="{{ $data->has('BO9') ? $data['BO9'] : '' }}" name="BO9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BP10}+{BP11}+{BP12}+{BP13}+{BP14}+{BP15}+{BP16})" value="{{ $data->has('BP9') ? $data['BP9'] : '' }}" name="BP9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BQ10}+{BQ11}+{BQ12}+{BQ13}+{BQ14}+{BQ15}+{BQ16})" value="{{ $data->has('BQ9') ? $data['BQ9'] : '' }}" name="BQ9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BR10}+{BR11}+{BR12}+{BR13}+{BR14}+{BR15}+{BR16})" value="{{ $data->has('BR9') ? $data['BR9'] : '' }}" name="BR9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BS10}+{BS11}+{BS12}+{BS13}+{BS14}+{BS15}+{BS16})" value="{{ $data->has('BS9') ? $data['BS9'] : '' }}" name="BS9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BT10}+{BT11}+{BT12}+{BT13}+{BT14}+{BT15}+{BT16})" value="{{ $data->has('BT9') ? $data['BT9'] : '' }}" name="BT9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BU10}+{BU11}+{BU12}+{BU13}+{BU14}+{BU15}+{BU16})" value="{{ $data->has('BU9') ? $data['BU9'] : '' }}" name="BU9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BV10}+{BV11}+{BV12}+{BV13}+{BV14}+{BV15}+{BV16})" value="{{ $data->has('BV9') ? $data['BV9'] : '' }}" name="BV9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BW10}+{BW11}+{BW12}+{BW13}+{BW14}+{BW15}+{BW16})" value="{{ $data->has('BW9') ? $data['BW9'] : '' }}" name="BW9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BX10}+{BX11}+{BX12}+{BX13}+{BX14}+{BX15}+{BX16})" value="{{ $data->has('BX9') ? $data['BX9'] : '' }}" name="BX9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BY10}+{BY11}+{BY12}+{BY13}+{BY14}+{BY15}+{BY16})" value="{{ $data->has('BY9') ? $data['BY9'] : '' }}" name="BY9" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BZ10}+{BZ11}+{BZ12}+{BZ13}+{BZ14}+{BZ15}+{BZ16})" value="{{ $data->has('BZ9') ? $data['BZ9'] : '' }}" name="BZ9" step="0.25" />
     </tr>
     <tr>
         <x-table.td type="header" value="врач по медицинской реабилитации" />
@@ -318,27 +318,27 @@
     <tr>
         <x-table.td type="header" value="специалисты с высшим немедицинским образованием - всего, в том числе:" />
         <x-table.td value="11" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BF17') ? $data['BF17'] : '' }}" name="BF17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BG17') ? $data['BG17'] : '' }}" name="BG17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BH17') ? $data['BH17'] : '' }}" name="BH17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BI17') ? $data['BI17'] : '' }}" name="BI17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BJ17') ? $data['BJ17'] : '' }}" name="BJ17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BK17') ? $data['BK17'] : '' }}" name="BK17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BL17') ? $data['BL17'] : '' }}" name="BL17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM17') ? $data['BM17'] : '' }}" name="BM17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN17') ? $data['BN17'] : '' }}" name="BN17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BO17') ? $data['BO17'] : '' }}" name="BO17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BP17') ? $data['BP17'] : '' }}" name="BP17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ17') ? $data['BQ17'] : '' }}" name="BQ17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BR17') ? $data['BR17'] : '' }}" name="BR17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BS17') ? $data['BS17'] : '' }}" name="BS17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BT17') ? $data['BT17'] : '' }}" name="BT17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BU17') ? $data['BU17'] : '' }}" name="BU17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BV17') ? $data['BV17'] : '' }}" name="BV17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BW17') ? $data['BW17'] : '' }}" name="BW17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BX17') ? $data['BX17'] : '' }}" name="BX17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BY17') ? $data['BY17'] : '' }}" name="BY17" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BZ17') ? $data['BZ17'] : '' }}" name="BZ17" step='0.25' />
+        <x-table.td type="input" formul="{this}>=({BF18}+{BF19})" value="{{ $data->has('BF17') ? $data['BF17'] : '' }}" name="BF17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BG18}+{BG19})" value="{{ $data->has('BG17') ? $data['BG17'] : '' }}" name="BG17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BH18}+{BH19})" value="{{ $data->has('BH17') ? $data['BH17'] : '' }}" name="BH17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BI18}+{BI19})" value="{{ $data->has('BI17') ? $data['BI17'] : '' }}" name="BI17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BJ18}+{BJ19})" value="{{ $data->has('BJ17') ? $data['BJ17'] : '' }}" name="BJ17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BK18}+{BK19})" value="{{ $data->has('BK17') ? $data['BK17'] : '' }}" name="BK17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BL18}+{BL19})" value="{{ $data->has('BL17') ? $data['BL17'] : '' }}" name="BL17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BM18}+{BM19})" value="{{ $data->has('BM17') ? $data['BM17'] : '' }}" name="BM17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BN18}+{BN19})" value="{{ $data->has('BN17') ? $data['BN17'] : '' }}" name="BN17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BO18}+{BO19})" value="{{ $data->has('BO17') ? $data['BO17'] : '' }}" name="BO17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BP18}+{BP19})" value="{{ $data->has('BP17') ? $data['BP17'] : '' }}" name="BP17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BQ18}+{BQ19})" value="{{ $data->has('BQ17') ? $data['BQ17'] : '' }}" name="BQ17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BR18}+{BR19})" value="{{ $data->has('BR17') ? $data['BR17'] : '' }}" name="BR17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BS18}+{BS19})" value="{{ $data->has('BS17') ? $data['BS17'] : '' }}" name="BS17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BT18}+{BT19})" value="{{ $data->has('BT17') ? $data['BT17'] : '' }}" name="BT17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BU18}+{BU19})" value="{{ $data->has('BU17') ? $data['BU17'] : '' }}" name="BU17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BV18}+{BV19})" value="{{ $data->has('BV17') ? $data['BV17'] : '' }}" name="BV17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BW18}+{BW19})" value="{{ $data->has('BW17') ? $data['BW17'] : '' }}" name="BW17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BX18}+{BX19})" value="{{ $data->has('BX17') ? $data['BX17'] : '' }}" name="BX17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BY18}+{BY19})" value="{{ $data->has('BY17') ? $data['BY17'] : '' }}" name="BY17" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BZ18}+{BZ19})" value="{{ $data->has('BZ17') ? $data['BZ17'] : '' }}" name="BZ17" step="0.25" />
     </tr>
     <tr>
         <x-table.td type="header" value="медицинский психолог" />
@@ -393,27 +393,27 @@
     <tr>
         <x-table.td type="header" value="средний медицинский персонал - всего, из них:" />
         <x-table.td value="14" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BF20') ? $data['BF20'] : '' }}" name="BF20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BG20') ? $data['BG20'] : '' }}" name="BG20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BH20') ? $data['BH20'] : '' }}" name="BH20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BI20') ? $data['BI20'] : '' }}" name="BI20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BJ20') ? $data['BJ20'] : '' }}" name="BJ20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BK20') ? $data['BK20'] : '' }}" name="BK20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BL20') ? $data['BL20'] : '' }}" name="BL20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM20') ? $data['BM20'] : '' }}" name="BM20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN20') ? $data['BN20'] : '' }}" name="BN20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BO20') ? $data['BO20'] : '' }}" name="BO20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BP20') ? $data['BP20'] : '' }}" name="BP20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ20') ? $data['BQ20'] : '' }}" name="BQ20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BR20') ? $data['BR20'] : '' }}" name="BR20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BS20') ? $data['BS20'] : '' }}" name="BS20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BT20') ? $data['BT20'] : '' }}" name="BT20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BU20') ? $data['BU20'] : '' }}" name="BU20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BV20') ? $data['BV20'] : '' }}" name="BV20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BW20') ? $data['BW20'] : '' }}" name="BW20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BX20') ? $data['BX20'] : '' }}" name="BX20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BY20') ? $data['BY20'] : '' }}" name="BY20" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BZ20') ? $data['BZ20'] : '' }}" name="BZ20" step='0.25' />
+        <x-table.td type="input" formul="{this}>=({BF21}+{BF22}+{BF23}+{BF24}+{BF25}+{BF26}+{BF27})" value="{{ $data->has('BF20') ? $data['BF20'] : '' }}" name="BF20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BG21}+{BG22}+{BG23}+{BG24}+{BG25}+{BG26}+{BG27})" value="{{ $data->has('BG20') ? $data['BG20'] : '' }}" name="BG20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BH21}+{BH22}+{BH23}+{BH24}+{BH25}+{BH26}+{BH27})" value="{{ $data->has('BH20') ? $data['BH20'] : '' }}" name="BH20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BI21}+{BI22}+{BI23}+{BI24}+{BI25}+{BI26}+{BI27})" value="{{ $data->has('BI20') ? $data['BI20'] : '' }}" name="BI20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BJ21}+{BJ22}+{BJ23}+{BJ24}+{BJ25}+{BJ26}+{BJ27})" value="{{ $data->has('BJ20') ? $data['BJ20'] : '' }}" name="BJ20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BK21}+{BK22}+{BK23}+{BK24}+{BK25}+{BK26}+{BK27})" value="{{ $data->has('BK20') ? $data['BK20'] : '' }}" name="BK20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BL21}+{BL22}+{BL23}+{BL24}+{BL25}+{BL26}+{BL27})" value="{{ $data->has('BL20') ? $data['BL20'] : '' }}" name="BL20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BM21}+{BM22}+{BM23}+{BM24}+{BM25}+{BM26}+{BM27})" value="{{ $data->has('BM20') ? $data['BM20'] : '' }}" name="BM20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BN21}+{BN22}+{BN23}+{BN24}+{BN25}+{BN26}+{BN27})" value="{{ $data->has('BN20') ? $data['BN20'] : '' }}" name="BN20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BO21}+{BO22}+{BO23}+{BO24}+{BO25}+{BO26}+{BO27})" value="{{ $data->has('BO20') ? $data['BO20'] : '' }}" name="BO20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BP21}+{BP22}+{BP23}+{BP24}+{BP25}+{BP26}+{BP27})" value="{{ $data->has('BP20') ? $data['BP20'] : '' }}" name="BP20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BQ21}+{BQ22}+{BQ23}+{BQ24}+{BQ25}+{BQ26}+{BQ27})" value="{{ $data->has('BQ20') ? $data['BQ20'] : '' }}" name="BQ20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BR21}+{BR22}+{BR23}+{BR24}+{BR25}+{BR26}+{BR27})" value="{{ $data->has('BR20') ? $data['BR20'] : '' }}" name="BR20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BS21}+{BS22}+{BS23}+{BS24}+{BS25}+{BS26}+{BS27})" value="{{ $data->has('BS20') ? $data['BS20'] : '' }}" name="BS20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BT21}+{BT22}+{BT23}+{BT24}+{BT25}+{BT26}+{BT27})" value="{{ $data->has('BT20') ? $data['BT20'] : '' }}" name="BT20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BU21}+{BU22}+{BU23}+{BU24}+{BU25}+{BU26}+{BU27})" value="{{ $data->has('BU20') ? $data['BU20'] : '' }}" name="BU20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BV21}+{BV22}+{BV23}+{BV24}+{BV25}+{BV26}+{BV27})" value="{{ $data->has('BV20') ? $data['BV20'] : '' }}" name="BV20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BW21}+{BW22}+{BW23}+{BW24}+{BW25}+{BW26}+{BW27})" value="{{ $data->has('BW20') ? $data['BW20'] : '' }}" name="BW20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BX21}+{BX22}+{BX23}+{BX24}+{BX25}+{BX26}+{BX27})" value="{{ $data->has('BX20') ? $data['BX20'] : '' }}" name="BX20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BY21}+{BY22}+{BY23}+{BY24}+{BY25}+{BY26}+{BY27})" value="{{ $data->has('BY20') ? $data['BY20'] : '' }}" name="BY20" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BZ21}+{BZ22}+{BZ23}+{BZ24}+{BZ25}+{BZ26}+{BZ27})" value="{{ $data->has('BZ20') ? $data['BZ20'] : '' }}" name="BZ20" step="0.25" />
     </tr>
     <tr>
         <x-table.td type="header" value="инструктор по лечебной физкультуре" />
@@ -593,27 +593,27 @@
     <tr>
         <x-table.td type="header" value="Должности специалистов в области социального обслуживания - всего, из них:" />
         <x-table.td value="22" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BF28') ? $data['BF28'] : '' }}" name="BF28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BG28') ? $data['BG28'] : '' }}" name="BG28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BH28') ? $data['BH28'] : '' }}" name="BH28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BI28') ? $data['BI28'] : '' }}" name="BI28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BJ28') ? $data['BJ28'] : '' }}" name="BJ28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BK28') ? $data['BK28'] : '' }}" name="BK28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BL28') ? $data['BL28'] : '' }}" name="BL28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM28') ? $data['BM28'] : '' }}" name="BM28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN28') ? $data['BN28'] : '' }}" name="BN28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BO28') ? $data['BO28'] : '' }}" name="BO28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BP28') ? $data['BP28'] : '' }}" name="BP28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ28') ? $data['BQ28'] : '' }}" name="BQ28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BR28') ? $data['BR28'] : '' }}" name="BR28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BS28') ? $data['BS28'] : '' }}" name="BS28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BT28') ? $data['BT28'] : '' }}" name="BT28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BU28') ? $data['BU28'] : '' }}" name="BU28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BV28') ? $data['BV28'] : '' }}" name="BV28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BW28') ? $data['BW28'] : '' }}" name="BW28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BX28') ? $data['BX28'] : '' }}" name="BX28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BY28') ? $data['BY28'] : '' }}" name="BY28" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BZ28') ? $data['BZ28'] : '' }}" name="BZ28" step='0.25' />
+        <x-table.td type="input" formul="{this}>=({BF29}+{BF30}+{BF31}+{BF32}+{BF33}+{BF34}+{BF35}+{BF36})" value="{{ $data->has('BF28') ? $data['BF28'] : '' }}" name="BF28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BG29}+{BG30}+{BG31}+{BG32}+{BG33}+{BG34}+{BG35}+{BG36})" value="{{ $data->has('BG28') ? $data['BG28'] : '' }}" name="BG28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BH29}+{BH30}+{BH31}+{BH32}+{BH33}+{BH34}+{BH35}+{BH36})" value="{{ $data->has('BH28') ? $data['BH28'] : '' }}" name="BH28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BI29}+{BI30}+{BI31}+{BI32}+{BI33}+{BI34}+{BI35}+{BI36})" value="{{ $data->has('BI28') ? $data['BI28'] : '' }}" name="BI28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BJ29}+{BJ30}+{BJ31}+{BJ32}+{BJ33}+{BJ34}+{BJ35}+{BJ36})" value="{{ $data->has('BJ28') ? $data['BJ28'] : '' }}" name="BJ28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BK29}+{BK30}+{BK31}+{BK32}+{BK33}+{BK34}+{BK35}+{BK36})" value="{{ $data->has('BK28') ? $data['BK28'] : '' }}" name="BK28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BL29}+{BL30}+{BL31}+{BL32}+{BL33}+{BL34}+{BL35}+{BL36})" value="{{ $data->has('BL28') ? $data['BL28'] : '' }}" name="BL28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BM29}+{BM30}+{BM31}+{BM32}+{BM33}+{BM34}+{BM35}+{BM36})" value="{{ $data->has('BM28') ? $data['BM28'] : '' }}" name="BM28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BN29}+{BN30}+{BN31}+{BN32}+{BN33}+{BN34}+{BN35}+{BN36})" value="{{ $data->has('BN28') ? $data['BN28'] : '' }}" name="BN28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BO29}+{BO30}+{BO31}+{BO32}+{BO33}+{BO34}+{BO35}+{BO36})" value="{{ $data->has('BO28') ? $data['BO28'] : '' }}" name="BO28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BP29}+{BP30}+{BP31}+{BP32}+{BP33}+{BP34}+{BP35}+{BP36})" value="{{ $data->has('BP28') ? $data['BP28'] : '' }}" name="BP28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BQ29}+{BQ30}+{BQ31}+{BQ32}+{BQ33}+{BQ34}+{BQ35}+{BQ36})" value="{{ $data->has('BQ28') ? $data['BQ28'] : '' }}" name="BQ28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BR29}+{BR30}+{BR31}+{BR32}+{BR33}+{BR34}+{BR35}+{BR36})" value="{{ $data->has('BR28') ? $data['BR28'] : '' }}" name="BR28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BS29}+{BS30}+{BS31}+{BS32}+{BS33}+{BS34}+{BS35}+{BS36})" value="{{ $data->has('BS28') ? $data['BS28'] : '' }}" name="BS28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BT29}+{BT30}+{BT31}+{BT32}+{BT33}+{BT34}+{BT35}+{BT36})" value="{{ $data->has('BT28') ? $data['BT28'] : '' }}" name="BT28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BU29}+{BU30}+{BU31}+{BU32}+{BU33}+{BU34}+{BU35}+{BU36})" value="{{ $data->has('BU28') ? $data['BU28'] : '' }}" name="BU28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BV29}+{BV30}+{BV31}+{BV32}+{BV33}+{BV34}+{BV35}+{BV36})" value="{{ $data->has('BV28') ? $data['BV28'] : '' }}" name="BV28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BW29}+{BW30}+{BW31}+{BW32}+{BW33}+{BW34}+{BW35}+{BW36})" value="{{ $data->has('BW28') ? $data['BW28'] : '' }}" name="BW28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BX29}+{BX30}+{BX31}+{BX32}+{BX33}+{BX34}+{BX35}+{BX36})" value="{{ $data->has('BX28') ? $data['BX28'] : '' }}" name="BX28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BY29}+{BY30}+{BY31}+{BY32}+{BY33}+{BY34}+{BY35}+{BY36})" value="{{ $data->has('BY28') ? $data['BY28'] : '' }}" name="BY28" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BZ29}+{BZ30}+{BZ31}+{BZ32}+{BZ33}+{BZ34}+{BZ35}+{BZ36})" value="{{ $data->has('BZ28') ? $data['BZ28'] : '' }}" name="BZ28" step="0.25" />
     </tr>
     <tr>
         <x-table.td type="header" value="специалист по социальной работе" />
@@ -818,27 +818,27 @@
     <tr>
         <x-table.td type="header" value="Должности специалистов в области физической культуры и спорта - всего, из них:" />
         <x-table.td value="31" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BF37') ? $data['BF37'] : '' }}" name="BF37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BG37') ? $data['BG37'] : '' }}" name="BG37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BH37') ? $data['BH37'] : '' }}" name="BH37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BI37') ? $data['BI37'] : '' }}" name="BI37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BJ37') ? $data['BJ37'] : '' }}" name="BJ37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BK37') ? $data['BK37'] : '' }}" name="BK37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BL37') ? $data['BL37'] : '' }}" name="BL37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM37') ? $data['BM37'] : '' }}" name="BM37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN37') ? $data['BN37'] : '' }}" name="BN37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BO37') ? $data['BO37'] : '' }}" name="BO37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BP37') ? $data['BP37'] : '' }}" name="BP37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ37') ? $data['BQ37'] : '' }}" name="BQ37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BR37') ? $data['BR37'] : '' }}" name="BR37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BS37') ? $data['BS37'] : '' }}" name="BS37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BT37') ? $data['BT37'] : '' }}" name="BT37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BU37') ? $data['BU37'] : '' }}" name="BU37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BV37') ? $data['BV37'] : '' }}" name="BV37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BW37') ? $data['BW37'] : '' }}" name="BW37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BX37') ? $data['BX37'] : '' }}" name="BX37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BY37') ? $data['BY37'] : '' }}" name="BY37" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BZ37') ? $data['BZ37'] : '' }}" name="BZ37" step='0.25' />
+        <x-table.td type="input" formul="{this}>=({BF38}+{BF39}+{BF40})" value="{{ $data->has('BF37') ? $data['BF37'] : '' }}" name="BF37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BG38}+{BG39}+{BG40})" value="{{ $data->has('BG37') ? $data['BG37'] : '' }}" name="BG37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BH38}+{BH39}+{BH40})" value="{{ $data->has('BH37') ? $data['BH37'] : '' }}" name="BH37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BI38}+{BI39}+{BI40})" value="{{ $data->has('BI37') ? $data['BI37'] : '' }}" name="BI37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BJ38}+{BJ39}+{BJ40})" value="{{ $data->has('BJ37') ? $data['BJ37'] : '' }}" name="BJ37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BK38}+{BK39}+{BK40})" value="{{ $data->has('BK37') ? $data['BK37'] : '' }}" name="BK37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BL38}+{BL39}+{BL40})" value="{{ $data->has('BL37') ? $data['BL37'] : '' }}" name="BL37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BM38}+{BM39}+{BM40})" value="{{ $data->has('BM37') ? $data['BM37'] : '' }}" name="BM37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BN38}+{BN39}+{BN40})" value="{{ $data->has('BN37') ? $data['BN37'] : '' }}" name="BN37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BO38}+{BO39}+{BO40})" value="{{ $data->has('BO37') ? $data['BO37'] : '' }}" name="BO37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BP38}+{BP39}+{BP40})" value="{{ $data->has('BP37') ? $data['BP37'] : '' }}" name="BP37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BQ38}+{BQ39}+{BQ40})" value="{{ $data->has('BQ37') ? $data['BQ37'] : '' }}" name="BQ37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BR38}+{BR39}+{BR40})" value="{{ $data->has('BR37') ? $data['BR37'] : '' }}" name="BR37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BS38}+{BS39}+{BS40})" value="{{ $data->has('BS37') ? $data['BS37'] : '' }}" name="BS37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BT38}+{BT39}+{BT40})" value="{{ $data->has('BT37') ? $data['BT37'] : '' }}" name="BT37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BU38}+{BU39}+{BU40})" value="{{ $data->has('BU37') ? $data['BU37'] : '' }}" name="BU37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BV38}+{BV39}+{BV40})" value="{{ $data->has('BV37') ? $data['BV37'] : '' }}" name="BV37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BW38}+{BW39}+{BW40})" value="{{ $data->has('BW37') ? $data['BW37'] : '' }}" name="BW37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BX38}+{BX39}+{BX40})" value="{{ $data->has('BX37') ? $data['BX37'] : '' }}" name="BX37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BY38}+{BY39}+{BY40})" value="{{ $data->has('BY37') ? $data['BY37'] : '' }}" name="BY37" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BZ38}+{BZ39}+{BZ40})" value="{{ $data->has('BZ37') ? $data['BZ37'] : '' }}" name="BZ37" step="0.25" />
     </tr>
     <tr>
         <x-table.td type="header" value="инструктор по адаптивной физической культуре" />
@@ -918,27 +918,27 @@
     <tr>
         <x-table.td type="header" value="Должности специалистов в области образования и науки - всего, из них:" />
         <x-table.td value="35" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BF41') ? $data['BF41'] : '' }}" name="BF41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BG41') ? $data['BG41'] : '' }}" name="BG41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BH41') ? $data['BH41'] : '' }}" name="BH41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BI41') ? $data['BI41'] : '' }}" name="BI41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BJ41') ? $data['BJ41'] : '' }}" name="BJ41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BK41') ? $data['BK41'] : '' }}" name="BK41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BL41') ? $data['BL41'] : '' }}" name="BL41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM41') ? $data['BM41'] : '' }}" name="BM41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN41') ? $data['BN41'] : '' }}" name="BN41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BO41') ? $data['BO41'] : '' }}" name="BO41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BP41') ? $data['BP41'] : '' }}" name="BP41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ41') ? $data['BQ41'] : '' }}" name="BQ41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BR41') ? $data['BR41'] : '' }}" name="BR41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BS41') ? $data['BS41'] : '' }}" name="BS41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BT41') ? $data['BT41'] : '' }}" name="BT41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BU41') ? $data['BU41'] : '' }}" name="BU41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BV41') ? $data['BV41'] : '' }}" name="BV41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BW41') ? $data['BW41'] : '' }}" name="BW41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BX41') ? $data['BX41'] : '' }}" name="BX41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BY41') ? $data['BY41'] : '' }}" name="BY41" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BZ41') ? $data['BZ41'] : '' }}" name="BZ41" step='0.25' />
+        <x-table.td type="input" formul="{this}>=({BF42}+{BF43}+{BF44}+{BF45}+{BF46}+{BF47}+{BF48}+{BF49}+{BF50})" value="{{ $data->has('BF41') ? $data['BF41'] : '' }}" name="BF41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BG42}+{BG43}+{BG44}+{BG45}+{BG46}+{BG47}+{BG48}+{BG49}+{BG50})" value="{{ $data->has('BG41') ? $data['BG41'] : '' }}" name="BG41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BH42}+{BH43}+{BH44}+{BH45}+{BH46}+{BH47}+{BH48}+{BH49}+{BH50})" value="{{ $data->has('BH41') ? $data['BH41'] : '' }}" name="BH41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BI42}+{BI43}+{BI44}+{BI45}+{BI46}+{BI47}+{BI48}+{BI49}+{BI50})" value="{{ $data->has('BI41') ? $data['BI41'] : '' }}" name="BI41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BJ42}+{BJ43}+{BJ44}+{BJ45}+{BJ46}+{BJ47}+{BJ48}+{BJ49}+{BJ50})" value="{{ $data->has('BJ41') ? $data['BJ41'] : '' }}" name="BJ41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BK42}+{BK43}+{BK44}+{BK45}+{BK46}+{BK47}+{BK48}+{BK49}+{BK50})" value="{{ $data->has('BK41') ? $data['BK41'] : '' }}" name="BK41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BL42}+{BL43}+{BL44}+{BL45}+{BL46}+{BL47}+{BL48}+{BL49}+{BL50})" value="{{ $data->has('BL41') ? $data['BL41'] : '' }}" name="BL41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BM42}+{BM43}+{BM44}+{BM45}+{BM46}+{BM47}+{BM48}+{BM49}+{BM50})" value="{{ $data->has('BM41') ? $data['BM41'] : '' }}" name="BM41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BN42}+{BN43}+{BN44}+{BN45}+{BN46}+{BN47}+{BN48}+{BN49}+{BN50})" value="{{ $data->has('BN41') ? $data['BN41'] : '' }}" name="BN41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BO42}+{BO43}+{BO44}+{BO45}+{BO46}+{BO47}+{BO48}+{BO49}+{BO50})" value="{{ $data->has('BO41') ? $data['BO41'] : '' }}" name="BO41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BP42}+{BP43}+{BP44}+{BP45}+{BP46}+{BP47}+{BP48}+{BP49}+{BP50})" value="{{ $data->has('BP41') ? $data['BP41'] : '' }}" name="BP41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BQ42}+{BQ43}+{BQ44}+{BQ45}+{BQ46}+{BQ47}+{BQ48}+{BQ49}+{BQ50})" value="{{ $data->has('BQ41') ? $data['BQ41'] : '' }}" name="BQ41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BR42}+{BR43}+{BR44}+{BR45}+{BR46}+{BR47}+{BR48}+{BR49}+{BR50})" value="{{ $data->has('BR41') ? $data['BR41'] : '' }}" name="BR41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BS42}+{BS43}+{BS44}+{BS45}+{BS46}+{BS47}+{BS48}+{BS49}+{BS50})" value="{{ $data->has('BS41') ? $data['BS41'] : '' }}" name="BS41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BT42}+{BT43}+{BT44}+{BT45}+{BT46}+{BT47}+{BT48}+{BT49}+{BT50})" value="{{ $data->has('BT41') ? $data['BT41'] : '' }}" name="BT41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BU42}+{BU43}+{BU44}+{BU45}+{BU46}+{BU47}+{BU48}+{BU49}+{BU50})" value="{{ $data->has('BU41') ? $data['BU41'] : '' }}" name="BU41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BV42}+{BV43}+{BV44}+{BV45}+{BV46}+{BV47}+{BV48}+{BV49}+{BV50})" value="{{ $data->has('BV41') ? $data['BV41'] : '' }}" name="BV41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BW42}+{BW43}+{BW44}+{BW45}+{BW46}+{BW47}+{BW48}+{BW49}+{BW50})" value="{{ $data->has('BW41') ? $data['BW41'] : '' }}" name="BW41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BX42}+{BX43}+{BX44}+{BX45}+{BX46}+{BX47}+{BX48}+{BX49}+{BX50})" value="{{ $data->has('BX41') ? $data['BX41'] : '' }}" name="BX41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BY42}+{BY43}+{BY44}+{BY45}+{BY46}+{BY47}+{BY48}+{BY49}+{BY50})" value="{{ $data->has('BY41') ? $data['BY41'] : '' }}" name="BY41" step="0.25" />
+        <x-table.td type="input" formul="{this}>=({BZ42}+{BZ43}+{BZ44}+{BZ45}+{BZ46}+{BZ47}+{BZ48}+{BZ49}+{BZ50})" value="{{ $data->has('BZ41') ? $data['BZ41'] : '' }}" name="BZ41" step="0.25" />
     </tr>
     <tr>
         <x-table.td type="header" value="педагог-психолог (психолог в сфере образования)" />
@@ -1168,27 +1168,27 @@
     <tr>
         <x-table.td type="header" value="Технический персонал, из них:" />
         <x-table.td value="45" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BF51') ? $data['BF51'] : '' }}" name="BF51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BG51') ? $data['BG51'] : '' }}" name="BG51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BH51') ? $data['BH51'] : '' }}" name="BH51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BI51') ? $data['BI51'] : '' }}" name="BI51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BJ51') ? $data['BJ51'] : '' }}" name="BJ51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BK51') ? $data['BK51'] : '' }}" name="BK51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BL51') ? $data['BL51'] : '' }}" name="BL51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BM51') ? $data['BM51'] : '' }}" name="BM51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BN51') ? $data['BN51'] : '' }}" name="BN51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BO51') ? $data['BO51'] : '' }}" name="BO51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BP51') ? $data['BP51'] : '' }}" name="BP51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BQ51') ? $data['BQ51'] : '' }}" name="BQ51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BR51') ? $data['BR51'] : '' }}" name="BR51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BS51') ? $data['BS51'] : '' }}" name="BS51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BT51') ? $data['BT51'] : '' }}" name="BT51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BU51') ? $data['BU51'] : '' }}" name="BU51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BV51') ? $data['BV51'] : '' }}" name="BV51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BW51') ? $data['BW51'] : '' }}" name="BW51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BX51') ? $data['BX51'] : '' }}" name="BX51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BY51') ? $data['BY51'] : '' }}" name="BY51" step='0.25' />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BZ51') ? $data['BZ51'] : '' }}" name="BZ51" step='0.25' />
+        <x-table.td type="input" formul="{this}>={BF52}" value="{{ $data->has('BF51') ? $data['BF51'] : '' }}" name="BF51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BG52}" value="{{ $data->has('BG51') ? $data['BG51'] : '' }}" name="BG51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BH52}" value="{{ $data->has('BH51') ? $data['BH51'] : '' }}" name="BH51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BI52}" value="{{ $data->has('BI51') ? $data['BI51'] : '' }}" name="BI51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BJ52}" value="{{ $data->has('BJ51') ? $data['BJ51'] : '' }}" name="BJ51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BK52}" value="{{ $data->has('BK51') ? $data['BK51'] : '' }}" name="BK51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BL52}" value="{{ $data->has('BL51') ? $data['BL51'] : '' }}" name="BL51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BM52}" value="{{ $data->has('BM51') ? $data['BM51'] : '' }}" name="BM51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BN52}" value="{{ $data->has('BN51') ? $data['BN51'] : '' }}" name="BN51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BO52}" value="{{ $data->has('BO51') ? $data['BO51'] : '' }}" name="BO51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BP52}" value="{{ $data->has('BP51') ? $data['BP51'] : '' }}" name="BP51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BQ52}" value="{{ $data->has('BQ51') ? $data['BQ51'] : '' }}" name="BQ51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BR52}" value="{{ $data->has('BR51') ? $data['BR51'] : '' }}" name="BR51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BS52}" value="{{ $data->has('BS51') ? $data['BS51'] : '' }}" name="BS51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BT52}" value="{{ $data->has('BT51') ? $data['BT51'] : '' }}" name="BT51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BU52}" value="{{ $data->has('BU51') ? $data['BU51'] : '' }}" name="BU51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BV52}" value="{{ $data->has('BV51') ? $data['BV51'] : '' }}" name="BV51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BW52}" value="{{ $data->has('BW51') ? $data['BW51'] : '' }}" name="BW51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BX52}" value="{{ $data->has('BX51') ? $data['BX51'] : '' }}" name="BX51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BY52}" value="{{ $data->has('BY51') ? $data['BY51'] : '' }}" name="BY51" step="0.25" />
+        <x-table.td type="input" formul="{this}>={BZ52}" value="{{ $data->has('BZ51') ? $data['BZ51'] : '' }}" name="BZ51" step="0.25" />
     </tr>
     <tr>
         <x-table.td type="header" value="протезист" />

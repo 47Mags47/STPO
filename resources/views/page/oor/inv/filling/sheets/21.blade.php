@@ -20,7 +20,7 @@
         <x-table.td type="header"
             value="Численность выпускников-инвалидов 9 и 11 классов, охваченных профориентационной работой" />
         <x-table.td value="01" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('BT5') ? $data['BT5'] : '' }}" name="BT5" />
+        <x-table.td type="input" formul="{CG5}+{CH5}" name="BT5" disabled />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('CG5') ? $data['CG5'] : '' }}" name="CG5" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('CH5') ? $data['CH5'] : '' }}" name="CH5" />
     </tr>

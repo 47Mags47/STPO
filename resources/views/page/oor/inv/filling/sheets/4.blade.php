@@ -39,7 +39,7 @@
             value=" Численность инвалидов в возрасте 18 лет и старше и детей-инвалидов, <br>
                         имеющих рекомендации в ИПРА/ ИПР по направлениям реабилитации и абилитации" />
         <x-table.td value="01" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('EJ7') ? $data['EJ7'] : '' }}" name="EJ7" />
+        <x-table.td type="input" formul="{EJ8}+{EJ9}+{EJ10}" name="EJ7" disabled />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('EK7') ? $data['EK7'] : '' }}" name="EK7" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('EL7') ? $data['EL7'] : '' }}" name="EL7" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('EM7') ? $data['EM7'] : '' }}" name="EM7" />

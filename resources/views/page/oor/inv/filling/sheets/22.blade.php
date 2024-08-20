@@ -22,9 +22,9 @@
     <tr>
         <x-table.td type="header" value="Организации сферы культуры - всего, из них:" />
         <x-table.td value="01" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA6') ? $data['CA6'] : '' }}" name="CA6" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CB6') ? $data['CB6'] : '' }}" name="CB6" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CC6') ? $data['CC6'] : '' }}" name="CC6" />
+        <x-table.td type="input" formul="{CA7}+{CA8}+{CA9}+{CA10}+{CA11}" name="CA6" disabled />
+        <x-table.td type="input" formul="{CB7}+{CB8}+{CB9}+{CB10}+{CB11}" name="CB6" disabled />
+        <x-table.td type="input" formul="{CC7}+{CC8}+{CC9}+{CC10}+{CC11}" name="CC6" disabled />
     </tr>
     <tr>
         <x-table.td type="header" value="Клубное формирование" />

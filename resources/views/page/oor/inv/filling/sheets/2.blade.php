@@ -45,11 +45,11 @@
     <tr>
         <x-table.td type="header" value="Общая численность населения субъекта Российской Федерации, в том числе:" />
         <x-table.td value="01" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA7') ? $data['CA7'] : '' }}" name="CA7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CB7') ? $data['CB7'] : '' }}" name="CB7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CC7') ? $data['CC7'] : '' }}" name="CC7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CD7') ? $data['CD7'] : '' }}" name="CD7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CE7') ? $data['CE7'] : '' }}" name="CE7" />
+        <x-table.td type="input" formul="{CA8}+{CA9}" name="CA7" disabled />
+        <x-table.td type="input" formul="{CB8}" name="CB7" disabled />
+        <x-table.td type="input" formul="{CC8}" name="CC7" disabled />
+        <x-table.td type="input" formul="{CD8}" name="CD7" disabled />
+        <x-table.td type="input" formul="{CE8}" name="CE7" disabled />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />
@@ -60,10 +60,10 @@
     <tr>
         <x-table.td type="header" value="Численность взрослого населения в возрасте 18 лет и старше" />
         <x-table.td value="02" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA8') ? $data['CA8'] : '' }}" name="CA8" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CB8') ? $data['CB8'] : '' }}" name="CB8" />
+        <x-table.td type="input" formul="{CB8}+{CD8}" name="CA8" disabled />
+        <x-table.td type="input" formul="{this}>{CC8}" inp-type="number" value="{{ $data->has('CB8') ? $data['CB8'] : '' }}" name="CB8" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('CC8') ? $data['CC8'] : '' }}" name="CC8" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CD8') ? $data['CD8'] : '' }}" name="CD8" />
+        <x-table.td type="input" formul="{this}>{CE8}" inp-type="number" value="{{ $data->has('CD8') ? $data['CD8'] : '' }}" name="CD8" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('CE8') ? $data['CE8'] : '' }}" name="CE8" />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />
@@ -75,7 +75,7 @@
     <tr>
         <x-table.td type="header" value="Численность детского населения" />
         <x-table.td value="03" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA9') ? $data['CA9'] : '' }}" name="CA9" />
+        <x-table.td type="input" formul="{CF9}+{CG9}+{CH9}+{CI9}+{CJ9}+{CK9}" name="CA9" disabled />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />

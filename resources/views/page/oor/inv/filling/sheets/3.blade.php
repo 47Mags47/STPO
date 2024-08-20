@@ -52,32 +52,32 @@
     <tr>
         <x-table.td type="header" value="Общая численность инвалидов в возрасте 18 лет и старше и детей-инвалидов, в том числе:" />
         <x-table.td value="01" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA7') ? $data['CA7'] : '' }}" name="CA7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CB7') ? $data['CB7'] : '' }}" name="CB7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CC7') ? $data['CC7'] : '' }}" name="CC7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CD7') ? $data['CD7'] : '' }}" name="CD7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CE7') ? $data['CE7'] : '' }}" name="CE7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CF7') ? $data['CF7'] : '' }}" name="CF7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CG7') ? $data['CG7'] : '' }}" name="CG7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CH7') ? $data['CH7'] : '' }}" name="CH7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CI7') ? $data['CI7'] : '' }}" name="CI7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CJ7') ? $data['CJ7'] : '' }}" name="CJ7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CK7') ? $data['CK7'] : '' }}" name="CK7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CL7') ? $data['CL7'] : '' }}" name="CL7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CM7') ? $data['CM7'] : '' }}" name="CM7" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CN7') ? $data['CN7'] : '' }}" name="CN7" />
+        <x-table.td type="input" formul="({CA8}+{CA10})==({CE7}+{CG7}+{CI7}+{CJ7}+{CK7}+{CL7}+{CM7}+{CN7})" bool-val="{CA8}+{CA10}" name="CA7" disabled />
+        <x-table.td type="input" formul="{CB8}+{CB10}" name="CB7" disabled />
+        <x-table.td type="input" formul="{CC8}+{CC10}" name="CC7" disabled />
+        <x-table.td type="input" formul="{CD8}+{CD10}" name="CD7" disabled />
+        <x-table.td type="input" formul="{CE8}" name="CE7" disabled />
+        <x-table.td type="input" formul="{CF8}" name="CF7" disabled />
+        <x-table.td type="input" formul="{CG8}" name="CG7" disabled />
+        <x-table.td type="input" formul="{CH8}" name="CH7" disabled />
+        <x-table.td type="input" formul="{CI10}" name="CI7" disabled />
+        <x-table.td type="input" formul="{CJ10}" name="CJ7" disabled />
+        <x-table.td type="input" formul="{CK10}" name="CK7" disabled />
+        <x-table.td type="input" formul="{CL10}" name="CL7" disabled />
+        <x-table.td type="input" formul="{CM10}" name="CM7" disabled />
+        <x-table.td type="input" formul="{CN10}" name="CN7" disabled />
     </tr>
     <tr>
         <x-table.td type="header" value="Численность инвалидов в возрасте 18 лет и старше" />
         <x-table.td value="02" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA8') ? $data['CA8'] : '' }}" name="CA8" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CB8') ? $data['CB8'] : '' }}" name="CB8" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CC8') ? $data['CC8'] : '' }}" name="CC8" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CD8') ? $data['CD8'] : '' }}" name="CD8" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CE8') ? $data['CE8'] : '' }}" name="CE8" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CF8') ? $data['CF8'] : '' }}" name="CF8" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CG8') ? $data['CG8'] : '' }}" name="CG8" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CH8') ? $data['CH8'] : '' }}" name="CH8" />
+        <x-table.td type="input" formul="({CE8}+{CG8})>=({CB8}>={CB9})" bool-val="{CE8}+{CG8}" name="CA8" disabled/>
+        <x-table.td type="input" formul="{this}>={CB9}" value="{{ $data->has('CB8') ? $data['CB8'] : '' }}" name="CB8" />
+        <x-table.td type="input" formul="{this}>={CC9}" value="{{ $data->has('CC8') ? $data['CC8'] : '' }}" name="CC8" />
+        <x-table.td type="input" formul="{this}>={CD9}" value="{{ $data->has('CD8') ? $data['CD8'] : '' }}" name="CD8" />
+        <x-table.td type="input" formul="{this}>={CE9}" value="{{ $data->has('CE8') ? $data['CE8'] : '' }}" name="CE8" />
+        <x-table.td type="input" formul="{this}>={CF9}" value="{{ $data->has('CF8') ? $data['CF8'] : '' }}" name="CF8" />
+        <x-table.td type="input" formul="{this}>={CG9}" value="{{ $data->has('CG8') ? $data['CG8'] : '' }}" name="CG8" />
+        <x-table.td type="input" formul="{this}>={CH9}" value="{{ $data->has('CH8') ? $data['CH8'] : '' }}" name="CH8" />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />
@@ -90,7 +90,7 @@
             value="из них имеют индивидуальную программу реабилитации или абилитации инвалида (ИПРА инвалида) /
         индивидуальную программу реабилитации инвалида (ИПР инвалида)" />
         <x-table.td value="03" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA9') ? $data['CA9'] : '' }}" name="CA9" />
+        <x-table.td type="input" formul="({CE9}+{CG9})<=({CE8}+{CG8})" bool-val="{CE9}+{CG9}" name="CA9" disabled />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('CB9') ? $data['CB9'] : '' }}" name="CB9" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('CC9') ? $data['CC9'] : '' }}" name="CC9" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('CD9') ? $data['CD9'] : '' }}" name="CD9" />
@@ -108,20 +108,20 @@
     <tr>
         <x-table.td type="header" value="Численность детей-инвалидов" />
         <x-table.td value="04" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA10') ? $data['CA10'] : '' }}" name="CA10" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CB10') ? $data['CB10'] : '' }}" name="CB10" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CC10') ? $data['CC10'] : '' }}" name="CC10" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CD10') ? $data['CD10'] : '' }}" name="CD10" />
+        <x-table.td type="input" formul="{CI10}+{CJ10}+{CK10}+{CL10}+{CM10}+{CN10}" name="CA10" disabled />
+        <x-table.td type="input" formul="{this}>={CB11}" value="{{ $data->has('CB10') ? $data['CB10'] : '' }}" name="CB10" />
+        <x-table.td type="input" formul="{this}>={CC11}" value="{{ $data->has('CC10') ? $data['CC10'] : '' }}" name="CC10" />
+        <x-table.td type="input" formul="{this}>={CD11}" value="{{ $data->has('CD10') ? $data['CD10'] : '' }}" name="CD10" />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />
         <x-table.td type="input-d" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CI10') ? $data['CI10'] : '' }}" name="CI10" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CJ10') ? $data['CJ10'] : '' }}" name="CJ10" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CK10') ? $data['CK10'] : '' }}" name="CK10" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CL10') ? $data['CL10'] : '' }}" name="CL10" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CM10') ? $data['CM10'] : '' }}" name="CM10" />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CN10') ? $data['CN10'] : '' }}" name="CN10" />
+        <x-table.td type="input" formul="{this}>={CI11}" value="{{ $data->has('CI10') ? $data['CI10'] : '' }}" name="CI10" />
+        <x-table.td type="input" formul="{this}>={CJ11}" value="{{ $data->has('CJ10') ? $data['CJ10'] : '' }}" name="CJ10" />
+        <x-table.td type="input" formul="{this}>={CK11}" value="{{ $data->has('CK10') ? $data['CK10'] : '' }}" name="CK10" />
+        <x-table.td type="input" formul="{this}>={CL11}" value="{{ $data->has('CL10') ? $data['CL10'] : '' }}" name="CL10" />
+        <x-table.td type="input" formul="{this}>={CM11}" value="{{ $data->has('CM10') ? $data['CM10'] : '' }}" name="CM10" />
+        <x-table.td type="input" formul="{this}>={CN11}" value="{{ $data->has('CN10') ? $data['CN10'] : '' }}" name="CN10" />
 
     </tr>
     <tr>
@@ -129,7 +129,7 @@
             value="из них имеют индивидуальную программу реабилитации или абилитации ребенка-инвалида (ИПРА
         ребенка-инвалида) / индивидуальную программу реабилитации ребенка-инвалида (ИПР ребенка-инвалида)" />
         <x-table.td value="05" center />
-        <x-table.td type="input" inp-type="number" value="{{ $data->has('CA11') ? $data['CA11'] : '' }}" name="CA11" />
+        <x-table.td type="input"  formul="({CI11}+{CJ11}+{CK11}+{CL11}+{CM11}+{CN11})<=({CI10}+{CJ10}+{CK10}+{CL10}+{CM10}+{CN10})" bool-val="{CI11}+{CJ11}+{CK11}+{CL11}+{CM11}+{CN11}" name="CA11" disabled />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('CB11') ? $data['CB11'] : '' }}" name="CB11" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('CC11') ? $data['CC11'] : '' }}" name="CC11" />
         <x-table.td type="input" inp-type="number" value="{{ $data->has('CD11') ? $data['CD11'] : '' }}" name="CD11" />
