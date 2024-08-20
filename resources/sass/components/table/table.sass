@@ -52,6 +52,16 @@ table
                         border-radius: 0
                         outline: none
                         padding: 3px 5px
+                        &.formul
+                            text-align: left
+                            &:not([bool="true"]):not([bool="false"])
+                                background: rgb(245, 245, 245)
+                            &[bool="true"]
+                                background: rgba(72, 255, 0, 0.4)
+                                color: black
+                            &[bool="false"]
+                                background: rgba(255, 0, 0, 0.4)
+                                color: black
                     textarea
                         resize: none
                 &.select

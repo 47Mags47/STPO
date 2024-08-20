@@ -1,3 +1,5 @@
+import FormulImport from './classes/FormulInput.js';
+
 export async function load() {
     /* Фильтры */
     $('ul.filters li .check-open').on('change', function () { // Открыть
@@ -28,5 +30,10 @@ export async function load() {
         parent.find('label:not(.set_all) input').each(function () {
             $(this).prop('checked', checked)
         })
+    })
+
+    /* Формулы */
+    $('.excel-box input.formul').each(function () {
+        let formul = new FormulImport($(this))
     })
 }
