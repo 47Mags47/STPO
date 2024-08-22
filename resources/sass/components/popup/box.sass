@@ -4,6 +4,7 @@
     height: 100%
     top: 0
     left: 0
+    z-index: -1
     .popup
         position: absolute
         top: 0
@@ -17,5 +18,7 @@
         justify-content: center
         align-items: center
         display: none
+        
         &.open
             display: flex
+            z-index: 1
