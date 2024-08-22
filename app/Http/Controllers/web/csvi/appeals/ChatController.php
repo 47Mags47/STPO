@@ -16,13 +16,13 @@ class ChatController
 
     private function getAppeal($id)
     {
-        $this->appeal = Csvi_Appeal_Appeal::whereKey($id)->first();
+        $this->appeal = Csvi_Appeal_Appeal::withTrashed()->whereKey($id)->first();
         return $this->appeal;
     }
 
     private function checkAccess($appeal_id)
     {
-        $appeal = Csvi_Appeal_Appeal::whereKey($appeal_id)->first();
+        $appeal = Csvi_Appeal_Appeal::withTrashed()->whereKey($appeal_id)->first();
         return auth()->user()->can('appeal-chat-access', $appeal);
     }
 
