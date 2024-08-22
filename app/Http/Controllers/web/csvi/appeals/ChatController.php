@@ -41,6 +41,12 @@ class ChatController
 
     public function store(Request $request)
     {
+        $appeal = Csvi_Appeal_Appeal::withTrashed()->whereKey($request->appeal)->first();
+        if($appeal->status_id == 3){
+            return back()->withErrors('Обращение закрыто');
+        }
+
+
         if ($request->file('file')) {
             $request->validate(['file.*' => ['max:10240']]);
 
@@ -68,7 +74,7 @@ class ChatController
             ]);
         }
 
-        if($message->appeal->worker_id){
+        if($appeal->worker_id){
             SendAppealMessage::dispatch($message);
         }
 
