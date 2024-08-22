@@ -58,12 +58,12 @@
                             'fa-file-text-o' => $type == null,
                         ]) aria-hidden="true"></i>
                         @if ($caught)
-                            <x-custom.link title="{!! mb_substr($message->message, 20) !!}" disabled/>
+                            <x-custom.link title="{{ mb_substr($message->message, 20) }}" disabled/>
                         @else
                             <x-custom.link link="{{ route('appeal.download', ['appeal' => $message->appeal_id, 'file_name' => $message->message, 'stamp' => now()->timestamp]) }}" title="{!! mb_substr($message->message, 20) !!}" white />
                         @endif
                     @else
-                        <pre>{!! $message->message !!}</pre>
+                        <pre>{{ $message->message }}</pre>
                     @endif
                 </span>
             @endif
