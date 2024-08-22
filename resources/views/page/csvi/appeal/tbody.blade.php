@@ -19,7 +19,12 @@
     <x-table.td type='sbm' colspan="2"/>
 </tr>
 @foreach ($appeals as $appeal)
-    <tr>
+    <tr
+        @class([
+            'green' => $appeal->status_id == 3, 
+            'yellow' => $appeal->status_id == 2,
+        ])
+    >
         <x-table.td value="{{ $appeal->id }}" center />
         <x-table.td value="{{ $appeal->created_at->format('d.m.Y H:i') }}" />
         @if (auth()->user()->can('is_administration'))
