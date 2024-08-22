@@ -77,6 +77,7 @@ class ChatController
 
     public function download(Request $request){
         $path = $request->appeal . '/' . $request->file_name;
-        return Storage::disk('appeal-chat')->download($path, mb_substr($request->file_name, 20));
+        // return Storage::disk('appeal-chat')->download($path, mb_substr($request->file_name, 20));
+        dd(Storage::disk('appeal-chat')->has($path));
     }
 }
