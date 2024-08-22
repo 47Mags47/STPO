@@ -193,7 +193,7 @@ class AppealController
 
     public function accept(Request $request)
     {
-        $builder = Csvi_Appeal_Appeal::whereKey($request->appeal);
+        $builder = Csvi_Appeal_Appeal::withTrashed()->whereKey($request->appeal);
         $appeal = $builder->first();
         $builder->update([
             'worker_id' => auth()->user()->id,
@@ -205,7 +205,7 @@ class AppealController
 
     public function close(Request $request)
     {
-        $builder = Csvi_Appeal_Appeal::whereKey($request->appeal);
+        $builder = Csvi_Appeal_Appeal::withTrashed()->whereKey($request->appeal);
         $appeal = $builder->first();
         $builder->update([
             'status_id' => 3,
