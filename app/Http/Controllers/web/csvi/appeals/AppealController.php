@@ -85,6 +85,7 @@ class AppealController
         $this->sortTable($builder);
         $this->searchTable($builder);
 
+        dump($builder->toSql());
         return $builder->paginate(100);
     }
 
@@ -100,9 +101,15 @@ class AppealController
     }
     private function searchTable($builder)
     {
+        $search_str = $this->search;
         return $this->search == null
             ? $builder
-            : $builder->where('comment', 'LIKE', '%' . $this->search . '%');
+            // : $builder->where('comment', 'LIKE', '%' . $this->search . '%');
+            : $builder->where(function ($query) use ($search_str) {
+                $query
+                    ->where('csvi__appeal__appeals.comment', 'like', "%$search_str%")
+                    ->OrWhere('csvi__appeal__appeals.id', $search_str);
+            });
     }
 
 
