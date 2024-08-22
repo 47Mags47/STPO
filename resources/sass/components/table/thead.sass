@@ -1,0 +1,30 @@
+// DEFAULT
+thead 
+    th
+        position: relative
+        background: var(--light-thead-background)
+        color: var(--light-thead-color)
+        div
+            text-align: center
+            padding: 3px 5px
+            font-size: .85rem
+            color: inherit
+        &.header
+            position: sticky
+            left: 0
+            z-index: 2
+        &.sort
+            cursor: pointer
+            div
+                display: flex
+                gap: 5px
+                align-items: center
+                justify-content: center
+                a, i
+                    color: inherit
+
+// Уточнения
+table[top-0] thead
+    position: sticky
+    top: 0
+    z-index: 3
