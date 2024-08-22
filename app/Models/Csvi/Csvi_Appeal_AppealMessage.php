@@ -13,7 +13,7 @@ class Csvi_Appeal_AppealMessage extends Model
     protected $guarded = [];
 
     public function appeal(){
-        return $this->belongsTo(Csvi_Appeal_Appeal::class, 'appeal_id');
+        return $this->belongsTo(Csvi_Appeal_Appeal::class, 'appeal_id')->withTrashed();
     }
 
     public function sender(){
