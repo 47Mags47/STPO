@@ -42,7 +42,7 @@ export async function load() {
         }
     })
     // Заблокировать модули
-    $('.modul-list li[data-disable=true] a').each(function () {
+    $('.modul-list li[data-disable=true] span').each(function () {
         $(this).on('click', function (Event) {
             Event.preventDefault()
             alert('У вас нет доступа к данному модулю\nОбратитесь к своему администратору или программисту')

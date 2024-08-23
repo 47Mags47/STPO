@@ -14,18 +14,23 @@
             <summary>{{ $modul_department->name }}</summary>
             <ul>
                 @foreach ($modul_department->moduls as $modul)
-                    @if (auth()->user()->can('is_admin'))
+                    {{-- @if (auth()->user()->can('is_admin'))
                         @if (Route::has($modul->link))
-                            <li><a href="{{ route($modul->link) }}">{{ $modul->name }}</a></li>
+                            <li><a href="{{ route($modul->link) }}" class="left-to-right">{{ $modul->name }}</a></li>
                         @else
                             <li title="Не существует ссылки на модуль"><a>{{ $modul->name }}</a></li>
                         @endif
                     @else
                         @if (auth()->user()->can('user-has-modul', $modul))
-                            <li><a href="{{ route($modul->link) }}">{{ $modul->name }}</a></li>
+                            <li><a href="{{ route($modul->link) }}" class="left-to-right">{{ $modul->name }}</a></li>
                         @else
                             <li data-disable="true"><a>{{ $modul->name }}</a></li>
                         @endif
+                    @endif --}}
+                    @if (auth()->user()->can('user-has-modul', $modul) and Route::has($modul->link))
+                        <li><a href="{{ route($modul->link) }}" class="left-to-right">{!! $modul->name !!}</a></li>
+                    @else
+                        <li data-disable="true"><span>{!! $modul->name !!}</span></li>
                     @endif
                 @endforeach
             </ul>

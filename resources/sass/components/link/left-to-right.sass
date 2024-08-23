@@ -1,0 +1,14 @@
+a.left-to-right
+    position: relative
+    &::after
+        display: block
+        content: ''
+        position: absolute
+        top: 100%
+        left: 0
+        width: 100%
+        max-width: 0
+        height: 2px
+        transition: var(--all-transition)
+    &:hover:after
+        max-width: 100%
