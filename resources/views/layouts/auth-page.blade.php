@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="{{ env('APP_LOCALE') }}">
+<html lang="{{ env('APP_LOCALE') }}" them='light'>
 
 <head>
     <meta charset="UTF-8">

@@ -16,12 +16,12 @@
         gap: 10px
         border-radius: 9px
         &.shadow
-            box-shadow: 4px 4px 12px 5px #999
+            box-shadow: var(--shadow-default)
         .form-header
             width: 100%
             font-size: 1.2rem
             text-align: center
-            color: #333
+            color: var(--color-text-default)
             font-weight: 500
         label
             display: flex
@@ -29,19 +29,18 @@
             gap: 5px
             span
                 padding-left: 7px
-                color: #333
+                color: var(--color-text-default)
                 font-size: 1rem
                 font-weight: bold
                 font-style: italic
             input,select,textarea
                 padding: 4px 7px
-                border: 1px solid #999
+                border: var(--border-default)
+                color: var(--color-text-default)
                 outline: none
                 border-radius: 7px
                 font-size: .9rem
                 transition: var(--all-transition)
-                &:focus
-                    border: 1px solid #333
         .sbm-box
             width: 100%
             height: auto

@@ -11,6 +11,7 @@ tbody
                 padding: 3px 5px
                 font-size: .85rem
                 background: inherit
+                color: var(--color-text-pre-default)
                 &.center
                     text-align: center
                 &.input,
@@ -33,9 +34,9 @@ tbody
                     border: none
                     outline: none 
                     border-radius: 0
-                    background: none
                     padding: 3px 5px
                     font-size: .8rem
+                    color: inherit
                 input[type="submit"],
                 input[type="reset"],
                 input[type="button"],
@@ -53,9 +54,9 @@ tbody
 
 // Уточнения            
 tbody tr:nth-child(odd)
-    background: white
+    background: var(--background-color-default)
 tbody tr:nth-child(even)
-    background: #eee
+    background: var(--background-color-table-even)
 
 table[w100]
     width: 100%
@@ -67,7 +68,7 @@ table tbody td.header
 
 // THEMS
 tbody tr.green 
-    background: rgb(200, 255, 170)
+    background: var(--background-color-green)
 tbody tr.yellow 
-    background: rgb(250, 255, 200)
+    background: var(--background-color-yellow)
            

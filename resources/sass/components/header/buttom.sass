@@ -5,6 +5,7 @@ header .bottom
     display: flex
     justify-content: space-between
     align-items: center
+    background: var(--background-color-default)
     box-shadow: var(--header-shadow)
     z-index: 10
     .new
@@ -42,6 +43,10 @@ header .bottom
             summary
                 display: block
                 cursor: pointer
+                color: var(--color-text-pre-default)
+                transition: var(--all-transition)
+                &:hover
+                    color: var(--color-text-default)
             ul
                 padding: 10px 15px 10px 15px
                 display: flex

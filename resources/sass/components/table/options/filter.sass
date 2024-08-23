@@ -16,24 +16,24 @@
                 gap: 5px
                 justify-content: center
                 align-items: center
-                background: #eee
+                background: var(--background-color-input-disabled)
                 cursor: pointer
                 span, i
                     font-size: 0.9rem
                     font-weight: bold
-                    color: #666
+                    color: var(--color-text-pre-default)
                     transition: var(--all-transition)
                 input
                     display: none
                 &:hover
                     span, i
-                        color: black
+                        color: var(--color-text-default)
             .box
                 width: 300px
                 position: absolute
                 top: calc( 100% + 15px )
                 right: 0
-                background: white
+                background: var(--background-color-input)
                 z-index: 10
 
                 display: grid
@@ -47,7 +47,7 @@
                 &.open
                     max-height: 440px
                     padding: 5px
-                    box-shadow: -4px 8px 12px 4px #999
+                    box-shadow: var(--shadow-default)
                 .search
                     width: 100%
                     height: auto
@@ -56,8 +56,10 @@
                         width: 100%
                         padding: 3px 5px
                         outline: none
-                        border: 1px solid #999
+                        border: var(--border-default)
+                        background: var(--background-color-input)
                         border-radius: 7px
+                        color: var(--color-text-pre-default)
                 .list
                     max-height: 380px
                     display: flex
@@ -73,6 +75,7 @@
                             background: #eee
                         input, span
                             font-size: 0.9rem
+                            color: var(--color-text-pre-default)
 
     input[type='submit'],
     input[type='reset']
