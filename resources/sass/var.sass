@@ -1,23 +1,32 @@
-:root
-    /*Общие*/
+html:root
+    /* ### BORDER ### */
+    --border-width-default: 1px
+    --border-style-default: solid
+    --border-color-default: var(--background-gray-color)
+    --border-default: var(--border-width-default) var(--border-style-default) var(--border-color-default)
+
+    /* ### SHADOW ### */
+    --shadow-default: 0 0 8px 4px var(--background-gray-color)
+    --shadow-bottom-only: 0 8px 8px 0px var(--background-gray-color)
+    --shadow-left-only: -4px 8px 8px 0px var(--background-gray-color)
+
+    /* ### ANIMATION ### */
     --all-transition: .5s
 
     /*Header*/
     --header-height: 100px
-    --header-top-background-color: #131725
-    --header-top-color: #97a4b1
-    --header-top-color-hover: #fff
+    --header-top-background-color: var(--background-color-header)
+    --header-top-color: var(--color-text-pre-offsite)
+    --header-top-color-hover: var(--color-text-offsite)
+    --header-shadow: -2px 4px 4px 0px var(--header-shadow-color)
+    --header-bottom-background-color: var(--background-color-default)
+    --header-bottom-color: var(--color-text-pre-default)
+    --header-bottom-color-hover: var(--color-text-blue)
+    --modul-color: var(--color-text-blue)
 
-    --header-bottom-background-color: #ffffffee
-    --header-bottom-color: #131725
-    --header-bottom-color-hover: #0f368b
-
-    --modul-background: white
-    --modul-background-hover: #97a4b1
-    --modul-color: #0f368b
-    --modul-color-hover: #fff
-    --modul-border-color: rgba(15, 54, 139, 0.5)
-    --module-disable-color: #97a4b1
+    /*table*/
+    --background-color-table: var(--background-color-default)
+    --sheet-list-height: 30px
 
     /*Error*/
     --error-background: #1a202c
@@ -25,8 +34,8 @@
 
     /*Excel*/
     --excel-header-backgroun: #0c4600
-    --excel-header-color: #ddd
+    
 
     /* dashboard */
-    --blue-shield: #0f368b
-    --red-shield: #da3c3c
+    --blue-shield: var(--color-text-blue)
+    --red-shield: var(--background-red-color)

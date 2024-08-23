@@ -44,10 +44,9 @@
                 height: auto
                 text-align: center
                 padding: 10px 0
-                // z-index: -1
                 a
                     font-size: 1.4rem
-                    color: #333
+                    color: var(--color-text-pre-default)
                     text-decoration: none
                     position: relative
                     transition: var(--all-transition)
@@ -58,12 +57,12 @@
                         position: absolute
                         left: 0
                         bottom: 5px
-                        background: #ccc
+                        background: var(--color-text-pre-default)
                         transition: var(--all-transition)
                     &:hover
-                        color: black
+                        color: var(--color-text-default)
                         &::before
-                            background: black
+                            background: var(--color-text-default)
             form
                 width: 400px
             .image-box

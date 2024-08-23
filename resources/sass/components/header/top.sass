@@ -1,0 +1,35 @@
+header .top 
+    padding: 0 50px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    background: var(--background-color-header)
+    color: var(--header-top-color)
+    a
+        transition: var(--all-transition)
+    a.logo-link
+        font-size: 1.2rem
+        color: inherit
+        strong
+            font-size: 1.3rem
+        &:hover
+            color: var(--header-top-color-hover)
+    .user
+        width: auto
+        display: flex
+        justify-content: flex-end
+        align-items: center
+        gap: 10px
+        a
+            color: inherit
+            display: flex
+            align-items: center
+            gap: 5px
+            img
+                height: 40px
+                width: auto
+            span
+                font-size: 1.2rem
+                font-weight: bold
+            &:hover
+                color: var(--header-top-color-hover)

@@ -1,0 +1,74 @@
+// DEFAULT
+tbody 
+    tr
+        height: 40px
+        td 
+            position: relative
+            min-height: 40px
+            height: auto
+            background: inherit
+            div
+                padding: 3px 5px
+                font-size: .85rem
+                background: inherit
+                color: var(--color-text-pre-default)
+                &.center
+                    text-align: center
+                &.input,
+                &.select
+                    padding: 0
+                    position: absolute
+                    top: 0
+                    left: 0
+                    width: 100%
+                    height: 100%
+                    font-size: inherit
+                input,
+                select,
+                textarea
+                    position: absolute
+                    top: 0
+                    left: 0
+                    width: 100%
+                    height: 100%
+                    border: none
+                    outline: none 
+                    border-radius: 0
+                    padding: 3px 5px
+                    font-size: .8rem
+                    color: inherit
+                input[type="submit"],
+                input[type="reset"],
+                input[type="button"],
+                input.button,
+                a.button,
+                button
+                    position: relative
+                    margin: auto
+                    min-width: 100px
+
+                select
+                    cursor: pointer
+                textarea
+                    resize: none
+
+// Уточнения            
+tbody tr:nth-child(odd)
+    background: var(--background-color-default)
+tbody tr:nth-child(even)
+    background: var(--background-color-table-even)
+
+table[w100]
+    width: 100%
+
+table tbody td.header
+    position: sticky
+    left: 0
+    z-index: 2
+
+// THEMS
+tbody tr.green 
+    background: var(--background-color-green)
+tbody tr.yellow 
+    background: var(--background-color-yellow)
+           

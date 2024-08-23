@@ -1,0 +1,64 @@
+header .bottom
+    position: relative
+    height: 50px
+    padding: 0 50px
+    display: flex
+    justify-content: space-between
+    align-items: center
+    background: var(--background-color-default)
+    box-shadow: var(--header-shadow)
+    z-index: 10
+    .new
+        width: 300px
+        height: 100%
+        padding: 5px 0
+        img
+            max-width: 100%
+            max-height: 100%
+    .nav-list
+        display: flex
+        align-items: center
+        gap: 15px
+        color: var(--header-bottom-color)
+        a
+            color: inherit
+            font-size: 1.1rem
+            transition: var(--all-transition)
+            &:hover
+                color: var(--header-bottom-color-hover)
+    .modul-list
+        position: absolute
+        top: 100%
+        right: -450px
+        width: 450px
+        height: calc( 100vh - var(--header-height) )
+        background: var(--header-bottom-background-color)
+        box-shadow: var(--shadow-left-only)
+        transition: var(--all-transition)
+        &.open
+            right: 0
+        details
+            padding: 5px 15px
+            font-weight: 500
+            summary
+                display: block
+                cursor: pointer
+                color: var(--color-text-pre-default)
+                transition: var(--all-transition)
+                &:hover
+                    color: var(--color-text-default)
+            ul
+                padding: 10px 15px 10px 15px
+                display: flex
+                flex-direction: column
+                gap: 5px
+                li 
+                    a
+                        color: var(--modul-color)
+                        cursor: pointer
+                        &::after
+                            background: var(--modul-color)
+                    span
+                        cursor: default
+                        text-decoration: line-through
+                        color: var(--color-text-pre-default)

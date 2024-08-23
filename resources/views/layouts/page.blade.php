@@ -1,5 +1,16 @@
+@php
+    $them = App\Models\Main\Main_User_Them::firstOrCreate(
+        [
+            'user_id' => auth()->user()->id,
+        ],
+        [
+            'them_id' => 1,
+        ],
+    )->them->name;
+@endphp
+
 <!DOCTYPE html>
-<html lang="{{ env('APP_LOCALE') }}">
+<html lang="{{ env('APP_LOCALE') }}" them="{{ $them }}">
 
 <head>
     <meta charset="UTF-8">

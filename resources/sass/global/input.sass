@@ -1,11 +1,10 @@
 input, select, textarea
-    font-size: .9rem
+    font-size: inherit
     -moz-appearance: textfield
+    background: none
     &[disabled]
-        background: #aaa
         text-align: center
-        color: black
-
+        background: var(--background-color-input-disabled)
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button
         display: none
