@@ -9,6 +9,7 @@
         "kerigard/laravel-lang-ru": "^2.0",
         "kirschbaum-development/eloquent-power-joins": "^3.5",
         "laravel/framework": "^11.9",
+        "laravel/reverb": "@beta",
         "laravel/tinker": "^2.9",
         "league/flysystem-ftp": "^3.28",
         "maatwebsite/excel": "^3.1",
