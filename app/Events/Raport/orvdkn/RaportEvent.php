@@ -28,7 +28,7 @@ class RaportEvent
         $activeSheet = $spreadsheet->getActiveSheet();
 
         $actual_date = Orvdkn_Veteran_InDate::actual();
-        $raports = Orvdkn_Veteran_Raport::where('in_date_id', $actual_date->id)->get();
+        $raports = Orvdkn_Veteran_Raport::where('in_date_id', $actual_date->id)->whereNotNull('all')->get();
         $raports->map(function ($raport, $index) use ($activeSheet) {
             $row = $index + 4;
             $activeSheet->setCellValue("A$row", $index + 1);
