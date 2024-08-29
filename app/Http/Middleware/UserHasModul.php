@@ -16,7 +16,6 @@ class UserHasModul
      */
     public function handle(Request $request, Closure $next, string $link): Response
     {
-        $link =
         $modul = Main_Modul::where('link', $link)->get()->first();
         if (auth()->user()->can('user-has-modul', $modul)) {
             return $next($request);

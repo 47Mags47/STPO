@@ -17,7 +17,7 @@ class Main_Access extends Model
 
     public static function division_access($modul_id)
     {
-        $user_ids = Main_Access::where('modul_id', 7)->where('level_id', 2)->get()->pluck('user_id');
+        $user_ids = Main_Access::where('modul_id', $modul_id)->where('level_id', 2)->get()->pluck('user_id');
         $division_ids = Main_User::whereIn('id', $user_ids)->get()->pluck('division_id');
         $divisions = Main_Division::select('main__divisions.*')
             ->join('main__cities', 'main__divisions.city_id', '=', 'main__cities.id')
