@@ -22,7 +22,7 @@
                 @endisset
 
                 @required(isset($req))
-                @disabled(isset($disabled))
+                @disabled(isset($disabled) and $disabled != false)
             >
         </label>
     @endif

@@ -24,6 +24,8 @@ return Application::configure(basePath: dirname(__DIR__))
                 base_path('routes/web/CSVI/appeal.php'),
 
                 base_path('routes/web/OOR/inv.php'),
+
+                base_path('routes/web/ORVDKN/veteran.php'),
             ]);
             Route::post('/postUser', [\App\Http\Controllers\api\CopyController::class, 'user']);
             Route::post('/postAppeal', [\App\Http\Controllers\api\CopyController::class, 'appeal']);
