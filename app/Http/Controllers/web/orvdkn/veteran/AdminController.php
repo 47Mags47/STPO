@@ -41,6 +41,7 @@ class AdminController
 
     public function raport(){
         RaportEvent::dispatch();
+        return back()->with(['message' => 'Отчет формируется. По завершению Вам придет оповещение']);
     }
 
 }
