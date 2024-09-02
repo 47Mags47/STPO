@@ -9,7 +9,7 @@
             </div>
             <div class="info">
                 <span class="datetime">
-                    {{ $alert->created_at->format('d.m. H:i') }}
+                    {{ $alert->created_at->format('d.m H:i') }}
                 </span>
             </div>
         @break
@@ -25,10 +25,27 @@
             </div>
             <div class="info">
                 <span class="datetime">
-                    {{ $alert->created_at->format('d.m. H:i') }}
+                    {{ $alert->created_at->format('d.m H:i') }}
                 </span>
                 @if ($alert->link !== null)
                     <x-custom.link link="{{ $alert->link }}" title="Перейти" default />
+                @endif
+            </div>
+        @break
+
+        @case(3)
+            <div class="type">
+                <span class="sender">Формирование документа</span>
+            </div>
+            <div class="middle">
+                <span class="message italic">{!! $alert->message !!}</span>
+            </div>
+            <div class="info">
+                <span class="datetime">
+                    {{ $alert->created_at->format('d.m H:i') }}
+                </span>
+                @if ($alert->link !== null)
+                    <x-custom.link link=" {{route('download', ['path' => urlencode($alert->link), 'name' => $alert->message]) }}" title="Загрузить" default />
                 @endif
             </div>
         @break

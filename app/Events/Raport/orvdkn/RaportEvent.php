@@ -40,13 +40,13 @@ class RaportEvent
         });
         $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
         $file_name = Str::random(40) . '.xlsx';
-        $path = public_path('storage/tmp/raports/orvdkn/veteran/') . $file_name;
-        $writer->save($path);
+        $path = "tmp/raports/orvdkn/veteran/$file_name";
+        $writer->save(public_path('storage/' .$path));
 
         $actual_date_formated = Carbon::parse($actual_date->date)->format('d_m_Y');
-        $message = "Файл \"Отчет по присвоению звания \"Ветеран Труда\"\" на $actual_date_formated сформирован";
+        $message = "Отчет по присвоению звания Ветеран Труда на $actual_date_formated";
 
-        SendAlert::dispatch($message, 3);
+        SendAlert::dispatch($message, 3, $path);
     }
 
     /**

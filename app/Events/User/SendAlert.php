@@ -2,6 +2,7 @@
 
 namespace App\Events\User;
 
+use App\Models\Main\Main_Alert;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -17,9 +18,38 @@ class SendAlert
     /**
      * Create a new event instance.
      */
-    public function __construct(string $message, int $type, string $link = null, string $date = null)
+    public function __construct(
+        string $message, 
+        int $type, 
+        string $link = null, 
+        string $date = null, 
+        int $from_id = null, 
+        int $sender_id = null
+    )
     {
-        dd($message, $type, $link, $date);
+        switch ($type) {
+            case 1:
+                # code...
+                break;
+            case 2:
+                # code...
+                break;
+            case 3:
+                # code...
+                break;
+
+            default:
+                # code...
+                break;
+        }
+
+        Main_Alert::create([
+            'type_id' => $type,
+            'from_id' => $from_id ? $from_id : auth()->user()->id,
+            'sender_id' => $sender_id,
+            'link' => $link,
+            'message' => $message,
+        ]);
     }
 
     /**
