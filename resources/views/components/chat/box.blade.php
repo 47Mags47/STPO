@@ -23,7 +23,10 @@
             </li>
         </ul>
         <div>
-            <x-custom.link link="{{ route('appeal.close', ['appeal' => $appeal->id]) }}" blue-button title="Закрыть обращение" red-button />
+            @if ($appeal->status_id != 3)
+                <x-custom.link link="{{ route('appeal.close', ['appeal' => $appeal->id]) }}" blue-button
+                    title="Закрыть обращение" red-button />
+            @endif
             <x-custom.link link="{{ route('appeal') }}" blue-button title="Выйти" />
         </div>
     </div>
@@ -34,10 +37,12 @@
         {{ $slot }}
     </ul>
     <div class="options">
-        <x-form.form action="" :error-display=false>
-            <x-form.input name="file[]" type='file' upload-ico multiple/>
-            <x-form.area type=text name="data[message]" ph="Написать сообщение..."/>
-            <x-form.sbm name="send-message" send-button />
-        </x-form.form>
+        @if ($appeal->status_id != 3)
+            <x-form.form action="" :error-display=false>
+                <x-form.input name="file[]" type='file' upload-ico multiple />
+                <x-form.area type=text name="data[message]" ph="Написать сообщение..." />
+                <x-form.sbm name="send-message" send-button />
+            </x-form.form>
+        @endif
     </div>
 </div>

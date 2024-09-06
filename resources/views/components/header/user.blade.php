@@ -1,6 +1,6 @@
 @if (auth()->check())
     <div class="user">
-        <a href="{{ route('dashboard') }}">
+        <a href="{{ route('dashboard') }}" class="user-name">
             <img src="{{ asset( auth()->user()->logo ? auth()->user()->logo : 'media/default_logo.png' ) }}" alt="">
             <span>{{ auth()->user()->nickname }}</span>
         </a>
