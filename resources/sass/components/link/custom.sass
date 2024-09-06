@@ -3,12 +3,13 @@ a
 
 a.default
     font-size: 1rem
-    color: #474747
+    color: var(--pre-default)
     text-decoration: none
     font-style: italic
     cursor: pointer
+    transition: var(--all-transition)
     &:hover
-        color: blue
+        color: var(--color-text-default)
 a.disabled
     color: gray
     text-decoration: line-through
