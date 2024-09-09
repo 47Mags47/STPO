@@ -36,7 +36,7 @@
                     <x-custom.link link="{{ route('appeal.close', ['appeal' => $appeal->id]) }}" title="Закрыть обращение"
                         red-button />
                     @if (auth()->user()->can('is_administration'))
-                        <x-custom.link link="{{ route('appeal.dontMath', ['appeal' => $appeal->id]) }}" title="Послать"
+                        <x-custom.link link="{{ route('appeal.dontMath', ['appeal' => $appeal->id]) }}" title="Не верная тема"
                             red-button />
                     @endif
 
