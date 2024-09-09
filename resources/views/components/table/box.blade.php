@@ -32,8 +32,6 @@
             id="{{ isset($formId) ? $formId : '' }}"
             enctype="multipart/form-data"
         >
-            @csrf
-            <x-messages.all />
     @endif
         <table
             @isset($top0)

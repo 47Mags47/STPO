@@ -21,7 +21,7 @@
             @isset($header)
                 <p class="form-header">{!! $header !!}</p>
             @endisset
-            @if(!isset($errorDisplay) or (isset($errorDisplay) and $errorDisplay))
+            @if(isset($errorDisplay))
                 <x-messages.all />
             @endif
             @csrf
