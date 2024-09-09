@@ -230,26 +230,4 @@ class AppealController
         return redirect()->route('appeal');
     }
 
-    public function dontMath(Request $request){
-        $builder = Csvi_Appeal_Appeal::whereKey($request->appeal);
-        $builder->update([
-            'status_id' => 3,
-        ]);
-        $appeal = $builder->first();
-
-        SendAlert::dispatch(
-            "Статус обращения №$appeal->id изменен на \"Закрыто\". Тема обращения не соответсвует содержимому",
-            1,
-            null,
-            null,
-            $appeal->fresh()->sender_id
-        );
-
-        SendSystemAppealMessage::dispatch(
-            $appeal->fresh()->id,
-            'Тема обращения не соответсвует содержимому',
-        );
-
-        return back();
-    }
 }

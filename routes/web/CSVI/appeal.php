@@ -17,7 +17,7 @@ Route::middleware('auth')->group(function () {
 
     Route::middleware('is-administration')->group(function () {
         Route::get('/appeal/{appeal}/accept', [AppealController::class, 'accept'])->name('appeal.accept');
-        Route::get('/appeal/{appeal}/dontMath', [AppealController::class, 'dontMath'])->name('appeal.dontMath');
+        Route::get('/appeal/{appeal}/dontMath', [ChatController::class, 'dontMath'])->name('appeal.dontMath');
     });
 
     //Chat

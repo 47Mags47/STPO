@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\web\csvi\appeals;
 
 use App\Events\SendAppealMessage;
+use App\Events\User\SendAlert;
+use App\Events\User\SendSystemAppealMessage;
 use App\Models\Csvi\Csvi_Appeal_Appeal;
 use App\Models\Csvi\Csvi_Appeal_AppealMessage;
 use Illuminate\Http\Request;
@@ -84,5 +86,29 @@ class ChatController
     public function download(Request $request){
         $path = $request->appeal . '/' . $request->file_name;
         return Storage::disk('appeal-chat')->download($path, mb_substr($request->file_name, 20));
+    }
+
+    public function dontMath(Request $request){
+        $builder = Csvi_Appeal_Appeal::whereKey($request->appeal);
+        $builder->update([
+            'status_id' => 3,
+            'worker_id' => null
+        ]);
+        $appeal = $builder->first();
+
+        SendAlert::dispatch(
+            "Статус обращения №$appeal->id изменен на \"Закрыто\". Тема обращения не соответсвует содержимому",
+            1,
+            null,
+            null,
+            $appeal->fresh()->sender_id
+        );
+
+        SendSystemAppealMessage::dispatch(
+            $appeal->fresh()->id,
+            'Тема обращения не соответсвует содержимому',
+        );
+
+        return back();
     }
 }
