@@ -58,6 +58,14 @@ class ChatController
                     'is_image' => !Validator::make(['file' => $file], ['file' => 'image'])->fails(),
                     'message' => $message,
                 ]);
+
+                event(new SendAlert(
+                    message: "В чате прислали файл " . $file->getClientOriginalName(),
+                    type: 2,
+                    from_id: auth()->user()->id == $appeal->sender_id ? $appeal->worker_id : $appeal->sender_id,
+                    sender_id: auth()->user()->id,
+                    link: route('appeal.chat', ['appeal' => $appeal->id])
+                ));
             }
         } else {
             $validate = $request->validate([
@@ -69,18 +77,15 @@ class ChatController
                 'sender_id' => auth()->user()->id,
                 'message' => $validate['data']['message'],
             ]);
+
+            event(new SendAlert(
+                message: $validate['data']['message'],
+                type: 2,
+                from_id: auth()->user()->id == $appeal->sender_id ? $appeal->worker_id : $appeal->sender_id,
+                sender_id: auth()->user()->id,
+                link: route('appeal.chat', ['appeal' => $appeal->id])
+            ));
         }
-
-        $event_from_id = auth()->user()->id == $appeal->sender_id
-            ? $appeal->sender_id
-            : $appeal->worker_id;
-
-        event(new SendAlert(
-            message: "Новое сообщение в чате обращения №$request->appeal",
-            type: 2,
-            from_id: $event_from_id,
-            link: route('appeal.chat', ['appeal' => $appeal->id])
-        ));
 
         return back();
     }
