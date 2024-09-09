@@ -2,7 +2,25 @@
 @section('page-name', 'Личный кабинет')
 
 @section('body')
-    <x-page.info-box>
+    <div class="content-box dashboard">
+        <div class="content-box-header-box">
+            <p>Личный кабинет</p>
+        </div>
+        <ul class="content-box-nav">
+            <li class="active"><a href="">Данные пользователя</a></li>
+            <li><a href="">Подразделение</a></li>
+            <li><a href="">Администрирование</a></li>
+            <li><a href="">Настройки</a></li>
+        </ul>
+        <x-split.box class="content-box-content mini-scroll">
+            <x-slot:item-1>
+                @include('page.main.dashboard.user')
+            </x-slot:item-1>
+
+        </x-split.box>
+    </div>
+
+    {{-- <x-page.info-box>
         <x-slot:nav-list>
             <li><a href="#logo">Пользователь</a></li>
             <li><a href="#division">Подразделение</a></li>
@@ -59,5 +77,5 @@
                 </x-dashboard.box>
             </div>
         </x-slot:content>
-    </x-page.info-box>
+    </x-page.info-box> --}}
 @endsection
