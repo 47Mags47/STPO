@@ -9,13 +9,15 @@
         id          = "{{ isset($formId) ? $formId : '' }}"
         method      = "{{ isset($method) ? $method : 'GET' }}"
         enctype     = "{{ (isset($file) or isset($files)) ? "multipart/form-data" : "application/x-www-form-urlencoded" }}" 
-        @class(['shadow' => isset($shadow)])
+        @class([
+            'shadow' => isset($shadow),
+        ])
     >
         @isset($header)
             <p class="form-header">{!! $header !!}</p>
         @endisset
         @if(isset($errorDisplay))
-            <x-messages.all />
+            <x-messages.errors />
         @endif
         @csrf
         @isset($method)
