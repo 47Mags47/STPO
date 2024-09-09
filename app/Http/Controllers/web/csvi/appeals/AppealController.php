@@ -2,20 +2,15 @@
 
 namespace App\Http\Controllers\web\csvi\appeals;
 
-use App\Console\Commands\CopyOldDB\CopyAppealChat;
 use App\Events\EditAppealStatus;
 use App\Events\User\SendAlert;
-use App\Events\User\SendSystemAppealMessage;
 use App\Models\Csvi\Csvi_Appeal_Appeal;
 use App\Models\Csvi\Csvi_Appeal_AppealMessage;
-use App\Models\Glossary\Glossary_Csvi_Appeal_Category;
 use App\Models\Glossary\Glossary_Csvi_Appeal_Status;
 use App\Models\Glossary\Glossary_Csvi_Appeal_Them;
 use App\Models\Main\Main_TableFilter;
 use App\Models\Main\Main_TableSort;
-use App\Models\Main\Main_User;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\DB;
 
 class AppealController
 {
@@ -28,6 +23,8 @@ class AppealController
         'status' => 'status.name',
         'worker' => 'worker.nickname',
     ];
+
+    /* Вспомогательные функции */
 
     private function getSort(string|null $pole, string|null $type)
     {
@@ -111,7 +108,6 @@ class AppealController
             });
     }
 
-
     private function sortTable($builder)
     {
         $builder->leftJoinRelationshipUsingAlias('sender', 'sender')
@@ -141,6 +137,8 @@ class AppealController
 
         return compact('new_row_data', 'table_filters');
     }
+
+    /* Основные функции */
 
     public function index(Request $request)
     {
@@ -195,38 +193,69 @@ class AppealController
     public function accept(Request $request)
     {
         $builder = Csvi_Appeal_Appeal::withTrashed()->whereKey($request->appeal);
-        $appeal = $builder->first();
         $builder->update([
             'worker_id' => auth()->user()->id,
             'status_id' => 2,
         ]);
-        EditAppealStatus::dispatch($appeal->fresh());
+        $appeal = $builder->first();
+
+        event(new SendAlert(
+            message: "Ваше обращение №" . $appeal->id . " принято " . auth()->user()->nickname,
+            type: 1,
+            from_id: $appeal->sender_id,
+            link: route('appeal.chat', ['appeal' => $appeal->id])
+        ));
         return redirect()->route('appeal.chat', ['appeal' => $request->appeal]);
     }
 
     public function close(Request $request)
     {
         $builder = Csvi_Appeal_Appeal::withTrashed()->whereKey($request->appeal);
-        $appeal = $builder->first();
         $builder->update([
             'status_id' => 3,
-            'closet_at' => auth()->user()->id,
-            'deleted_at' => now(),
+            'closet_at' => auth()->user()->id
         ]);
-        EditAppealStatus::dispatch($appeal->fresh());
+
+        $appeal = $builder->first();
+        $event_message = auth()->user()->id == $appeal->fresh()->sender_id
+            ? "Обращение №" . $appeal->fresh()->id . " закрыто"
+            : "Ваше обращение №" . $appeal->fresh()->id . " закрыто " . auth()->user()->nickname;
+
+        $event_from_id = auth()->user()->id == $appeal->sender_id
+            ? $appeal->worker_id
+            : $appeal->sender_id;
+        event(new SendAlert(
+            message: $event_message, 
+            type: 1, 
+            from_id: $event_from_id, 
+            link: route('appeal.chat', ['appeal' => $appeal->id])
+        ));
+
         return redirect()->route('appeal');
     }
 
     public function restore(Request $request)
     {
         $builder = Csvi_Appeal_Appeal::withTrashed()->whereKey($request->appeal);
-        $appeal = $builder->first();
         $builder->update([
             'status_id' => 4,
             'closet_at' => null,
-            'deleted_at' => null
         ]);
-        EditAppealStatus::dispatch($appeal->fresh());
+        $appeal = $builder->first();
+
+        $event_message = auth()->user()->id == $appeal->sender_id
+            ? "Обращение №$appeal->id  восстановлено"
+            : "Ваше обращение №$appeal->id закрыто " . auth()->user()->nickname;
+        $event_from_id = auth()->user()->id == $appeal->sender_id
+            ? $appeal->worker_id
+            : $appeal->sender_id;
+        event(new SendAlert(
+            message: $event_message, 
+            type: 1, 
+            from_id: $event_from_id,
+            link: route('appeal.chat', ['appeal' => $appeal->id])
+        ));
+
         return redirect()->route('appeal');
     }
 

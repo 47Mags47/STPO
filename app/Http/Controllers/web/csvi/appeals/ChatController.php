@@ -30,10 +30,6 @@ class ChatController
 
     public function index(Request $request)
     {
-        if (!$this->checkAccess($request->appeal)) {
-            return back();
-        }
-
         $page_data = [
             'appeal' => $this->getAppeal($request->appeal),
             'messages' => Csvi_Appeal_AppealMessage::orderBy('created_at', 'desc')->where('appeal_id', $request->appeal)->paginate(50),
@@ -43,11 +39,10 @@ class ChatController
 
     public function store(Request $request)
     {
-        $appeal = Csvi_Appeal_Appeal::withTrashed()->whereKey($request->appeal)->first();
-        if($appeal->status_id == 3){
+        $appeal = Csvi_Appeal_Appeal::whereKey($request->appeal)->first();
+        if ($appeal->status_id == 3) {
             return back()->withErrors('Обращение закрыто');
         }
-
 
         if ($request->file('file')) {
             $request->validate(['file.*' => ['max:10240']]);
@@ -76,19 +71,28 @@ class ChatController
             ]);
         }
 
-        if($appeal->worker_id){
-            SendAppealMessage::dispatch($message);
-        }
+        $event_from_id = auth()->user()->id == $appeal->sender_id
+            ? $appeal->sender_id
+            : $appeal->worker_id;
+
+        event(new SendAlert(
+            message: "Новое сообщение в чате обращения №$request->appeal",
+            type: 2,
+            from_id: $event_from_id,
+            link: route('appeal.chat', ['appeal' => $appeal->id])
+        ));
 
         return back();
     }
 
-    public function download(Request $request){
+    public function download(Request $request)
+    {
         $path = $request->appeal . '/' . $request->file_name;
         return Storage::disk('appeal-chat')->download($path, mb_substr($request->file_name, 20));
     }
 
-    public function dontMath(Request $request){
+    public function dontMath(Request $request)
+    {
         $builder = Csvi_Appeal_Appeal::whereKey($request->appeal);
         $builder->update([
             'status_id' => 3,
@@ -96,18 +100,15 @@ class ChatController
         ]);
         $appeal = $builder->first();
 
-        SendAlert::dispatch(
-            "Статус обращения №$appeal->id изменен на \"Закрыто\". Тема обращения не соответсвует содержимому",
-            1,
-            null,
-            null,
-            $appeal->fresh()->sender_id
-        );
-
         SendSystemAppealMessage::dispatch(
             $appeal->fresh()->id,
             'Тема обращения не соответсвует содержимому',
         );
+
+        event(new SendAlert(
+            message: "Статус обращения №$appeal->id изменен на \"Закрыто\". Тема обращения не соответсвует содержимому",
+            type: 1
+        ));
 
         return back();
     }
