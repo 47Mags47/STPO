@@ -32,6 +32,7 @@
             id="{{ isset($formId) ? $formId : '' }}"
             enctype="multipart/form-data"
         >
+        @csrf
     @endif
         <table
             @isset($top0)

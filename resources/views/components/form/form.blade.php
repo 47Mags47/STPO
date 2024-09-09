@@ -1,6 +1,5 @@
 <div @class([
     'form-box',
-    'mini-scroll',
     'font-bold' => true,
     'center' => isset($center),
 ])>

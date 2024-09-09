@@ -13,8 +13,9 @@
                 padding: 0 10px
                 border-radius: 7px
                 height: 35px
-                display: flex
+
                 gap: 5px
+                flex-direction: row
                 justify-content: space-between
                 align-items: center
                 background: var(--background-color-input-disabled)
@@ -67,12 +68,13 @@
                     flex-direction: column
                     overflow-y: auto
                     label
-                        display: flex
-                        gap: 5px
-                        transition: var(--all-transition)
-                        cursor: pointer
                         padding: 5px 5px
                         border-radius: 5px
+
+                        gap: 5px
+                        flex-direction: row
+                        transition: var(--all-transition)
+                        cursor: pointer
                         &:hover
                             background: var(--background-color-table-even)
                         input, span
