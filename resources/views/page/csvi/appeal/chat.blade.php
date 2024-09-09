@@ -33,10 +33,14 @@
             </ul>
             <div>
                 @if ($appeal->status_id != 3)
-                    <x-custom.link link="{{ route('appeal.close', ['appeal' => $appeal->id]) }}"
-                        title="Закрыть обращение" red-button />
-                <x-custom.link link="{{ route('appeal.dontMath', ['appeal' => $appeal->id]) }}" title="Послать" red-button />
-                        
+                    <x-custom.link link="{{ route('appeal.close', ['appeal' => $appeal->id]) }}" title="Закрыть обращение"
+                        red-button />
+                    @if (auth()->user()->can('is_administration'))
+                        <x-custom.link link="{{ route('appeal.dontMath', ['appeal' => $appeal->id]) }}" title="Послать"
+                            red-button />
+                    @endif
+
+
                 @endif
                 <x-custom.link link="{{ route('appeal') }}" blue-button title="Выйти" />
             </div>
