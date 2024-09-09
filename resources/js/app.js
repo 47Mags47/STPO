@@ -30,6 +30,8 @@ import * as form from './components/form.js'
 import * as tableFilter from './components/table-filter.js'
 import * as chat from './components/chat.js'
 
+import * as components from './components/export.js'
+
 $(window).on('load', async function () {
     let load = new PopUp('load')
     load.open()
@@ -46,6 +48,8 @@ $(window).on('load', async function () {
         await form.load()
         await tableFilter.load()
         await chat.load()
+
+        await components.load()
     } catch (error) {
         console.log(error);
     }

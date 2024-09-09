@@ -235,6 +235,8 @@ return [
         'data.them_id' => 'Тема',
         'data.comment' => 'Комментарий',
         'data.message' => 'Сообщение',
+
+        'login' => 'Логин',
     ],
 
     'dates' => [

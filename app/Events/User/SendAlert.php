@@ -27,25 +27,13 @@ class SendAlert
         int $sender_id = null,
     )
     {
-        switch ($type) {
-            case 1:
-                # code...
-                break;
-            case 2:
-                # code...
-                break;
-            case 3:
-                # code...
-                break;
-
-            default:
-                # code...
-                break;
+        if($from_id == null){
+            return;
         }
 
         Main_Alert::create([
             'type_id' => $type,
-            'from_id' => $from_id ? $from_id : auth()->user()->id,
+            'from_id' => $from_id,
             'sender_id' => $sender_id,
             'link' => $link,
             'message' => $message,

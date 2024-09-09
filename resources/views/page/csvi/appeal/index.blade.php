@@ -2,7 +2,7 @@
 @section('page-name', 'Обращения')
 
 @section('body')
-    <x-table.box 
+    <x-table.box
         :paginate=true
         :form=true
         w100 
