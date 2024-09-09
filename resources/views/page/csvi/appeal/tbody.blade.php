@@ -67,10 +67,17 @@
                     title="Принять"
                     blue-button
                 />
+                <x-table.td
+                    type="link"
+                    link="{{ route('appeal.dontMath', ['appeal' => $appeal->id]) }}"
+                    title="Послать"
+                    red-button
+                />
             @else
                 <x-table.td />
+                <td></td>
             @endif
-            <td></td>
+            
         @endcan
     </tr>
 @endforeach

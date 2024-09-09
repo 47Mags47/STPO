@@ -2,7 +2,7 @@
 
 namespace App\Events\User;
 
-use App\Models\Main\Main_Alert;
+use App\Models\Csvi\Csvi_Appeal_AppealMessage;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PresenceChannel;
@@ -11,43 +11,18 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class SendAlert
+class SendSystemAppealMessage
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
      * Create a new event instance.
      */
-    public function __construct(
-        string $message, 
-        int $type, 
-        string $link = null, 
-        string $date = null, 
-        int $from_id = null, 
-        int $sender_id = null,
-    )
+    public function __construct($appeal_id, $message)
     {
-        switch ($type) {
-            case 1:
-                # code...
-                break;
-            case 2:
-                # code...
-                break;
-            case 3:
-                # code...
-                break;
-
-            default:
-                # code...
-                break;
-        }
-
-        Main_Alert::create([
-            'type_id' => $type,
-            'from_id' => $from_id ? $from_id : auth()->user()->id,
-            'sender_id' => $sender_id,
-            'link' => $link,
+        Csvi_Appeal_AppealMessage::create([
+            'appeal_id' => $appeal_id,
+            'is_system' => 1,
             'message' => $message,
         ]);
     }

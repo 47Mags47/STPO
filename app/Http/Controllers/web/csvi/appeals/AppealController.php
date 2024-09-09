@@ -4,7 +4,8 @@ namespace App\Http\Controllers\web\csvi\appeals;
 
 use App\Console\Commands\CopyOldDB\CopyAppealChat;
 use App\Events\EditAppealStatus;
-use App\Events\SendAlert;
+use App\Events\User\SendAlert;
+use App\Events\User\SendSystemAppealMessage;
 use App\Models\Csvi\Csvi_Appeal_Appeal;
 use App\Models\Csvi\Csvi_Appeal_AppealMessage;
 use App\Models\Glossary\Glossary_Csvi_Appeal_Category;
@@ -227,5 +228,28 @@ class AppealController
         ]);
         EditAppealStatus::dispatch($appeal->fresh());
         return redirect()->route('appeal');
+    }
+
+    public function dontMath(Request $request){
+        $builder = Csvi_Appeal_Appeal::whereKey($request->appeal);
+        $builder->update([
+            'status_id' => 3,
+        ]);
+        $appeal = $builder->first();
+
+        SendAlert::dispatch(
+            "Статус обращения №$appeal->id изменен на \"Закрыто\". Тема обращения не соответсвует содержимому",
+            1,
+            null,
+            null,
+            $appeal->fresh()->sender_id
+        );
+
+        SendSystemAppealMessage::dispatch(
+            $appeal->fresh()->id,
+            'Тема обращения не соответсвует содержимому',
+        );
+
+        return back();
     }
 }

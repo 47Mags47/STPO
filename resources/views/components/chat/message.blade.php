@@ -71,5 +71,9 @@
         <div class="datetime">
             <span>{!! $message->created_at->format('d.m H:i') !!}</span>
         </div>
+    @else 
+        <div class="system_message">
+            <span>SYSTEM: {!! $message->message !!}</span>
+        </div>
     @endif
 </li>
