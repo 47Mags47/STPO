@@ -71,7 +71,7 @@
                 <x-table.td />
                 <td></td>
             @endif
-            
+            <td></td>
         @endcan
     </tr>
 @endforeach
