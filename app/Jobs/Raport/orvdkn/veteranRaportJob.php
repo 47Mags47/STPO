@@ -37,7 +37,7 @@ class veteranRaportJob implements ShouldQueue
         $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load(public_path('storage/patterns/ORVDKN_VETERAN_RAPORT.xlsx'));
         $activeSheet = $spreadsheet->getActiveSheet();
         $writer = \PhpOffice\PhpSpreadsheet\IOFactory::createWriter($spreadsheet, 'Xlsx');
-        $file_name = Str::random(40) . '.xlsx';
+        $file_name = "Отчет по присвоению звания Ветеран Труда на " . $this->date->date->format('d_m_Y') . '.xlsx';
         $path = "tmp/raports/orvdkn/veteran/$file_name";
 
         $this->raports->map(function ($raport, $index) use ($activeSheet) {
