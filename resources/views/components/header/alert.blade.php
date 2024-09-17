@@ -50,7 +50,7 @@
                 </span>
                 @if ($alert->link !== null)
                     <x-custom.link
-                        link=" {{ route('download', ['path' => urlencode($alert->link), 'name' => $alert->message]) }}"
+                        link=""
                         title="Загрузить" default />
                 @endif
             </div>

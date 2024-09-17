@@ -15,5 +15,6 @@ class AlertSeeder extends Seeder
     {
         Glossary_Main_AlertType::create(['id' => 1, 'name' => 'Изменение статуса обращения']);
         Glossary_Main_AlertType::create(['id' => 2, 'name' => 'Новое сообщение в чате обращения']);
+        Glossary_Main_AlertType::create(['id' => 3, 'name' => 'Формирвание отчета']);
     }
 }

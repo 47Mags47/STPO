@@ -34,8 +34,11 @@ class SaveDB extends Command
         $file_name = 'backup_'. now()->format('Y_m_d_H_i_s') . ".sql";
         $path = $storage->path($path_name) . '/' . $file_name;
         $connect_attr = "--user=" . env('DB_USERNAME') . " --password=" . env('DB_PASSWORD');
+        $database = env('DB_DATABASE');
 
-        $command = "mysqldump --no-tablespaces --complete-insert $connect_attr STPO > " . $path;
+        $command = "mysqldump --no-tablespaces --complete-insert $connect_attr $database > " . $path;
         exec($command);
+
+        echo "Бэкап сохранен в $path \n";
     }
 }

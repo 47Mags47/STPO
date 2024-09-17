@@ -16,22 +16,22 @@ class Csvi_Appeal_Appeal extends Model
 
     protected $guarded = [];
 
-    public function sender(){
-        return $this->belongsTo(Main_User::class, 'sender_id');
-    }
-
     public static function senders(){
         $sender_ids = Csvi_Appeal_Appeal::groupBy('sender_id')->get('sender_id')->pluck('sender_id');
         return Main_User::whereIn('id', $sender_ids)->orderBy('nickname')->get();
     }
 
-    public function worker(){
-        return $this->belongsTo(Main_User::class, 'worker_id');
-    }
-
     public static function workers(){
         $worker_ids = Csvi_Appeal_Appeal::groupBy('worker_id')->get('worker_id')->pluck('worker_id');
         return Main_User::whereIn('id', $worker_ids)->orderBy('nickname')->get();
+    }
+
+    public function sender(){
+        return $this->belongsTo(Main_User::class, 'sender_id');
+    }
+
+    public function worker(){
+        return $this->belongsTo(Main_User::class, 'worker_id');
     }
 
     public function them(){

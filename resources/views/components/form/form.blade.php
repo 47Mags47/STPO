@@ -6,7 +6,7 @@
     <form
         action      = "{{ isset($action) ? $action : '' }}"
         id          = "{{ isset($formId) ? $formId : '' }}"
-        method      = "{{ isset($method) ? $method : 'GET' }}"
+        method      = "{{ (isset($method) and $method !== 'GET') ? 'POST' : 'GET' }}"
         enctype     = "{{ (isset($file) or isset($files)) ? "multipart/form-data" : "application/x-www-form-urlencoded" }}" 
         @class([
             'shadow' => isset($shadow),

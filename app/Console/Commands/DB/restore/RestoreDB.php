@@ -34,7 +34,8 @@ class RestoreDB extends Command
 
         $drop_command = "mysql $connect_attr -e " . '"DROP DATABASE STPO; CREATE DATABASE STPO"';
         $change_dir_path = Storage::disk('backup')->path('');
-        $restore_command = "mysql $connect_attr STPO < $path";
+        $database = env('DB_DATABASE');
+        $restore_command = "mysql $connect_attr $database < $path";
 
         $command = "$drop_command && cd $change_dir_path && $restore_command";
         exec($command);

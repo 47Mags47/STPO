@@ -35,10 +35,6 @@ class DBReload extends Command
             }else{
                 $this->call(DB\restore\RestoreDB::class);
             }
-    
-            $this->call(DB\old\Users::class);
-            $this->call(DB\old\Appeal::class);
-            $this->call(DB\old\AppealChat::class);
         } catch (\Throwable $th) {
             dump($th);
             $this->call(DB\restore\RestoreDB::class);

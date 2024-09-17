@@ -8,13 +8,26 @@ use Illuminate\Http\Request;
 
 class UserController
 {
+    private static function getStatus($raport){
+        if($raport == null){
+            return 'dont-create';
+        }
+    }
+
     public function create()
     {
-        $raport = Orvdkn_Veteran_Raport::firstOrCreate([
-            'division_id' => auth()->user()->division_id,
-            'in_date_id' => Orvdkn_Veteran_InDate::actual()->id,
-        ]);
-        return view('page.orvdkn.create', compact('raport'));
+        $raport = Orvdkn_Veteran_Raport::where('in_date_id', Orvdkn_Veteran_InDate::actual()->id)
+            ->where('division_id', auth()->user()->division_id)
+            ->get()
+            ->first();
+
+        if ($raport) {
+            return $raport->edited
+                ? redirect()->route('veteran-truda.edit', compact('raport'))
+                : redirect()->route('veteran-truda.show', compact('raport'));
+        }
+
+        return view('page.orvdkn.veteran.user.create');
     }
 
     public function store(Request $request)
@@ -29,10 +42,35 @@ class UserController
             return back()->withErrors('Нодопустимые значения');
         }
 
-        Orvdkn_Veteran_Raport::where('in_date_id', Orvdkn_Veteran_InDate::actual()->id)
-            ->where('division_id', auth()->user()->division_id)
-            ->update($validate);
+        $raport = Orvdkn_Veteran_Raport::create(array_merge($validate, [
+            'creator_id' => auth()->user()->id,
+            'division_id' => auth()->user()->division_id,
+            'in_date_id' => Orvdkn_Veteran_InDate::actual()->id
+        ]));
 
-        return back()->with(['message' => 'Данные успешно сохранены']);
+        return redirect()->route('veteran-truda.show', compact('raport'));
+    }
+
+    public function show(Request $request, Orvdkn_Veteran_Raport $raport)
+    {
+        return view('page.orvdkn.veteran.user.show', compact('raport'));
+    }
+
+    public function edit(Request $request, Orvdkn_Veteran_Raport $raport)
+    {
+
+
+        return view('page.orvdkn.veteran.user.edit', compact('raport'));
+    }
+
+    public function update(Request $request, Orvdkn_Veteran_Raport $raport)
+    {
+        $validate = $request->validate([
+            'all' => ['required', 'integer'],
+            'el' => ['required', 'integer'],
+            'mfc' => ['required', 'integer'],
+        ]);
+        $raport->update(array_merge($validate, ['edited' => False]));
+        return redirect()->route('veteran-truda.show', compact('raport'));
     }
 }

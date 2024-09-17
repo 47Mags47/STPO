@@ -13,6 +13,10 @@ class Orvdkn_Veteran_InDate extends Model
 
     public $guarded = [];
 
+    protected $casts = [
+        'date' => 'datetime'
+    ];
+
     public static function actual()
     {
         return Orvdkn_Veteran_InDate::firstOrCreate(['is_active' => true], ['date' => '1977-01-01']);

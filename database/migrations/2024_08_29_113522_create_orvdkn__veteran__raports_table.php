@@ -16,8 +16,10 @@ return new class extends Migration
             $table->integer('all')->nullable();
             $table->integer('el')->nullable();
             $table->integer('mfc')->nullable();
+            $table->foreignId('creator_id')->nullable()->constrained('main__users');
             $table->foreignId('in_date_id')->constrained('orvdkn__veteran__in_dates');
             $table->foreignId('division_id')->constrained('main__divisions');
+            $table->boolean('edited')->default(False);
             $table->timestamps();
         });
     }
