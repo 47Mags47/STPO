@@ -50,7 +50,8 @@
                 </span>
                 @if ($alert->link !== null)
                     <x-custom.link
-                        link=""
+                        new-page
+                        link="{{ asset('/storage/' . $alert->link) }}"
                         title="Загрузить" default />
                 @endif
             </div>
