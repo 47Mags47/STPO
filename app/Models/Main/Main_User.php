@@ -4,6 +4,9 @@ namespace App\Models\Main;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -42,12 +45,17 @@ class Main_User extends Authenticatable implements MustVerifyEmail
         'updated_at'
     ];
 
-    public function division()
+    public function acesses(): HasMany
     {
-        return $this->belongsTo(Main_Division::class);
+        return $this->hasMany(Main_Access::class, 'user_id', 'id');
     }
 
-    public function alerts()
+    public function division()
+    {
+        return $this->hasOne(Main_Division::class, 'id', 'division_id');
+    }
+
+    public function alerts(): HasMany
     {
         return $this
             ->hasMany(Main_Alert::class, 'from_id')

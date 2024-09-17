@@ -19,15 +19,14 @@ class SendAlert
      * Create a new event instance.
      */
     public function __construct(
-        string $message, 
-        int $type, 
-        string $link = null, 
-        string $date = null, 
-        int $from_id = null, 
+        string $message,
+        int $type,
+        string $link = null,
+        string $date = null,
+        int $from_id = null,
         int $sender_id = null,
-    )
-    {
-        if($from_id == null){
+    ) {
+        if ($from_id == null) {
             return;
         }
 

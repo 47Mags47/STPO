@@ -1,0 +1,19 @@
+{
+    "sqltools.connections": [
+        {
+            "mysqlOptions": {
+                "authProtocol": "default",
+                "enableSsl": "Disabled"
+            },
+            "previewLimit": 50,
+            "server": "MariaDB-11.2",
+            "port": 3306,
+            "driver": "MariaDB",
+            "name": "Local",
+            "group": "Local",
+            "database": "LOCAL_STPO",
+            "username": "root",
+            "password": ""
+        }
+    ]
+}

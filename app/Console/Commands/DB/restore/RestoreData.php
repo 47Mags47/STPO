@@ -32,7 +32,8 @@ class RestoreData extends Command
             : collect(Storage::disk('backup')->files('data'))->last();
         $connect_attr = "--user=" . env('DB_USERNAME') . " --password=" . env('DB_PASSWORD');
         $change_dir_path = Storage::disk('backup')->path('');
-        $restore_command = "mysql $connect_attr --force STPO < $path";
+        $database = env('DB_DATABASE');
+        $restore_command = "mysql $connect_attr --force $database < $path";
 
         $command = "cd $change_dir_path && $restore_command";
         exec($command);

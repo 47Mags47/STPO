@@ -14,10 +14,9 @@
             <summary>{{ $modul_department->name }}</summary>
             <ul>
                 @foreach ($modul_department->moduls as $modul)
-                    @if (auth()->user()->can('user-has-modul', $modul) and Route::has($modul->link))
+                    @if (auth()->user()->can('modul-access', $modul))
                         <li><a href="{{ route($modul->link) }}" class="left-to-right">{!! $modul->name !!}</a></li>
                     @else
-                        {{-- @dump(auth()->user()->can('user-has-modul', $modul), Route::has($modul->link)) --}}
                         <li data-disable="true">
                             <span>{!! $modul->name !!}</span>
                         </li>

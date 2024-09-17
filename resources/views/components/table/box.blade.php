@@ -1,7 +1,7 @@
 {{-- parametrs: form(true|false) | paginate(true|false) | action | method --}}
 {{-- flags: top-0 --}}
 <div class="table-box mini-scroll">
-    @if (isset($filters) or (isset($paginate)and $paginate))
+    @if (isset($filters) or (isset($paginate) and $paginate))
         <div class="table-options">
             @isset($filters)
                 <form action="{{ isset($searchLink) ? $searchLink : '' }}" method="GET" class="search">

@@ -1,9 +1,8 @@
 <?php
-
-use App\Http\Middleware\IsAdministration;
-use App\Http\Middleware\UserHasModul;
-use App\Http\Middleware\UserModulAdminer;
-use App\Http\Middleware\UserModulUser;
+use App\Http\Middleware\Accept\UserAccessModul;
+use App\Http\Middleware\Accept\UserLoggedAdministrators;
+use App\Http\Middleware\Moduls\UserAdminModul;
+use App\Http\Middleware\Moduls\UserUserModul;
 use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
@@ -33,11 +32,11 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         $middleware->alias([
-            'has-access' => UserHasModul::class,
-            'modul-admin' => UserModulAdminer::class,
-            'modul-user' => UserModulUser::class,
+            'logget-administrators' => UserLoggedAdministrators::class,
 
-            'is-administration' => IsAdministration::class,
+            'modul-access' => UserAccessModul::class,
+            'modul-admin' => UserAdminModul::class,
+            'modul-user' => UserUserModul::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions) {

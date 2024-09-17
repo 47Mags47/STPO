@@ -4,7 +4,7 @@ use App\Http\Controllers\web\oor\inv\HubController;
 use App\Http\Controllers\web\oor\inv\InspectorController;
 use Illuminate\Support\Facades\Route;
 
-Route::middleware(['auth', 'has-access:inv'])->group(function () {
+Route::middleware(['auth', 'modul-access:inv'])->group(function () {
     Route::get('/inv', HubController::class)->name('inv');
     Route::middleware('modul-user:inv')->group(function () {
         Route::get('/inv/filling', [FillingController::class, 'index'])->name('inv.filling');

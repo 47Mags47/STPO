@@ -30,7 +30,11 @@ class Main_Access extends Model
 
     public function user()
     {
-        return $this->belongsTo(Main_User::class, 'user_id');
+        return $this->hasOne(Main_User::class, 'id', 'user_id');
+    }
+
+    public function division(){
+        return $this->through('user')->has('division');
     }
 
     public function level()

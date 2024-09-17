@@ -18,5 +18,5 @@ yarn-error.log
 /.fleet
 /.idea
 nodesource_setup.sh
-/.osp
-README.md
+
+.osp/project.ini
