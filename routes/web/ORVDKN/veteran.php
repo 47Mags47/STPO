@@ -18,6 +18,7 @@ Route::middleware(['auth', 'modul-access:veteran-truda'])->group(function () {
 
     Route::middleware('modul-admin:veteran-truda')->group(function () {
         Route::get('/veteran-truda/admin/raports', [AdminController::class, 'raports_index'])->name('veteran-truda.admin.raports.index');
+        Route::get('/veteran-truda/admin/raports/{division}/show', [AdminController::class, 'raports_show'])->name('veteran-truda.admin.raports.show');
         Route::get('/veteran-truda/admin/raports/{raport}/delete', [AdminController::class, 'raports_delete'])->name('veteran-truda.admin.raports.delete');
         Route::get('/veteran-truda/admin/raports/{raport}/edit', [AdminController::class, 'raports_edit'])->name('veteran-truda.admin.raports.edit');
 

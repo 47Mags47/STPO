@@ -16,43 +16,24 @@ class ChatController
 {
     private $appeal;
 
-    private function getAppeal($id)
+    public function index(Request $request, Csvi_Appeal_Appeal $appeal)
     {
-        $this->appeal = Csvi_Appeal_Appeal::withTrashed()->whereKey($id)->first();
-        return $this->appeal;
+        return view('page.csvi.appeal.chat', compact('appeal'));
     }
 
-    private function checkAccess($appeal_id)
+    public function message_store(Request $request, Csvi_Appeal_Appeal $appeal)
     {
-        $appeal = Csvi_Appeal_Appeal::withTrashed()->whereKey($appeal_id)->first();
-        return auth()->user()->can('appeal-chat-access', $appeal);
-    }
-
-    public function index(Request $request)
-    {
-        $page_data = [
-            'appeal' => $this->getAppeal($request->appeal),
-            'messages' => Csvi_Appeal_AppealMessage::orderBy('created_at', 'desc')->where('appeal_id', $request->appeal)->paginate(50),
-        ];
-        return view('page.csvi.appeal.chat', $page_data);
-    }
-
-    public function store(Request $request)
-    {
-        $appeal = Csvi_Appeal_Appeal::whereKey($request->appeal)->first();
-        if ($appeal->status_id == 3) {
-            return back()->withErrors('Обращение закрыто');
-        }
+        // dd($request->all());
 
         if ($request->file('file')) {
-            $request->validate(['file.*' => ['max:10240']]);
+            $request->validate(['file.*' => ['max:102400']]);
 
             foreach ($request->file('file') as $file) {
                 $message = date('Y-m-d-H-i-s') . '_' . $file->getClientOriginalName();
-                Storage::disk('appeal-chat')->putFileAs($request->appeal, $file, $message);
+                Storage::disk('appeal-chat')->putFileAs($appeal->id, $file, $message);
 
-                $message = Csvi_Appeal_AppealMessage::create([
-                    'appeal_id' => $request->appeal,
+                Csvi_Appeal_AppealMessage::create([
+                    'appeal_id' => $appeal->id,
                     'sender_id' => auth()->user()->id,
                     'is_file' => true,
                     'is_image' => !Validator::make(['file' => $file], ['file' => 'image'])->fails(),
@@ -69,17 +50,17 @@ class ChatController
             }
         } else {
             $validate = $request->validate([
-                'data.message' => ['required']
+                'message' => ['required']
             ]);
 
-            $message = Csvi_Appeal_AppealMessage::create([
-                'appeal_id' => $request->appeal,
+            Csvi_Appeal_AppealMessage::create([
+                'appeal_id' => $appeal->id,
                 'sender_id' => auth()->user()->id,
-                'message' => $validate['data']['message'],
+                'message' => $validate['message'],
             ]);
 
             event(new SendAlert(
-                message: $validate['data']['message'],
+                message: $validate['message'],
                 type: 2,
                 from_id: auth()->user()->id == $appeal->sender_id ? $appeal->worker_id : $appeal->sender_id,
                 sender_id: auth()->user()->id,

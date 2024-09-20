@@ -24,8 +24,14 @@ class AdminController
 
     public function raports_index()
     {
-        $raports = Orvdkn_Veteran_Raport::paginate(50);
+        $raports = Orvdkn_Veteran_Raport::orderBy('in_date_id', 'desc')->paginate(50);
         return view('page.orvdkn.veteran.admin.raports.index', compact('raports'));
+    }
+
+    public function raports_show(Request $request, Main_Division $division){
+        $raport = Orvdkn_Veteran_Raport::where('in_date_id', Orvdkn_Veteran_InDate::actual()->id)->where('division_id', $division->id)->get()->first();
+        $active = $division->id;
+        return view('page.orvdkn.veteran.admin.raports.show', compact('raport', 'active'));
     }
 
     public function raports_delete(Request $request, Orvdkn_Veteran_Raport $raport)
@@ -53,14 +59,10 @@ class AdminController
     public function dates_store(Request $request)
     {
         $validated = $request->validate([
-            'data.date' => ['required'],
+            'date' => ['required'],
         ]);
 
-        $data = [
-            'date' => $validated['data']['date'],
-        ];
-
-        Orvdkn_Veteran_InDate::create($data);
+        Orvdkn_Veteran_InDate::create($validated);
 
         return back()->with(['message' => 'Запись успешно добавлена']);
     }
@@ -110,18 +112,18 @@ class AdminController
     public function access_store(Request $request)
     {
         $validated = $request->validate([
-            'data.user_id' => ['required', 'notIn:0'],
-            'data.level_id' => ['required', 'notIn:0']
+            'user_id' => ['required', 'notIn:0'],
+            'level_id' => ['required', 'notIn:0']
         ]);
 
-        if (Main_Access::where('modul_id', 4)->where('user_id', $validated['data']['user_id'])->count() > 0) {
+        if (Main_Access::where('modul_id', 4)->where('user_id', $validated['user_id'])->count() > 0) {
             return back()->withErrors('У данного пользователя уже есть доступ');
         }
 
         $data = [
             'modul_id' => 4,
-            'user_id' => $validated['data']['user_id'],
-            'level_id' => $validated['data']['level_id'],
+            'user_id' => $validated['user_id'],
+            'level_id' => $validated['level_id'],
         ];
 
         Main_Access::create($data);

@@ -19,46 +19,28 @@ window.$ = jQuery
 //     enabledTransports: ['ws', 'wss'],
 // });
 
-import PopUp from './classes/PopUp.js';
-import * as pageMeny from './page-meny.js'
-import * as header from './header.js'
-import * as table from './table.js'
+import * as header from './components/header.js'
+import * as table from './components/table.js'
+import * as messages from './components/messages.js'
 import * as excel from './excel.js'
 import * as admin from './components/admin.js'
-import * as selectDepend from './components/select-depend.js'
 import * as form from './components/form.js'
-import * as tableFilter from './components/table-filter.js'
 import * as chat from './components/chat.js'
 
-import * as components from './components/export.js'
-
 $(window).on('load', async function () {
-    let load = new PopUp('load')
-    load.open()
-
     try {
-        await pageMeny.load()
+        //Глобальные
         await header.load()
-        await table.load()
-        await excel.load()
-
+        
         // Компоненты
+        await table.load()
+        await messages.load()
+        // await excel.load()
         await admin.load()
-        await selectDepend.load()
         await form.load()
-        await tableFilter.load()
         await chat.load()
 
-        await components.load()
     } catch (error) {
         console.log(error);
     }
-
-    load.close()
-})
-
-import * as dashboard from './pages/dashboard.js'
-
-$(window).on('load', function () {
-    dashboard.load()
 })

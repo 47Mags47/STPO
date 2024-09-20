@@ -1,14 +1,24 @@
-{{-- req-attr: title | value --}}
-{{-- attr: dependVal --}}
+{{-- 
+    ## Аттрибуты
+        value           - Устанавливает значение поля
+        title           - Устанавливает текст поля
+        dependVal       - Указывает id для зависимых полей
+        p-name          - Устанавливает имя select. При наличии устанавливает old значения выбора
+    ## Свойства
+        selected        - Устанавливает поле выыбранным
+--}}
 
-<option
+<option 
     value="{{ $value }}"
+    title="{!! (mb_strlen($title) > 40 or isset($title)) ? $title : '' !!}"
     @isset($dependVal)
         depend-val="{{ $dependVal }}"
     @endisset
-    @if (mb_strlen($title) > 40)
-        title="{!! $title !!}"
-    @endif
+    @selected(isset($selected) or (isset($pName) and old($pName) == $value))
 >
-    {!! mb_strlen($title) < 40 ? $title : mb_substr($title, 0, 40) . '...' !!}
+    @if (mb_strlen($title) > 40)
+        {!! mb_substr($title, 0, 40) . '...' !!}
+    @else
+        {!! $title !!}
+    @endif
 </option>

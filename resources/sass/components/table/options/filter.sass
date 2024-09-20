@@ -1,86 +1,55 @@
-.filters
+.table-box .filters-box form
     display: flex
-    gap: 5px
-    position: relative
-    ul
-        display: flex
-        gap: 5px
-        li
-            list-style: none
-            label.preview
-                width: initial
-                min-width: 100px
-                padding: 0 10px
-                border-radius: 7px
-                height: 35px
+    gap: 10px
+    padding: 0 15px
+    .filter-box 
+        position: relative
+        .preview
+            padding: 5px 10px
+            max-width: 350px
+            min-width: 200px
+            height: 30px
+            justify-content: space-between
+            cursor: pointer
+            border-radius: 7px
+            overflow: hidden
+            background: var(--background-color-input-disabled)
+            span
+                padding: 0
+                font-size: .9rem
+            input
+                display: none
+        .filter
+            position: absolute
+            top: calc(100% + 10px)
+            max-width: 100%
+            padding: 0 7px
 
-                gap: 5px
-                flex-direction: row
-                justify-content: space-between
+            display: grid
+            grid-template-rows: 40px auto
+            max-height: 0
+
+            background: var(--background-color-input-disabled)
+            border-radius: 0 0 7px 7px
+            transition: var(--all-transition)
+            overflow: hidden
+            z-index: 1
+            &.open
+                max-height: 400px
+                padding-bottom: 10px
+                box-shadow: var(--shadow-default)
+            .filter-search
+                display: flex
                 align-items: center
-                background: var(--background-color-input-disabled)
-                cursor: pointer
-                span, i
-                    font-size: 0.9rem
-                    font-weight: bold
-                    color: var(--color-text-pre-default)
-                    transition: var(--all-transition)
                 input
-                    display: none
-                &:hover
-                    span, i
-                        color: var(--color-text-default)
-            .box
-                width: 300px
-                position: absolute
-                top: calc( 100% + 15px )
-                right: 0
-                background: var(--background-color-input)
-                z-index: 10
-
-                display: grid
-                grid-template-rows: 40px auto
-                transition: var(--all-transition)
-
-                overflow: hidden
-                max-height: 0
-                padding: 0 5px
-                box-shadow: none
-                &.open
-                    max-height: 440px
-                    padding: 5px
-                    box-shadow: var(--shadow-default)
-                .search
                     width: 100%
-                    height: auto
-                    padding: 5px
-                    input
-                        width: 100%
-                        padding: 3px 5px
-                        outline: none
-                        border: var(--border-default)
-                        background: var(--background-color-input)
-                        border-radius: 7px
-                        color: var(--color-text-pre-default)
-                .list
-                    max-height: 380px
-                    display: flex
-                    flex-direction: column
-                    overflow-y: auto
-                    label
-                        padding: 5px 5px
-                        border-radius: 5px
+            ul.list
+                max-height: 350px
+                overflow-y: auto
+                li label
+                    flex-direction: row
+                    padding: 3px 0
+                    cursor: pointer
+                    span
+                        font-size: .9rem
 
-                        gap: 5px
-                        flex-direction: row
-                        transition: var(--all-transition)
-                        cursor: pointer
-                        &:hover
-                            background: var(--background-color-table-even)
-                        input, span
-                            font-size: 0.9rem
-                            color: var(--color-text-pre-default)
-
-    input[type='submit'],
-    input[type='reset']
-        height: 35px

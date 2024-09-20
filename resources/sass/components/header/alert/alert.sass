@@ -1,0 +1,48 @@
+header .top .alert-box .alert-list
+    display: flex
+    flex-direction: column-reverse
+    li
+        display: flex
+        gap: 5px
+        flex-direction: column
+        color: var(--color-text-default)
+        border-top: var(--border-default)
+        transition: var(--all-transition)
+        padding: 5px 10px
+
+        background: var(--background-color-default)
+        &.new
+            background: var(--background-color-new-alert)
+        &:hover
+            border-top: var(--border-pre-default)
+            background: var(--background-color-pre-default)
+        .header
+            width: 100%
+            height: auto
+            color: inherit
+            span
+                font-size: 1rem
+                color: inherit
+        .text
+            width: 100%
+            height: auto
+            display: flex
+            gap: 5px
+            .logo
+                width: auto
+                height: 100%
+                img
+                    width: 40px
+                    height: 40px
+        .info
+            width: 100%
+            height: auto
+            font-size: .8rem
+            display: flex
+            justify-content: space-between
+            a
+                color: var(--color-text-pre-default)
+                font-size: 1rem
+                font-style: italic
+                &:hover 
+                    color: var(--color-text-default)
