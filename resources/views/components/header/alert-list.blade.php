@@ -1,16 +1,20 @@
-<div class="alerts" id="alert-bell">
+<div class="alert-box">
     @php
         $alerts = auth()->user()->alerts;
-        $no_read_count = $alerts->filter(function($alert){
-            return !$alert->visible;
-        })->count();
+        $no_read_count = $alerts
+            ->filter(function ($alert) {
+                return !$alert->visible;
+            })
+            ->count();
     @endphp
-    
-    <i class="fa fa-bell" aria-hidden="true"></i>
-    <x-custom.counter :count="$no_read_count"/>
-    <ul class="alert-list mini-scroll">
+
+    <div class="preview">
+        <i class="fa fa-bell" aria-hidden="true"></i>
+        <x-custom.counter :count="$no_read_count" />
+    </div>
+    <ul class="alert-list no-scroll-line">
         @foreach ($alerts as $alert)
-            @include('components.header.alert', compact('alert'))
+            <x-header.alert :$alert />
         @endforeach
     </ul>
 </div>

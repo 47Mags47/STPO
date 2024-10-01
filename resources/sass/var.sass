@@ -2,8 +2,10 @@ html:root
     /* ### BORDER ### */
     --border-width-default: 1px
     --border-style-default: solid
-    --border-color-default: var(--background-gray-color)
+    --border-color-default: #666
+    --border-color-pre-default: #999
     --border-default: var(--border-width-default) var(--border-style-default) var(--border-color-default)
+    --border-pre-default: var(--border-width-default) var(--border-style-default) var(--border-color-pre-default)
 
     /* ### SHADOW ### */
     --shadow-default: 0 0 8px 4px var(--background-gray-color)
@@ -25,8 +27,16 @@ html:root
     --modul-color: var(--color-text-blue)
 
     /*table*/
-    --background-color-table: var(--background-color-default)
+    --table-background: var(--background-color-default)
+    --table-background-green: rgb(57, 94, 38)
+    --table-background-purple: rgb(77, 41, 57)
+    --table-border-color: #666
+    --table-border: 1px solid var(--table-border-color)
+    --table-text-size: .85rem
+    --table-text-color: #bbb
+
     --sheet-list-height: 30px
+
 
     /*Error*/
     --error-background: #1a202c

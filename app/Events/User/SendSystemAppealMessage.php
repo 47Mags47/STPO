@@ -18,10 +18,13 @@ class SendSystemAppealMessage
     /**
      * Create a new event instance.
      */
-    public function __construct($appeal_id, $message)
+    public function __construct(
+        int $appeal, 
+        string $message
+    )
     {
         Csvi_Appeal_AppealMessage::create([
-            'appeal_id' => $appeal_id,
+            'appeal_id' => $appeal,
             'is_system' => 1,
             'message' => $message,
         ]);

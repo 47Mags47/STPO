@@ -4,13 +4,20 @@ namespace App\Http\Controllers\web\csvi\appeals;
 
 use App\Events\EditAppealStatus;
 use App\Events\User\SendAlert;
+use App\Events\User\SendSystemAppealMessage;
 use App\Models\Csvi\Csvi_Appeal_Appeal;
 use App\Models\Csvi\Csvi_Appeal_AppealMessage;
+use App\Models\Glossary\Glossary_Csvi_Appeal_Category;
 use App\Models\Glossary\Glossary_Csvi_Appeal_Status;
 use App\Models\Glossary\Glossary_Csvi_Appeal_Them;
+use App\Models\Main\Main_City;
 use App\Models\Main\Main_TableFilter;
 use App\Models\Main\Main_TableSort;
+use App\Models\Main\Main_User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Validator;
+use stdClass;
 
 class AppealController
 {
@@ -24,139 +31,133 @@ class AppealController
         'worker' => 'worker.nickname',
     ];
 
-    /* Вспомогательные функции */
-
-    private function getSort(string|null $pole, string|null $type)
+    private function getFilterList()
     {
-        $sort = $pole === null
-            ? Main_TableSort::firstOrCreate(
-                [
-                    'user_id' => auth()->user()->id,
-                    'table_id' => 1,
-                ],
-                [
-                    'sort' => [
-                        'pole' => $this->sort_arr['created_at'],
-                        'type' => 'desc'
-                    ]
-                ]
-            )
-            : Main_TableSort::updateOrCreate(
-                [
-                    'user_id' => auth()->user()->id,
-                    'table_id' => 1,
-                ],
-                [
-                    'sort' => [
-                        'pole' => $this->sort_arr[$pole],
-                        'type' => $type
-                    ]
-                ]
-            );
-        return $sort;
+        return [
+            'sender_id' => [
+                'preview' => 'Отправитель',
+                'list' => Main_User::orderBy('nickname')->get(),
+                'name' => 'id',
+                'value' => 'nickname',
+                'is_administration' => true,
+            ],
+
+            'worker_id' => [
+                'preview' => 'Исполнитель',
+                'list' => Main_User::whereIn('role_id', [1, 2])->orderBy('nickname')->get(),
+                'name' => 'id',
+                'value' => 'nickname'
+            ],
+
+            'status_id' => [
+                'preview' => 'Статус',
+                'list' => Glossary_Csvi_Appeal_Status::get(),
+                'name' => 'id',
+                'value' => 'name'
+            ],
+
+            'them_id' => [
+                'preview' => 'Тема',
+                'list' => Glossary_Csvi_Appeal_Them::orderBy('category_id')->orderBy('name')->get()->map(function ($them) {
+                    $them->name = "(" . $them->category->name . ") " . $them->name;
+                    return $them;
+                }),
+                'name' => 'id',
+                'value' => 'name'
+            ],
+        ];
     }
 
-    private function getFilters(array|null $filters)
+    private function filterTable($builder, Main_TableFilter $model)
     {
-        return $filters === null
-            ? Main_TableFilter::where('user_id', auth()->user()->id)->where('table_id', 1)->first()
-            : Main_TableFilter::updateOrCreate([
-                'user_id' => auth()->user()->id,
-                'table_id' => 1,
-            ], [
-                'filters' => collect($filters)->map(function ($item, $key) {
-                    $list = [];
-                    foreach ($item as $id => $bool) {
-                        $list[] = $id;
-                    }
-                    return $list;
-                })
-            ]);
+        foreach ($model->filters as $key => $ids) {
+            $builder->whereIn($key, $ids);
+        }
+        return $builder;
     }
 
-    private function getTableData()
+    private function getFiltersModel($filters): Main_TableFilter
     {
-        $builder = auth()->user()->can('is_administration')
-            ? Csvi_Appeal_Appeal::withTrashed()->select('csvi__appeal__appeals.*')
-            : Csvi_Appeal_Appeal::withTrashed()->where('sender_id', auth()->user()->id)->select('csvi__appeal__appeals.*');
-        $this->filterTable($builder);
-        $this->sortTable($builder);
-        $this->searchTable($builder);
-
-        return $builder->paginate(100);
-    }
-
-    private function filterTable($builder)
-    {
-        if ($this->filters) {
-            foreach ($this->filters->filters as $key => $filter) {
-                $builder->whereIn($key, $filter);
+        if ($filters) {
+            $result = [];
+            foreach ($filters as $key => $value) {
+                $result[$key] = [];
+                foreach ($value as $id => $status) {
+                    $result[$key][] = $id;
+                }
             }
         }
 
-        return $builder;
-    }
-    private function searchTable($builder)
-    {
-        $search_str = $this->search;
-        return $this->search == null
-            ? $builder
-            : $builder->where(function ($query) use ($search_str) {
-                $query
-                    ->where('csvi__appeal__appeals.comment', 'like', "%$search_str%")
-                    ->OrWhere('csvi__appeal__appeals.id', $search_str);
-            });
-    }
+        return $filters
+            ? Main_TableFilter::updateOrCreate([
+                'user_id' => auth()->user()->id,
+                'table_id' => 1
+            ], [
+                'filters' => $result
+            ])
 
-    private function sortTable($builder)
-    {
-        $builder->leftJoinRelationshipUsingAlias('sender', 'sender')
-            ->leftJoinRelationshipUsingAlias('worker', 'worker')
-            ->leftJoinRelationshipUsingAlias('status', 'status')
-            ->leftJoinRelationshipUsingAlias('them.category', 'category');
-        $builder = mb_strpos($this->sort->sort['pole'], '.')
-            ? $builder->orderByPowerJoins($this->sort->sort['pole'], $this->sort->sort['type'])
-            : $builder->orderBy($this->sort->sort['pole'], $this->sort->sort['type']);
+            : Main_TableFilter::firstOrCreate([
+                'user_id' => auth()->user()->id,
+                'table_id' => 1
+            ], [
+                'filters' => []
+            ]);
 
-        return $builder;
     }
 
-    private function pageData()
+    private function getSortModel($sort)
     {
-        $new_row_data = [
-            'thems' => Glossary_Csvi_Appeal_Them::leftJoinRelationshipUsingAlias('category', 'category')
-                ->orderByPowerJoins('category.name')
-                ->get()
-        ];
-        $table_filters = [
-            'senders' => Csvi_Appeal_Appeal::senders(),
-            'workers' => Csvi_Appeal_Appeal::workers(),
-            'statuses' => Glossary_Csvi_Appeal_Status::orderBy('name')->get(),
-            'thems' => Glossary_Csvi_Appeal_Them::categoryThem()
-        ];
-
-        return compact('new_row_data', 'table_filters');
+        return $sort
+            ? Main_TableSort::updateOrCreate([
+                'user_id' => auth()->user()->id,
+                'table_id' => 1
+            ], [
+                'sort' => [
+                    'pole' => $sort['pole'],
+                    'type' => $sort['type']
+                ]
+            ])
+            : Main_TableSort::firstOrCreate([
+                'user_id' => auth()->user()->id,
+                'table_id' => 1
+            ], [
+                'sort' => [
+                    'pole' => 'id',
+                    'type' => 'desc'
+                ]
+            ]);
     }
 
     /* Основные функции */
 
     public function index(Request $request)
     {
-        $this->sort = $this->getSort($request->sort_pole, $request->sort_type);
-        $this->filters = $this->getFilters($request->filter);
-        $this->search = $request->search;
-        $this->page_data = $this->pageData();
-        $this->appeals = $this->getTableData();
+        $filterModel = $this->getFiltersModel($request->filters);
+        $sortModel = $this->getSortModel($request->sort);
+
+        $builder = Csvi_Appeal_Appeal::whereNotNull('id');
+        $builder = auth()->user()->can('is_administration')
+            ? $builder
+            : $builder->where(function ($query) {
+                $query
+                    ->where('sender_id', auth()->user()->id)
+                    ->OrWhere('worker_id', auth()->user()->id);
+            });
+        $builder = $request->search
+            ? $builder->whereAny(['id', 'comment'], 'like', "%$request->search%")
+            : $builder;
+        $builder = $this->filterTable($builder, $filterModel);
+        $builder = $builder->orderBy($sortModel->sort['pole'], $sortModel->sort['type']);
 
         $view_data = [
-            'page_data' => $this->page_data,
-            'appeals' => $this->appeals,
-            'user_filters' => $this->filters ? $this->filters->filters : [],
-            'user_sort' => [
-                'pole' => array_search($this->sort->sort['pole'], $this->sort_arr),
-                'type' => $this->sort->sort['type'] == 'asc' ? 'desc' : 'asc'
-            ],
+            'filters' => $this->getFilterList(),
+            'appeals' => $builder->paginate(100),
+            'sort' => $sortModel->sort,
         ];
+
+        foreach ($filterModel->filters as $key => $ids) {
+            $view_data['filters'][$key]['checked'] = $ids;
+        }
 
         return view('page.csvi.appeal.index', $view_data);
     }
@@ -168,36 +169,53 @@ class AppealController
         return redirect()->route('appeal');
     }
 
+    public function create()
+    {
+        $categoryes = Glossary_Csvi_Appeal_Category::get();
+        $thems = Glossary_Csvi_Appeal_Them::get();
+        return view('page.csvi.appeal.create', compact('categoryes', 'thems'));
+    }
+
     public function store(Request $request)
     {
-        $validate = $request->validate([
-            'data.office' => [],
-            'data.them_id' => ['required', 'not_in:0'],
-            'data.comment' => ['required']
+        $validation = $request->validate([
+            'them_id' => ['required', 'notIn:0'],
+            'comment' => ['required', 'min:4', 'max:3000'],
+            'files.*' => ['max:102400']
         ]);
+        unset($validation['files']);
 
-        $appeal = Csvi_Appeal_Appeal::create(array_merge($validate['data'], [
+        $appeal = Csvi_Appeal_Appeal::create(array_merge($validation, [
             'status_id' => 1,
             'sender_id' => auth()->user()->id,
         ]));
 
-        Csvi_Appeal_AppealMessage::create([
-            'appeal_id' => $appeal->id,
-            'sender_id' => auth()->user()->id,
-            'message' => $validate['data']['comment'],
-        ]);
+        if ($request->hasFile('files')) {
+            foreach ($request->file('files') as $file) {
+                $message = date('Y-m-d-H-i-s') . '_' . $file->getClientOriginalName();
+                Storage::disk('appeal-chat')->putFileAs($appeal->id, $file, $message);
 
-        return back()->with(['message' => 'Обращение успешно создано']);
+                $message = Csvi_Appeal_AppealMessage::create([
+                    'appeal_id' => $appeal->id,
+                    'sender_id' => auth()->user()->id,
+                    'is_file' => true,
+                    'is_image' => !Validator::make(['file' => $file], ['file' => 'image'])->fails(),
+                    'message' => $message,
+                ]);
+            }
+        }
+
+        return redirect()->route('appeal')->with(['message' => 'Обращение успешно создано']);
     }
 
-    public function accept(Request $request)
+    public function accept(Request $request, Csvi_Appeal_Appeal $appeal)
     {
-        $builder = Csvi_Appeal_Appeal::withTrashed()->whereKey($request->appeal);
-        $builder->update([
-            'worker_id' => auth()->user()->id,
+        $appeal->update([
             'status_id' => 2,
+            'worker_id' => auth()->user()->id,
         ]);
-        $appeal = $builder->first();
+
+        event(new SendSystemAppealMessage(appeal: $appeal->id, message: "Обращение принято " . $appeal->worker->nickname));
 
         event(new SendAlert(
             message: "Ваше обращение №" . $appeal->id . " принято " . auth()->user()->nickname,
@@ -205,58 +223,43 @@ class AppealController
             from_id: $appeal->sender_id,
             link: route('appeal.chat', ['appeal' => $appeal->id])
         ));
-        return redirect()->route('appeal.chat', ['appeal' => $request->appeal]);
+
+        return redirect()->route('appeal.chat', compact('appeal'));
     }
 
-    public function close(Request $request)
+    public function close(Request $request, Csvi_Appeal_Appeal $appeal)
     {
-        $builder = Csvi_Appeal_Appeal::withTrashed()->whereKey($request->appeal);
-        $builder->update([
+        $appeal->update([
             'status_id' => 3,
-            'closet_at' => auth()->user()->id
+            'closet_at' => auth()->user()->id,
         ]);
 
-        $appeal = $builder->first();
-        $event_message = auth()->user()->id == $appeal->fresh()->sender_id
-            ? "Обращение №" . $appeal->fresh()->id . " закрыто"
-            : "Ваше обращение №" . $appeal->fresh()->id . " закрыто " . auth()->user()->nickname;
+        event(new SendSystemAppealMessage(appeal: $appeal->id, message: "Обращение Закрыто"));
 
-        $event_from_id = auth()->user()->id == $appeal->sender_id
-            ? $appeal->worker_id
-            : $appeal->sender_id;
         event(new SendAlert(
-            message: $event_message, 
-            type: 1, 
-            from_id: $event_from_id, 
+            message: $appeal->sender_id == auth()->user()->id
+            ? "Обращение №" . $appeal->fresh()->id . " закрыто"
+            : "Ваше обращение №" . $appeal->fresh()->id . " закрыто " . auth()->user()->nickname,
+            from_id: $appeal->sender_id == auth()->user()->id
+            ? $appeal->worker_id
+            : $appeal->sender_id,
+            type: 1,
             link: route('appeal.chat', ['appeal' => $appeal->id])
         ));
 
         return redirect()->route('appeal');
     }
 
-    public function restore(Request $request)
+    public function restore(Request $request, Csvi_Appeal_Appeal $appeal)
     {
-        $builder = Csvi_Appeal_Appeal::withTrashed()->whereKey($request->appeal);
-        $builder->update([
+        $appeal->update([
             'status_id' => 4,
-            'closet_at' => null,
+            'worker_id' => null
         ]);
-        $appeal = $builder->first();
 
-        $event_message = auth()->user()->id == $appeal->sender_id
-            ? "Обращение №$appeal->id  восстановлено"
-            : "Ваше обращение №$appeal->id закрыто " . auth()->user()->nickname;
-        $event_from_id = auth()->user()->id == $appeal->sender_id
-            ? $appeal->worker_id
-            : $appeal->sender_id;
-        event(new SendAlert(
-            message: $event_message, 
-            type: 1, 
-            from_id: $event_from_id,
-            link: route('appeal.chat', ['appeal' => $appeal->id])
-        ));
+        event(new SendSystemAppealMessage(appeal: $appeal->id, message: "Обращение возабновлено"));
 
-        return redirect()->route('appeal');
+        return redirect()->route('appeal.chat', compact('appeal'));
     }
 
 }

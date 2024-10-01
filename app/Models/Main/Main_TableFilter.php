@@ -2,6 +2,7 @@
 
 namespace App\Models\Main;
 
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -16,4 +17,10 @@ class Main_TableFilter extends Model
     protected $casts = [
         'filters' => 'array'
     ];
+
+    // protected function filters(){
+    //     return Attribute::make(
+    //         get: fn (string $value) => 
+    //     )
+    // }
 }

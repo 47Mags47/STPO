@@ -8,6 +8,8 @@ use App\Models\Main\Main_User;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Csvi_Appeal_Appeal extends Model
@@ -15,16 +17,6 @@ class Csvi_Appeal_Appeal extends Model
     use HasFactory, SoftDeletes;
 
     protected $guarded = [];
-
-    public static function senders(){
-        $sender_ids = Csvi_Appeal_Appeal::groupBy('sender_id')->get('sender_id')->pluck('sender_id');
-        return Main_User::whereIn('id', $sender_ids)->orderBy('nickname')->get();
-    }
-
-    public static function workers(){
-        $worker_ids = Csvi_Appeal_Appeal::groupBy('worker_id')->get('worker_id')->pluck('worker_id');
-        return Main_User::whereIn('id', $worker_ids)->orderBy('nickname')->get();
-    }
 
     public function sender(){
         return $this->belongsTo(Main_User::class, 'sender_id');
@@ -40,5 +32,15 @@ class Csvi_Appeal_Appeal extends Model
 
     public function status(){
         return $this->belongsTo(Glossary_Csvi_Appeal_Status::class, 'status_id');
+    }
+
+    /**
+     * Get all of the messages for the Csvi_Appeal_Appeal
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     */
+    public function messages(): HasMany
+    {
+        return $this->hasMany(Csvi_Appeal_AppealMessage::class, 'appeal_id')->orderBy('id', 'desc');
     }
 }

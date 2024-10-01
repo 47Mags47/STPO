@@ -1,42 +1,73 @@
-input
-    background: var(--background-color-input)
-input:disabled
-    background: var(--background-color-input-disabled)
-    
-label
-    display: flex
-    flex-direction: column
-    gap: 5px
-    span
-        padding-left: 7px
-        color: var(--color-text-default)
-        font-size: 1rem
-        font-weight: bold
-        font-style: italic
+form
     input,select,textarea
         padding: 4px 7px
+
+        background: var(--background-color-input)
         border: var(--border-default)
-        color: var(--color-text-default)
-        background: var(--background-color-default)
-        outline: none
         border-radius: 7px
+        outline: none
+
+        color: var(--color-text-default)
         font-size: .9rem
         transition: var(--all-transition)
-    
-.upload-file-box
-    width: 100%
-    display: flex
-    justify-content: center
-    align-content: center
-    input
-        display: none
-    span
-        width: 100%
-        height: 100%
-        min-width: 100px
-        font-size: .9rem
-.chat-box
-    label.upload-ico,
-    label.sbm-ico
+    label
+        display: flex
+        flex-direction: column
+        gap: 5px
+        &.horizontal
+            flex-direction: row
+        span, i
+            padding-left: 7px
+
+            color: var(--color-text-default)
+            font-size: 1rem
+            font-weight: bold
+            font-style: italic
+    .file-list
+        display: flex
+        flex-wrap: wrap
+        gap: 5px
+
+        li
+            width: 50px
+            height: 50px
+            background: var(--background-color-input)
+            border-radius: 7px
+            overflow: hidden
+            display: flex
+            justify-content: center
+            align-items: center
+            img
+                width: 100%
+                max-width: 100%
+                height: 100%
+                max-height: 100%   
+            i
+                padding: 0
+                font-size: 24px
+                color: var(--color-text-pre-default)
+                transition: var(--all-transition)
+            &.file-list-add-box
+                position: relative
+                label
+                    width: 100%
+                    height: 100%
+                    display: flex
+                    justify-content: center
+                    align-items: center
+                    cursor: pointer
+                    input
+                        display: none
+                    &:hover i
+                        color: var(--color-text-default)
+        .files,
+        .example
+            display: none
+    label.file-button
+        justify-content: center
+        align-items: center
+        i
+            padding: 0
+            font-size: 20px
         input
             display: none

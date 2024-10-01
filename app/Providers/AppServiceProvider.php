@@ -41,6 +41,10 @@ class AppServiceProvider extends ServiceProvider
             return auth()->user()->role_id == 1 or auth()->user()->role_id == 2;
         });
 
+        Gate::define('is_ministry', function () {
+            return auth()->user()->division_id == 1 or auth()->user()->division_id == 2;
+        });
+
         /* Модули */
         Gate::define('modul-access', function (Main_User $user, Main_Modul $modul) {
             return Main_Access::where('modul_id', $modul->id)
@@ -72,7 +76,7 @@ class AppServiceProvider extends ServiceProvider
         });
 
         /* ОБРАЩЕНИЯ */
-        Gate::define('appeal-chat-access', function (Main_User $user, Csvi_Appeal_Appeal $appeal) {
+        Gate::define('appeal-access', function (Main_User $user, Csvi_Appeal_Appeal $appeal) {
             return auth()->user()->id == $appeal->sender_id or auth()->user()->id == $appeal->worker_id;
         });
     }

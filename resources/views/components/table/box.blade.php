@@ -1,50 +1,61 @@
-{{-- parametrs: form(true|false) | paginate(true|false) | action | method --}}
-{{-- flags: top-0 --}}
+{{-- 
+    ## Аттрибуты
+        options => [
+            search-link     - Ссылка на страницу обработки поиска
+            add-link        - Ссылка на страницу для создания новой записи
+            filter-link     - Ссылка на страницу обработки фильтрации
+            reset-link      - Ссылка на страницу обработки сброса
+            filters         - Массив фильтров
+        ]
+    ## Свойства
+        w100                - растягивает таблицу на всю ширину
+        h-sticky            - Закрепляет заголовок
+        excel               - Устанавливает excel стиль для таблицы
+    ## Компоненты
+        colgroup            - Группа столбцов
+        head                - Заголовки таблицы
+        body                - Тело таблицы
+--}}
+
 <div class="table-box mini-scroll">
-    @if (isset($filters) or (isset($paginate) and $paginate))
-        <div class="table-options">
-            @isset($filters)
-                <form action="{{ isset($searchLink) ? $searchLink : '' }}" method="GET" class="search">
-                    @csrf
-                    <input type="search" name="search">
-                    <input type="submit" value="Найти" class="button blue-button">
-                </form>
-                <form action="{{ isset($filterLink) ? $filterLink : '' }}" method="GET" class="filters">
-                    @csrf
-                    <ul>{{ $filters }}</ul>
-                    <x-form.sbm title="Применить"/>
-                    @if (isset($reset) and $reset != '')
-                        <a href="{{ $reset }}" class="button red-button">X</a>
-                    @endif
-                </form>
+    <div class="table-options">
+        @isset($options)
+            @isset($options['search-link'])
+                <x-table.options.search :search-link="$options['search-link']" />
             @endisset
-            @if (isset($paginate) and $paginate)
-                <div class="paginate-box">
-                    {{ $paginateLink }}
-                </div>
-            @endif
+            @isset($options['add-link'])
+                <x-table.options.add :link="$options['add-link']" />
+            @endisset
+            @isset($options['filters'])
+                <x-table.options.filters :filters="$options['filters']" filter-link="{{ $options['filter-link'] }}"
+                    reset-link="{{ $options['reset-link'] }}" />
+            @endisset
+        @endisset
+    </div>
+    @isset($paginate)
+        <div class="paginate-box">
+            {{ $paginate->links() }}
         </div>
-    @endif
-    @if(isset($form) and $form == 'true')
-        <form
-            action="{{ isset($action) ? $action : '' }}"
-            method="{{ isset($method) ? $method : 'POST' }}"
-            id="{{ isset($formId) ? $formId : '' }}"
-            enctype="multipart/form-data"
-        >
-        @csrf
-    @endif
-        <table
-            @isset($top0)
-                top-0
-            @endisset
-            @isset($w100)
-                w100
-            @endisset
-        >
-            {{ $slot }}
-        </table>
-    @if(isset($form) and $form == 'true')
-        </form>
-    @endif
+    @endisset
+    <table @class([
+        'w100' => isset($w100),
+        'header-sticked' => isset($hSticky),
+        'excel-table' => isset($excel),
+    ])>
+        @isset($header)
+            <caption>{{ $header }}</caption>
+        @endisset
+        @isset($colgroup)
+            <colgroup>{{ $colgroup }}</colgroup>
+        @endisset
+        @isset($head)
+            <thead @class(['sticky' => isset($hSticky)])>{{ $head }}</thead>
+        @endisset
+        @isset($body)
+            <tbody>{{ $body }}</tbody>
+        @endisset
+    </table>
+    @isset($form)
+        {{ $form }}
+    @endisset
 </div>

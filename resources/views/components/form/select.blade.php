@@ -1,30 +1,31 @@
-{{-- attr: name | label | depend --}}
-{{-- flag: required | disabled | null --}}
+{{-- 
+    ## Аттрибуты
+        label           - Добавляет заголовок к полю
+        name            - Указывает имя поля
+        depend          - Указывает id родительского поля
+    ## Свойства
+        horizontal      - Выравнивает поле и заголовок по горизантали
+        disabled        - Делает поле не активным
+    ## Компоненты
+        slot            - Содержимое компонента
+--}}
 
-<label for="{{ isset($name) ? $name : '' }}">
-    @isset($label)
-        <span>{!! $label !!}</span>
-    @endisset
-    <select
-        @php
-            $select_name = '';
-            if (isset($name)) {
-                $select_name = $name;
-                if (isset($data)) {
-                    $select_name = 'data[' . $select_name . ']';
-                }
-            }
-        @endphp
-        name="{{ $select_name }}"
-        id="{{ isset($name) ? $name : '' }}"
-        @required(isset($req))
-        @disabled(isset($disabled))
-        @class(['mini-scroll', 'depend' => isset($depend)])
-        @isset($depend)
-            depend="{{ $depend }}"
-        @endisset
-    >
-        <option value="0">--- Не выбрано ---</option>
-        {{ $slot }}
-    </select>
-</label>
+@isset($label)
+    <label for="{{ $name }}" @class(['horizontal' => isset($horizontal)])>
+        <span>{{ $label }}</span>
+@endisset
+        <select 
+            name    = "{{ $name }}"
+            id      = "{{ $name }}"
+            {{ isset($depend) ? "depend=$depend" : '' }}
+            @disabled(isset($disabled))
+            @class(['mini-scroll', 'depend' => isset($depend)])
+            
+            {{ isset($form)         ? "form=$form"                    : '' }}
+        >
+            <option value="0">--- Не выбрано ---</option>
+            {{ $slot }}
+        </select>
+@isset($label)
+    </label>
+@endisset
