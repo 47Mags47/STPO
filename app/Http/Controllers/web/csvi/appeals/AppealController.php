@@ -190,6 +190,12 @@ class AppealController
             'sender_id' => auth()->user()->id,
         ]));
 
+        Csvi_Appeal_AppealMessage::create([
+            'appeal_id' => $appeal->id,
+            'sender_id' => auth()->user()->id,
+            'message' => $validation['comment'],
+        ]);
+
         if ($request->hasFile('files')) {
             foreach ($request->file('files') as $file) {
                 $message = date('Y-m-d-H-i-s') . '_' . $file->getClientOriginalName();
@@ -203,12 +209,6 @@ class AppealController
                     'message' => $message,
                 ]);
             }
-        }else{
-            Csvi_Appeal_AppealMessage::create([
-                'appeal_id' => $appeal->id,
-                'sender_id' => auth()->user()->id,
-                'message' => $validation['comment'],
-            ]);
         }
 
         return redirect()->route('appeal')->with(['message' => 'Обращение успешно создано']);
