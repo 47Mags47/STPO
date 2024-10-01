@@ -1,9 +1,20 @@
-<div 
-    @class([
-        'split-box',
-        $attributes['class']
-    ])
->
+{{-- 
+    ## Свойства
+        vertical    - Выравнивает блок по вертикали
+    ## Компоненты
+        item1       - Содержимое компонента 1
+        item2       - Содержимое компонента 2
+        item3       - Содержимое компонента 3
+        item4       - Содержимое компонента 4
+        item5       - Содержимое компонента 5
+--}}
+
+<div @class([
+    'split-box',
+    'vertical' => isset($vertical),
+    'no-flex' => isset($noFlex),
+    $attributes['class'],
+])>
     @isset($item1)
         <div class="split-item">{{ $item1 }}</div>
     @endisset

@@ -1,0 +1,44 @@
+label.image-input-box
+    position: relative
+    display: block
+    width: 100%
+    height: 100%
+    .preview
+        position: relative
+        width: 100%
+        height: auto
+
+        border-radius: 50%
+        overflow: hidden
+
+        display: flex
+        justify-content: center
+        align-items: center
+
+        cursor: pointer
+        img
+            width: 100%
+            max-width: 100%
+            height: 100%
+            max-height: 100%
+        .ico
+            position: absolute
+            top: 100%
+            left: 0
+            width: 100%
+            height: 100%
+
+            display: flex
+            justify-content: center
+            align-items: center
+
+            background: #99999999
+            backdrop-filter: blur(4px)
+
+            transition: var(--all-transition)
+        &:hover .ico
+            top: 0
+    
+    .hidden
+        display: none
+

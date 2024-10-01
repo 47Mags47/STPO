@@ -2,27 +2,82 @@
 @section('page-name', 'Личный кабинет')
 
 @section('body')
-    {{-- <div class="content-box dashboard">
-        <div class="content-box-header-box">
+    <x-tab.box>
+        <x-slot:meny>
+            <x-tab.link page="user" title="Личные данные" open />
+            <x-tab.link page="division" title="Подразделение" />
+            <x-tab.link page="administrated" title="Администрирование" />
+            <x-tab.link page="settings" title="Настройки" />
+        </x-slot:meny>
+        <x-slot:body>
+            <x-tab.page>
+                <x-split.box>
+                    <x-slot:item-1></x-slot:item-1>
+                    <x-slot:item-2>
+                        {{-- <x-dashboard.logo /> --}}
+                        <x-form.image-input name="logo"
+                            value="{{ auth()->user()->logo ? auth()->user()->logo : asset('/storage/media/default_logo.png') }}"
+                            form="user-form" />
+                    </x-slot:item-2>
+                    <x-slot:item-3>
+                        <x-split.box>
+                            <x-slot:item-1>
+                                <x-form.box action="" id="user-form" file>
+                                    <x-form.input label="Фамилия" name="last_name"
+                                        value="{{ auth()->user()->last_name }}" />
+                                    <x-form.input label="Имя" name="first_name"
+                                        value="{{ auth()->user()->first_name }}" />
+                                    <x-form.input label="Отчество" name="middle_name"
+                                        value="{{ auth()->user()->middle_name }}" />
+                                    <x-form.input label="Почта" name="email"
+                                        value="{{ auth()->user()->email ? auth()->user()->email : 'Не указана' }}"
+                                        disabled />
+                                    <x-form.input label="Телефон" name="phone" value="{{ auth()->user()->phone }}" />
+                                    <x-form.input label="Добавочный" name="dop_phone"
+                                        value="{{ auth()->user()->dop_phone }}" />
+                                    <x-form.sbm title="Применить" />
+                                </x-form.box>
+                            </x-slot:item-1>
+                        </x-split.box>
+                    </x-slot:item-3>
+                    <x-slot:item-4>
+                        <x-split.box vertical no-flex>
+                            <x-slot:item-1><x-custom.link link="" title="Сменить почту" blue-button /></x-slot:item-1>
+                            <x-slot:item-2><x-custom.link link="{{ route('logout') }}" title="Выход" red-button /></x-slot:item-2>
+                        </x-split.box>
+                    </x-slot:item-4>
+                </x-split.box>
+            </x-tab.page>
+            <x-tab.page>division</x-tab.page>
+            <x-tab.page>administrated</x-tab.page>
+            <x-tab.page>settings</x-tab.page>
+        </x-slot:body>
+    </x-tab.box>
+
+
+
+    {{-- <div class="content-box dashboard"> --}}
+    {{-- <div class="content-box-header-box">
             <p>Личный кабинет</p>
         </div>
+        
         <ul class="content-box-nav">
             <li class="active"><a href="">Данные пользователя</a></li>
             <li><a href="">Подразделение</a></li>
             <li><a href="">Администрирование</a></li>
             <li><a href="">Настройки</a></li>
-        </ul>
-        <x-split.box class="content-box-content mini-scroll">
-            {{-- <x-slot:item-1>
-                @include('page.main.dashboard.user')
-            </x-slot:item-1> --}}
+        </ul> 
+
+        <x-split.box>
+            <x-slot:item-1></x-slot:item-1>
             <x-slot:item-1></x-slot:item-1>
             <x-slot:item-2></x-slot:item-2>
             <x-slot:item-3></x-slot:item-3>
             <x-slot:item-4><x-custom.link red-button link="{{ route('logout') }}" title="Выход" /></x-slot:item-4>
 
         </x-split.box>
-    </div> --}}
+        --}}
+    {{-- </div> --}}
 
     {{-- <x-page.info-box>
         <x-slot:nav-list>

@@ -19,9 +19,12 @@
         <input 
             type    = "{{ isset($type) ? $type : 'text' }}" 
             name    = "{{ isset($name) ? $name : '' }}" 
-            id      = "{{ isset($name) ? $name : '' }}" 
+            id      = "{{ isset($name) ? $name : '' }}"
+            @isset($value)
+                value="{{ $value }}"
+            @endisset
             
-            {{ isset($value)        ? "value=$value"                  : '' }}
+            {{-- {{ isset($value)        ? "value=$value"                  : '' }} --}}
             {{ isset($ph)           ? "placeholder=$ph"               : '' }}
             {{ isset($autocomplete) ? "autocomplete=$autocomplete"    : '' }}
             {{ isset($form)         ? "form=$form"                    : '' }}

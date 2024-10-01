@@ -26,6 +26,7 @@ import * as excel from './components/excel.js'
 import * as admin from './components/admin.js'
 import * as form from './components/form.js'
 import * as chat from './components/chat.js'
+import * as tab from './components/tab.js'
 
 $(window).on('load', async function () {
     try {
@@ -39,7 +40,7 @@ $(window).on('load', async function () {
         await admin.load()
         await form.load()
         await chat.load()
-
+        await tab.load()
     } catch (error) {
         console.log(error);
     }

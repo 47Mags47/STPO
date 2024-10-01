@@ -16,8 +16,9 @@
 
 <div @class(['form-box', 'center' => isset($center), 'hidden' => isset($hidden)])>
     <form
-        {{ isset($action)   ? "action=$action"  : '' }}
-        {{ isset($id)       ? "id=$id"          : '' }}
+        @isset($action) action="{{ $action }}" @endisset
+        @isset($id) id="{{ $id }}" @endisset
+
         method  = "{{ (isset($method) and $method) !== 'GET'    ? 'POST'                : 'GET'                                 }}" 
         enctype = "{{ isset($file)                              ? 'multipart/form-data' : 'application/x-www-form-urlencoded'   }}"
         @class(['shadow' => isset($shadow)])
