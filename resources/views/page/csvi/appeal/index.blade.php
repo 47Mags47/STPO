@@ -8,7 +8,7 @@
         'filter-link' => route('appeal'),
         'filters' => $filters,
         'reset-link' => route('appeal.reset'),
-    ]" w100 h-sticky>
+    ]" w100 h-sticky :paginate="$appeals">
         <x-slot:colgroup>
             <col width="75px"> {{-- ID --}}
             <col width="80px"> {{-- Дата --}}
