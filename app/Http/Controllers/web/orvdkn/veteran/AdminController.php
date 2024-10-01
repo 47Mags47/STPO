@@ -17,14 +17,7 @@ class AdminController
     public static function initPage()
     {
         $raports = Orvdkn_Veteran_Raport::where('in_date_id', Orvdkn_Veteran_InDate::actual()->id)->get();
-
-
-        $acesses = Main_Access::select('main__accesses.*')
-            ->join('main__users', 'main__users.id', '=', 'main__accesses.user_id')
-            ->where('main__accesses.modul_id', '4')
-            ->where('level_id', 2)
-            ->groupBy('main__users.division_id')
-            ->get();
+        $acesses = Main_Access::where('modul_id', 4)->where('level_id', 2)->get();
 
         return collect(compact('raports', 'acesses'));
     }
@@ -35,8 +28,7 @@ class AdminController
         return view('page.orvdkn.veteran.admin.raports.index', compact('raports'));
     }
 
-    public function raports_show(Request $request, Main_Division $division)
-    {
+    public function raports_show(Request $request, Main_Division $division){
         $raport = Orvdkn_Veteran_Raport::where('in_date_id', Orvdkn_Veteran_InDate::actual()->id)->where('division_id', $division->id)->get()->first();
         $active = $division->id;
         return view('page.orvdkn.veteran.admin.raports.show', compact('raport', 'active'));
