@@ -13,9 +13,13 @@
             <li><a href="">Настройки</a></li>
         </ul>
         <x-split.box class="content-box-content mini-scroll">
-            <x-slot:item-1>
+            {{-- <x-slot:item-1>
                 @include('page.main.dashboard.user')
-            </x-slot:item-1>
+            </x-slot:item-1> --}}
+            <x-slot:item-1></x-slot:item-1>
+            <x-slot:item-2></x-slot:item-2>
+            <x-slot:item-3></x-slot:item-3>
+            <x-slot:item-4><x-custom.link red-button link="{{ route('logout') }}" title="Выход" /></x-slot:item-4>
 
         </x-split.box>
     </div>
