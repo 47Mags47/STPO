@@ -195,7 +195,7 @@ class AppealController
                 $message = date('Y-m-d-H-i-s') . '_' . $file->getClientOriginalName();
                 Storage::disk('appeal-chat')->putFileAs($appeal->id, $file, $message);
 
-                $message = Csvi_Appeal_AppealMessage::create([
+                Csvi_Appeal_AppealMessage::create([
                     'appeal_id' => $appeal->id,
                     'sender_id' => auth()->user()->id,
                     'is_file' => true,
@@ -203,6 +203,12 @@ class AppealController
                     'message' => $message,
                 ]);
             }
+        }else{
+            Csvi_Appeal_AppealMessage::create([
+                'appeal_id' => $appeal->id,
+                'sender_id' => auth()->user()->id,
+                'message' => $validation['comment'],
+            ]);
         }
 
         return redirect()->route('appeal')->with(['message' => 'Обращение успешно создано']);
