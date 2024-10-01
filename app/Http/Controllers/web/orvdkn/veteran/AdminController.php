@@ -17,18 +17,17 @@ class AdminController
     public static function initPage()
     {
         $raports = Orvdkn_Veteran_Raport::where('in_date_id', Orvdkn_Veteran_InDate::actual()->id)->get();
-        $acesses = Main_Access::select('main__accesses.*')
-            ->join('main__users', 'main__users.id', '=', 'main__accesses.user_id')
-            ->join('main__divisions', 'main__divisions.id', '=', 'main__users.division_id')
+
+        $access_user_ids = Main_Access::where('main__accesses.modul_id', '4')->where('level_id', 2)->pluck('user_id')->toArray();
+        $access_division_ids = Main_User::whereIn('id', $access_user_ids)->groupBy('division_id')->pluck('division_id')->toArray();
+        $division_raport_list = Main_Division::select('main__divisions.*')
+            ->whereIn('main__divisions.id', $access_division_ids)
             ->join('main__cities', 'main__cities.id', '=', 'main__divisions.city_id')
-            ->where('main__accesses.modul_id', '4')
-            ->where('level_id', 2)
-            ->groupBy('main__users.division_id')
             ->orderBy('main__cities.name')
             ->orderBy('main__divisions.name')
             ->get();
 
-        return collect(compact('raports', 'acesses'));
+        return collect(compact('raports', 'division_raport_list'));
     }
 
     public function raports_index()

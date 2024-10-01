@@ -14,15 +14,15 @@
                 @php
                     $page_data = App\Http\Controllers\web\orvdkn\veteran\AdminController::initPage();
                 @endphp
-                @foreach ($page_data->get('acesses') as $acess)
-                    @if (in_array($acess->division->id, $page_data->get('raports')->pluck('division_id')->toArray()))
+                @foreach ($page_data->get('division_raport_list') as $division)
+                    @if (in_array($division->id, $page_data->get('raports')->pluck('division_id')->toArray()))
                         <x-admin.division 
-                            title="{{ $acess->division->city->name . ': ' . $acess->division->name }}"
-                            link="{{ route('veteran-truda.admin.raports.show', ['division' => $acess->division->id]) }}" 
-                            :active="isset($active) and $active == $acess->division->id"
+                            title="{{ $division->city->name . ': ' . $division->name }}"
+                            link="{{ route('veteran-truda.admin.raports.show', ['division' => $division->id]) }}" 
+                            :active="isset($active) and $active == $division->id"
                         />
                     @else
-                        <x-admin.division title="{{ $acess->division->city->name . ': ' . $acess->division->name }}"
+                        <x-admin.division title="{{ $division->city->name . ': ' . $division->name }}"
                             disable />
                     @endif
                 @endforeach
