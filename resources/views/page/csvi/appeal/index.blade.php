@@ -10,17 +10,17 @@
         'reset-link' => route('appeal.reset'),
     ]" w100 h-sticky :paginate="$appeals">
         <x-slot:colgroup>
-            <col width="75px"> {{-- ID --}}
-            <col width="80px"> {{-- Дата --}}
+            <col width="75px">          {{-- ID --}}
+            <col width="80px">          {{-- Дата --}}
             @can('is_administration')
-                <col width="300px"> {{-- Отправитель --}}
+                <col width="300px">     {{-- Отправитель --}}
             @endcan
-            <col width="250px"> {{-- Тема --}}
-            <col width=""> {{-- Комментарий --}}
-            <col width="105px" sort> {{-- Статус --}}
-            <col width="150px"> {{-- Исполнитель --}}
-            <col width="120px"> {{-- Принять --}}
-            <col width="120px"> {{-- Закрыть | возобновить --}}
+            <col width="250px">         {{-- Тема --}}
+            <col width="">              {{-- Комментарий --}}
+            <col width="105px" sort>    {{-- Статус --}}
+            <col width="150px">         {{-- Исполнитель --}}
+            <col width="120px">         {{-- Принять --}}
+            <col width="120px">         {{-- Закрыть | возобновить --}}
         </x-slot:colgroup>
         <x-slot:head>
             <x-table.row>
