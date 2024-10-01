@@ -14,9 +14,10 @@
                     <span class="value">
                         <span
                             title="
+{{ $appeal->sender->division->city->name }}
 {{ $appeal->sender->division->name }}
-{{ $appeal->sender->phone ? ' Тел: ' . $appeal->sender->phone : '' }}
-{{ $appeal->sender->dop_phone ? ' Добавочный: ' . $appeal->sender->dop_phone : '' }}
+{{ $appeal->sender->phone ? 'Тел: ' . $appeal->sender->phone : '' }}
+{{ $appeal->sender->dop_phone ? 'Добавочный: ' . $appeal->sender->dop_phone : '' }}
 ">{!! $appeal->sender->nickname !!}</span>
                     </span>
                 </li>
@@ -24,8 +25,10 @@
                     <span class="name">Взята:</span>
                     <span class="value"
                         title="
-{{ ($appeal->worker !== null and $appeal->worker->phone) ? ' Тел: ' . $appeal->worker->phone : '' }}
-{{ ($appeal->worker !== null and $appeal->worker->dop_phone) ? ' Добавочный: ' . $appeal->worker->dop_phone : '' }}
+{{ $appeal->worker !== null ? $appeal->sender->division->city->name : '' }}
+{{ $appeal->worker !== null ? $appeal->sender->division->name : '' }}
+{{ ($appeal->worker !== null and $appeal->worker->phone) ? 'Тел: ' . $appeal->worker->phone : '' }}
+{{ ($appeal->worker !== null and $appeal->worker->dop_phone) ? 'Добавочный: ' . $appeal->worker->dop_phone : '' }}
                     ">{!! $appeal->worker !== null ? $appeal->worker->nickname : ' - ' !!}</span>
                 </li>
                 <li>
