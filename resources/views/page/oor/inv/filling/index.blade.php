@@ -2,7 +2,14 @@
 @section('page-name', 'формирования и развития системы комплексной реабилитации и абилитации инвалидов')
 
 @section('body')
-    <x-excel.box action="{{route('inv.filling.sheet.save', ['sheet'=> $sheet_id])}}" form-id="data-form" form>
+    <x-excel.box action="">
+        <x-slot:meny>
+            <li><a href="">Сохранить</a></li>
+        </x-slot:meny>
+        @yield('sheet')
+    </x-excel.box>
+
+    {{-- <x-excel.box action="{{route('inv.filling.sheet.save', ['sheet'=> $sheet_id])}}" form-id="data-form" form>
         <x-slot:meny>
             <x-page.meny>
                 <x-page.nav type="form-submit" title="Сохранить" form="data-form" />
@@ -22,5 +29,5 @@
                 />
             @endforeach
         </x-slot:sheets>
-    </x-excel.box>
+    </x-excel.box> --}}
 @endsection
