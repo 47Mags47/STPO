@@ -52,6 +52,7 @@ class veteranRaportJob implements ShouldQueue
         $writer->save(public_path("storage/$path"));
 
         $message = "Отчет по присвоению звания Ветеран Труда на " . $this->date->date->format('d.m.Y');
-        event(new SendAlert(message: $message, type: 3, link: $path, from_id: $this->user->id));
+        $link = env('APP_URL') . "/storage/$path";
+        event(new SendAlert(message: $message, type: 3, link: $link, from_id: $this->user->id));
     }
 }
