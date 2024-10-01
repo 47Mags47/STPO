@@ -2,7 +2,7 @@
 @section('page-name', 'Личный кабинет')
 
 @section('body')
-    <div class="content-box dashboard">
+    {{-- <div class="content-box dashboard">
         <div class="content-box-header-box">
             <p>Личный кабинет</p>
         </div>
@@ -22,7 +22,7 @@
             <x-slot:item-4><x-custom.link red-button link="{{ route('logout') }}" title="Выход" /></x-slot:item-4>
 
         </x-split.box>
-    </div>
+    </div> --}}
 
     {{-- <x-page.info-box>
         <x-slot:nav-list>
