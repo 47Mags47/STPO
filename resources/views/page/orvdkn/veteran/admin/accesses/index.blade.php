@@ -1,7 +1,7 @@
 @extends('page.orvdkn.veteran.admin.index')
 
 @section('content')
-    <x-table.box w100 :paginate="$accesses">
+    <x-table.box w100 :paginate="$accesses" hidden>
         <x-slot:head>
             <x-table.row>
                 <x-table.hcell val="Город" />
@@ -12,7 +12,7 @@
             </x-table.row>
         </x-slot:head>
         <x-slot:form>
-            <x-form.box action="{{ route('veteran-truda.admin.access.store') }}" method="POST" id="add-form" />
+            <x-form.box action="{{ route('veteran-truda.admin.access.store') }}" method="POST" id="add-form" hidden />
         </x-slot:form>
         <x-slot:body>
             <x-table.row input>

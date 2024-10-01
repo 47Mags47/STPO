@@ -14,7 +14,7 @@
         other   - Дополнительные поля, после кнопки отправки 
 --}}
 
-<div @class(['form-box', 'center' => isset($center)])>
+<div @class(['form-box', 'center' => isset($center), 'hidden' => isset($hidden)])>
     <form
         {{ isset($action)   ? "action=$action"  : '' }}
         {{ isset($id)       ? "id=$id"          : '' }}

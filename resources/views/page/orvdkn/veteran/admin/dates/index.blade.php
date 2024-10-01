@@ -19,7 +19,7 @@
             </x-table.row>
         </x-slot:head>
         <x-slot:form>
-            <x-form.box action="{{ route('veteran-truda.admin.dates.store') }}" method="POST" id="add-form" />
+            <x-form.box action="{{ route('veteran-truda.admin.dates.store') }}" method="POST" id="add-form" hidden />
         </x-slot:form>
         <x-slot:body>
             <x-table.row input>
