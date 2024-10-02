@@ -1,5 +1,5 @@
 export function load() {
-    $('.tab-box .meny li').on('click', function () {
+    $('.tab-box .meny li:not(.others)').on('click', function () {
         const clicked = $(this)
         const slide = $(this).parent().parent().find('.slide-box')
         let index = $(this).index()

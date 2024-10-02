@@ -1,8 +1,11 @@
 .tab-box .meny
     display: flex
     gap: 0
+    // border-bottom: var(--border-default)
     li
         background: var( --background-color-default)
+        background: var( --background-color-pre-default)
+
         border-top: var(--border-default)
         border-right: var(--border-default)
         border-bottom: var(--border-default)
@@ -15,10 +18,17 @@
             color: var(--color-text-pre-default)
             transition: var(--all-transition)
         &:hover 
-            background: var( --background-color-pre-default)
+            background: var( --background-color-default)
             span
                 color: var(--color-text-default)
         &.open
-            background: var( --background-color-pre-default)
+            background: var( --background-color-default)
+            border-bottom: 1px solid #00000000
             span
                 color: var(--color-text-default)
+        &.others
+            flex: 1
+            border-top: none
+            border-right: none
+            background: var( --background-color-default)
+            cursor: default
