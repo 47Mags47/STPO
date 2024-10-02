@@ -19,7 +19,7 @@
     </x-split.item>
     <x-split.item>
         <x-split.box vertical gap="10" no-flex>
-            <x-split.item><x-custom.link link="" title="Сменить почту" blue-button /></x-split.item>
+            <x-split.item><x-custom.link link="{{ route('verification.notice') }}" title="Сменить почту" blue-button /></x-split.item>
             <x-split.item><x-custom.link link="{{ route('logout') }}" title="Выход" red-button /></x-split.item>
         </x-split.box>
     </x-split.item>

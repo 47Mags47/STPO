@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 
+use Illuminate\Auth\Events\Registered;
+
 class RegisterController
 {
     public function create()
@@ -46,7 +48,7 @@ class RegisterController
         $user = Main_User::create($data);
         Main_User::reguard();
         Auth::login($user);
-        //event(new Registered($user));
+        event(new Registered($user));
         return redirect('dashboard');
             //->with(['message' => 'На эл. почту высланно письмо для подтверждения']);
     }
