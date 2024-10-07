@@ -1,20 +1,21 @@
 header .top 
+    height: var(--header-top-height)
     position: relative
-    padding: 0 50px
+    padding: var(--header-padding)
     display: flex
     justify-content: space-between
     align-items: center
-    background: var(--background-color-header)
-    color: var(--header-top-color)
+    background: var(--header-top-backgroun-color)
+    color: var(--header-color)
     a
         transition: var(--all-transition)
     a.logo-link
-        font-size: 1.2rem
+        font-size: var(--big-font-size)
         color: inherit
         strong
-            font-size: 1.3rem
+            font-size: var(--header-strong-font-size)
         &:hover
-            color: var(--header-top-color-hover)
+            color: var(--header-hover-color)
     .user
         width: auto
         display: flex
@@ -22,15 +23,15 @@ header .top
         align-items: center
         gap: 10px
         a.user-name
-            color: var(--header-top-color)
+            color: inherit
             display: flex
             align-items: center
             gap: 5px
             img
-                height: 40px
+                height: 35px
                 width: auto
             span
-                font-size: 1.2rem
+                font-size: var(--big-font-size)
                 font-weight: bold
             &:hover
-                color: var(--header-top-color-hover)
+                color: var(--header-hover-color)

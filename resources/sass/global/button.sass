@@ -1,26 +1,32 @@
 .button
     min-width: 50px
-    padding: 5px
-    cursor: pointer
-    border-radius: 5px
-    border: none
-    font-weight: 500
+    height: auto
+    padding: 5px 10px
+
     display: grid
     justify-content: center
     align-content: center
+
+    border-radius: 5px
+    border: none
+
+    font-weight: 500
+    font-size: var(--input-font-size)
+
     transition: var(--all-transition)
+    cursor: pointer
 
 .blue-button
-    background-color: var(--background-blue-color)
-    color: #fff
+    background-color: var(--blue-button-hover-background)
+    color: var(--default-text-color)
     &:hover
-        background-color: var(--background-blue-color-hover)
+        background-color: var(--blue-button-background)
 
 .red-button
-    background-color: var(--background-red-color)
+    background-color: var(--red-button-background)
     color: #fff
     &:hover
-        background-color: var(--background-red-color-hover)
+        background-color: var(--red-button-hover-background)
 
 .gray-button
     background-color: gray

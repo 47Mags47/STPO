@@ -1,15 +1,27 @@
+input,select,textarea
+    padding: var(--input-padding)
+
+    background: var(--input-backgroun-color)
+    border: var(--default-border)
+    border-radius: 7px
+    outline: none
+
+    color: var(--input-text-color)
+    font-size: var(--input-font-size)
+    transition: var(--all-transition)
+
+    -moz-appearance: textfield
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button
+        display: none
+        -webkit-appearance: none
+        margin: 0
+    &[disabled]
+        background: var(--input-disable-backgroun-color)
+        color: var(--input-disabled-text-color)
+    &.center
+        text-align: center
 form
-    input,select,textarea
-        padding: 4px 7px
-
-        background: var(--background-color-input)
-        border: var(--border-default)
-        border-radius: 7px
-        outline: none
-
-        color: var(--color-text-default)
-        font-size: .9rem
-        transition: var(--all-transition)
     label
         display: flex
         flex-direction: column
@@ -17,10 +29,9 @@ form
         &.horizontal
             flex-direction: row
         span, i
-            padding-left: 7px
-
-            color: var(--color-text-default)
-            font-size: 1rem
+            padding: var(--label-header-padding)
+            color: var(--default-text-color)
+            font-size: var(--default-font-size)
             font-weight: bold
             font-style: italic
     .file-list
