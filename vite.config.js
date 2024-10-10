@@ -1,4 +1,4 @@
-import { defineConfig, loadEnv  } from 'vite';
+import { defineConfig, loadEnv } from 'vite';
 import laravel from 'laravel-vite-plugin';
 
 const env = loadEnv('all', process.cwd());
@@ -8,6 +8,8 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/sass/app.sass',
+                'resources/sass/imports/font.sass',
+                'resources/sass/imports/lib.sass',
                 'resources/js/app.js',
 
                 'resources/sass/page/error.sass',
