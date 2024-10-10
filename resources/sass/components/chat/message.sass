@@ -36,8 +36,8 @@
 
                 background: #0f368b
                 border-radius: 10px 10px 10px 0
-                color: white
-                font-size: .9rem
+                color: var(--chat-message-color)
+                font-size: var(--default-font-size)
                 pre
                     white-space: pre-wrap
                 i
@@ -48,11 +48,12 @@
                     height: 100%
                     max-height: 600px
                     cursor: pointer
+                    border-radius: 7px
         .datetime
             grid-area: C
             span
-                color: var(--color-text-default)
-                font-size: .8rem
+                color: var(--default-text-color)
+                font-size: var(--small-font-size)
         &.own
             grid-template-columns: auto 50px
             .logo

@@ -1,47 +1,106 @@
-// html[them="dark"]:root
-//     /* ### COLOR ### */
+html[them="dark"]:root
+    // ################################################
+    // ### COLORS ###
+    // ################################################
+    // ### PALETTE ###
+    --palette-blue: rgb(22, 49, 107)
+    --palette-red: #9b0000
+    --palette-pre-red: rgb(210, 90, 90)
+    --palette-green: rgb(0, 44, 0)
+    --palette-pre-green: rgb(198, 255, 198)
+    --palette-purple: rgb(77, 41, 57)
 
-//     /* --- TEXT --- */
-//     --color-text-default: #eee
-//     --color-text-pre-default: #bbb
-//     --color-text-offsite: #222
-//     --color-text-pre-offsite: #888
-//     --color-text-blue: var(--color-text-default)
-//     --excel-header-color: var(--color-text-pre-default)
-//     --header-top-color-hover: var(--color-text-default)
+    --opposite: #222
+    --pre-opposite: #888
 
-//     /* --- BACKGORUND --- */
-//     --background-blue-color: rgb(22, 49, 107)
-//     --background-blue-color-hover: rgb(70, 90, 140)
-//     --background-red-color: rgb(210, 60, 60)
-//     --background-red-color-hover: rgb(210, 90, 90)
-//     --background-gray-color: rgb(42, 46, 54)
-//     --background-gray-color-hover: #bbb
-//     --background-white-color: var(--background-color-default)
-    
-//     --background-color-input: rgb(20, 25, 35)
-//     --background-color-input-disabled: rgb(20, 25, 35)
+    // ### TEXT ###
+    --default-text-color: #eee
+    --pre-default-text-color: #bbb
 
-//     --background-color-default: rgb(25, 34, 48)
-//     --background-color-pre-default: rgb(34, 40, 54)
-//     --background-color-new-alert: rgb(36, 48, 75)
-//     --background-color-table-even: rgb(34, 40, 54)
-//     --background-color-header: rgb(20, 25, 35)
+    --opposite-text-color: var(--opposite)
+    --opposite-hover-text-color: var(--pre-opposite)
 
-//     /* ### SHADOW ### */
-//     --header-shadow-color: rgb(47, 55, 70)
+    --header-top-color: var(--pre-default-text-color)
+    --header-top-hover-color: var(--default-text-color)
+    --header-bottom-color: var(--pre-default-text-color)
+    --header-bottom-hover-color: var(--default-text-color)
 
+    --input-text-color: var(--default-text-color)
+    --input-disabled-text-color: #bbb
 
-    
-//     /* ### NEW ### */
+    --message-red-color: var(--palette-red)
+    --message-green-color: var(--palette-green)
 
-//     /* ### COLOR ### */
+    --button-text-color: var(--default-text-color)
 
-//     /* --- TEXT --- */
-//     --color-text-default: #eee
-//     --color-text-pre-default: #bbb
-//     --color-input-disabled: var(--color-text-pre-default)
+    --paginate-text-color: var(--default-text-color)
+    --paginate-pre-text-color: var(--pre-default-text-color)
 
-//     /* --- BACKGORUND --- */
-//     --background-color-default: rgb(25, 34, 48)
-//     --background-color-pre-default: rgb(34, 40, 54)
+    --chat-message-color: var(--default-text-color)
+
+    // ### BACKGROUND ###
+    // PAGE
+    --page-backgroun-color: rgb(25, 34, 48)
+    --page-pre-backgroun-color: rgb(34, 40, 54)
+
+    // PAGINATE
+    --paginate-backgroun-color: var(--palette-blue)
+    --active-paginate-backgroun-color: var(--page-pre-backgroun-color)
+
+    // HEADER
+    --header-top-backgroun-color: rgb(20, 25, 35)
+    --header-bottom-backgroun-color: rgb(25, 34, 48)
+
+    // INPUT
+    --input-backgroun-color: rgb(20, 25, 35)
+    --input-disable-backgroun-color: rgb(34, 40, 54)
+    --file-list-background: var(--input-backgroun-color)
+    --file-list-hover-background: var(--input-disable-backgroun-color)
+
+    // ALERT
+    --new-alert-background: rgb(36, 48, 75)
+    --alert-hover-background: var(--page-pre-backgroun-color)
+
+    // MESSAGE
+    --message-red-background: var(--palette-pre-red)
+    --message-green-background: var(--palette-pre-green)
+
+    // BUTTON
+    --blue-button-background: rgb(37, 68, 146)
+    --blue-button-hover-background: var(--palette-blue)
+    --red-button-background: var(--palette-red)
+    --red-button-hover-background: rgb(202, 24, 24)
+
+    // TABLE
+    --table-row-background-color: var(--page-backgroun-color)
+    --table-row-even-background-color: var(--page-pre-backgroun-color)
+
+    --table-filter-preview-background: var(--input-backgroun-color)
+    --table-green-background: rgb(57, 94, 38)
+    --table-purple-background: var(--palette-purple)
+
+    //CHAT
+    --chat-header-background: var(--header-top-backgroun-color)
+    --chat-content-background: var(--page-backgroun-color)
+    --chat-bottom-background: var(--page-backgroun-color)
+    --chat-message-background: var(--palette-blue)
+    --chat-own-message-background: var(--palette-purple)
+    --chat-system-message-background: var(--header-top-backgroun-color)
+    --popup-zoom-button-background: var(--palette-blue)
+
+    //CUSTOM
+    --burger-background: var(--pre-default-text-color)
+    --burger-hover-background: var(--default-text-color)
+
+    //ADMIN
+    --admin-page-header-background: var(--header-top-backgroun-color)
+    --admin-page-division-list-background: var(--header-top-backgroun-color)
+    --admin-page-division-list-hover-background: var(--page-backgroun-color)
+    --admin-page-division-list-disable-background: var(--page-pre-backgroun-color)
+
+    // ### BORDER ###
+    --default-border-color: #999
+    --pre-default-border-color: #666
+
+    // ### SHADOW ###
+    --default-shadow-color: rgb(36, 48, 75)

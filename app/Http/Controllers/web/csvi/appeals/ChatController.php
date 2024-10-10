@@ -31,7 +31,6 @@ class ChatController
             foreach ($request->file('file') as $file) {
                 $message = date('Y-m-d-H-i-s') . '_' . $file->getClientOriginalName();
                 Storage::disk('appeal-chat')->putFileAs($appeal->id, $file, $message);
-
                 Csvi_Appeal_AppealMessage::create([
                     'appeal_id' => $appeal->id,
                     'sender_id' => auth()->user()->id,

@@ -1,4 +1,4 @@
-html:root
+html[them="them"]:root
     // ################################################
     // ### COLORS ###
     // ################################################
@@ -25,6 +25,9 @@ html:root
     --message-green-color: var(--palette-green)
 
     // ### BACKGROUND ###
+    // PAGINATE
+    --paginate-backgroun-color: var(--palette-blue)
+    --active-paginate-backgroun-color: var(--page-pre-backgroun-color)
     // PAGE
     --page-backgroun-color: rgb(25, 34, 48)
     --page-pre-backgroun-color: rgb(34, 40, 54)
@@ -32,7 +35,7 @@ html:root
     --header-top-backgroun-color: rgb(20, 25, 35)
     --header-bottom-backgroun-color: rgb(25, 34, 48)
     // INPUT
-    --input-backgroun-color:rgb(20, 25, 35)
+    --input-backgroun-color: rgb(20, 25, 35)
     --input-disable-backgroun-color: rgb(34, 40, 54)
     // ALERT
     --new-alert-background: rgb(36, 48, 75)
@@ -45,10 +48,29 @@ html:root
     --blue-button-hover-background: var(--palette-blue)
     --red-button-background: var(--palette-red)
     --red-button-hover-background: rgb(202, 24, 24)
+    // TABLE
+    --table-row-background-color: var(--page-backgroun-color)
+    --table-row-even-background-color: var(--page-pre-backgroun-color)
     // TABLE FILTER
     --table-filter-preview-background: var(--input-backgroun-color)
     --table-green-background: rgb(57, 94, 38)
     --table-purple-background: var(--palette-purple)
+    //CHAT
+    --chat-header-background: var(--header-top-backgroun-color)
+    --chat-content-background: var(--page-backgroun-color)
+    --chat-bottom-background: var(--page-backgroun-color)
+    --chat-message-background: var(--palette-blue)
+    --chat-own-message-background: var(--palette-purple)
+    --chat-system-message-background: var(--header-top-backgroun-color)
+    --popup-zoom-button-background: var(--palette-blue)
+    //CUSTOM
+    --burger-background: var(--pre-default-text-color)
+    --burger-hover-background: var(--default-text-color)
+    //ADMIN
+    --admin-page-header-background: var(--header-top-backgroun-color)
+    --admin-page-division-list-background: var(--header-top-backgroun-color)
+    --admin-page-division-list-hover-background: var(--page-backgroun-color)
+    --admin-page-division-list-disable-background: var(--page-pre-backgroun-color)
 
     // ### BORDER ###
     --default-border-color: #999

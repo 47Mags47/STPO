@@ -1,12 +1,13 @@
-header .top 
-    height: var(--header-top-height)
-    position: relative
-    padding: var(--header-padding)
-    display: flex
-    justify-content: space-between
-    align-items: center
-    background: var(--header-top-backgroun-color)
-    color: var(--header-color)
+header
+    .top
+        height: var(--header-top-height)
+        position: relative
+        padding: var(--header-padding)
+        display: flex
+        justify-content: space-between
+        align-items: center
+        background: var(--header-top-backgroun-color)
+        color: var(--header-top-color)
     a
         transition: var(--all-transition)
     a.logo-link
@@ -15,7 +16,7 @@ header .top
         strong
             font-size: var(--header-strong-font-size)
         &:hover
-            color: var(--header-hover-color)
+            color: var(--header-top-hover-color)
     .user
         width: auto
         display: flex
@@ -34,4 +35,4 @@ header .top
                 font-size: var(--big-font-size)
                 font-weight: bold
             &:hover
-                color: var(--header-hover-color)
+                color: var(--header-top-hover-color)

@@ -17,6 +17,9 @@
 
 <th colspan="{{ isset($colspan) ? $colspan : 1 }}" rowspan="{{ isset($rowspan) ? $rowspan : 1 }}">
     @isset($empty)
+        <div>
+            <div class="emty-box"></div>
+        </div>
     @else
         @isset($sort)
             <div class="sort">

@@ -23,7 +23,7 @@ html:root
     --sheet-list-height: 30px
 
     // ### TABLE ###
-    --min-table-height: 30px
+    --min-table-cell-height: 30px
 
     // ################################################
     // ### BORDER ###
@@ -39,7 +39,6 @@ html:root
     --pre-default-border-style: solid
     --pre-default-border: var(--pre-default-border-width) var(--pre-default-border-style) var(--pre-default-border-color)
 
-    
     // ################################################
     // ### SHADOW ###
     // ################################################
@@ -48,13 +47,13 @@ html:root
     --default-shadow-x-ofset: 0
     --default-shadow-y-ofset: 0
     --default-shadow-blur-radius: 8px
-    --default-shadow-spread-radius: 4px
+    --default-shadow-spread-radius: 0px
     --default-shadow: var(--default-shadow-x-ofset) var(--default-shadow-y-ofset) var(--default-shadow-blur-radius) var(--default-shadow-spread-radius) var(--default-shadow-color)
 
     // ### BOTTOM-ONLY ###
     --bottom-only-shadow-x-ofset: 0
-    --bottom-only-shadow-y-ofset: 6px
-    --bottom-only-shadow-blur-radius: 6px
+    --bottom-only-shadow-y-ofset: 4px
+    --bottom-only-shadow-blur-radius: 10px
     --bottom-only-shadow-spread-radius: 0px
     --bottom-only-shadow: var(--bottom-only-shadow-x-ofset) var(--bottom-only-shadow-y-ofset) var(--bottom-only-shadow-blur-radius) var(--bottom-only-shadow-spread-radius) var(--default-shadow-color)
 
@@ -64,6 +63,13 @@ html:root
     --left-only-shadow-blur-radius: 8px
     --left-only-shadow-spread-radius: 0px
     --left-only-shadow: var(--left-only-shadow-x-ofset) var(--left-only-shadow-y-ofset) var(--left-only-shadow-blur-radius) var(--left-only-shadow-spread-radius) var(--default-shadow-color)
+
+    // ### CONTENT BOX ###
+    --content-box-shadow-x-ofset: -2px
+    --content-box-shadow-y-ofset: 8px
+    --content-box-shadow-blur-radius: 8px
+    --content-box-shadow-spread-radius: 0
+    --content-box-shadow: var(--content-box-shadow-x-ofset) var(--content-box-shadow-y-ofset) var(--content-box-shadow-blur-radius) var(--content-box-shadow-spread-radius) var(--default-shadow-color)
 
     // ################################################
     // ### ANIMATION ###
@@ -82,5 +88,3 @@ html:root
     // ### BACKDROP ###
     // ################################################
     --default-backdrop-filter: blur(4px)
-
-@import './thems/example'
