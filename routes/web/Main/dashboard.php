@@ -1,4 +1,5 @@
 <?php
+
 use App\Http\Controllers\web\auth\EmailController;
 use App\Http\Controllers\web\main\DashboardController;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
@@ -12,4 +13,6 @@ Route::middleware('auth')->group(function () {
     Route::get('/email/verify', [EmailController::class, 'notice'])->name('verification.notice');
     Route::post('/email/verify', [EmailController::class, 'send'])->name('verification.send');
     Route::get('/email/verify/{id}/{hash}', [EmailController::class, 'verify'])->name('verification.verify');
+
+    Route::post('/setting/change-them', [DashboardController::class, 'changeThem'])->name('settings.change-them');
 });

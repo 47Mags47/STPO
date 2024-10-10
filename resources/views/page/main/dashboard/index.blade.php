@@ -17,7 +17,9 @@
                 @include('page.main.dashboard.division')
             </x-tab.page>
             <x-tab.page><x-text.box-header value="Не реализовано"/></x-tab.page>
-            <x-tab.page><x-text.box-header value="Не реализовано"/></x-tab.page>
+            <x-tab.page>
+                @include('page.main.dashboard.settings')
+            </x-tab.page>
         </x-slot:body>
     </x-tab.box>
 @endsection

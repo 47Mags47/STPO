@@ -14,7 +14,7 @@
     @isset($dependVal)
         depend-val="{{ $dependVal }}"
     @endisset
-    @selected(isset($selected) or (isset($pName) and old($pName) == $value))
+    @selected(isset($selected) or (isset($select) and $select == $value) or (isset($pName) and old($pName) == $value))
 >
     @if (mb_strlen($title) > 40)
         {!! mb_substr($title, 0, 40) . '...' !!}
