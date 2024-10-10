@@ -1,30 +1,35 @@
-header .top .alert-box
-    .preview
-        position: relative
-        display: flex
-        justify-content: center
-        align-items: center
-        cursor: pointer
-        i
-            font-size: 1.2rem
-            transition: var(--all-transition)
-        .counter
-            position: absolute
-            top: -50%
-            left: 50%
-        &:hover i
-            color: var(--color-text-default)
-    .alert-list
-        position: absolute
-        top: 100%
-        right: calc(-450px - 50px)
-        width: 450px
-        height: 500px
-        z-index: 11
-        overflow-y: auto
-        transition: var(--all-transition)
+header
+    .top
+        .alert-box
+            .preview
+                position: relative
+                display: flex
+                justify-content: center
+                align-items: center
+                cursor: pointer
+                i
+                    font-size: var(--big-font-size)
+                    transition: var(--all-transition)
+                    color: var(--header-top-color)
+                .counter
+                    position: absolute
+                    top: -50%
+                    left: 50%
+                &:hover i
+                    color: var(--header-top-hover-color)
+            .alert-list
+                position: absolute
+                top: 100%
+                right: calc(-450px - 50px)
+                width: 450px
+                height: 500px
+                z-index: 11
+                overflow-y: auto
+                transition: var(--all-transition)
 
-        box-shadow: var(--shadow-left-only)
-        border-radius: 0 0 7px 7px
-        &.open
-            right: 0
+                background: var(--header-bottom-backgroun-color)
+                box-shadow: var(--left-only-shadow)
+                border-radius: 0 0 7px 7px
+                z-index: 100
+                &.open
+                    right: 0

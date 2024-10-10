@@ -1,0 +1,31 @@
+.tab-box .meny
+    display: flex
+    gap: 0
+    li
+        background: var(--page-pre-backgroun-color)
+        border-top: var(--default-border)
+        border-right: var(--default-border)
+        border-bottom: var(--default-border)
+        cursor: pointer
+        transition: var(--all-transition)
+        span
+            display: block
+            padding: 7px 15px
+
+            color: var(--pre-default-text-color)
+            transition: var(--all-transition)
+        &:hover
+            background: var(--page-backgroun-color)
+            span
+                color: var(--default-text-color)
+        &.open
+            background: var(--page-backgroun-color)
+            border-bottom: 1px solid #00000000
+            span
+                color: var(--default-text-color)
+        &.others
+            flex: 1
+            border-top: none
+            border-right: none
+            background: var(--page-backgroun-color)
+            cursor: default

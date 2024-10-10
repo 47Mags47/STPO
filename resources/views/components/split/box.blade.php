@@ -1,22 +1,26 @@
-<div 
-    @class([
-        'split-box',
-        $attributes['class']
+{{-- 
+    ## Свойства
+        vertical    - Выравнивает блок по вертикали
+        pd          - Устанавливает отступ внутри блока
+    ## Компоненты
+        slot       - Содержимое компонента
+--}}
+
+@php
+    $pd = isset($pd) ? $pd . 'px' : '0px';
+    $gap = isset($gap) ? $gap . 'px' : '0px';
+@endphp
+
+<div @class([
+    'split-box',
+    'vertical' => isset($vertical),
+    'no-flex' => isset($noFlex),
+    $attributes['class'],
+])
+    @style([
+        "padding: $pd",
+        "gap: $gap"
     ])
 >
-    @isset($item1)
-        <div class="split-item">{{ $item1 }}</div>
-    @endisset
-    @isset($item2)
-        <div class="split-item">{{ $item2 }}</div>
-    @endisset
-    @isset($item3)
-        <div class="split-item">{{ $item3 }}</div>
-    @endisset
-    @isset($item4)
-        <div class="split-item">{{ $item4 }}</div>
-    @endisset
-    @isset($item5)
-        <div class="split-item">{{ $item5 }}</div>
-    @endisset
+    {{ $slot }}
 </div>

@@ -1,18 +1,26 @@
-<x-split.box class="user">
-    <x-slot:item-1>
-        <p>Изменение личных данных</p>
-        <x-dashboard.logo />
-    </x-slot:item-1>
-    <x-slot:item-2>
-        <x-input.input name="" value="{{ auth()->user()->last_name }}" title="Фамилия" />
-        <x-input.input name="" value="{{ auth()->user()->first_name }}" title="Имя" />
-        <x-input.input name="" value="{{ auth()->user()->middle_name }}" title="Отчество" />
-        <x-input.input name="" value="{{ auth()->user()->login }}" title="Логин" disabled />
-        <x-input.input name="" value="{{ auth()->user()->phone }}" title="Телефон" />
-        <x-input.input name="" value="{{ auth()->user()->dop_phone }}" title="Добавочный" />
-    </x-slot:item-2>
-    <x-slot:item-3>
-        {{-- <x-custom.link blue-button link="" title="Сменить пароль" /> --}}
-        <x-custom.link red-button link="{{ route('logout') }}" title="Выход" />
-    </x-slot:item-3>
+<x-split.box pd="15">
+    <x-split.item />
+    <x-split.item>
+        <x-form.image-input name="logo"
+            value="{{ auth()->user()->logo ? auth()->user()->logo : asset('/storage/media/default_logo.png') }}"
+            form="user-form" />
+    </x-split.item>
+    <x-split.item>
+        <x-form.box action="" id="user-form" file>
+            <x-form.input label="Фамилия" name="last_name" value="{{ auth()->user()->last_name }}" />
+            <x-form.input label="Имя" name="first_name" value="{{ auth()->user()->first_name }}" />
+            <x-form.input label="Отчество" name="middle_name" value="{{ auth()->user()->middle_name }}" />
+            <x-form.input label="Почта" name="email"
+                value="{{ auth()->user()->email ? auth()->user()->email : 'Не указана' }}" disabled />
+            <x-form.input label="Телефон" name="phone" value="{{ auth()->user()->phone }}" />
+            <x-form.input label="Добавочный" name="dop_phone" value="{{ auth()->user()->dop_phone }}" />
+            <x-form.sbm title="Применить" />
+        </x-form.box>
+    </x-split.item>
+    <x-split.item>
+        <x-split.box vertical gap="10" no-flex>
+            <x-split.item><x-custom.link link="{{ route('verification.notice') }}" title="Сменить почту" blue-button /></x-split.item>
+            <x-split.item><x-custom.link link="{{ route('logout') }}" title="Выход" red-button /></x-split.item>
+        </x-split.box>
+    </x-split.item>
 </x-split.box>

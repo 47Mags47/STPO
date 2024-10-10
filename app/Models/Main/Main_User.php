@@ -4,9 +4,8 @@ namespace App\Models\Main;
 
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 
@@ -64,11 +63,17 @@ class Main_User extends Authenticatable implements MustVerifyEmail
             ->take(25);
     }
 
-    public static function alertRead(){
+    public function them(): HasOne
+    {
+        return $this->hasOne(Main_User_Them::class, 'user_id');
+    }
+
+    public static function alertRead()
+    {
         Main_Alert::where('from_id', auth()->user()->id)
-        ->where('visible', false)
-        ->update([
-            'visible' => true,
-        ]);
+            ->where('visible', false)
+            ->update([
+                'visible' => true,
+            ]);
     }
 }

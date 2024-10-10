@@ -22,10 +22,11 @@ window.$ = jQuery
 import * as header from './components/header.js'
 import * as table from './components/table.js'
 import * as messages from './components/messages.js'
-import * as excel from './excel.js'
+import * as excel from './components/excel.js'
 import * as admin from './components/admin.js'
 import * as form from './components/form.js'
 import * as chat from './components/chat.js'
+import * as tab from './components/tab.js'
 
 $(window).on('load', async function () {
     try {
@@ -35,11 +36,11 @@ $(window).on('load', async function () {
         // Компоненты
         await table.load()
         await messages.load()
-        // await excel.load()
+        await excel.load()
         await admin.load()
         await form.load()
         await chat.load()
-
+        await tab.load()
     } catch (error) {
         console.log(error);
     }

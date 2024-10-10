@@ -18,6 +18,12 @@ export async function load() {
             $('.table-box .filters-box .filter.open').parent().find('.preview input').trigger('click')
         }
     })
+    /* Закрытие при скролле */
+    $('.table-box').on('scroll', function () {
+        console.log(1);
+
+        $('.table-box .filters-box .filter.open').removeClass('open')
+    })
     //## Выделить все в фильтрах
     //##################################################
     /* Выделить все */
@@ -36,7 +42,7 @@ export async function load() {
             let list = $(this).parent().parent().parent().find('li:not(.select_all) input')
             let flag = true
             list.each(function () {
-                if(!$(this).prop('checked')){
+                if (!$(this).prop('checked')) {
                     flag = false
                 }
             })

@@ -4,6 +4,7 @@ namespace App\Models\Main;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 
 class Main_Division extends Model
 {
@@ -13,11 +14,18 @@ class Main_Division extends Model
 
     protected $fillable = [];
 
-    public function city(){
+    public function city()
+    {
         return $this->belongsTo(Main_City::class, 'city_id');
     }
 
-    public function adminers(){
+    /**
+     * Get all of the adminers for the Main_Division
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
+     */
+    public function adminers(): HasManyThrough
+    {
         return $this->hasManyThrough(
             Main_User::class,
             Main_Division_Adminer::class,
@@ -28,7 +36,13 @@ class Main_Division extends Model
         );
     }
 
-    public function programmers(){
+    /**
+     * Get all of the programmers for the Main_Division
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\HasManyThrough
+     */
+    public function programmers(): HasManyThrough
+    {
         return $this->hasManyThrough(
             Main_User::class,
             Main_Division_Programmer::class,
@@ -39,12 +53,14 @@ class Main_Division extends Model
         );
     }
 
-    public function Completed($class) :bool{
+    public function Completed($class): bool
+    {
         $raports = new $class;
         return $raports->where('division_id', $this->id)->count() > 0;
     }
 
-    public function raport($class){
+    public function raport($class)
+    {
         $raport = new $class;
         return $raport->where('division_id', $this->id)->orderBy('updated_at', 'desc')->get()->first();
     }

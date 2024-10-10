@@ -3,7 +3,7 @@
     grid-area: B
     transition: var(--all-transition)
     overflow-x: hidden
-    background: var(--header-top-background-color)
+    background: var(--admin-page-division-list-background)
     &.open
         width: 350px
     ul
@@ -12,7 +12,7 @@
         li
             width: 350px
             list-style: none
-            background: var(--header-top-background-color)
+            background: var(--admin-page-division-list-background)
             transition: var(--all-transition)
             a
                 font-size: .9rem
@@ -20,28 +20,25 @@
                 width: 100%
                 height: 100%
                 padding: 5px 10px
-                color: #ccc
+                color: var(--pre-default-text-color)
                 font-weight: bold
                 transition: var(--all-transition)
             &:first-child
-                border-top: 2px solid #383c4b
+                border-top: var(--default-border)
             &:hover
-                background: #252c47
+                background: var(--admin-page-division-list-hover-background)
                 a
-                    color: white
+                    color: var(--default-text-color)
             &.disable
-                background: #383c4b
+                background: var(--admin-page-division-list-disable-background)
                 a
                     text-decoration: line-through
                     cursor: default
                 &:hover
-                    background: #383c4b
+                    background: var(--admin-page-division-list-disable-background)
                     a
-                        color: #ccc
+                        color: var(--pre-default-text-color)
             &.active
-                background: #252c47
+                background: var(--admin-page-division-list-hover-background)
                 a
-                    color: white
-
-
-
+                    color: var(--default-text-color)

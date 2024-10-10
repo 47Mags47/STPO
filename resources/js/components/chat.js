@@ -1,7 +1,7 @@
 import PopUp from "../classes/PopUp"
 
 export async function load() {
-    if($('.chat-box').length == 0){
+    if ($('.chat-box').length == 0) {
         return
     }
 
@@ -31,8 +31,11 @@ export async function load() {
         $('.chat-box .options form').trigger('submit')
     })
     textarea.on('paste', function (event) {
-        fileinput[0].files = event.originalEvent.clipboardData.files
-        fileinput.trigger('change')
+        if (event.originalEvent.clipboardData.types[0] == 'Files') {
+            event.preventDefault()
+            fileinput[0].files = event.originalEvent.clipboardData.files
+            fileinput.trigger('change')
+        }
     })
 
     //## Drag and Drop
@@ -64,10 +67,17 @@ export async function load() {
     //##################################################
     $('.chat-box .chat .text img').each(function () {
         let popup = new PopUp('image', $(this).prop('outerHTML'))
-        $(this).on('click', function () { 
+        $(this).on('click', function () {
             popup.open()
         })
     })
 
+    // $(window).scroll(function () {
+    //     console.log(1);
 
+    //     var scroll = $(window).scrollTop();
+    //     $("#js-hero img").css({
+    //         width: (100 + scroll / 5) + "%"
+    //     })
+    // })
 }

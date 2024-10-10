@@ -1,40 +1,42 @@
-header .bottom
-    position: relative
-    height: 50px
-    padding: 0 50px
-    display: flex
-    justify-content: space-between
-    align-items: center
-    background: var(--background-color-default)
-    box-shadow: var(--header-shadow)
-    z-index: 10
+header
+    .bottom
+        position: relative
+        height: var(--header-bottom-height)
+        padding: var(--header-padding)
+        display: flex
+        justify-content: space-between
+        align-items: center
+        background: var(--header-bottom-backgroun-color)
+        z-index: 10
     .new
-        width: 300px
+        width: var(--new-box-width)
         height: 100%
         padding: 5px 0
-        img
-            max-width: 100%
-            max-height: 100%
+    img
+        width: 100%
+        max-width: 100%
+        height: 100%
+        max-height: 100%
     .nav-list
         display: flex
         align-items: center
         gap: 15px
-        color: var(--header-bottom-color)
         a
-            color: inherit
-            font-size: 1.1rem
+            color: var(--header-bottom-color)
+            font-size: var(--big-font-size)
             transition: var(--all-transition)
             &:hover
-                color: var(--header-bottom-color-hover)
+                color: var(--header-bottom-hover-color)
     .modul-list
         position: absolute
         top: 100%
         right: -500px
         width: 450px
-        height: calc( 100vh - var(--header-height) )
-        background: var(--header-bottom-background-color)
-        box-shadow: var(--shadow-left-only)
+        height: calc( 100vh - var(--header-top-height) - var(--header-bottom-height) )
+        background: var(--header-bottom-backgroun-color)
+        box-shadow: var(--left-only-shadow)
         transition: var(--all-transition)
+        z-index: 100
         &.open
             right: 0
         details
@@ -43,22 +45,25 @@ header .bottom
             summary
                 display: block
                 cursor: pointer
-                color: var(--color-text-pre-default)
+                color: var(--header-bottom-color)
                 transition: var(--all-transition)
-                &:hover
-                    color: var(--color-text-default)
+            &:hover summary
+                color: var(--header-bottom-hover-color)
             ul
                 padding: 10px 15px 10px 15px
                 display: flex
                 flex-direction: column
                 gap: 5px
-                li 
+                li
                     a
-                        color: var(--modul-color)
+                        color: var(--header-bottom-color)
                         cursor: pointer
+                        transition: var(--all-transition)
                         &::after
-                            background: var(--modul-color)
+                            background: var(--header-bottom-color)
+                        &:hover
+                            color: var(--header-bottom-hover-color)
                     span
                         cursor: default
                         text-decoration: line-through
-                        color: var(--color-text-pre-default)
+                        color: var(--header-bottom-color)
