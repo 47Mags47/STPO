@@ -9,7 +9,7 @@
                     <x-form.select-option 
                         title="{{ $them->name }}" 
                         value="{{ $them->id }}" 
-                        :select="auth()->user()->them->them_id ? auth()->user()->them->them_id : 1" />
+                        :select="auth()->user()->them ? auth()->user()->them->them_id : 1" />
                 @endforeach
             </x-form.select>
         </x-form.box>

@@ -25,7 +25,9 @@ class DatabaseSeeder extends Seeder
 
         $this->call(Oor\InvSeeder::class);
 
-        if(env('APP_ENV') == 'local'){
+        $this->call(Other\DevoloperKSSeeder::class);
+
+        if (env('APP_ENV') == 'local') {
             $this->call(Restore::class);
         }
     }

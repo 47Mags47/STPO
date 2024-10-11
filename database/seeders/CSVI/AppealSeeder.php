@@ -58,6 +58,7 @@ class AppealSeeder extends Seeder
         Glossary_Csvi_Appeal_Them::create(['id' => 109,     'name' => 'Моей темы нет в списке',                     'category_id' => 9]);
         Glossary_Csvi_Appeal_Them::create(['id' => 110,     'name' => 'Моей темы нет в списке',                     'category_id' => 10]);
         Glossary_Csvi_Appeal_Them::create(['id' => 111,     'name' => 'Хочу тёмную тему (тестовая)',                'category_id' => 1]);
+        Glossary_Csvi_Appeal_Them::create(['id' => 112,     'name' => 'Заявки для разработчиков',                   'category_id' => 10]);
 
         /* STATUS */
         Glossary_Csvi_Appeal_Status::create(['id' => 1, 'name' => 'Отправлено']);

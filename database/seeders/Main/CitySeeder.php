@@ -40,5 +40,7 @@ class CitySeeder extends Seeder
         Main_City::create(['id' => 27, 'name' => 'Юрга']);
         Main_City::create(['id' => 28, 'name' => 'Яя']);
         Main_City::create(['id' => 29, 'name' => 'Яшкино']);
+
+        Main_City::create(['id' => 30, 'name' => 'Красноярск']);
     }
 }

@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\web\main;
 
-
 use App\Models\Main\Main_User;
 use App\Models\Main\Main_User_Them;
 use Illuminate\Http\Request;

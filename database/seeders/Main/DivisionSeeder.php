@@ -204,5 +204,7 @@ class DivisionSeeder extends Seeder
         Main_Division::create(['id' => 183, 'name' => 'ГКУ "Государственное юридическое бюро Кузбасса"', 'type_id' => 2, 'city_id' => 7]);
         Main_Division::create(['id' => 184, 'name' => 'МКУ "Центр организации соц. обслуживания г. Кемерово" ', 'type_id' => 2, 'city_id' => 7]);
         Main_Division::create(['id' => 185, 'name' => 'МБУ КЦСОН Заводского района г. Новокузнецк', 'type_id' => 2, 'city_id' => 16]);
+
+        Main_Division::create(['id' => 200, 'name' => 'Разработчики', 'type_id' => 2, 'city_id' => 30]);
     }
 }
