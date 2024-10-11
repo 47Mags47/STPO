@@ -39,6 +39,7 @@ class SaveDBData extends Command
         'glossary__main__page_tables',
         'glossary__main__user_roles',
         'glossary__oor_inv_sheets',
+        'glossary__user__thems',
         'jobs',
         'job_batches',
         'main__cities',
@@ -61,11 +62,11 @@ class SaveDBData extends Command
     {
         $this->info('Создание дампа данных БД');
         $path_name = 'data';
-        $storage = Storage::disk('backup');
-        $storage->has($path_name) or $storage->makeDirectory($path_name);
+        Storage::disk('backup')->has($path_name) or Storage::disk('backup')->makeDirectory($path_name);
+        
 
         $file_name = 'backup_' . now()->format('Y_m_d_H_i_s') . ".sql";
-        $path = $storage->path($path_name) . '/' . $file_name;
+        $path = Storage::disk('backup')->path($path_name) . '/' . $file_name;
         $connect_attr = "--user=" . env('DB_USERNAME') . " --password=" . env('DB_PASSWORD');
         $database = env('DB_DATABASE');
         $command = "mysqldump --no-tablespaces --complete-insert $connect_attr --no-create-info " . $this->getIgnore() . " $database > " . $path;
