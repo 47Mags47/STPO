@@ -263,7 +263,7 @@ class AppealController
             'worker_id' => null
         ]);
 
-        event(new SendSystemAppealMessage(appeal: $appeal->id, message: "Обращение возабновлено"));
+        event(new SendSystemAppealMessage(appeal: $appeal->id, message: "Обращение возобновлено"));
 
         return redirect()->route('appeal.chat', compact('appeal'));
     }
