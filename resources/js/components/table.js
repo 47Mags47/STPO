@@ -24,6 +24,7 @@ export async function load() {
 
         $('.table-box .filters-box .filter.open').removeClass('open')
     })
+
     //## Выделить все в фильтрах
     //##################################################
     /* Выделить все */
@@ -47,6 +48,31 @@ export async function load() {
                 }
             })
             $('.table-box .filters-box .filter-box .list li.select_all input').prop('checked', flag)
+        })
+    })
+
+    //## Поиск в фильтре
+    //##################################################
+    $('.table-box .filters-box .filter-box').each(function () {
+        let input = $(this).find('.filter-search input')
+        let list = $(this).find('.list li:not(.select_all)')
+
+        input.on('input', function (e) {
+            let val = $(this).val().toLowerCase().replaceAll(' ', '')
+            if(val == ''){
+                list.each(function(){
+                    $(this).css('display', 'list-item')
+                })
+            }else{
+                list.each(function(){
+                    let item_val = $(this).find('span').html().toLocaleLowerCase().replaceAll(' ', '')
+                    if(item_val.indexOf(val) !== -1 ){
+                        $(this).css('display', 'list-item')
+                    }else{
+                        $(this).css('display', 'none')
+                    }
+                })
+            }
         })
     })
 }

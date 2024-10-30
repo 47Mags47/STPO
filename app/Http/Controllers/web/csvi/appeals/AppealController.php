@@ -11,6 +11,7 @@ use App\Models\Glossary\Glossary_Csvi_Appeal_Category;
 use App\Models\Glossary\Glossary_Csvi_Appeal_Status;
 use App\Models\Glossary\Glossary_Csvi_Appeal_Them;
 use App\Models\Main\Main_City;
+use App\Models\Main\Main_Division;
 use App\Models\Main\Main_TableFilter;
 use App\Models\Main\Main_TableSort;
 use App\Models\Main\Main_User;
@@ -34,6 +35,14 @@ class AppealController
     private function getFilterList()
     {
         return [
+            'worker.division_id' => [
+                'preview' => 'Подразделение',
+                'list' => Main_Division::orderBy('name')->get(),
+                'name' => 'id',
+                'value' => 'name',
+                'is_administration' => true,
+            ],
+
             'sender_id' => [
                 'preview' => 'Отправитель',
                 'list' => Main_User::orderBy('nickname')->get(),
@@ -71,6 +80,12 @@ class AppealController
     private function filterTable($builder, Main_TableFilter $model)
     {
         foreach ($model->filters as $key => $ids) {
+            if($key == 'worker.division_id'){
+                $builder->join('main__users', 'sender_id', '=', 'main__users.id');
+                $builder->join('main__divisions', 'main__users.division_id', '=', 'main__divisions.id');
+                $builder->whereIn('main__divisions.id', $ids);
+                continue;
+            }
             $builder->whereIn($key, $ids);
         }
         return $builder;
@@ -122,7 +137,7 @@ class AppealController
                 'table_id' => 1
             ], [
                 'sort' => [
-                    'pole' => 'id',
+                    'pole' => 'csvi__appeal__appeals.id',
                     'type' => 'desc'
                 ]
             ]);
@@ -135,7 +150,7 @@ class AppealController
         $filterModel = $this->getFiltersModel($request->filters);
         $sortModel = $this->getSortModel($request->sort);
 
-        $builder = Csvi_Appeal_Appeal::whereNotNull('id');
+        $builder = Csvi_Appeal_Appeal::whereNotNull('csvi__appeal__appeals.id');
         $builder = auth()->user()->can('is_administration')
             ? $builder
             : $builder->where(function ($query) {
@@ -147,7 +162,9 @@ class AppealController
             ? $builder->whereAny(['id', 'comment'], 'like', "%$request->search%")
             : $builder;
         $builder = $this->filterTable($builder, $filterModel);
-        $builder = $builder->orderBy($sortModel->sort['pole'], $sortModel->sort['type']);
+        $builder = $sortModel->sort['pole'] == 'id'
+            ? $builder->orderBy('csvi__appeal__appeals.id', $sortModel->sort['type'])
+            : $builder->orderBy($sortModel->sort['pole'], $sortModel->sort['type']);
 
         $view_data = [
             'filters' => $this->getFilterList(),

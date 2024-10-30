@@ -13,5 +13,5 @@
         id      = "{{ $name }}"
         @checked(isset($checked))
     >
-    <span>{{ $label }}</span>
+    <span>{!! $label !!}</span>
 </label>
