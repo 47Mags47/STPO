@@ -1,3 +1,3 @@
 <a href="https://kemerovo.kuzbass-online.ru/" class="new">
-    <img src="{{ asset('media/new.png') }}">
+    <img src="{{ asset('media/newyear.gif') }}">
 </a>
