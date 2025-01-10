@@ -196,6 +196,7 @@ class AppealController
     public function store(Request $request)
     {
         $validation = $request->validate([
+	    'office' => ['nullable'],
             'them_id' => ['required', 'notIn:0'],
             'comment' => ['required', 'min:4', 'max:3000'],
             'files.*' => ['max:102400']

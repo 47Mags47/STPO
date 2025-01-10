@@ -17,6 +17,9 @@
         @can('is_administration')
             <x-table.cell v-center>
                 {{ $appeal->sender->nickname }}
+		@if($appeal->office !== null)
+			(каб. {{ $appeal->office }})
+		@endif
                 {{ isset($appeal->sender->phone) ? ' Тел: ' . $appeal->sender->phone : '' }}<br>
                 ({{ $appeal->sender->division->city->name }})
                 {{ $appeal->sender->division->name }}
