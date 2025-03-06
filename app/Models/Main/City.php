@@ -19,6 +19,6 @@ class City extends Model
     ##################################################
     public function divisions(): HasMany
     {
-        return $this->hasMany(Division::class, 'city_code', Division::getKeyName());
+        return $this->hasMany(Division::class, 'city_code');
     }
 }
