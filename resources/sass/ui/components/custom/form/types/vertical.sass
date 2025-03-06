@@ -1,0 +1,50 @@
+@use '../../../../../abstracts' as *
+
+.vertical-form
+    position: relative
+    width: 100%
+    height: 100%
+
+    display: flex
+    justify-content: center
+    align-items: center
+
+    form
+        position: relative
+        width: 550px
+        max-height: 90%
+
+        padding: 15px
+        border-radius: 15px
+        box-shadow: var(--form-shadow)
+
+        display: flex
+        flex-direction: column
+        gap: 10px
+
+        overflow-y: auto
+        @include scroll
+        .form-errors-box
+            border-radius: 7px
+            background: var(--form-error-background)
+
+            color: var(--form-error-color)
+            font-weight: bold
+            font-size: .9rem
+            li
+                list-style: disc inside
+                padding: 3px 5px
+
+        .form-content
+            display: flex
+            flex-direction: column
+            gap: 10px
+        .form-buttons
+            padding-top: 10px
+            display: flex
+            gap: 10px
+            .button
+                height: 30px
+                flex: 1
+
+
