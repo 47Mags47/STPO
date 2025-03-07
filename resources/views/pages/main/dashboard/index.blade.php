@@ -8,7 +8,7 @@
     <x-layouts.scroller-navigate-item anhor="info"  text="Данные"               ico="fa-user" active />
     <x-layouts.scroller-navigate-item anhor=""      text="подразделение"        ico="fa-house" />
     <x-layouts.scroller-navigate-item anhor=""      text="Администрирование"    ico="fa-user-tie" />
-    <x-layouts.scroller-navigate-item href=""       text="Выход"                ico="fa-right-from-bracket" />
+    <x-layouts.scroller-navigate-item href="{{ route('logout') }}"       text="Выход"                ico="fa-right-from-bracket" />
 @endsection
 
 @section('page-content')

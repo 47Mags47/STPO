@@ -60,8 +60,13 @@ class AuthController extends Controller
         return back()->withErrors('Неверный логин или пароль');
     }
 
-    public function logout()
+    public function logout(Request $request)
     {
-        //
+        Auth::logout();
+
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+
+        return redirect()->route('home');
     }
 }
