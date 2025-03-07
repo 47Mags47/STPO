@@ -29,7 +29,7 @@
     {{-- @include('includes/load-ico') --}}
     {{-- @include('includes/popup') --}}
     {{-- @include('includes/chat-popup') --}}
-    {{-- @include('includes.header') --}}
+    @include('includes.header')
 
     <div class="content {{ $attributes['class'] }}">
         {{ $slot }}
