@@ -1,0 +1,35 @@
+@use './../../abstracts' as *
+
+.scroller-page
+    width: 100%
+    height: 100%
+
+    display: grid
+    grid-auto-flow: column
+    grid-template-columns: 300px auto
+    gap: 10px
+    .page-navigation
+        height: 100%
+        border-right: 1px solid var(--text-color)
+        overflow-y: auto
+        @include scroll
+        li
+            display: block
+            color:  var(--text-color)
+            background: inherit
+            transition: .5s
+            background: var(--navigation-background)
+            cursor: pointer
+            &:hover, &.active
+                background: var(--navigation-background-hover)
+                color: var(--text-color-hover)
+            a
+                display: block
+                width: 100%
+                padding: 7px 10px
+    .page-content
+        .box-header
+            color: var(--text-color)
+            text-align: center
+            font-size: 1.5rem
+            font-weight: bold
