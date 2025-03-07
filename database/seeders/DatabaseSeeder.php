@@ -13,6 +13,8 @@ class DatabaseSeeder extends Seeder
         $this->call(Main\RoleAndPermissionSeeder::class);
         $this->call(Main\ModulSeeder::class);
 
+        $this->call(CSVI\AppealSeeder::class);
+
         if(env('APP_ENV') === 'local')
             $this->call(DevSeeder::class);
     }

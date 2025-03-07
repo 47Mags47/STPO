@@ -43,6 +43,6 @@ class UserSeeder extends Seeder
             'division_id' => Division::where('name', 'ГКУ ЦСВИ')->get()->first()->id,
         ]);
 
-        User::factory(50)->create();
+        User::factory(10)->create();
     }
 }
