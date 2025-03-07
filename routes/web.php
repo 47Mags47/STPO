@@ -8,4 +8,5 @@ Route::get('/', function () {
 
 Route::group([], [
     base_path('routes/web/auth.php'),
+    base_path('routes/web/dashboard.php'),
 ]);
