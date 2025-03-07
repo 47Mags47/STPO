@@ -2,6 +2,7 @@
 
 namespace App\Models\Main;
 
+use App\Traits\HasRolesAndPermissions;
 use App\Traits\Named;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Notifications\Notifiable;
@@ -11,7 +12,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
-    use Named, Notifiable, HasFactory;
+    use Named, Notifiable, HasFactory, HasRolesAndPermissions;
 
     ### Настройки
     ##################################################
