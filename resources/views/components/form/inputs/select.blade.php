@@ -1,3 +1,5 @@
+{{-- HACK переделать элемент на кастомный с блэк джеком и шлюхами --}}
+
 <div class="input-box select">
 
     @isset($label)
@@ -22,7 +24,7 @@
     >
 
         @if ($nullable)
-            <option value="">--- Не выбрано ---</option>
+            <option selected value>--- Не выбрано ---</option>
         @endif
 
 

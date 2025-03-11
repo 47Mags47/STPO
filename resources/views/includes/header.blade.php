@@ -26,7 +26,7 @@
     <div class="header-bottom-box">
         <nav class="other-link-box">
             <ul>
-                <li><a href="">Обращения</a></li>
+                <li><a href="{{ route('appeal.index') }}">Обращения</a></li>
                 <li><a href="">Форум</a></li>
             </ul>
         </nav>
@@ -41,7 +41,16 @@
                     $user_permissions = auth()->user()->rolePermissions();
                 @endphp
                 @foreach ($departments as $department)
-                    @if ($department->moduls()->whereIn('require_permission_code', $user_permissions->pluck('code'))->count() > 0)
+                    @if ($department
+                        ->moduls()
+                        ->whereIn(
+                            'require_permission_code',
+                            auth()
+                            ->user()
+                            ->rolePermissions()
+                            ->pluck('code'))
+                            ->count() > 0
+                        )
                         <details>
                             <summary>{{ $department->name }}</summary>
                             <ul>

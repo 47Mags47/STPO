@@ -26,14 +26,14 @@
 
 <body>
 
-    {{-- @include('includes/load-ico') --}}
+    @include('includes/load-ico')
     {{-- @include('includes/popup') --}}
     {{-- @include('includes/chat-popup') --}}
     @include('includes.header')
 
-    <div class="content {{ $attributes['class'] }}">
+    <section class="page-content {{ $attributes['class'] }}">
         {{ $slot }}
-    </div>
+    </section>
 
 </body>
 

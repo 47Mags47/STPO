@@ -29,10 +29,13 @@ class AppealFactory extends Factory
             'status_code' => $status->code,
             'sender_id' => $sender->id,
 
-            'accepted_at' => in_array($status->code, ['accepted', 'closed', 'restored'])
+            'accepted_by' => $status->code == 'accepted'
                 ? 2
                 : null,
-            'closet_at' => in_array($status->code, ['closed', 'restored'])
+            'closed_by' => $status->code == 'closed'
+                ? 2
+                : null,
+            'restored_by' => $status->code == 'restored'
                 ? 2
                 : null,
         ];

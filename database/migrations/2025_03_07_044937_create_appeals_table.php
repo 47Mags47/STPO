@@ -42,8 +42,9 @@ return new class extends Migration
             $table->foreign('status_code')->references('code')->on(Status::getTableName());
 
             $table->foreignId('sender_id')->constrained(User::getTableName());
-            $table->foreignId('accepted_at')->nullable()->constrained(User::getTableName());
-            $table->foreignId('closet_at')->nullable()->constrained(User::getTableName());
+            $table->foreignId('accepted_by')->nullable()->constrained(User::getTableName());
+            $table->foreignId('closed_by')->nullable()->constrained(User::getTableName());
+            $table->foreignId('restored_by')->nullable()->constrained(User::getTableName());
 
             $table->timestamps();
         });

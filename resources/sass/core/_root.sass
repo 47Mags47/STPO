@@ -13,15 +13,8 @@ body
     display: flex
     flex-direction: column
     background: var(--body-background)
-    section.page
-        flex: 1
-        display: flex
+    section.page-content
         max-height: calc( 100% - 80px )
-        &.full
-            max-height: 100%
-        .page-content
-            flex: 1
-            overflow-y: auto
-            background: var(--body-background)
-            @include scroll()
+        overflow-y: auto
+        @include scroll
 

@@ -1,4 +1,4 @@
-<x-page class="scroller-page">
+<x-page>
     @hasSection('styles')
         <x-slot:styles>
             @yield('styles')
@@ -11,10 +11,6 @@
         </x-slot:scripts>
     @endif
 
-    <ul class="page-navigation">
-        <ul>
-            @yield('page-navigation')
-        </ul>
-    </ul>
-        @yield('page-content')
+    @yield('page-content')
 </x-page>
+
