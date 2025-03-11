@@ -17,7 +17,9 @@
                             </button>
                         </div>
                         <div class="actions">
-                            <a href="" class="button blue-button">Добавить</a>
+                            @isset($actions)
+                                {{ $actions }}
+                            @endisset
                         </div>
                         <div class="paginate"></div>
                         <div class="buttons">

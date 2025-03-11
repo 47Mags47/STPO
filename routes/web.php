@@ -7,7 +7,7 @@ Route::middleware('auth')->get('/', function () {
 })->name('home');
 
 Route::group([], [
-    base_path('routes/web/auth.php'),
-    base_path('routes/web/dashboard.php'),
+    base_path('routes/web/main/auth.php'),
+    base_path('routes/web/main/dashboard.php'),
     base_path('routes/web/CSVI/appeal.php'),
 ]);

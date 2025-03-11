@@ -51,6 +51,10 @@
 
         </x-slot:filters>
 
+        <x-slot:actions>
+            <a href="{{ route('appeal.create') }}" class="button blue-button">Добавить</a>
+        </x-slot:actions>
+
         <x-slot:thead>
             <tr>
                 <th>№</th>

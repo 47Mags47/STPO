@@ -21,6 +21,10 @@ class AuthController extends Controller
 
     public function register(Request $request)
     {
+        /* HACK добавить выдачу ролей при регистрации */
+        // csvi-worker
+        // ministry-worker
+        // division-worker
         $validated = $request->validate([
             'last_name'     => ['nullable',     'string',               'max:255'],
             'first_name'    => ['required',     'string',               'max:255'],

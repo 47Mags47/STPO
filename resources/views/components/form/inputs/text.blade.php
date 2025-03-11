@@ -33,7 +33,7 @@
 
         @required($req)
         @disabled($disabled)
-    >
+    />
 
     @if($title !== null)
         <div class="title" title="{{ $title }}">
