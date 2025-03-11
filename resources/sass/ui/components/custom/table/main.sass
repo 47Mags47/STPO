@@ -1,0 +1,86 @@
+.table-box
+    .filter-box form
+        display: flex
+        flex-direction: column
+        gap: 25px
+        padding: 10px 50px
+        .dinamic-box
+            display: flex
+            flex-direction: row
+            align-items: flex-end
+            flex-wrap: wrap
+            gap: 10px
+            .input-box
+                flex: 1
+                max-width: 400px
+        .static-box
+            display: flex
+            justify-content: space-between
+            gap: 1rem
+            .search-box
+                display: flex
+                gap: 5px
+                align-items: flex-end
+            .actions
+                flex: 1
+                display: flex
+                gap: 5px
+                justify-content: center
+                align-items: flex-end
+            .paginate
+                display: flex
+                gap: 5px
+                li
+                    a, span
+                        width: 30px
+                        height: 30px
+                        color: var(--text-color)
+                        background: var(--blue-button-background-color)
+
+                        display: flex
+                        justify-content: center
+                        align-items: center
+                        border-radius: 7px
+
+                        transition: .5s
+                    &:hover a, &.active span
+                        color: var(--text-color-hover)
+                        background: var(--blue-button-background-color-hover)
+
+            .buttons
+                display: flex
+                gap: 5px
+    table
+        width: 100%
+
+        color: var(--text-color)
+        font-size: .9rem
+
+        border-collapse: collapse
+        border-spacing: 0
+        background: var(--table-background)
+        thead
+            tr
+                th
+                    padding: 5px
+                    background: var(--table-header-background)
+                    border: 1px solid var(--text-color)
+                    &:first-child
+                        border-left: none
+                    &:last-child
+                        border-right: none
+        tbody
+            tr
+                td
+                    border: 1px solid var(--text-color)
+                    padding: 5px 10px
+                    height: 45px
+                    &:first-child
+                        border-left: none
+                    &:last-child
+                        border-right: none
+                &:nth-child(even)
+                    background: var(--table-even-background)
+    table td.center
+        text-align: center
+

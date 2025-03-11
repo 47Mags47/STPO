@@ -1,4 +1,8 @@
 <?php
+
+use App\Models\Main\User;
+use Illuminate\Support\Facades\Auth;
+
 if (! function_exists('getOld')) {
     /**
      * Возвращает старое значение для поля
@@ -15,5 +19,11 @@ if (! function_exists('getOld')) {
         $value = $value ?? request()->input($dot_name);
 
         return $value;
+    }
+
+    function user(int|null $id = null){
+        return $id !== null
+            ? User::whereKey($id)->get()->first()
+            : Auth::user();
     }
 }
