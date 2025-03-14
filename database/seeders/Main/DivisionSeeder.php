@@ -220,6 +220,6 @@ class DivisionSeeder extends Seeder
         Division::create(['name' => 'МКУ "Центр организации соц. обслуживания г. Кемерово" ',                                                                               'city_code' => 'kem']);
         Division::create(['name' => 'МБУ КЦСОН Заводского района г. Новокузнецк',                                                                                           'city_code' => 'nk']);
         Division::create(['name' => 'Разработчики',                                                                                                                         'city_code' => null]);
-
+        Division::create(['name' => 'Центральный отдел СЗН администрации г.Кемерово',                                                                                       'city_code' => 'kem']);
     }
 }

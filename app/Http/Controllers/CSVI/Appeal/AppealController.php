@@ -1,7 +1,11 @@
 <?php
 
-namespace App\Http\Controllers\CSVI;
+namespace App\Http\Controllers\CSVI\Appeal;
 
+use App\Events\CSVI\Appeal\AcceptAppealEvent;
+use App\Events\CSVI\Appeal\CloseAppealEvent;
+use App\Events\CSVI\Appeal\CreateAppealEvent;
+use App\Events\CSVI\Appeal\RestoreAppealEvent;
 use App\Filters\CSVI_AppealFilter;
 use App\Http\Controllers\Controller;
 use App\Models\CSVI\Appeal\Appeal;
@@ -14,27 +18,31 @@ use Illuminate\Http\Request;
 
 class AppealController extends Controller
 {
-    public function index(Request $request, CSVI_AppealFilter $filter)
+    public function index(Request $request)
     {
-        if ($request->ajax())
-            return [
-                'tbody' => $this->resources($request, $filter)['tbody'],
-                'paginate' => $this->resources($request, $filter)['paginate'],
-            ];
-
-        $filters = $this->resources($request, $filter)['filters'];
-
+        $filters = $this->resources($request)['filters'];
         return view('pages.CSVI.appeal.index', compact('filters'));
     }
 
-    public function resources(Request $request, $filter)
+    public function table(Request $request)
+    {
+        if (!$request->ajax())
+            return abort(403);
+
+        return [
+            'tbody' => $this->resources($request)['tbody'],
+            'paginate' => $this->resources($request)['paginate'],
+        ];
+    }
+
+    public function resources(Request $request)
     {
         $appeal_builder = Appeal::query();
         if (!user()->hasPermission('appeal-work'))
             $appeal_builder->where('sender_id', user()->id);
 
         $appeals = $appeal_builder
-            ->filter($filter)
+            ->filter(new CSVI_AppealFilter($request))
             ->orderBy('id', 'desc')
             ->paginate(50);
 
@@ -79,5 +87,24 @@ class AppealController extends Controller
         ];
 
         $appeal = Appeal::create($appeal_data);
+
+        CreateAppealEvent::dispatch($appeal);
+
+        return redirect()->route('appeal.chat.index', compact('appeal'));
+    }
+
+    public function accept(Appeal $appeal){
+        AcceptAppealEvent::dispatch($appeal);
+        return redirect()->route('appeal.chat.index', compact('appeal'));
+    }
+
+    public function close(Appeal $appeal){
+        CloseAppealEvent::dispatch($appeal);
+        return back();
+    }
+
+    public function restore(Appeal $appeal){
+        RestoreAppealEvent::dispatch($appeal);
+        return back();
     }
 }

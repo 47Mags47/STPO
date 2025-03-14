@@ -54,6 +54,17 @@ return new class extends Migration
             $table->foreignId('appeal_id')->constrained(Appeal::getTableName());
             $table->foreignId('worker_id')->constrained(User::getTableName());
         });
+
+        Schema::create('csvi__appeal__messages', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('appeal_id')->constrained(Appeal::getTableName());
+            $table->foreignId('sender_id')->constrained(User::getTableName());
+            $table->text('message');
+            $table->boolean('is_system')->nullable()->default(false);
+            $table->boolean('is_file')->nullable()->default(false);
+            $table->boolean('is_image')->nullable()->default(false);
+            $table->timestamps();
+        });
     }
 
     /**
@@ -61,7 +72,8 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('csvi__appeal_appeals');
+        Schema::dropIfExists('csvi__appeal__messages');
+        Schema::dropIfExists('csvi__appeal__appeals');
         Schema::dropIfExists('csvi__appeal__statuses');
         Schema::dropIfExists('csvi__appeal__them');
         Schema::dropIfExists('csvi__appeal__category');

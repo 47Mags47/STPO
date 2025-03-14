@@ -26,4 +26,8 @@ if (! function_exists('getOld')) {
             ? User::whereKey($id)->get()->first()
             : Auth::user();
     }
+
+    function systemUser(){
+        return User::where('login', 'system')->first();
+    }
 }

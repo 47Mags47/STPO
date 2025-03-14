@@ -31,7 +31,9 @@
     {{-- @include('includes/chat-popup') --}}
     @include('includes.header')
 
-    <section class="page-content {{ $attributes['class'] }}">
+    <section
+        class="page-content {{ $attributes['class'] }} {{ isset($class) ? $class : '' }}"
+    >
         {{ $slot }}
     </section>
 

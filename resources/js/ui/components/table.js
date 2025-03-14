@@ -1,7 +1,5 @@
 /* HACK Переписать компоненты формы с использованием ООП (методы getValue(), reset() и т.д.) */
 
-import { openLoadIco, closeLoadIco } from '../../helpers/load-ico'
-
 $('.table-box').each(function () {
     const BOX = $(this)
     const TABLE = BOX.find('table')
@@ -16,8 +14,6 @@ $('.table-box').each(function () {
         data = data ?? {}
         let method = FILTER_FORM.attr('method')
 
-
-
         openLoadIco()
         $.ajax({
             url: url,
@@ -26,6 +22,7 @@ $('.table-box').each(function () {
             success: function (data) {
                 TABLE.find('tbody').html($(data.tbody).html())
                 PAGNATE_BOX.html($(data.paginate).html())
+
             },
             complete: function () {
                 closeLoadIco()

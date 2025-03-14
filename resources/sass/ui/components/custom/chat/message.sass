@@ -1,0 +1,53 @@
+
+.message-box
+    &.system .text
+        text-align: center
+        padding: 15px
+        background: var(--header-background-bottom)
+        border-radius: 7px
+        span
+            color: var(--text-color-hover)
+            font-weight: bold
+            font-size: 1.1rem
+    &:not(.system)
+        display: grid
+        grid-template-areas: 'A B' 'A C' 'A D'
+        grid-template-columns: 50px auto
+        gap: 5px
+        .sender-logo-box
+            grid-area: A
+            img
+                max-width: 100%
+                max-height: 100%
+                border-radius: 7px
+        .sender-name-box
+            display: flex
+            justify-content: flex-start
+            grid-area: B
+            span
+                font-size: .9rem
+                font-weight: bold
+                color: var(--text-color-hover)
+        .content-box
+            grid-area: C
+            display: flex
+            justify-content: flex-start
+            .content
+                display: flex
+                justify-content: flex-start
+                .message
+                    padding: 15px
+                    border-radius: 7px
+                    background: var(--message-background)
+        .info-box
+            display: flex
+            justify-content: flex-start
+            span
+                font-size: .8rem
+    &.own
+        grid-template-areas: 'B A' 'C A' 'D A'
+        grid-template-columns: auto 50px
+        .sender-name-box, .content-box, .info-box
+            justify-content: flex-end
+        .content-box .content .message
+            background: var(--message-own-background)

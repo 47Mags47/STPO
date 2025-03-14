@@ -1,5 +1,7 @@
 <?php
 
+/* HACK разбить на несколько очередей messages, alerts, raports */
+
 return [
 
     /*

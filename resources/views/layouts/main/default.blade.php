@@ -1,4 +1,8 @@
 <x-page>
+    @hasSection ('class')
+        <x-slot:class>@yield('class')</x-slot:class>
+    @endif
+
     @hasSection('styles')
         <x-slot:styles>
             @yield('styles')

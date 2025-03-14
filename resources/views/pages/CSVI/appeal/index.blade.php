@@ -3,6 +3,7 @@
 @section('page-content')
     <x-table.types.main
         :col-width="['50px', '100px', '350px', '200px', null, '200px', '125px', '125px']"
+        data-route="appeal.table"
     >
         <x-slot:filters>
             @if (user()->hasPermission('appeal-work'))

@@ -3,7 +3,7 @@
 namespace Database\Seeders\Dev;
 
 use App\Models\CSVI\Appeal\Appeal;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use App\Models\Main\UserPivotPermission;
 use Illuminate\Database\Seeder;
 
 class AppealSeeder extends Seeder
@@ -14,5 +14,9 @@ class AppealSeeder extends Seeder
     public function run(): void
     {
         Appeal::factory(50)->create();
+        UserPivotPermission::create([
+            'user_id' => 2,
+            'permission_code' => 'appeal-work'
+        ]);
     }
 }

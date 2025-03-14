@@ -25,7 +25,7 @@
                     @break
 
                     @case('closed')
-                        {{ $appeal->closed->full_name }}
+                        {{-- {{ $appeal->closed->full_name }} --}}
                     @break
 
                     @case('restored')
@@ -37,23 +37,24 @@
             </td>
             <td class="center">
                 @if ($appeal->hasWorker(user()) or $appeal->sender_id == user()->id)
-                    <a href="" class="button blue-button">Перейти</a>
+                    <a href="{{ route('appeal.chat.index', compact('appeal')) }}" class="button blue-button">Перейти</a>
                 @endif
             </td>
+            {{-- HACK Создать новый компонент: кнопки ajax с различными методами --}}
             <td class="center">
                 {{-- Принять --}}
                 @can('accept-appeal', $appeal)
-                    <a href="" class="button blue-button">Приянть</a>
+                    <a href="{{ route('appeal.accept', compact('appeal')) }}" class="button blue-button">Приянть</a>
                 @endcan
 
                 {{-- Закрыть --}}
                 @can('close-appeal', $appeal)
-                    <a href="" class="button red-button">Закрыть</a>
+                    <a href="{{ route('appeal.close', compact('appeal')) }}" class="button red-button">Закрыть</a>
                 @endcan
 
                 {{-- Возобновить --}}
                 @can('restore-appeal', $appeal)
-                    <a href="" class="button blue-button">Возобновить</a>
+                    <a href="{{ route('appeal.restore', compact('appeal')) }}" class="button blue-button">Возобновить</a>
                 @endcan
             </td>
         </tr>

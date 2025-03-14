@@ -36,6 +36,7 @@ return [
             'serve' => true,
             'throw' => false,
             'report' => false,
+            'size_limit' => env('MAX_UPLOAD_FILE_SIZE', 1024)
         ],
 
         'public' => [

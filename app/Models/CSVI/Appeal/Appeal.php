@@ -2,8 +2,6 @@
 
 namespace App\Models\CSVI\Appeal;
 
-use App\Models\Main\City;
-use App\Models\Main\Division;
 use App\Models\Main\User;
 use App\Traits\HasFilter;
 use App\Traits\Named;
@@ -21,21 +19,6 @@ class Appeal extends Model
     protected
         $table = 'csvi__appeal__appeals',
         $guarded = [];
-
-    ### Контракты
-    ##################################################
-    // public static function getFilters()
-    // {
-    //     dd(self::sender());
-    //     return [
-    //         'city'      => City::orderBy('name')->get(),
-    //         // 'division'  => Division::whereIn('id', self::getForeignGroupBy('from_division'))->get(),
-    //         'sender'    => User::whereIn('id', self::getForeignGroupBy('sender_id'))->get(),
-    //         // 'accepted'  => User::whereIn('id', self::getForeignGroupBy('accepted_at'))->get(),
-    //         // 'status'    => Status::orderBy('name')->get(),
-    //         // 'category'  => Category::orderBy('name')->get(),
-    //     ];
-    // }
 
     ### Функции
     ##################################################
@@ -79,5 +62,10 @@ class Appeal extends Model
     public function status(): BelongsTo
     {
         return $this->belongsTo(Status::class, 'status_code', 'code');
+    }
+
+    public function messages(): HasMany
+    {
+        return $this->hasMany(Message::class, 'appeal_id')->orderBy('created_at', 'desc');
     }
 }

@@ -2,6 +2,7 @@
     action="{{ $action }}"
     enctype="{{ $enctype }}"
     method="{{ $method === 'GET' ? 'GET' : 'POST'}}"
+    class="{{ $attributes['class'] }}"
 
     @if ($id !== null)
         id="{{ $id }}"
