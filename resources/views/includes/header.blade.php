@@ -1,6 +1,3 @@
-{{-- HACK переместить кнопку модулей вправо --}}
-{{-- HACK Поменять местами обращения и форум --}}
-
 <header>
     <div class="header-top-box">
         <div class="site-logo">

@@ -1,7 +1,5 @@
 <?php
 
-/* HACK дописать */
-
 namespace App\Events;
 
 use App\Models\Main\Alert;

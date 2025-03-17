@@ -1,5 +1,3 @@
-{{-- HACK починить номера страниц (стрелочки) --}}
-
 @if (isset($paginator) and $paginator !== null)
     <ul class="paginate-box default-paginate">
         @if ($paginator->currentPage() > 3)
@@ -40,9 +38,9 @@
             </li>
         @endif
 
-        @if ($paginator->currentPage() + 1 < $paginator->lastPage())
+        @if ($paginator->currentPage() + 2 < $paginator->lastPage())
             <li>
-                <a href="{{ $paginator->nextPageUrl() }}">
+                <a href="{{ $paginator->url($paginator->currentPage() + 2) }}">
                     <i class="fa fa-angle-right" aria-hidden="true"></i>
                 </a>
             </li>
