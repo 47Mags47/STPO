@@ -18,7 +18,7 @@ ALERT_BUTTON.on('click', function () {
         let url = `http://${new URL(location.href).host}/read-alert`
         $.ajax({
             url: url,
-            method: 'POST',
+            method: 'GET',
             success: function () {
                 ALERT_BUTTON.find('.counter-box').remove()
             },

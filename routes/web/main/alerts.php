@@ -7,5 +7,5 @@ Route::controller(AlertController::class)
     ->middleware('auth')
     ->group(function () {
         Route::get('/get-id', 'getId')->name('get-id');
-        Route::post('/read-alert', 'read')->name('read-alert');
+        Route::get('/read-alert', 'read')->name('read-alert');
     });
