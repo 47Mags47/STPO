@@ -35,9 +35,6 @@ class ChatController extends Controller
             if (Storage::disk('local')->exists('csvi/appeal/chat/' . $appeal->id . '/' . $request->get('file-name')))
                 return response()->file($full_path);
 
-            // if(Storage::disk('local')->exists('csvi/appeal/chat/' . $appeal->id . '/' . mb_substr($appeal->created_at->format('YmdHis_') . $request->get('file-name'), 20)))
-            //     return response()->file($path . $appeal->id . '/' . mb_substr($appeal->created_at->format('YmdHis_') . $request->get('file-name'), 20));
-            dd($path . $appeal->id . '/' . mb_substr($request->get('file-name'), 15));
             if (Storage::disk('local')->exists($path . $appeal->id . '/' . mb_substr($request->get('file-name'), 15)))
                 return response()->file($path . $appeal->id . '/' . mb_substr($request->get('file-name'), 15));
             return abort(404, 'File Not Found');
