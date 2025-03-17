@@ -1,4 +1,3 @@
-
 .message-box
     &.system .text
         text-align: center
@@ -29,6 +28,7 @@
                 font-weight: bold
                 color: var(--text-color-hover)
         .content-box
+            width: 100%
             grid-area: C
             display: flex
             justify-content: flex-start
@@ -39,6 +39,9 @@
                     padding: 15px
                     border-radius: 7px
                     background: var(--message-background)
+                    img
+                        max-width: 100%
+                        max-height: 100%
         .info-box
             display: flex
             justify-content: flex-start
