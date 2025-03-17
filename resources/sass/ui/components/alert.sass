@@ -1,0 +1,43 @@
+@use '../../abstracts' as *
+
+header
+    .alert-list
+        position: absolute
+        top: 100%
+        right: -500px
+        width: 450px
+        height: 550px
+        background: var(--header-background-top)
+        box-shadow: var(--form-shadow)
+        transition: .5s
+
+        display: flex
+        flex-direction: column-reverse
+        gap: 5px
+
+        overflow-y: auto
+        @include scroll
+        &.open
+            right: 0
+        li.alert-box
+            padding: 5px 10px
+            display: flex
+            flex-direction: column
+            border-top: 1px solid var(--text-color)
+            .header span
+                font-size: 1rem
+                font-weight: bold
+            .content
+                text-indent: 1rem
+            .info-box
+                display: flex
+                justify-content: space-between
+                .timestamp span
+                    font-size: .8rem
+                .link
+                    a
+                        transition: .5s
+                        &:hover
+                            color: var(--text-color-hover)
+            &.new
+                background: var(--palette-color-4)

@@ -1,4 +1,3 @@
 import './vendor'
-
-import './layout'
+import './helpers'
 import './ui'

@@ -1,0 +1,173 @@
+@use '../../../../../abstracts' as *
+
+.input-box.multi-select-widjet
+    position: relative
+
+    display: flex
+    gap: 3px
+    flex-wrap: wrap
+    label
+        width: 100%
+        font-weight: bold
+        font-size: .9rem
+    .preview
+        flex: 1
+        height: 30px
+        padding: 5px 10px
+
+        display: flex
+        justify-content: space-between
+
+        font-size: 1rem
+        color: var(--text-color)
+
+        background: var(--input-background)
+        border: 1px solid var(--input-border-color)
+
+        border-radius: 7px
+
+        cursor: pointer
+        svg
+            transition: .5s
+        &:hover svg
+            transform: rotate(360deg)
+
+    .list-box
+        position: absolute
+        top: calc(100% + 10px)
+        left: 0
+        width: 100%
+
+        border-radius: 7px
+
+        overflow: hidden
+        max-height: 0
+
+        background: var(--input-background)
+        border: none
+        transition: .5s
+        &.open
+            max-height: 350px
+            border: 1px solid var(--input-border-color)
+        .search
+            width: 100%
+            padding: 5px 10px
+            input
+                width: 100%
+        ul.list
+            overflow-y: auto
+            padding-bottom: 5px
+            max-height: 310px
+            @include scroll
+            .group-box .group-name
+                padding: 3px 10px
+                font-weight: bold
+                ul
+                    li
+                        padding-left: 10px
+            li label
+                display: flex
+                align-items: center
+                gap: 5px
+                width: 100%
+                height: 100%
+                padding: 7px
+
+                cursor: pointer
+                background: var(--input-background)
+                transition: .5s
+                span
+                    color: inherit
+                    font-size: .9rem
+                input
+                    height: auto
+                &:hover
+                    background: var(--input-item-background)
+                    color: var(--text-color-hover)
+
+
+// .multi-select-widjet
+//     position: relative
+//     .preview
+//         position: relative
+//         cursor: pointer
+//         width: 100%
+
+//         display: flex
+//         padding: 0 25px 0 10px
+//         span
+//             line-height: 1.7rem
+//             width: 100%
+//             height: 100%
+//             overflow: hidden
+//             text-overflow: ellipsis
+//             font-size: .9rem
+//         svg
+//             position: absolute
+//             right: 5px
+//             top: 50%
+//             transform: translateY(-50%)
+//             color: var(--text-color)
+//             font-size: .8rem
+//             transition: .5s
+//         &:hover svg
+//             transform: translateY(-50%) rotate(360deg)
+//     .list-box
+//         position: absolute
+//         top: calc( 100% + 10px )
+
+//         width: 100%
+//         max-height: 0
+//         overflow: hidden
+
+//         display: flex
+//         flex-direction: column
+//         gap: 5px
+
+//         background: var(--input-background)
+//         border-radius: 7px
+
+//         transition: .5s
+//         &.open
+//             max-height: 450px
+//             border-right: 1px solid var(--input-border-color)
+//             border-left: 1px solid var(--input-border-color)
+//             border-bottom: 1px solid var(--input-border-color)
+//         .search
+//             width: 100%
+//             input
+//                 width: 100%
+//         ul.list
+//             display: flex
+//             flex-direction: column
+
+//             overflow-y: auto
+//             @include scroll
+//             span.group-name
+//                 display: block
+//                 text-align: center
+
+//                 color: var(--text-color)
+//                 font-size: 1rem
+//                 font-weight: bold
+//             li.selectable label
+//                 width: 100%
+//                 display: flex
+//                 align-items: center
+//                 gap: 5px
+//                 padding: 5px 10px
+
+//                 color: var(--text-color)
+//                 font-size: .8rem
+//                 background: var(--input-background)
+
+//                 cursor: pointer
+
+//                 transition: .5s
+
+//                 input
+//                     height: auto
+
+//                 &:hover
+//                     color: var(--text-color-hover)
+//                     background: var(--input-item-background)

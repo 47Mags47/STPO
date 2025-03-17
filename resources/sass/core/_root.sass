@@ -1,0 +1,21 @@
+@use './../abstracts/mixins' as *
+
+*
+    margin: 0
+    padding: 0
+    box-sizing: border-box
+
+body
+    width: 100vw
+    height: 100vh
+    overflow: hidden
+    position: relative
+    display: flex
+    flex-direction: column
+    background: var(--body-background)
+    section.page-content
+        height: 100%
+        max-height: calc( 100% - 80px )
+        overflow-y: auto
+        @include scroll
+

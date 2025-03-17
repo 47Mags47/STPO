@@ -1,0 +1,42 @@
+@use '../../../abstracts' as *
+
+.page-content
+    display: grid
+    grid-template-areas: 'A' 'B' 'C'
+    grid-template-rows: 50px auto 70px
+    .header
+        display: flex
+        justify-content: space-between
+        gap: 15px
+        padding: 0 50px
+        border-bottom: 1px solid var(--text-color)
+        .info, .actions
+            display: flex
+            gap: 10px
+            align-items: center
+        .info li span
+            font-weight: bold
+            &.attribute
+                color: var(--text-color)
+            &.value
+                color: var(--text-color-hover)
+    .new-message-form
+        .form-content
+            height: 100%
+            display: flex
+            justify-content: space-between
+            align-items: stretch
+            gap: 15px
+            padding: 10px 15px
+            button, label
+                width: 50px
+            #add-file-button
+                display: flex
+                justify-content: center
+                align-items: center
+                input
+                    display: none
+            .area-input
+                flex: 1
+                textarea
+                    @include scroll()
