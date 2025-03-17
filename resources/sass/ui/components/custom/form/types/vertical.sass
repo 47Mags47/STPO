@@ -8,7 +8,8 @@
     display: flex
     justify-content: center
     align-items: center
-
+    &:not(.no-shadow) form
+        box-shadow: var(--form-shadow)
     form
         position: relative
         width: 550px
@@ -16,7 +17,6 @@
 
         padding: 15px
         border-radius: 15px
-        box-shadow: var(--form-shadow)
 
         display: flex
         flex-direction: column
@@ -26,6 +26,8 @@
         background: var(--form-background)
 
         overflow-y: auto
+
+
 
         @include scroll
         .form-errors-box

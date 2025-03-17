@@ -1,4 +1,9 @@
-<div class="form-container vertical-form">
+<div @class([
+        'form-container',
+        'vertical-form',
+        'no-shadow' => !$hasShadow
+    ])
+>
     <x-form.types.main :$attributes>
         @isset($content)
             <x-slot:content>

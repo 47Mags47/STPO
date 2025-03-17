@@ -16,5 +16,8 @@
             @yield('page-navigation')
         </ul>
     </ul>
+    <div class="page-content">
         @yield('page-content')
+    </div>
+
 </x-page>

@@ -34,7 +34,7 @@
                     a, span
                         width: 30px
                         height: 30px
-                        color: var(--text-color)
+                        color: var(--button-color)
                         background: var(--blue-button-background-color)
 
                         display: flex
@@ -44,7 +44,7 @@
 
                         transition: .5s
                     &:hover a, &.active span
-                        color: var(--text-color-hover)
+                        color: var(--button-color-hover)
                         background: var(--blue-button-background-color-hover)
 
             .buttons
@@ -81,6 +81,12 @@
                         border-right: none
                 &:nth-child(even)
                     background: var(--table-even-background)
+        tr.green
+            background: var(--green-table-color)
+        tr.purple
+            background: var(--purple-table-color)
     table td.center
         text-align: center
+
+
 

@@ -1,1 +1,2 @@
-import '../../../sass/export/thems/default.sass'
+let them = localStorage.getItem('them') ?? 'dark'
+import(`../../../sass/export/thems/${them}.sass`)

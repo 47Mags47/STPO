@@ -1,9 +1,9 @@
 <tbody>
     @foreach ($appeals as $appeal)
         <tr id="appeal_{{ $appeal->id }}"
-        @style([
-            'background: rgb(77, 41, 57)' => $appeal->status_code == 'accepted',
-            'background: rgb(57, 94, 38)' => $appeal->status_code == 'closed',
+        @class([
+            'green' => $appeal->status_code == 'accepted',
+            'purple' => $appeal->status_code == 'closed',
         ])
         >
             {{-- HACK Перевести ячейки в компонент --}}
