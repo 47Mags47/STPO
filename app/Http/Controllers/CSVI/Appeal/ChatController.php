@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\CSVI\Appeal\Appeal;
 use App\Models\CSVI\Appeal\Message;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ChatController extends Controller
 {
@@ -30,7 +31,10 @@ class ChatController extends Controller
         if ($appeal->hasWorker(user()) or $appeal->sender_id === user()->id) {
             $path = storage_path('app/private/csvi/appeal/chat/');
             $full_path = $path . $appeal->id . '/' . $request->get('file-name');
-            return response()->file($full_path);
+
+            return Storage::disk('local')->exists('csvi/appeal/chat/' . $appeal->id . '/' . $request->get('file-name'))
+                ? response()->file($full_path)
+                : abort(404, 'File Not Found');
         }
 
         return abort(404);
