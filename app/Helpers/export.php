@@ -21,13 +21,15 @@ if (! function_exists('getOld')) {
         return $value;
     }
 
-    function user(int|null $id = null){
+    function user(int|null $id = null): User
+    {
         return $id !== null
             ? User::whereKey($id)->get()->first()
             : Auth::user();
     }
 
-    function systemUser(){
+    function systemUser(): User
+    {
         return User::where('login', 'system')->first();
     }
 }

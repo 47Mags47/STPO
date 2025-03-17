@@ -6,11 +6,14 @@ use App\Events\SendAlert;
 use App\Models\CSVI\Appeal\Appeal;
 use App\Models\CSVI\Appeal\Message;
 use App\Models\CSVI\Appeal\Worker;
+use Illuminate\Broadcasting\Channel;
+use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Foundation\Events\Dispatchable;
+use Illuminate\Contracts\Broadcasting\ShouldBroadcastNow;
 use Illuminate\Queue\SerializesModels;
 
-class AcceptAppealEvent
+class AcceptAppealEvent implements ShouldBroadcastNow
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -36,12 +39,35 @@ class AcceptAppealEvent
         );
 
         SendMessageEvent::dispatch($message);
+
         SendAlert::dispatch(
+            $appeal->sender_id,
             $message->message,
-            $message->sender,
             route('appeal.chat.index', [
                 'appeal' => $message->appeal
-            ])
+            ]),
+            'Изменение статуса обращения'
         );
+    }
+
+    public function broadcastOn(): array
+    {
+        return [
+            new PrivateChannel("appeal." . $this->appeal->id . ".chanel"),
+            new Channel('appeals.chanel')
+        ];
+    }
+
+    public function broadcastAs()
+    {
+        return 'accept';
+    }
+
+    public function broadcastWith(): array
+    {
+        return [
+            'id' => $this->appeal->id,
+            'accepted_by' => $this->appeal->accepted->full_name
+        ];
     }
 }

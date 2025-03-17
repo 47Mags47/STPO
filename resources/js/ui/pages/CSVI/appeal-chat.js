@@ -1,3 +1,5 @@
+const HEADER = $('.page-content .header')
+
 const MESSAGE_BOX = $('.message-list-box')
 const FORM = $('.new-message-form')
 
@@ -94,7 +96,20 @@ FORM
         })
     })
 
-Echo.private(`appeal.${$('#appeal-id').html()}.chat.chanel`)
-    .listen('.new.message', (e) => {
-        MESSAGE_BOX.prepend(e.message)
+/* HACK Разнести скрипты с broadcast в отдельные файлы */
+Echo.private(`appeal.${$('#appeal-id').html()}.chanel`)
+    .listen('.new-message', (response) => {
+        MESSAGE_BOX.prepend(response.message)
     })
+    .listen('.close', () => {
+        FORM.css('display', 'none')
+        HEADER.find('.info #status .value').html('Закрыто')
+    })
+    .listen('.restore', () => {
+        FORM.css('display', 'block')
+        HEADER.find('.info #status .value').html('Возобновлено')
+    })
+    .listen('.accept', () => {
+        HEADER.find('.info #status .value').html('Принято')
+    })
+

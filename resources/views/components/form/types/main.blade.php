@@ -3,6 +3,7 @@
     enctype="{{ $enctype }}"
     method="{{ $method === 'GET' ? 'GET' : 'POST'}}"
     class="{{ $attributes['class'] }}"
+    style="{{ $attributes['style'] }}"
 
     @if ($id !== null)
         id="{{ $id }}"

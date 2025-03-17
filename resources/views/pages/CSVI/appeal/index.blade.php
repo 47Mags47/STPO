@@ -1,5 +1,9 @@
 @extends('layouts.main.default')
 
+@section('scripts')
+    @vite('resources/js/ui/pages/CSVI/appeals.js')
+@endsection
+
 @section('page-content')
     <x-table.types.main
         :col-width="['50px', '100px', '350px', '200px', null, '200px', '125px', '125px']"

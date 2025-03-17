@@ -18,6 +18,24 @@
                     <img src="{{ asset('storage/' . ($user->logo ?? 'core/image/user_logo.png')) }}" alt="logo">
                 </div>
                 <a href="{{ route('dashboard') }}" class="user-name">{{ auth()->user()->full_name }}</a>
+
+                @php
+                    $count = user()->alerts()->where('visible', false)->count();
+                @endphp
+                <div class="alert-button" data-count="{{ $count }}">
+                    @if ($count > 0)
+                        <div class="counter-box">
+                            <span>{{ $count > 9 ? '9+' : $count }}</span>
+                        </div>
+                    @endif
+                    <i class="fa-solid fa-bell"></i>
+                </div>
+                <ul class="alert-list">
+                    {{-- HACK добавить подгрузку при скролле --}}
+                    @foreach (user()->alerts()->paginate(15) as $alert)
+                        <x-alert :$alert />
+                    @endforeach
+                </ul>
             @else
                 <a href="{{ route('login') }}">Войти</a>
             @endif
@@ -41,16 +59,7 @@
                     $user_permissions = auth()->user()->rolePermissions();
                 @endphp
                 @foreach ($departments as $department)
-                    @if ($department
-                        ->moduls()
-                        ->whereIn(
-                            'require_permission_code',
-                            auth()
-                            ->user()
-                            ->rolePermissions()
-                            ->pluck('code'))
-                            ->count() > 0
-                        )
+                    @if ($department->moduls()->whereIn('require_permission_code', auth()->user()->rolePermissions()->pluck('code'))->count() > 0)
                         <details>
                             <summary>{{ $department->name }}</summary>
                             <ul>

@@ -1,6 +1,6 @@
 <tbody>
     @foreach ($appeals as $appeal)
-        <tr>
+        <tr id="appeal_{{ $appeal->id }}">
             {{-- HACK Перевести ячейки в компонент --}}
             {{-- HACK Добавить ограничение длины строки --}}
 
@@ -17,7 +17,7 @@
             <td>
                 {{ $appeal->comment }}
             </td>
-            <td>
+            <td id="status">
                 {{ $appeal->status->name }} <br>
                 @switch($appeal->status_code)
                     @case('accepted')
@@ -35,13 +35,13 @@
                     @default
                 @endswitch
             </td>
-            <td class="center">
+            <td class="center" id="go-to">
                 @if ($appeal->hasWorker(user()) or $appeal->sender_id == user()->id)
                     <a href="{{ route('appeal.chat.index', compact('appeal')) }}" class="button blue-button">Перейти</a>
                 @endif
             </td>
             {{-- HACK Создать новый компонент: кнопки ajax с различными методами --}}
-            <td class="center">
+            <td class="center" id="options">
                 {{-- Принять --}}
                 @can('accept-appeal', $appeal)
                     <a href="{{ route('appeal.accept', compact('appeal')) }}" class="button blue-button">Приянть</a>

@@ -9,6 +9,7 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Authenticatable implements MustVerifyEmail
 {
@@ -32,10 +33,25 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
+    public function scopeLogo(){
+        return asset('/storage/' . ($this->logo ?? '/core/image/user_logo.png'));
+    }
+
+    public function scopeReadAlerts(){
+        $this->alerts()->update([
+            'visible' => true,
+        ]);
+    }
+
     ### Связи
     ##################################################
     public function division(): BelongsTo
     {
         return $this->belongsTo(Division::class, 'division_id');
+    }
+
+    public function alerts(): HasMany
+    {
+        return $this->hasMany(Alert::class, 'to')->orderBy('created_at', 'desc');
     }
 }

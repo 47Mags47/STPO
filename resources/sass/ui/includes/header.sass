@@ -1,11 +1,13 @@
 @use '../../abstracts' as *
 
 header
+    position: relative
     display: grid
     grid-template-rows: 40px 40px
     color: var(--header-text-color)
     z-index: 999
     .header-top-box
+        position: relative
         display: flex
         justify-content: space-between
         align-items: center
@@ -39,6 +41,42 @@ header
                 transition: .5s
                 &:hover
                     color: var(--header-text-color-hover)
+            .alert-button
+                position: relative
+                width: 25px
+                height: 25px
+
+                display: flex
+                justify-content: center
+                align-items: center
+
+                cursor: pointer
+                transition: .5s
+                &:hover
+                    color: var(--text-color-hover)
+
+                .counter-box
+                    width: 20px
+                    height: 20px
+
+                    position: absolute
+                    top: -40%
+                    right: -30%
+
+                    display: flex
+                    justify-content: center
+                    align-items: center
+
+                    background: red
+                    border-radius: 50%
+
+                    z-index: 1
+                    span
+                        font-size: .7rem
+                        font-weight: bold
+                svg
+                    width: 20px
+                    height: 20px
     .header-bottom-box
         padding: 0 50px
         display: flex

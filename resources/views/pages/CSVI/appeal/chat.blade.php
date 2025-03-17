@@ -20,17 +20,17 @@
 
     <div class="header">
         <ul class="info">
-            <li>
+            <li id="NP">
                 <span class="attribute">№:</span>
                 <span class="value" id="appeal-id">{{ $appeal->id }}</span>
             </li>
 
-            <li>
+            <li id="participants">
                 <span class="attribute">Участников:</span>
                 <span class="value">{{ $appeal->workers->push($appeal->sender)->count() }}</span>
             </li>
             @if ($appeal->accepted_at)
-                <li>
+                <li id="accepted">
                     <span class="attribute">Взята:</span>
                     <span class="value">{{ $appeal->accepted->full_name }}</span>
                     <div class="popup-info">
@@ -41,11 +41,11 @@
                     </div>
                 </li>
             @endif
-            <li>
+            <li id="them">
                 <span class="attribute">Тема:</span>
                 <span class="value">{{ $appeal->them->name }}</span>
             </li>
-            <li>
+            <li id="status">
                 <span class="attribute">Статус:</span>
                 <span class="value">{{ $appeal->status->name }}</span>
             </li>
@@ -73,9 +73,13 @@
 
     <x-chat.box :messages="$appeal->messages" file-route="appeal.chat.file" :file-route-params="compact('appeal')" />
 
-    @if ($appeal->status_code !== 'closed')
-        <x-form.types.main action="{{ route('appeal.chat.store', compact('appeal')) }}" class="new-message-form"
-            upload-file>
+    {{-- @if ($appeal->status_code !== 'closed') --}}
+        <x-form.types.main
+            action="{{ route('appeal.chat.store', compact('appeal')) }}"
+            class="new-message-form"
+            upload-file
+            @style(['display:none' => $appeal->status_code == 'closed'])
+        >
             <x-slot:content>
                 <label for="file" class="button blue-button" id="add-file-button">
                     <input type="file" name="file[]" id="file" class="drag-and-drop-input" multiple>
@@ -89,5 +93,5 @@
                 </button>
             </x-slot:content>
         </x-form.types.main>
-    @endif
+    {{-- @endif --}}
 @endsection

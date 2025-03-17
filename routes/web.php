@@ -8,6 +8,7 @@ Route::middleware('auth')->get('/', function () {
 
 Route::group([], [
     base_path('routes/web/main/auth.php'),
+    base_path('routes/web/main/alerts.php'),
     base_path('routes/web/main/dashboard.php'),
     base_path('routes/web/CSVI/appeal.php'),
 ]);

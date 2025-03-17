@@ -66,6 +66,16 @@ return new class extends Migration
             $table->foreign('permission_code')->references('code')->on(Permission::getTableName());
         });
 
+        Schema::create('main__alerts', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('to')->constrained(User::getTableName());
+            $table->boolean('visible')->default(false);
+            $table->string('header')->nullable();
+            $table->text('message');
+            $table->string('link')->nullable();
+            $table->timestamps();
+        });
+
         // СИСТЕМНЫЕ ТАБЛИЦЫ
         Schema::create('sys__password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();

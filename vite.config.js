@@ -9,10 +9,12 @@ export default defineConfig({
         laravel({
             input: [
                 'resources/sass/app.sass',
+                'resources/sass/export/pages/main/dashboard.sass',
                 'resources/sass/export/pages/CSVI/appeal-chat.sass',
 
                 'resources/js/app.js',
-                'resources/js/ui/pages/CSVI/appeal-chat.js'
+                'resources/js/ui/pages/CSVI/appeal-chat.js',
+                'resources/js/ui/pages/CSVI/appeals.js'
             ],
             refresh: true,
         }),
