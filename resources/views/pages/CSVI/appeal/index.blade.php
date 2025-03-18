@@ -81,6 +81,4 @@
 
         </x-slot:tbody>
     </x-table.types.main>
-
-    <x-paginate.page :paginator="$appeals"/>
 @endsection

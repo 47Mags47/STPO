@@ -8,6 +8,7 @@ $('.table-box').each(function () {
     const FILTERS = FILTER_FORM.find('.dinamic-box').find('input, select, textarea')
     const SEARCH = FILTER_FORM.find('.static-box .search-box input')
     const PAGNATE_BOX = FILTER_FORM.find('.static-box .paginate')
+    const END_PAGINATE_BOX = BOX.find('.end-table-paginate-box')
 
     function getData(data = null, url = null) {
         url = url ?? FILTER_FORM.attr('action')
@@ -23,6 +24,10 @@ $('.table-box').each(function () {
             success: function (data) {
                 TABLE.find('tbody').html($(data.tbody).html())
                 PAGNATE_BOX.html($(data.paginate).html())
+                END_PAGINATE_BOX.html($(data.paginate).html())
+                $('.page-content').animate({
+                    scrollTop: 0
+                }, 'slow')
             },
             complete: function () {
                 closeLoadIco()
@@ -73,8 +78,17 @@ $('.table-box').each(function () {
             e.preventDefault()
             FILTERS.trigger('reset')
             FILTER_FORM.trigger('reset')
-            getData({filter: [null]})
+            getData({ filter: [null] })
         })
+
+    END_PAGINATE_BOX.on('click', 'li a', function (e) {
+        e.preventDefault()
+
+        let url = new URL($(this).attr('href'))
+        let page = url.searchParams.get('page')
+
+        getData({ page: page ?? 1 })
+    })
 
 })
 

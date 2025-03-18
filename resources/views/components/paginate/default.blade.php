@@ -1,4 +1,4 @@
-@if (isset($paginator) and $paginator !== null)
+@if (isset($paginator) and $paginator !== null and $paginator->lastPage() > 1)
     <ul class="paginate-box default-paginate">
         @if ($paginator->currentPage() > 3)
             <li>
