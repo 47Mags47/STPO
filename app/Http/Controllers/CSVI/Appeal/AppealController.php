@@ -46,7 +46,7 @@ class AppealController extends Controller
         $appeals = $appeal_builder
             ->filter(new CSVI_AppealFilter($request))
             ->orderBy('id', 'desc')
-            ->paginate(50);
+            ->paginate(100);
 
         $filters = [
             'city'      => City::orderBy('name')->get(),
