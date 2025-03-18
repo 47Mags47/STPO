@@ -20,10 +20,11 @@ class AppealController extends Controller
 {
     public function index(Request $request)
     {
+        $appeals = $this->resources($request)['appeals'];
         $filters = $this->resources($request)['filters'];
         $current_filters = $this->resources($request)['current_filters'];
 
-        return view('pages.CSVI.appeal.index', compact('filters', 'current_filters'));
+        return view('pages.CSVI.appeal.index', compact('appeals', 'filters', 'current_filters'));
     }
 
     public function table(Request $request)
@@ -59,6 +60,7 @@ class AppealController extends Controller
         $tbody = view('pages.CSVI.appeal.table', compact('appeals'))->render();
 
         return [
+            'appeals' => $appeals,
             'filters' => $filters,
             'paginate' => $appeals->links()->render(),
             'tbody' => $tbody,
