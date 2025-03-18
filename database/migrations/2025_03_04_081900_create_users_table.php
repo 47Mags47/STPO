@@ -76,6 +76,13 @@ return new class extends Migration
             $table->timestamps();
         });
 
+        Schema::create('main__table_filters', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('user_id')->constrained(User::getTableName());
+            $table->string('table');
+            $table->json('filters');
+        });
+
         // СИСТЕМНЫЕ ТАБЛИЦЫ
         Schema::create('sys__password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();

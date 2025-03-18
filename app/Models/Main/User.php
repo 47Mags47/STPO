@@ -37,6 +37,10 @@ class User extends Authenticatable implements MustVerifyEmail
         return asset('/storage/' . ($this->logo ?? '/core/image/user_logo.png'));
     }
 
+    public function scopeGetFilter($builder, $table){
+        return $this->filters()->where('table', $table);
+    }
+
     public function scopeReadAlerts(){
         $this->alerts()->update([
             'visible' => true,
@@ -53,5 +57,10 @@ class User extends Authenticatable implements MustVerifyEmail
     public function alerts(): HasMany
     {
         return $this->hasMany(Alert::class, 'to')->orderBy('created_at', 'desc');
+    }
+
+    public function filters(): HasMany
+    {
+        return $this->hasMany(TableFilter::class, 'user_id');
     }
 }

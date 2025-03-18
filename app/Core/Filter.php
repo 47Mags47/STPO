@@ -2,6 +2,7 @@
 
 namespace App\Core;
 
+use App\Models\Main\TableFilter;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -16,7 +17,20 @@ class Filter
     {
         $this->builder = $builder;
 
-        foreach ($this->request->input('filter') ?? [] as $method => $value) {
+        $search = [
+            'user_id' => user()->id,
+            'table' => $table,
+        ];
+        $insert = [
+            'filters' => $this->request->has('filter')
+                ? $this->request->input('filter')
+                : [],
+        ];
+        $filters = $this->request->has('filter')
+            ? TableFilter::updateOrCreate($search, $insert)->filters
+            : TableFilter::firstOrCreate($search, $insert)->filters;
+
+        foreach ($filters as $method => $value) {
             if ($value === null)
                 continue;
 
@@ -28,5 +42,4 @@ class Filter
 
         return $this->builder;
     }
-
 }

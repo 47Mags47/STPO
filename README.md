@@ -5,6 +5,7 @@
 Установить зависимости composer
 ```sh
 composer install
+php artisan key:generate
 ```
 
 Заполнить переменные окружения
@@ -13,7 +14,7 @@ cp .env.example .env
 nano .env
 ```
 
-Установить права к файлам и деррикториям (для Linux)
+Установить прав к файлам и деррикториям (для Linux)
 ```sh
 sudo chown -R $USER:www-data .
 sudo find . -type f -exec chmod 664 {} \;

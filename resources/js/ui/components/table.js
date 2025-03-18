@@ -12,6 +12,8 @@ $('.table-box').each(function () {
     function getData(data = null, url = null) {
         url = url ?? FILTER_FORM.attr('action')
         data = data ?? {}
+        console.log(data);
+
         let method = FILTER_FORM.attr('method')
 
         openLoadIco()
@@ -22,7 +24,6 @@ $('.table-box').each(function () {
             success: function (data) {
                 TABLE.find('tbody').html($(data.tbody).html())
                 PAGNATE_BOX.html($(data.paginate).html())
-
             },
             complete: function () {
                 closeLoadIco()
@@ -67,6 +68,8 @@ $('.table-box').each(function () {
                 getData(SEARCH.serialize())
         })
 
+        /* HACK переделать на контроллер */
+        // Сброс
         .on('click', '.reset-button', function (e) {
             e.preventDefault()
             FILTERS.trigger('reset')
