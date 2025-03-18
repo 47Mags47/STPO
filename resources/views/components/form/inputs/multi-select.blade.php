@@ -2,7 +2,7 @@
     $dot_name = str_replace('[', '.', $name);
     $dot_name = str_replace(']', '', $dot_name);
 
-    $checked = null;
+    $checked = isset($checked) ? $checked : null;
     $checked = $checked ?? old($name);
     $checked = $checked ?? old($dot_name);
     $checked = $checked ?? request()->input($name);
@@ -32,6 +32,12 @@
     <div class="list-box">
         <div class="search">
             <input type="text" placeholder="Найти...">
+        </div>
+        <div class="select-all-box">
+            <label>
+                <input type="checkbox">
+                <span>Выбрать все</span>
+            </label>
         </div>
 
         @if (isset($childParameter))

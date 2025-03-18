@@ -21,7 +21,9 @@ class AppealController extends Controller
     public function index(Request $request)
     {
         $filters = $this->resources($request)['filters'];
-        return view('pages.CSVI.appeal.index', compact('filters'));
+        $current_filters = $this->resources($request)['current_filters'];
+
+        return view('pages.CSVI.appeal.index', compact('filters', 'current_filters'));
     }
 
     public function table(Request $request)
@@ -60,6 +62,7 @@ class AppealController extends Controller
             'filters' => $filters,
             'paginate' => $appeals->links()->render(),
             'tbody' => $tbody,
+            'current_filters' => Appeal::currentFilters(new CSVI_AppealFilter($request)),
         ];
     }
 

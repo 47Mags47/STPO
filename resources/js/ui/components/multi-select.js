@@ -5,6 +5,7 @@ $('.multi-select-widjet').each(function () {
     const BOX = $(this)
     const PREVIEW = BOX.find('.preview')
     const LIST = BOX.find('.list-box')
+    const SELECT_ALL = LIST.find('.select-all-box input')
 
     function close() {
         LIST.removeClass('open')
@@ -36,11 +37,17 @@ $('.multi-select-widjet').each(function () {
     })
 
     // Выбор элемента
+    /* HACK переписать кусок ниже */
     $(this).on('change', LIST.find('li input'), function () {
         let count = CheckedCount()
         let text = count > 0
             ? `Выбрано: ${count}`
             : '--- Не выбрано ---'
         PREVIEW.find('span').html(text)
+    })
+
+    /* HACK дописать выборку всего при выборе элементов */
+    SELECT_ALL.on('change', function(){
+        LIST.find('li input').prop('checked', $(this).prop('checked'))
     })
 })

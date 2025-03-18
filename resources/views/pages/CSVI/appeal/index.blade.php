@@ -28,6 +28,7 @@
                     name="filter[sender]"
                     value="id"
                     text="full_name"
+                    :checked="$current_filters['sender'] ?? []"
                 />
             @endif
             <x-form.inputs.multi-select
@@ -36,6 +37,7 @@
                 name="filter[accepted]"
                 value="id"
                 text="full_name"
+                :checked="$current_filters['accepted'] ?? []"
             />
             <x-form.inputs.multi-select
                 label="Статус"
@@ -43,6 +45,7 @@
                 name="filter[status]"
                 value="code"
                 text="name"
+                :checked="$current_filters['status'] ?? []"
             />
             <x-form.inputs.multi-select
                 label="Тема"
@@ -52,6 +55,7 @@
                 text="name"
                 child-parameter="thems"
                 child-text="name"
+                :checked="$current_filters['them'] ?? []"
             />
 
         </x-slot:filters>
