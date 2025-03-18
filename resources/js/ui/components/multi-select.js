@@ -35,6 +35,10 @@ $('.multi-select-widjet').each(function () {
                 $(this).css('display', 'list-item')
         })
     })
+    LIST.find('.list li input').on('reset', function (e) {
+        $(this).prop('checked', false)
+        $(this).trigger('change')
+    })
 
     // Выбор элемента
     /* HACK переписать кусок ниже */

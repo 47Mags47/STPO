@@ -12,7 +12,6 @@ $('.table-box').each(function () {
     function getData(data = null, url = null) {
         url = url ?? FILTER_FORM.attr('action')
         data = data ?? {}
-        console.log(data);
 
         let method = FILTER_FORM.attr('method')
 
@@ -74,7 +73,7 @@ $('.table-box').each(function () {
             e.preventDefault()
             FILTERS.trigger('reset')
             FILTER_FORM.trigger('reset')
-            getData()
+            getData({filter: [null]})
         })
 
 })
