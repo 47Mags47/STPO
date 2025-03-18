@@ -48,8 +48,8 @@ class AppealController extends Controller
 
         $filters = [
             'city'      => City::orderBy('name')->get(),
-            'sender'    => User::whereIn('id', $appeals->groupBy('sender_id')->keys())->orderBy('full_name')->get(),
-            'accepted'  => User::whereIn('id', $appeals->groupBy('accepted_by')->keys())->orderBy('full_name')->get(),
+            'sender'    => User::whereIn('id', Appeal::groupBy('sender_id')->get('sender_id')->pluck('sender_id')->toArray())->orderBy('full_name')->get(),
+            'accepted'  => User::whereIn('id', Appeal::groupBy('accepted_by')->get('accepted_by')->pluck('accepted_by')->toArray())->orderBy('full_name')->get(),
             'status'    => Status::orderBy('name')->get(),
             'category'  => Category::orderBy('name')->get(),
         ];
