@@ -2,7 +2,7 @@
     @foreach ($appeals as $appeal)
         <tr id="appeal_{{ $appeal->id }}"
         @class([
-            'green' => $appeal->status_code == 'accepted',
+            'green' => $appeal->status_code == 'accepted' or $appeal->status_code == 'restored',
             'purple' => $appeal->status_code == 'closed',
         ])
         >

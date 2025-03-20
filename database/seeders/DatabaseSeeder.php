@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
         $this->call(Main\ModulSeeder::class);
 
         $this->call(CSVI\AppealSeeder::class);
+        $this->call(CSVI\TechnicalSeeder::class);
 
         if(env('APP_ENV') === 'local')
             $this->call(DevSeeder::class);

@@ -11,4 +11,5 @@ Route::group([], [
     base_path('routes/web/main/alerts.php'),
     base_path('routes/web/main/dashboard.php'),
     base_path('routes/web/CSVI/appeal.php'),
+    base_path('routes/web/CSVI/technical.php'),
 ]);

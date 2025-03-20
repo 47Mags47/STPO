@@ -26,6 +26,7 @@ $('.multi-select-widjet').each(function () {
     $(document).on('click', function (e) { if (BOX.has(e.target).length === 0) close() })
 
     // Поиск
+    /* HACK починить поиск с дочерками */
     LIST.find('.search input').on('input', function () {
         let val = $(this).val()
         LIST.find('li').css('display', 'none')

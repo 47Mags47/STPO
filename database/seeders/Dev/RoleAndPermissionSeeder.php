@@ -2,6 +2,7 @@
 
 namespace Database\Seeders\Dev;
 
+use App\Models\Main\UserPivotPermission;
 use App\Models\Main\UserPivotRole;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
@@ -13,14 +14,9 @@ class RoleAndPermissionSeeder extends Seeder
      */
     public function run(): void
     {
-        UserPivotRole::create([
+        UserPivotPermission::create([
             'user_id' => 2,
-            'role_code' => 'sys_admin',
-        ]);
-
-        UserPivotRole::create([
-            'user_id' => 2,
-            'role_code' => 'division_admin',
+            'permission_code' => 'technical-work',
         ]);
     }
 }

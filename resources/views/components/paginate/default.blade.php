@@ -1,5 +1,5 @@
-@if (isset($paginator) and $paginator !== null and $paginator->lastPage() > 1)
-    <ul class="paginate-box default-paginate">
+<ul class="paginate-box default-paginate">
+    @if (isset($paginator) and $paginator !== null and $paginator->lastPage() > 1)
         @if ($paginator->currentPage() > 3)
             <li>
                 <a href="{{ $paginator->url(1) }}">
@@ -53,5 +53,5 @@
                 </a>
             </li>
         @endif
-    </ul>
-@endif
+    @endif
+</ul>

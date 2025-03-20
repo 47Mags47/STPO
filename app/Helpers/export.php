@@ -9,8 +9,11 @@ if (! function_exists('getOld')) {
      * @param string $name Наименование поля
      * @return mixed старое значение для поля
      */
-    function getOld(string $name)
+    function getOld(string|null $name)
     {
+        if ($name === null)
+            return;
+
         $dot_name = str_replace(']', '', str_replace('[', '.', $name));
 
         $value = old($name);

@@ -65,10 +65,27 @@
                     padding: 5px
                     background: var(--table-header-background)
                     border: 1px solid var(--text-color)
+                    transition: .5s
                     &:first-child
                         border-left: none
                     &:last-child
                         border-right: none
+                    &.sortable
+                        cursor: pointer
+                        &:hover
+                            background: var(--table-even-background)
+                        .th
+                            display: flex
+                            align-items: center
+                            justify-content: space-between
+                            padding-right: 5px
+                            span
+                                flex: 1
+                                font-size: .9rem
+                            svg
+                                display: none
+                        &.set-sort .th svg
+                            display: block
         tbody
             tr
                 td

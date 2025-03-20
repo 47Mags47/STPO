@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="csrf_token" content="{{ csrf_token() }}" />
     <title>
         @isset($pageName)
             {{ $pageName }}
@@ -27,12 +28,10 @@
 <body>
 
     @include('includes/load-ico')
-    {{-- @include('includes/popup') --}}
-    {{-- @include('includes/chat-popup') --}}
     @include('includes.header')
 
     <section
-        class="page-content {{ $attributes['class'] }} {{ isset($class) ? $class : '' }}"
+        class="page-content {{ $attributes['class'] }}"
     >
         {{ $slot }}
     </section>

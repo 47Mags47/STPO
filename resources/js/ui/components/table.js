@@ -38,6 +38,39 @@ $('.table-box').each(function () {
     // Загрузка данных при инициализации
     getData()
 
+    TABLE
+    .on('click', 'th.sortable', function () {
+        let th = $(this)
+        let sort = $(this).data('sort')
+        let asc = $(this).data('sort-asc')
+
+        let data = {
+            page: 1,
+            sort: sort,
+            asc: asc
+        }
+        getData(data)
+
+        TABLE.find('th.set-sort').removeClass('set-sort')
+        th.addClass('set-sort')
+        th.data('sort-asc', th.data('sort-asc') === 'asc' ? 'desc' : 'asc')
+        th.find('svg').removeClass('fa-chevron-up')
+        th.find('svg').removeClass('fa-chevron-down')
+        th.find('svg').addClass(th.data('sort-asc') === 'asc' ? 'fa-chevron-up' : 'fa-chevron-down')
+    })
+    .on('click', 'tr .delete-button', function(e){
+        e.preventDefault()
+
+        $.ajax({
+            url: $(this).attr('href'),
+            method: 'DELETE',
+            headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr("content")},
+            success: function(){
+                getData()
+            },
+        })
+    })
+
     FILTER_FORM
         // Переход по страницам
         .on('click', '.static-box .paginate li a', function (e) {

@@ -1,21 +1,25 @@
 <?php
 
-use App\Http\Controllers\CSVI\Appeal\AppealController;
-use App\Http\Controllers\CSVI\Appeal\ChatController;
+use App\Http\Controllers\CSVI\Technical\FolderController;
+use App\Http\Controllers\CSVI\Technical\TechnicalController;
 use Illuminate\Support\Facades\Route;
 
-// Route::prefix('appeals/')
-//     ->middleware('auth')
-//     ->controller(AppealController::class)
-//     ->group(function () {
-//         Route::get('/', 'index')->name('appeal.index');
-//         Route::get('/table', 'table')->name('appeal.table');
-//         Route::get('/create', 'create')->name('appeal.create');
-//         Route::post('/store', 'store')->name('appeal.store');
+Route::prefix('technicals/')->middleware('auth')->group(function () {
+    Route::controller(TechnicalController::class)->group(function () {
+        Route::get('/', 'index')->name('technical.index');
+        Route::get('/table', 'table')->name('technical.table');
+        Route::get('/create', 'create')->name('technical.create');
+        Route::post('/store', 'store')->name('technical.store');
+        Route::prefix('/{technical}')->group(function () {
+            Route::get('/edit', 'edit')->name('technical.edit');
+            Route::put('/update', 'update')->name('technical.update');
+            Route::delete('/delete', 'delete')->name('technical.delete');
+        });
+    });
 
-//         Route::prefix('{appeal}/')->group(function () {
-//             Route::get('/accept', 'accept')->name('appeal.accept');
-//             Route::get('/close', 'close')->name('appeal.close');
-//             Route::get('/restore', 'restore')->name('appeal.restore');
-//         });
-//     });
+    Route::prefix('folders/')->controller(FolderController::class)->group(function () {
+        Route::get('/', 'index')->name('technical.folder.index');
+        Route::get('/create/{parent?}', 'create')->name('technical.folder.create');
+        Route::post('/store', 'store')->name('technical.folder.store');
+    });
+});

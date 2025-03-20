@@ -23,7 +23,7 @@ class ModulSeeder extends Seeder
             'code'                      => 'csvi-technical',
             'department_code'           => 'CSVI',
             'name'                      => 'Сведения по технике',
-            'route'                     => 'csvi.technical',
+            'route'                     => 'technical.index',
             'require_permission_code'   => 'technical-work',
         ]);
     }

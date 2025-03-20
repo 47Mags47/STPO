@@ -28,7 +28,7 @@ class Text extends Component
         $this->name = $name;
         $this->type = $type;
 
-        $this->value = $value ?? getOld($name);
+        $this->value = getOld($name) ?? $value;
     }
 
     public function render(): View|Closure|string
