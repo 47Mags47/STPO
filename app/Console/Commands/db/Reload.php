@@ -32,15 +32,20 @@ class Reload extends Command
             $this->call('migrate:fresh', ['--seed' => true, '--force' => true]);
 
             $backup_path = Storage::files('backup/data');
-            $backup_path = collect($backup_path)->last();
+            $backup_path = collect($backup_path)->sort(function ($is, $next) {
+                return Storage::lastModified($next) - Storage::lastModified($is);
+            })->first();
             $backup_path = storage_path('app/private/' . $backup_path);
+
             $this->call(Restore::class, ['path' => $backup_path]);
         } catch (\Throwable $th) {
             $this->error($th->getMessage());
             $this->info('Запуск восстановленя последней копии');
 
             $full_backup_path = Storage::files('backup/full');
-            $full_backup_path = collect($full_backup_path)->last();
+            $backup_path = collect($backup_path)->sort(function ($is, $next) {
+                return Storage::lastModified($next) - Storage::lastModified($is);
+            })->first();
             $full_backup_path = storage_path('app/private/' . $full_backup_path);
             $this->call(Restore::class, ['path' => $full_backup_path]);
         }
