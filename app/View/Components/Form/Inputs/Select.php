@@ -23,7 +23,7 @@ class Select extends Component
         public string|int|null $select      = null,
         public bool|null $req               = false,
         public bool|null $disabled          = false,
-        public bool $nullable               = false,
+        public bool|null $nullable          = false,
 
         public string|null $childParam      = null,
         public string|null $childText       = null,

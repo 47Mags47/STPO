@@ -22,7 +22,6 @@
                 opt-text="name"
                 opt-value="id"
                 nullable
-                req
             />
             <x-form.inputs.text name="exp_date" type="date" label="Дата ввода в эксплуатацию" req />
         </x-slot:content>
