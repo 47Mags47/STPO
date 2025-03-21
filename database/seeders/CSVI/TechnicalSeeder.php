@@ -102,6 +102,7 @@ class TechnicalSeeder extends Seeder
         Mark::create(['id' => 76, 'type_id' => 4, 'name' => 'OKI']);
         Mark::create(['id' => 77, 'type_id' => 4, 'name' => 'Phaser']);
         Mark::create(['id' => 78, 'type_id' => 4, 'name' => 'lexmark']);
+        Mark::create(['id' => 79, 'type_id' => 4, 'name' => 'Нет']);
         Mark::create(['id' => 80, 'type_id' => 5, 'name' => 'Depo']);
         Mark::create(['id' => 81, 'type_id' => 5, 'name' => 'ICL']);
         Mark::create(['id' => 82, 'type_id' => 5, 'name' => 'Аквариус']);
@@ -215,5 +216,28 @@ class TechnicalSeeder extends Seeder
         Mark::create(['id' => 190, 'type_id' => 11, 'name' => 'OKSI']);
         Mark::create(['id' => 191, 'type_id' => 11, 'name' => 'Apple']);
         Mark::create(['id' => 192, 'type_id' => 11, 'name' => 'Life Tab Plus']);
+        Mark::create(['id' => 193, 'type_id' => 5, 'name' => 'Andromeda']);
+        Mark::create(['id' => 194, 'type_id' => 5, 'name' => 'Iru rock']);
+        Mark::create(['id' => 195, 'type_id' => 5, 'name' => 'geg express']);
+        Mark::create(['id' => 196, 'type_id' => 1, 'name' => 'DNS']);
+        Mark::create(['id' => 197, 'type_id' => 8, 'name' => 'BENQ']);
+        Mark::create(['id' => 198, 'type_id' => 8, 'name' => 'LIME']);
+        Mark::create(['id' => 199, 'type_id' => 7, 'name' => 'BIOSTAR']);
+        Mark::create(['id' => 200, 'type_id' => 5, 'name' => 'Velton']);
+        Mark::create(['id' => 201, 'type_id' => 7, 'name' => 'iRU']);
+        Mark::create(['id' => 202, 'type_id' => 7, 'name' => 'Flextron']);
+        Mark::create(['id' => 203, 'type_id' => 8, 'name' => 'Acer']);
+        Mark::create(['id' => 204, 'type_id' => 7, 'name' => 'Microlab']);
+        Mark::create(['id' => 205, 'type_id' => 7, 'name' => 'Micro-Star']);
+        Mark::create(['id' => 206, 'type_id' => 9, 'name' => 'Asus']);
+        Mark::create(['id' => 207, 'type_id' => 9, 'name' => 'MSI']);
+        Mark::create(['id' => 208, 'type_id' => 11, 'name' => 'OKSI']);
+        Mark::create(['id' => 209, 'type_id' => 3, 'name' => 'CeLM']);
+        Mark::create(['id' => 210, 'type_id' => 11, 'name' => 'Apple']);
+        Mark::create(['id' => 211, 'type_id' => 7, 'name' => 'Synergy']);
+        Mark::create(['id' => 212, 'type_id' => 1, 'name' => 'BENQ']);
+        Mark::create(['id' => 213, 'type_id' => 1, 'name' => 'Samsung']);
+        Mark::create(['id' => 214, 'type_id' => 1, 'name' => 'LG']);
+        Mark::create(['id' => 215, 'type_id' => 11, 'name' => 'Life Tab Plus']);
     }
 }
