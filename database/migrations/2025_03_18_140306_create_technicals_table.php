@@ -44,6 +44,7 @@ return new class extends Migration
             $table->string('inventory_number')->nullable();
             $table->string('model')->nullable();
             $table->date('exp_date');
+            $table->boolean('require_replacement')->default(false);
 
             $table->timestamps();
             $table->softDeletes();

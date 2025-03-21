@@ -60,9 +60,9 @@ return new class extends Migration
             $table->foreignId('appeal_id')->constrained(Appeal::getTableName());
             $table->foreignId('sender_id')->constrained(User::getTableName());
             $table->text('message');
-            $table->boolean('is_system')->nullable()->default(false);
-            $table->boolean('is_file')->nullable()->default(false);
-            $table->boolean('is_image')->nullable()->default(false);
+            $table->boolean('is_system')->default(false);
+            $table->boolean('is_file')->default(false);
+            $table->boolean('is_image')->default(false);
             $table->timestamps();
         });
     }
