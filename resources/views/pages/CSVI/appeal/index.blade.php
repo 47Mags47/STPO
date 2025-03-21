@@ -66,14 +66,14 @@
 
         <x-slot:thead>
             <tr>
-                <th>№</th>
-                <th>Дата</th>
-                <th>Отправитель</th>
-                <th>Тема</th>
-                <th>Комментарий</th>
-                <th>Статус</th>
-                <th></th>
-                <th></th>
+                <x-table.components.th text="№"             sort="id"           asc="asc" />
+                <x-table.components.th text="Дата"          sort="created_at"   asc="asc" />
+                <x-table.components.th text="Отправитель" />
+                <x-table.components.th text="Тема"          sort="them_id"      asc="asc" />
+                <x-table.components.th text="Комментарий" />
+                <x-table.components.th text="Статус"        sort="status_code"  asc="asc" />
+                <x-table.components.th />
+                <x-table.components.th />
             </tr>
         </x-slot:thead>
 

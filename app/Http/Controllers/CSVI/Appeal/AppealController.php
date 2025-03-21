@@ -44,10 +44,11 @@ class AppealController extends Controller
         if (!user()->hasPermission('appeal-work'))
             $appeal_builder->where('sender_id', user()->id);
 
-        $appeals = $appeal_builder
+        $appeal_builder
             ->filter(new CSVI_AppealFilter($request))
-            ->orderBy('id', 'desc')
-            ->paginate(100);
+            ->sort($request->sort ?? 'id', $request->asc ?? 'desc');
+
+        $appeals = $appeal_builder->paginate(100);
 
         $filters = [
             'city'      => City::orderBy('name')->get(),
@@ -98,17 +99,20 @@ class AppealController extends Controller
         return redirect()->route('appeal.chat.index', compact('appeal'));
     }
 
-    public function accept(Appeal $appeal){
+    public function accept(Appeal $appeal)
+    {
         AcceptAppealEvent::dispatch($appeal);
         return redirect()->route('appeal.chat.index', compact('appeal'));
     }
 
-    public function close(Appeal $appeal){
+    public function close(Appeal $appeal)
+    {
         CloseAppealEvent::dispatch($appeal);
         return back();
     }
 
-    public function restore(Appeal $appeal){
+    public function restore(Appeal $appeal)
+    {
         RestoreAppealEvent::dispatch($appeal);
         return back();
     }
