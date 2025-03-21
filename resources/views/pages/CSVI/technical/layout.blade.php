@@ -3,6 +3,7 @@
 @section('header')
     <li><a href="{{ route('technical.index') }}">Главная</a></li>
     <li><a href="{{ route('technical.folder.index') }}">Директории</a></li>
+    <li><a href="{{ route('technical.deleted.index') }}">Удаленные</a></li>
     {{-- <li><a href="">Подразделения</a></li>
     <li><a href="">Импорт</a></li>
     <li><a href="">Экспорт</a></li> --}}

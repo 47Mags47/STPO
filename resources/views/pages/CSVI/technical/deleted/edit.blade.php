@@ -2,9 +2,9 @@
 
 @section('page-content')
     <x-form.types.vertical
-        action="{{ route('technical.update', compact('technical')) }}"
-        header="Редактирование"
-        sbm="Сохранить"
+        action="{{ route('technical.deleted.update', compact('technical')) }}"
+        header="Восстановление"
+        sbm="Изменить и восстановить"
         method="PUT"
     >
         <x-slot:content>
@@ -53,5 +53,9 @@
                 :value="$technical->exp_date->format('Y-m-d')"
             />
         </x-slot:content>
+
+        <x-slot:info>
+            <span style="color:red">!!! Внимательно проверте данные перед восстановлением</span>
+        </x-slot:info>
     </x-form.types.vertical>
 @endsection

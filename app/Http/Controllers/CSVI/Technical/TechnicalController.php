@@ -120,6 +120,9 @@ class TechnicalController extends Controller
     }
 
     public function delete(Technical $technical){
+        $technical->update([
+            'folder_id' => NULL,
+        ]);
         $technical->delete();
 
         return response('Запись успешно удалена');

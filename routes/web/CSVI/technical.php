@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CSVI\Technical\DeletedController;
 use App\Http\Controllers\CSVI\Technical\FolderController;
 use App\Http\Controllers\CSVI\Technical\TechnicalController;
 use Illuminate\Support\Facades\Route;
@@ -24,6 +25,15 @@ Route::prefix('technicals/')->middleware('auth')->group(function () {
         Route::prefix('/{folder}')->group(function () {
             Route::get('/edit', 'edit')->name('technical.folder.edit');
             Route::put('/update', 'update')->name('technical.folder.update');
+        });
+    });
+
+    Route::prefix('deleted/')->controller(DeletedController::class)->group(function () {
+        Route::get('/', 'index')->name('technical.deleted.index');
+        Route::get('/table', 'table')->name('technical.deleted.table');
+        Route::prefix('/{technical}')->group(function () {
+            Route::get('/edit', 'edit')->name('technical.deleted.edit');
+            Route::put('/update', 'update')->name('technical.deleted.update');
         });
     });
 });

@@ -19,11 +19,20 @@
                 --- Не выбрано ---
             @else
                 @if (isset($childParameter))
-                    {{ collect($items)->map(function ($item) use ($childParameter, $value, $checked) {
-                            if ($item->$childParameter->where($value, $checked)->count() > 0) {
-                                return $item->$childParameter->where($value, $checked)->first();
-                            }
-                        })->first()->$childText }}
+                    @php
+                        $all_childs = collect($items)->map(function ($item) use ($childParameter){
+                            return $item->$childParameter;
+                        })->collapse();
+
+                        $select_child = $all_childs->filter(function($item) use ($value, $checked){
+                            return $item->$value == $checked;
+                        })->first();
+
+                        $select_child_text = $select_child !== null
+                            ? $select_child->$childText
+                            : '--- Не выбрано ---';
+                    @endphp
+                    {{ $select_child_text }}
                 @else
                     {{ collect($items)->where($value, $checked)->first()->$childText }}
                 @endif
