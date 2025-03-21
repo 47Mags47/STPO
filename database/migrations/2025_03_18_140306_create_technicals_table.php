@@ -45,6 +45,7 @@ return new class extends Migration
             $table->string('model')->nullable();
             $table->date('exp_date');
             $table->boolean('require_replacement')->default(false);
+            $table->text('comment')->nullable();
 
             $table->timestamps();
             $table->softDeletes();
