@@ -33,7 +33,6 @@ class FolderController extends Controller
 
     public function store(Request $request)
     {
-
         $validated = $request->validate([
             'name' => ['required', 'string', 'max:255'],
         ]);
@@ -50,5 +49,28 @@ class FolderController extends Controller
         ]);
 
         return redirect()->route('technical.folder.index')->with('message', 'Дирректория успешно создана');
+    }
+
+    public function edit(Request $request, Folder $folder){
+        $folders = $this->resources($request)['folders'];
+        return view('pages.CSVI.technical.folder.edit', compact('folders', 'folder'));
+    }
+
+    public function update(Request $request, Folder $folder){
+        $validated = $request->validate([
+            'name' => ['required', 'string', 'max:255'],
+        ]);
+
+        if ($request->parent_id !== null)
+            $request->validate([
+                'parent_id' => ['integer', 'exists:' . Folder::getTableName() . ',id']
+            ]);
+
+        $folder->update([
+            'name' => $validated['name'],
+            'parent_id' => $request->parent_id,
+        ]);
+
+        return redirect()->route('technical.folder.index')->with('message', 'Дирректория успешно обновлена');
     }
 }

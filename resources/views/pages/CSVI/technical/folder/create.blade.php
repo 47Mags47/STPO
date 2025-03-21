@@ -3,7 +3,7 @@
 @section('page-content')
     <x-form.types.vertical
         action="{{ route('technical.folder.store') }}"
-        header="Новая дирректория"
+        header="Новая директория"
         sbm="Добавить"
     >
         <x-slot:content>

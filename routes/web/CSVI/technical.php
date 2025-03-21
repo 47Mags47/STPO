@@ -21,5 +21,9 @@ Route::prefix('technicals/')->middleware('auth')->group(function () {
         Route::get('/', 'index')->name('technical.folder.index');
         Route::get('/create/{parent?}', 'create')->name('technical.folder.create');
         Route::post('/store', 'store')->name('technical.folder.store');
+        Route::prefix('/{folder}')->group(function () {
+            Route::get('/edit', 'edit')->name('technical.folder.edit');
+            Route::put('/update', 'update')->name('technical.folder.update');
+        });
     });
 });

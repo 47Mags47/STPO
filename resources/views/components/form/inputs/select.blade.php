@@ -24,7 +24,12 @@
     >
 
         @if ($nullable)
-            <option selected value>--- Не выбрано ---</option>
+            @if (is_string($nullable))
+                <option value>{{ $nullable }}</option>
+            @else
+                <option selected value>--- Не выбрано ---</option>
+            @endif
+
         @endif
 
 

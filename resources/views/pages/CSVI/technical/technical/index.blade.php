@@ -2,7 +2,7 @@
 
 @section('page-content')
     <x-table.types.main :col-width="[
-        null, // Дирректория
+        null, // Директория
         '150px', // Тип
         '150px', // Марка
         '200px', // Модель
@@ -15,7 +15,7 @@
     ]" data-route="technical.table">
 
         <x-slot:filters>
-            <x-form.inputs.multi-select label="Дирректория" :items="$filters['folder']" name="filter[folder]" value="id"
+            <x-form.inputs.multi-select label="Директория" :items="$filters['folder']" name="filter[folder]" value="id"
                 text="name" />
             <x-form.inputs.multi-select label="Тип" :items="$filters['type']" name="filter[type]" value="id" text="name" />
             <x-form.inputs.multi-select label="Марка" :items="$filters['type']" name="filter[mark]" value="id" text="name"
@@ -29,7 +29,7 @@
 
         <x-slot:thead>
             <tr>
-                <x-table.components.th text="Дирректория" sort="folder_id" asc="asc" />
+                <x-table.components.th text="Директория" sort="folder_id" asc="asc" />
                 <x-table.components.th text="Тип" sort="type_id" asc="asc" />
                 <x-table.components.th text="Марка" sort="mark_id" asc="asc" />
                 <x-table.components.th text="Модель" sort="model" asc="asc" />

@@ -16,6 +16,9 @@
 
             create-route="technical.folder.create"
             create-route-parameter="parent"
+
+            edit-route="technical.folder.edit"
+            edit-route-parameter="folder"
         />
     </div>
 @endsection

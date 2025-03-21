@@ -1,4 +1,5 @@
 {{-- HACK переписать на details --}}
+
 <ul class="tree-box">
     @foreach ($items as $item)
         <li>
@@ -6,6 +7,9 @@
                 <div class="item-info-box">
                     <i class="fa-solid fa-folder"></i>
                     <span class="item-name">{{ $item->$text }}</span>
+                    <a href="{{ route($editRoute, [$editRouteParameter => $item->$primary]) }}">
+                        <i class="fa-solid fa-pen"></i>
+                    </a>
                 </div>
                 @if (isset($createRoute))
                     <a href="{{ route($createRoute, [$createRouteParameter => $item->$primary]) }}" class="button blue-button">
@@ -21,11 +25,17 @@
 
                     :$createRoute
                     :$createRouteParameter
+
+                    :$editRoute
+                    :$editRouteParameter
                 />
             @else
                 <div class="item-info-box">
                     <i class="fa-solid fa-file"></i>
                     <span class="item-name">{{ $item->$text }}</span>
+                    <a href="{{ route($editRoute, [$editRouteParameter => $item->$primary]) }}">
+                        <i class="fa-solid fa-pen"></i>
+                    </a>
                 </div>
                 @if (isset($createRoute))
                     <a href="{{ route($createRoute, [$createRouteParameter => $item->$primary]) }}" class="button blue-button">
