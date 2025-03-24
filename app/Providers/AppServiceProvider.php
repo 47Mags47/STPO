@@ -28,8 +28,7 @@ class AppServiceProvider extends ServiceProvider
 
 
         Gate::define('accept-appeal', function (User $user, Appeal $appeal) {
-            // dd($appeal);
-            return $appeal->status_code === 'created' and $appeal->sender_id !== $user->id;
+            return ($appeal->status_code === 'created' and $appeal->sender_id !== $user->id) or ($appeal->status_code === 'restored' and user()->hasPermission('appeal-work'));
         });
 
         Gate::define('close-appeal', function (User $user, Appeal $appeal) {
