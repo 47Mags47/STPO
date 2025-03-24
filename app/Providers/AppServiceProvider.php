@@ -32,18 +32,31 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Gate::define('close-appeal', function (User $user, Appeal $appeal) {
-            return
-                in_array($appeal->status_code, ['created', 'accepted', 'restored'])
-                and (
-                    $appeal->sender_id === $user->id or $appeal->hasWorker($user)
-                );
+            // return
+            //     in_array($appeal->status_code, ['created', 'accepted', 'restored'])
+            //     and (
+            //         $appeal->sender_id === $user->id or $appeal->hasWorker($user)
+            //     );
+            switch ($appeal->status_code) {
+                case 'created':
+                    return $appeal->sender_id === $user->id;
+                    break;
+                case 'accepted':
+                    return $appeal->sender_id === $user->id or $appeal->hasWorker($user);
+                    break;
+                case 'restored':
+                    return $appeal->sender_id === $user->id or ($appeal->hasWorker($user) and $appeal->restored_by !== $user->id);
+                    break;
+            }
+
+            return false;
         });
 
         Gate::define('restore-appeal', function (User $user, Appeal $appeal) {
             return $appeal->status_code === 'closed'
-            and (
-                $appeal->sender_id === $user->id or $appeal->hasWorker($user)
-            );
+                and (
+                    $appeal->sender_id === $user->id or $appeal->hasWorker($user)
+                );
         });
     }
 }
