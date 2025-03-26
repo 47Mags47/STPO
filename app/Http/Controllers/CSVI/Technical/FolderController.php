@@ -73,4 +73,13 @@ class FolderController extends Controller
 
         return redirect()->route('technical.folder.index')->with('message', 'Дирректория успешно обновлена');
     }
+
+    public function delete(Folder $folder){
+        $folder->technicals()->update([
+            'folder_id' => $folder->parent ? $folder->parent->id : null,
+        ]);
+
+        $folder->delete();
+        return redirect()->route('technical.folder.index')->with('message', 'Дирректория удалена');
+    }
 }

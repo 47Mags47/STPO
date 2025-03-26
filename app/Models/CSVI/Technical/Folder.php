@@ -42,4 +42,9 @@ class Folder extends Model
     {
         return $this->belongsTo(Division::class, 'division_id');
     }
+
+    public function technicals():HasMany
+    {
+        return $this->hasMany(Technical::class, 'folder_id');
+    }
 }

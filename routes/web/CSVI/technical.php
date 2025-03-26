@@ -25,6 +25,8 @@ Route::prefix('technicals/')->middleware(['auth', 'modul-access:csvi-technical']
         Route::prefix('/{folder}')->group(function () {
             Route::get('/edit', 'edit')->name('technical.folder.edit');
             Route::put('/update', 'update')->name('technical.folder.update');
+            /* HACK перенести на метод delete */
+            Route::get('/delete', 'delete')->name('technical.folder.delete');
         });
     });
 

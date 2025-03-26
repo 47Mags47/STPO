@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\CSVI\Technical;
 
-use App\Filters\CSVI_TechnicalFilter;
+use App\Filters\CSVI\Technical\TechnicalFilter;
 use App\Http\Controllers\Controller;
 use App\Models\CSVI\Technical\Folder;
 use App\Models\CSVI\Technical\Mark;
@@ -16,7 +16,7 @@ class DeletedController extends Controller
     {
         $builder = Technical::onlyTrashed()
             ->where('division_id', user()->division_id)
-            ->filter(new CSVI_TechnicalFilter($request));
+            ->filter(new TechnicalFilter($request));
 
         if ($request->has('sort'))
             $builder->sort($request->sort, $request->asc);

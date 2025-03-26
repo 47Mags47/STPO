@@ -6,6 +6,9 @@
             @if ($item->$childParameter()->count() > 0)
                 <div class="item-info-box">
                     <i class="fa-solid fa-folder"></i>
+                    <a href="{{ route($deleteRoute, [$deleteRouteParameter => $item->$primary]) }}" style="color:red">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
                     <span class="item-name">{{ $item->$text }}</span>
                     <a href="{{ route($editRoute, [$editRouteParameter => $item->$primary]) }}">
                         <i class="fa-solid fa-pen"></i>
@@ -28,10 +31,16 @@
 
                     :$editRoute
                     :$editRouteParameter
+
+                    :$deleteRoute
+                    :$deleteRouteParameter
                 />
             @else
                 <div class="item-info-box">
                     <i class="fa-solid fa-file"></i>
+                    <a href="{{ route($deleteRoute, [$deleteRouteParameter => $item->$primary]) }}" style="color:red">
+                        <i class="fa-solid fa-trash"></i>
+                    </a>
                     <span class="item-name">{{ $item->$text }}</span>
                     <a href="{{ route($editRoute, [$editRouteParameter => $item->$primary]) }}">
                         <i class="fa-solid fa-pen"></i>

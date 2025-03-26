@@ -19,6 +19,9 @@
 
             edit-route="technical.folder.edit"
             edit-route-parameter="folder"
+
+            delete-route="technical.folder.delete"
+            delete-route-parameter="folder"
         />
     </div>
 @endsection
