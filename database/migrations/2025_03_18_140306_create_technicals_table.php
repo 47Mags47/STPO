@@ -40,7 +40,7 @@ return new class extends Migration
             $table->foreignId('mark_id')->constrained(Mark::getTableName());
             $table->foreignId('folder_id')->nullable()->constrained(Folder::getTableName());
 
-            $table->string('serial_number')->nullable()->unique();
+            $table->string('serial_number')->nullable();
             $table->string('inventory_number')->nullable();
             $table->string('model')->nullable();
             $table->date('exp_date');

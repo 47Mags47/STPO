@@ -24,8 +24,15 @@ class Date extends Model
 
     ### Функции
     ##################################################
-    public static function actual(){
-        return self::where('is_actual', true)->get()->first();
-    }
+    public static function actual()
+    {
+        $date = self::where('is_actual', true)->get()->first();
 
+        return $date !== null
+            ? $date
+            : self::create([
+                'date' => now(),
+                'is_actual' => true,
+            ]);
+    }
 }
