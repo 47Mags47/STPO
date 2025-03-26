@@ -55,7 +55,7 @@ return [
         'stack' => [
             'driver' => 'stack',
             'channels' => [
-                'single', 'daily', 'errorlog', 'syslog'
+                'single', 'errorlog', 'syslog'
             ],
             'ignore_exceptions' => false,
         ],
