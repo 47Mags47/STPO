@@ -18,5 +18,20 @@ class RoleAndPermissionSeeder extends Seeder
             'user_id' => 2,
             'permission_code' => 'technical-work',
         ]);
+
+        UserPivotPermission::create([
+            'user_id' => 2,
+            'permission_code' => 'veteran-work',
+        ]);
+        UserPivotPermission::create([
+            'user_id' => 2,
+            'permission_code' => 'veteran-admin',
+        ]);
+        UserPivotPermission::create([
+            'user_id' => 3,
+            'permission_code' => 'veteran-work',
+        ]);
+
+
     }
 }

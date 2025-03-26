@@ -13,5 +13,6 @@ class DevSeeder extends Seeder
         $this->call(Dev\RoleAndPermissionSeeder::class);
         $this->call(Dev\AppealSeeder::class);
         $this->call(Dev\TechnicalSeeder::class);
+        $this->call(Dev\VeteranSeeder::class);
     }
 }

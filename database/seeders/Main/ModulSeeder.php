@@ -30,5 +30,21 @@ class ModulSeeder extends Seeder
             'modul_code' => 'csvi-technical',
             'permission_code' => 'technical-work'
         ]);
+
+
+        Modul::create([
+            'code'                      => 'csvi-veteran',
+            'department_code'           => 'CSVI',
+            'name'                      => 'Кол-во заявлений по присвоению звания "Ветеран труда"',
+            'route'                     => 'veteran.raport.index',
+        ]);
+        ModulPivotPermission::create([
+            'modul_code' => 'csvi-veteran',
+            'permission_code' => 'veteran-work'
+        ]);
+        ModulPivotPermission::create([
+            'modul_code' => 'csvi-veteran',
+            'permission_code' => 'veteran-admin'
+        ]);
     }
 }
