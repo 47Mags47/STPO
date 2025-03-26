@@ -47,4 +47,11 @@ class DateController extends Controller
 
         return redirect()->route('veteran.date.index')->with('message', 'Запись успешно создана');
     }
+
+    public function setActual(Date $date){
+        Date::update(['is_actual' => false]);
+        $date->update(['is_actual' => true]);
+
+        return redirect()->route('veteran.date.index')->with('message', 'Дата помечена актуальной');
+    }
 }
