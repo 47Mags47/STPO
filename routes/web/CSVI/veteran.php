@@ -25,6 +25,7 @@ Route::prefix('/veteran')->middleware(['auth', 'modul-access:csvi-veteran'])->gr
         Route::post('/store', 'store')->name('veteran.date.store');
         Route::prefix('/{date}')->group(function () {
             Route::get('/set-actual', 'setActual')->name('veteran.date.set-actual');
+            Route::delete('/delete', 'delete')->name('veteran.date.delete');
         });
     });
 

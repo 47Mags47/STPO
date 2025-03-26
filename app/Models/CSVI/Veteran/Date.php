@@ -4,10 +4,12 @@ namespace App\Models\CSVI\Veteran;
 
 use App\Traits\Named;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Date extends Model
 {
-    use Named;
+    use Named, SoftDeletes;
 
     protected
         $table = 'csvi__veteran__dates',
@@ -34,5 +36,12 @@ class Date extends Model
                 'date' => now(),
                 'is_actual' => true,
             ]);
+    }
+
+    ### Связи
+    ##################################################
+    public function raports(): HasMany
+    {
+        return $this->hasMany(Raport::class, 'in_date');
     }
 }

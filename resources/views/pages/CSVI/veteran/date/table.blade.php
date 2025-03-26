@@ -11,7 +11,7 @@
                 @endif
             </td>
             <td class="center">
-                <a href="" class="button red-button">Удалить</a>
+                <a href="{{ route('veteran.date.delete', compact('date')) }}" class="button red-button delete-button">Удалить</a>
             </td>
         </tr>
     @endforeach

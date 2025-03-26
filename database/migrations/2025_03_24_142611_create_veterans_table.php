@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->date('date');
             $table->boolean('is_actual')->default(false);
+            $table->softDeletes();
         });
 
         Schema::create('csvi__veteran__raports', function (Blueprint $table) {
@@ -31,6 +32,7 @@ return new class extends Migration
             $table->integer('mfc');
             $table->boolean('open')->default(false);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

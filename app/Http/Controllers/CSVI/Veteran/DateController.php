@@ -54,4 +54,11 @@ class DateController extends Controller
 
         return redirect()->route('veteran.date.index')->with('message', 'Дата помечена актуальной');
     }
+
+    public function delete(Date $date){
+        $date->raports()->delete();
+        $date->delete();
+
+        return response('Запись удалена');
+    }
 }

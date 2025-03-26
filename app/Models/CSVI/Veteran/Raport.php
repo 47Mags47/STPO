@@ -9,10 +9,11 @@ use App\Traits\HasFilter;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Raport extends Model
 {
-    use HasFactory, HasFilter;
+    use HasFactory, HasFilter, SoftDeletes;
 
     ### Настройки
     ##################################################
