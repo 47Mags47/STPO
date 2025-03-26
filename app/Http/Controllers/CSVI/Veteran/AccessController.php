@@ -36,6 +36,7 @@ class AccessController extends Controller
 
         $accesses = UserPivotPermission::whereIn('permission_code', $needle_permissions)
             ->filter(new AccessFilter($request))
+            ->sort($request->sort ?? 'permission_code', $request->asc ?? 'asc')
             ->paginate(50);
 
         return [

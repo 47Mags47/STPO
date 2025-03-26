@@ -7,8 +7,6 @@ use Illuminate\Database\Eloquent\Builder;
 
 trait HasFilter
 {
-    // abstract public static function getFilters();
-
     public function scopeFilter(Builder $builder, Filter $filter): Builder
     {
 
