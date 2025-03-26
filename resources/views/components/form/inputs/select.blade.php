@@ -39,11 +39,13 @@
             @endforeach
         @else
             @foreach ($items as $parent)
-                <optgroup label="{{ $parent->$optText }}">
-                    @foreach ($parent->$childParam as $child)
-                        <x-form.inputs.option :value="$child->$childValue" :text="$child->$childText" :selected="$child->$childValue == $select" />
-                    @endforeach
-                </optgroup>
+                @if ($parent->$childParam->count() > 0)
+                    <optgroup label="{{ $parent->$optText }}">
+                        @foreach ($parent->$childParam as $child)
+                            <x-form.inputs.option :value="$child->$childValue" :text="$child->$childText" :selected="$child->$childValue == $select" />
+                        @endforeach
+                    </optgroup>
+                @endif
             @endforeach
         @endif
 

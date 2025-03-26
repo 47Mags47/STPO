@@ -15,6 +15,18 @@ class Permission extends Model
     protected
         $table = 'main__permissions';
 
+    ### Функции
+    ##################################################
+    public function scopeUsers()
+    {
+        $permission_users = $this->belongsToMany(User::class, UserPivotPermission::getTableName(), 'permission_code')->get();
+        $role_users = $this->roles->map(function($role){
+            return $role->users;
+        })->collapse();
+
+        return $permission_users->merge($role_users);
+    }
+
     ### Связи
     ##################################################
     /**
@@ -25,4 +37,6 @@ class Permission extends Model
     public function roles(): BelongsToMany{
         return $this->belongsToMany(Role::class, RolePivotPermission::getTableName(), 'permission_code', 'role_code');
     }
+
+
 }

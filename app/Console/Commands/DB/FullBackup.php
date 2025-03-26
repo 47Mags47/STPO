@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\Commands\db;
+namespace App\Console\Commands\DB;
 
 use App\Core\Dumper;
 use Illuminate\Console\Command;

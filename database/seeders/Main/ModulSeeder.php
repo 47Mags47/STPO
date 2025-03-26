@@ -4,6 +4,7 @@ namespace Database\Seeders\Main;
 
 use App\Models\Main\Department;
 use App\Models\Main\Modul;
+use App\Models\Main\ModulPivotPermission;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -24,7 +25,10 @@ class ModulSeeder extends Seeder
             'department_code'           => 'CSVI',
             'name'                      => 'Сведения по технике',
             'route'                     => 'technical.index',
-            'require_permission_code'   => 'technical-work',
+        ]);
+        ModulPivotPermission::create([
+            'modul_code' => 'csvi-technical',
+            'permission_code' => 'technical-work'
         ]);
     }
 }

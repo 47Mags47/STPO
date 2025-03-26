@@ -5,7 +5,7 @@ use App\Http\Controllers\CSVI\Technical\FolderController;
 use App\Http\Controllers\CSVI\Technical\TechnicalController;
 use Illuminate\Support\Facades\Route;
 
-Route::prefix('technicals/')->middleware('auth')->group(function () {
+Route::prefix('technicals/')->middleware(['auth', 'modul-access:csvi-technical'])->group(function () {
     Route::controller(TechnicalController::class)->group(function () {
         Route::get('/', 'index')->name('technical.index');
         Route::get('/table', 'table')->name('technical.table');

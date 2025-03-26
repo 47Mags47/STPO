@@ -22,19 +22,21 @@
         </div>
     @endif
 
-    @hasSection ('navigate')
-        <div class="navigate">
-            <div class="search-box">
-                <input type="text">
+    <div class="navigate-and-content-box">
+        @hasSection ('navigate')
+            <div class="navigate">
+                <div class="search-box">
+                    <input type="text">
+                </div>
+                <div class="list">
+                    @yield('navigate')
+                </div>
             </div>
-            <div class="list">
-                @yield('navigate')
-            </div>
-        </div>
-    @endif
+        @endif
 
-    <div class="content">
-        @yield('page-content')
+        <div class="content">
+            @yield('page-content')
+        </div>
     </div>
 
 </x-page>

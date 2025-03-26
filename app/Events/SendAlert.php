@@ -1,5 +1,7 @@
 <?php
 
+/* HACK проверить и переработать уведомления из обращений */
+
 namespace App\Events;
 
 use App\Models\Main\Alert;

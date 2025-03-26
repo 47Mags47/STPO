@@ -56,13 +56,13 @@
                     $user_permissions = user()->rolePermissions();
                 @endphp
                 @foreach ($departments as $department)
-                    @if ($department->moduls()->whereIn('require_permission_code', user()->rolePermissions()->pluck('code'))->count() > 0)
+                    @if ($department->moduls->count() > 0)
                         <details>
                             <summary>{{ $department->name }}</summary>
                             <ul>
                                 @foreach ($department->moduls as $modul)
                                     <li>
-                                        @if (Route::has($modul->route))
+                                        @if ($modul->userAccess() and Route::has($modul->route) )
                                             <a href="{{ route($modul->route) }}">{{ $modul->name }}</a>
                                         @else
                                             <span>{{ $modul->name }}</span>

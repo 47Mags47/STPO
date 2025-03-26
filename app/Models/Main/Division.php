@@ -26,7 +26,7 @@ class Division extends Model
         return $this->belongsTo(City::getTableName(), 'city_id');
     }
 
-    public function users():HasMany
+    public function users(): HasMany
     {
         return $this->hasMany(User::class, 'division_id');
     }

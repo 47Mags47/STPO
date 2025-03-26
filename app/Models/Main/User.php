@@ -33,18 +33,28 @@ class User extends Authenticatable implements MustVerifyEmail
         ];
     }
 
-    public function scopeLogo(){
+    public function scopeLogo()
+    {
         return asset('/storage/' . ($this->logo ?? '/core/image/user_logo.png'));
     }
 
-    public function scopeGetFilter($builder, $table){
+    public function scopeGetFilter($builder, $table)
+    {
         return $this->filters()->where('table', $table);
     }
 
-    public function scopeReadAlerts(){
+    public function scopeReadAlerts()
+    {
         $this->alerts()->update([
             'visible' => true,
         ]);
+    }
+
+    public function scopeAvailableModuls(){
+        $all_permisions = $this->rolePermissions();
+        return Modul::whereHas('permissions', function($query) use ($all_permisions){
+            return $query->whereIn('permission_code', $all_permisions->pluck('code'));
+        })->get();
     }
 
     ### Связи

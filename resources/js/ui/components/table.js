@@ -60,9 +60,10 @@ $('.table-box').each(function () {
     })
     .on('click', 'tr .delete-button', function(e){
         e.preventDefault()
+        let url = $(this).attr('href')
 
         $.ajax({
-            url: $(this).attr('href'),
+            url: url,
             method: 'DELETE',
             headers: {'X-CSRF-TOKEN': $('meta[name="csrf_token"]').attr("content")},
             success: function(){

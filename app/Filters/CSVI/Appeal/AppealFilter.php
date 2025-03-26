@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Filters;
+namespace App\Filters\CSVI\Appeal;
 
 use App\Core\Filter;
 
-class CSVI_AppealFilter extends Filter
+class AppealFilter extends Filter
 {
     protected function search(string $value)
     {

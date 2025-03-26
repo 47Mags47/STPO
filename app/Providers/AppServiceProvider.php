@@ -32,11 +32,6 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Gate::define('close-appeal', function (User $user, Appeal $appeal) {
-            // return
-            //     in_array($appeal->status_code, ['created', 'accepted', 'restored'])
-            //     and (
-            //         $appeal->sender_id === $user->id or $appeal->hasWorker($user)
-            //     );
             switch ($appeal->status_code) {
                 case 'created':
                     return $appeal->sender_id === $user->id;

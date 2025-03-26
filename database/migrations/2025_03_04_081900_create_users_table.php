@@ -72,7 +72,7 @@ return new class extends Migration
             $table->boolean('visible')->default(false);
             $table->string('header')->nullable();
             $table->text('message');
-            $table->string('link')->nullable();
+            $table->text('link')->nullable();
             $table->timestamps();
         });
 

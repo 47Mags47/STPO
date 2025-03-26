@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\CSVI\Technical;
 
-use App\Filters\CSVI_TechnicalFilter;
+use App\Filters\CSVI\Technical\TechnicalFilter;
 use App\Http\Controllers\Controller;
 use App\Models\CSVI\Technical\Folder;
 use App\Models\CSVI\Technical\Mark;
@@ -14,10 +14,9 @@ class TechnicalController extends Controller
 {
     public function index(Request $request)
     {
-        $technicals = $this->resources($request)['technicals'];
         $filters = $this->resources($request)['filters'];
 
-        return view('pages.CSVI.technical.technical.index', compact('technicals', 'filters'));
+        return view('pages.CSVI.technical.technical.index', compact('filters'));
     }
 
     public function table(Request $request)
@@ -35,7 +34,7 @@ class TechnicalController extends Controller
     {
         $builder = Technical::query()
             ->where('division_id', user()->division_id)
-            ->filter(new CSVI_TechnicalFilter($request));
+            ->filter(new TechnicalFilter($request));
 
         if ($request->has('sort'))
             $builder->sort($request->sort, $request->asc);

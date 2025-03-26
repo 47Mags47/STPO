@@ -26,4 +26,9 @@ class Role extends Model
     {
         return $this->belongsToMany(Permission::class, RolePivotPermission::getTableName());
     }
+
+    public function users()
+    {
+        return $this->belongsToMany(User::class, UserPivotRole::getTableName(), 'role_code');
+    }
 }

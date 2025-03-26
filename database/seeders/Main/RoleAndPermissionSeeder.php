@@ -21,6 +21,7 @@ class RoleAndPermissionSeeder extends Seeder
 
         Permission::create(['code' => 'appeal-work',        'name' => 'Работа с обращениями']);
         Permission::create(['code' => 'veteran-work',       'name' => 'Работа с заявлениями "Ветеран труда"']);
+        Permission::create(['code' => 'veteran-admin',      'name' => 'Администратор модуля по ветеранам труда']);
         Permission::create(['code' => 'technical-work',     'name' => 'Работа с модулем "Техника подразделения"']);
 
         RolePivotPermission::create([

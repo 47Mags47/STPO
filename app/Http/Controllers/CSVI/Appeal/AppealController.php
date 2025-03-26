@@ -6,7 +6,7 @@ use App\Events\CSVI\Appeal\AcceptAppealEvent;
 use App\Events\CSVI\Appeal\CloseAppealEvent;
 use App\Events\CSVI\Appeal\CreateAppealEvent;
 use App\Events\CSVI\Appeal\RestoreAppealEvent;
-use App\Filters\CSVI_AppealFilter;
+use App\Filters\CSVI\Appeal\AppealFilter;
 use App\Http\Controllers\Controller;
 use App\Models\CSVI\Appeal\Appeal;
 use App\Models\CSVI\Appeal\Category;
@@ -45,7 +45,7 @@ class AppealController extends Controller
             $appeal_builder->where('sender_id', user()->id);
 
         $appeal_builder
-            ->filter(new CSVI_AppealFilter($request))
+            ->filter(new AppealFilter($request))
             ->sort($request->sort ?? 'id', $request->asc ?? 'desc');
 
         $appeals = $appeal_builder->paginate(100);
@@ -65,7 +65,7 @@ class AppealController extends Controller
             'filters' => $filters,
             'paginate' => $appeals->links()->render(),
             'tbody' => $tbody,
-            'current_filters' => Appeal::currentFilters(new CSVI_AppealFilter($request)),
+            'current_filters' => Appeal::currentFilters(new AppealFilter($request)),
         ];
     }
 
