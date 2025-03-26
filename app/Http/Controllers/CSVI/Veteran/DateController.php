@@ -49,7 +49,7 @@ class DateController extends Controller
     }
 
     public function setActual(Date $date){
-        Date::update(['is_actual' => false]);
+        Date::where('is_actual', true)->update(['is_actual' => false]);
         $date->update(['is_actual' => true]);
 
         return redirect()->route('veteran.date.index')->with('message', 'Дата помечена актуальной');
