@@ -14,7 +14,7 @@ cp .env.example .env
 nano .env
 ```
 
-Установить прав к файлам и деррикториям (для Linux)
+Установить права к файлам и деррикториям (для Linux)
 ```sh
 sudo chown -R $USER:www-data .
 sudo find . -type f -exec chmod 664 {} \;
@@ -32,4 +32,10 @@ php artisan migrate --seed
 ```sh
 npm install
 npm run build
+```
+
+Для правильной работы необходимо запустить следующие процессы:
+```sh
+php artisan queue:work
+php artisan reverb:start
 ```
