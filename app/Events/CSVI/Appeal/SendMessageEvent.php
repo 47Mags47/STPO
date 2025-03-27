@@ -24,6 +24,17 @@ class SendMessageEvent implements ShouldBroadcastNow
                 ]),
                 'Новое сообщение в чате'
             );
+        else
+            foreach ($message->appeal->workers as $worker) {
+                SendAlert::dispatch(
+                    $worker->worker_id,
+                    $message->message,
+                    route('appeal.chat.index', [
+                        'appeal' => $message->appeal
+                    ]),
+                    'Новое сообщение в чате'
+                );
+            }
     }
 
     public function broadcastOn(): array
