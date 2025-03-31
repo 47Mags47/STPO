@@ -28,7 +28,7 @@ $('.multi-select-widjet').each(function () {
     // Поиск
     /* HACK починить поиск с дочерками */
     LIST.find('.search input').on('input', function () {
-        let val = $(this).val()
+        let val = $(this).val().toLocaleLowerCase().replaceAll(' ', '')
         LIST.find('li').css('display', 'none')
 
         LIST.find('li').each(function () {

@@ -19,7 +19,7 @@ $('.radio-widjet').each(function () {
 
     // Поиск
     LIST.find('.search input').on('input', function () {
-        let val = $(this).val()
+        let val = $(this).val().toLocaleLowerCase().replaceAll(' ', '')
 
         LIST.find('li.group-box').css('display', 'none')
         LIST.find('li:not(.group-box)').css('display', 'none')
