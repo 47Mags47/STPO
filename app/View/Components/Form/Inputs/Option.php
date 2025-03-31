@@ -8,22 +8,20 @@ use Illuminate\View\Component;
 
 class Option extends Component
 {
-    public $value;
-    public $text;
     public string|null $title = null;
 
     public function __construct(
         public bool|null $selected = false,
 
-        string|int $value,
-        string $text,
-    ) {
-        $this->value = $value;
-        $this->text = $text;
+        public array|string|null $item  = null,
+        public string|null $group       = null,
 
-        if (mb_strlen($this->text) > 50) {
-            $this->title = $this->text;
-            $this->text = mb_substr($text, 0, 50) . '...';
+        public string|null $value       = null,
+        public string|null $text        = null,
+    ) {
+        if (is_string($group) and mb_strlen($this->group) > 45) {
+            $this->title = $this->group;
+            $this->group = mb_substr($group, 0, 45) . '...';
         }
     }
 

@@ -11,11 +11,6 @@ use function Laravel\Prompts\error;
 
 class Select extends Component
 {
-    public $name;
-    public $items;
-    public $optValue;
-    public $optText;
-
     public function __construct(
         public string|null $label           = null,
         public string|null $id              = null,
@@ -25,28 +20,15 @@ class Select extends Component
         public bool|null $disabled          = false,
         public bool|string|null $nullable   = false,
 
-        public string|null $childParam      = null,
-        public string|null $childText       = null,
-        public string|null $childValue      = null,
-
-        string|null $name,
-        array|Collection $items,
-        string|int|null $optValue,
-        string|int|null $optText,
+        public string $name,
+        public array|Collection $items,
     ) {
-        $this->id = $id ?? $name;
-        $this->name = $name;
-        $this->items = $items;
-
-        $this->optValue = $optValue;
-        $this->optText = $optText;
-
-        $this->select = $select ?? getOld($name);
+        $this->id = $this->id ?? $this->name;
+        $this->select = $this->select ?? getOld($this->name);
     }
 
     public function render(): View|Closure|string
     {
-        /* HACK Добавить проверку на заполнение */
         return view('components.form.inputs.select');
     }
 }

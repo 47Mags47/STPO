@@ -27,7 +27,9 @@ class FolderController extends Controller
 
     public function create(Request $request, Folder|null $parent)
     {
-        $folders = $this->resources($request)['folders'];
+        $folders = $this->resources($request)['folders']->map(function($folder){
+            return [$folder->name => $folder->id];
+        });
         return view('pages.CSVI.technical.folder.create', compact('folders', 'parent'));
     }
 
@@ -52,7 +54,9 @@ class FolderController extends Controller
     }
 
     public function edit(Request $request, Folder $folder){
-        $folders = $this->resources($request)['folders'];
+        $folders = $this->resources($request)['folders']->map(function($folder){
+            return [$folder->name => $folder->id];
+        })->collapse()->toArray();
         return view('pages.CSVI.technical.folder.edit', compact('folders', 'folder'));
     }
 

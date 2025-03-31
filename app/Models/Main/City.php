@@ -2,13 +2,14 @@
 
 namespace App\Models\Main;
 
+use App\Traits\arrayCollapse;
 use App\Traits\Glossary;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class City extends Model
 {
-    use Glossary;
+    use Glossary, arrayCollapse;
 
     ### Настройки
     ##################################################

@@ -1,12 +1,12 @@
 @extends('layouts.main.scroller')
 
-@section('styles')
+{{-- @section('styles')
     @vite('resources/sass/export/pages/main/dashboard.sass')
 @endsection
 
 @section('scripts')
     @vite('resources/js/ui/pages/main/dashboard.js')
-@endsection
+@endsection --}}
 
 @section('page-navigation')
     <x-layouts.scroller-navigate-item anhor="info" text="Данные" ico="fa-user" active />

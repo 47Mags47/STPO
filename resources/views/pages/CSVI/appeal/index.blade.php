@@ -15,10 +15,6 @@
                     name="filter[division]"
                     label="Подразделение"
                     :items="$filters['city']"
-                    opt-text="name"
-                    child-param="divisions"
-                    child-text="name"
-                    child-value="id"
                     nullable
                     req
                 />

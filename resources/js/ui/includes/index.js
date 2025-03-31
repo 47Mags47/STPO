@@ -1,1 +1,2 @@
-import './header'
+/* HACK сделать нормальный импорт при наличии */
+// import './header'

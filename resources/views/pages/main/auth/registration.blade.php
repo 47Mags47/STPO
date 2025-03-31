@@ -7,22 +7,18 @@
         sbm="Зарегистрироваться"
     >
         <x-slot:content>
+            <x-form.inputs.select
+                name="division_id"
+                label="Подразделение"
+                :items="$divisions"
+                nullable
+                req
+            />
+
             <x-form.inputs.text name="last_name"      label="Фамилия"         req />
             <x-form.inputs.text name="first_name"     label="Имя"             req />
             <x-form.inputs.text name="middle_name"    label="Отчество"        req />
             <x-form.inputs.text name="full_name"      label="Полное имя"      req />
-
-            <x-form.inputs.select
-                name="division_id"
-                label="Подразделение"
-                :items="$cities"
-                opt-text="name"
-                child-param="divisions"
-                child-text="name"
-                child-value="id"
-                nullable
-                req
-            />
 
             <x-form.inputs.text name="phone"                    label="Телефон"             req />
             <x-form.inputs.text name="email"                    label="Email"               req type="email" />

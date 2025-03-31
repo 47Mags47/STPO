@@ -51,7 +51,7 @@ class AppealController extends Controller
         $appeals = $appeal_builder->paginate(100);
 
         $filters = [
-            'city'      => City::orderBy('name')->get(),
+            'city'      => City::arrayCollapse('divisions'),
             'sender'    => User::whereIn('id', Appeal::groupBy('sender_id')->get('sender_id')->pluck('sender_id')->toArray())->orderBy('full_name')->get(),
             'accepted'  => User::whereIn('id', Appeal::groupBy('accepted_by')->get('accepted_by')->pluck('accepted_by')->toArray())->orderBy('full_name')->get(),
             'status'    => Status::orderBy('name')->get(),

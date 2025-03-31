@@ -1,4 +1,5 @@
 <div @class([
+        'widget',
         'form-container',
         'vertical-form',
         'no-shadow' => !$hasShadow
