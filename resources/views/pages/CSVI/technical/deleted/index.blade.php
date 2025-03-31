@@ -10,6 +10,7 @@
         '200px', // Инвентарный номер
         '100px', // Введен
         '150px', // Период
+        '50px', // Удалить
         '175px', // Восстановить
     ]" data-route="technical.deleted.table">
 
@@ -32,6 +33,7 @@
                 <x-table.components.th text="Инвентарный номер" sort="inventory_number" asc="asc" />
                 <x-table.components.th text="Введен" sort="exp_date" asc="asc" />
                 <x-table.components.th text="Период" sort="exp_date" asc="asc" />
+                <x-table.components.th />
                 <x-table.components.th />
             </tr>
         </x-slot:thead>

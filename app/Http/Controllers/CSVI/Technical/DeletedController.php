@@ -96,4 +96,8 @@ class DeletedController extends Controller
         return redirect()->route('technical.deleted.index')->with('message', 'Запись успешно восстановлена');
     }
 
+    public function delete(int $technical){
+        Technical::forceDestroy($technical);
+    }
+
 }

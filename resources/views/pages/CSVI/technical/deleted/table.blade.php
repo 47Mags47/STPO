@@ -19,6 +19,9 @@
                 {{ $exp_string }}
             </td>
             <td class="center">
+                <a href="{{ route('technical.deleted.delete', compact('technical')) }}" class="button red-button delete-button"><i class="fa-solid fa-trash"></i></a>
+            </td>
+            <td class="center">
                 <a href="{{ route('technical.deleted.edit', compact('technical')) }}" class="button blue-button">Восстановить</a>
             </td>
         </tr>

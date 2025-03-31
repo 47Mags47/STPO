@@ -36,6 +36,7 @@ Route::prefix('technicals/')->middleware(['auth', 'modul-access:csvi-technical']
         Route::prefix('/{technical}')->group(function () {
             Route::get('/edit', 'edit')->name('technical.deleted.edit');
             Route::put('/update', 'update')->name('technical.deleted.update');
+            Route::delete('/delete', 'delete')->name('technical.deleted.delete');
         });
     });
 });
