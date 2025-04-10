@@ -60,6 +60,9 @@ $('.table-box').each(function () {
     })
     .on('click', 'tr .delete-button', function(e){
         e.preventDefault()
+        if(!confirm('Вы уверены?'))
+            return
+
         let url = $(this).attr('href')
 
         $.ajax({
