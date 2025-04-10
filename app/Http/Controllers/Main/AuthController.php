@@ -15,8 +15,8 @@ class AuthController extends Controller
 {
     public function registration()
     {
-        $cities = City::orderBy('name')->get();
-        return view('pages.main.auth.registration', compact('cities'));
+        $divisions = City::arrayCollapse('divisions');
+        return view('pages.main.auth.registration', compact('divisions'));
     }
 
     public function register(Request $request)

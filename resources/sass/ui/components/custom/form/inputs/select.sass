@@ -1,21 +1,69 @@
-.input-box.select
-    display: flex
-    gap: 3px
-    flex-wrap: wrap
-    label
-        width: 100%
-        font-weight: bold
-        font-size: .9rem
-    select
-        flex: 1
-        width: 100%
-    .title
-        width: 30px
-        height: 30px
+@use './../../../../../abstracts' as *
 
-        display: flex
-        justify-content: center
-        align-items: center
-        svg
-            width: 20px
-            height: 20px
+.widget.select
+    position: relative
+    .preview-box
+        .input
+            cursor: pointer
+    .list-box
+        position: absolute
+        top: calc(100% + 10px)
+        width: 100%
+        max-height: 0
+        overflow-y: auto
+
+        border-radius: 7px
+
+        background: var(--input-background)
+
+        transition: .5s
+        @include scroll
+        &.open
+            max-height: 450px
+            border: var(--input-border)
+        .search-box
+            display: flex
+            justify-content: center
+            align-items: center
+            padding: 10px 45px
+            input
+                width: 100%
+        .list
+            li
+                padding: 2px 0
+                &.group
+                    .group-name
+                        font-weight: bold
+                        padding-left: 15px
+            li.selectable
+                padding-left: 25px
+                cursor: pointer
+                background: var(--input-background)
+                olor: var(--text-color)
+                transition: .5s
+                &:hover
+                    background: var(--input-item-background)
+                    color: var(--text-color-hover)
+// .input-box.select
+//     display: flex
+//     gap: 3px
+//     flex-wrap: wrap
+//     label
+//         width: 100%
+//         font-weight: bold
+//         font-size: .9rem
+//     select
+//         flex: 1
+//         width: 100%
+//     .title
+//         width: 30px
+//         height: 30px
+
+//         display: flex
+//         justify-content: center
+//         align-items: center
+//         svg
+//             width: 20px
+//             height: 20px
+
+

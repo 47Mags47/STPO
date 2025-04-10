@@ -1,53 +1,32 @@
 {{-- HACK переделать элемент на кастомный с блэк джеком и шлюхами --}}
 
-<div class="input-box select">
-
-    @isset($label)
-        <label
-            @class([
-                'form-label',
-                'required' => $req
-            ])
-            for="{{ $name }}"
-        >{{ $label }}</label>
-    @endisset
-    <select
-        @class([
-            'required' => $req
-        ])
-
-        name="{{ $name }}"
-        id="{{ $id }}"
-
-        @required($req)
-        @disabled($disabled)
-    >
-
-        @if ($nullable)
-            @if (is_string($nullable))
-                <option value>{{ $nullable }}</option>
-            @else
-                <option selected value>--- Не выбрано ---</option>
+<div class="widget form-widget select" data-name="{{ $name }}">
+    <div class="preview-box">
+        <div class="label-box">
+            @if($label !== null)
+                <label @class([
+                    'form-label',
+                    'required' => $req])
+                >
+                    {{ $label }}
+                </label>
             @endif
-
-        @endif
-
-
-        @if ($childParam === null)
-            @foreach ($items as $item)
-                <x-form.inputs.option :value="$item->$optValue" :text="$item->$optText" :selected="$item->$optValue == $select" />
+        </div>
+        <div class="input-box">
+            <div class="input">
+                <span class="preview-text">{{ $value ?? '-- Не выбрано --' }}</span>
+            </div>
+            <input type="hidden" name="{{ $name }}" class="value">
+        </div>
+    </div>
+    <div class="list-box">
+        <div class="search-box">
+            <input type="text" class="search-input" placeholder="Найти...">
+        </div>
+        <ul class="list">
+            @foreach ($items as $group => $item)
+                <x-form.inputs.option :$group :$item />
             @endforeach
-        @else
-            @foreach ($items as $parent)
-                @if ($parent->$childParam->count() > 0)
-                    <optgroup label="{{ $parent->$optText }}">
-                        @foreach ($parent->$childParam as $child)
-                            <x-form.inputs.option :value="$child->$childValue" :text="$child->$childText" :selected="$child->$childValue == $select" />
-                        @endforeach
-                    </optgroup>
-                @endif
-            @endforeach
-        @endif
-
-    </select>
+        </ul>
+    </div>
 </div>
