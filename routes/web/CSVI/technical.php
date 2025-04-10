@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\CSVI\Technical\DeletedController;
 use App\Http\Controllers\CSVI\Technical\FolderController;
+use App\Http\Controllers\CSVI\Technical\RaportController;
 use App\Http\Controllers\CSVI\Technical\TechnicalController;
 use Illuminate\Support\Facades\Route;
 
@@ -38,5 +39,9 @@ Route::prefix('technicals/')->middleware(['auth', 'modul-access:csvi-technical']
             Route::put('/update', 'update')->name('technical.deleted.update');
             Route::delete('/delete', 'delete')->name('technical.deleted.delete');
         });
+    });
+
+    Route::controller(RaportController::class)->group(function () {
+        Route::get('/raport/generate', 'generate')->name('technical.raport.generate');
     });
 });
