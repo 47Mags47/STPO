@@ -143,7 +143,7 @@ class DivisionSeeder extends Seeder
         Division::create(['name' => 'МКУ СРЦ для несовершеннолетних г. Прокопьевск',                                                                                        'city_code' => 'prokop']);
         Division::create(['name' => 'МБУ КЦСОН Промышленновского МО',                                                                                                       'city_code' => 'promish']);
         Division::create(['name' => 'ГБУ "Тайгинский дом-интернат для граждан, имеющих психические расстройства"',                                                          'city_code' => 'tayga']);
-        Division::create(['name' => 'МБУ КЦСОН Тяжинского ГО',                                                                                                              'city_code' => 'tayga']);
+        Division::create(['name' => 'МБУ КЦСОН Тайгинского ГО',                                                                                                              'city_code' => 'tayga']);
         Division::create(['name' => 'МКУ СРЦ для несовершеннолетних" г. Тайга',                                                                                             'city_code' => 'tayga']);
         Division::create(['name' => 'МКУ СРЦ для несовершеннолетних г. Таштагол',                                                                                           'city_code' => 'tashtag']);
         Division::create(['name' => 'ГБУ "Листвянский дом-интернат для граждан, имеющих психические расстройства"',                                                         'city_code' => 'tisul']);
