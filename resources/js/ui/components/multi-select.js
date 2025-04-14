@@ -32,8 +32,10 @@ $('.multi-select-widjet').each(function () {
         LIST.find('li').css('display', 'none')
 
         LIST.find('li').each(function () {
-            if ($(this).find('span').html().toLocaleLowerCase().replaceAll(' ', '').indexOf(val) !== -1)
+            if ($(this).find('span').html().toLocaleLowerCase().replaceAll(' ', '').indexOf(val) !== -1) {
                 $(this).css('display', 'list-item')
+                $(this).closest('.group-box').css('display', 'list-item')
+            }
         })
     })
     LIST.find('.list li input').on('reset', function (e) {
@@ -52,7 +54,7 @@ $('.multi-select-widjet').each(function () {
     })
 
     /* HACK дописать выборку всего при выборе элементов */
-    SELECT_ALL.on('change', function(){
+    SELECT_ALL.on('change', function () {
         LIST.find('li input').prop('checked', $(this).prop('checked'))
     })
 })
