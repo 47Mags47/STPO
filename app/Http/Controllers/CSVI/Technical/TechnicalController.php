@@ -75,11 +75,14 @@ class TechnicalController extends Controller
         $validate = $request->validate([
             'mark_id'           => ['required', 'integer', 'exists:' . Mark::getTableName() . ',id'],
             'model'             => ['required', 'string', 'min:4', 'max:250'],
-            'serial_number'     => ['nullable', 'string', 'max:250', 'unique:' . Technical::getTableName() . ',serial_number'],
+            'serial_number'     => ['nullable', 'string', 'max:250'],
             'inventory_number'  => ['nullable', 'string', 'max:250'],
             'folder_id'         => ['nullable', 'integer', 'exists:' . Folder::getTableName() . ',id'],
             'exp_date'          => ['required', 'date'],
         ]);
+
+        if($validate['serial_number'] !== null)
+            $request->validate(['serial_number' => 'unique:' . Technical::getTableName() . ',serial_number']);
 
         $data = array_merge($validate, [
             'division_id' => user()->division_id,
@@ -102,13 +105,13 @@ class TechnicalController extends Controller
         $validate = $request->validate([
             'mark_id'           => ['required', 'integer', 'exists:' . Mark::getTableName() . ',id'],
             'model'             => ['required', 'string', 'min:4', 'max:250'],
-            'serial_number'     => ['required', 'string', 'min:4', 'max:250'],
-            'inventory_number'  => ['required', 'string', 'max:250'],
+            'serial_number'     => ['nullable', 'string', 'min:4', 'max:250'],
+            'inventory_number'  => ['nullable', 'string', 'max:250'],
             'folder_id'         => ['nullable', 'integer', 'exists:' . Folder::getTableName() . ',id'],
             'exp_date'          => ['required', 'date'],
         ]);
 
-        if ($technical->serial_number !== $validate['serial_number'])
+        if ($technical->serial_number !== $validate['serial_number'] and $technical->serial_number !== 'None')
             $request->validate([
                 'serial_number'     => ['unique:' . Technical::getTableName() . ',serial_number'],
             ]);
