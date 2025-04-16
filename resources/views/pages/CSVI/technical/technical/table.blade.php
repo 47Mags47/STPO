@@ -18,6 +18,7 @@
                 @endphp
                 {{ $exp_string }}
             </td>
+            <td>{{ $technical->comment }}</td>
             <td class="center">
                 <a href="{{ route('technical.delete', compact('technical')) }}" class="button red-button delete-button">Удалить</a>
             </td>

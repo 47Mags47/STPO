@@ -24,6 +24,7 @@
                 nullable
             />
             <x-form.inputs.text name="exp_date" type="date" label="Дата ввода в эксплуатацию" req />
+            <x-form.inputs.area name="comment" label="Комментарий" />
         </x-slot:content>
     </x-form.types.vertical>
 @endsection

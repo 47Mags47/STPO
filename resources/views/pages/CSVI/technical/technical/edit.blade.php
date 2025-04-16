@@ -52,6 +52,7 @@
                 req
                 :value="$technical->exp_date->format('Y-m-d')"
             />
+            <x-form.inputs.area name="comment" label="Комментарий" :value="$technical->comment" />
         </x-slot:content>
     </x-form.types.vertical>
 @endsection

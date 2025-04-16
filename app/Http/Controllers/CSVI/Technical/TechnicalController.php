@@ -79,6 +79,7 @@ class TechnicalController extends Controller
             'inventory_number'  => ['nullable', 'string', 'max:250'],
             'folder_id'         => ['nullable', 'integer', 'exists:' . Folder::getTableName() . ',id'],
             'exp_date'          => ['required', 'date'],
+            'comment'           => ['nullable', 'string', 'max:255'],
         ]);
 
         if($validate['serial_number'] !== null)
@@ -109,6 +110,7 @@ class TechnicalController extends Controller
             'inventory_number'  => ['nullable', 'string', 'max:250'],
             'folder_id'         => ['nullable', 'integer', 'exists:' . Folder::getTableName() . ',id'],
             'exp_date'          => ['required', 'date'],
+            'comment'           => ['nullable', 'string', 'max:255'],
         ]);
 
         if ($technical->serial_number !== $validate['serial_number'] and $technical->serial_number !== 'None')
