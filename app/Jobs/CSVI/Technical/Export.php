@@ -56,11 +56,11 @@ class Export implements ShouldQueue
             ->writeRows($technicals)
             ->save();
 
-        SendAlert::dispatch(
+        event(new SendAlert(
             $this->created,
             $file_name,
             route('files', ['file' => 'app/private/tmp/raports/' . $file_name]),
             'Отчет сформирован'
-        );
+        ));
     }
 }
